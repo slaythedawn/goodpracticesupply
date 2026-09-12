@@ -70,6 +70,11 @@ headline sits 114px below the header on every page that uses that layout, and th
 two breadcrumb pages anchor to each other. Home and the Gauge Finder keep their
 own positions, since both open with full bleed imagery rather than a page head.
 
+Below 360px the full nav lockup and the actions no longer fit on one row, so the
+pill wrapped and the header grew to 174px. At that width the lockup falls back to
+the gp monogram, which the design system already treats as a standalone mark. The
+header is now a flat 124px from 280px up to 900px, and 107px above that.
+
 The header height is measured at runtime rather than hard coded, because the
 utility strip wraps to two rows on phones.
 
