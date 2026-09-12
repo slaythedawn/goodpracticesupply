@@ -11,21 +11,21 @@ prototype for review.
 | Path | Contents |
 |---|---|
 | `handoff/` | The original handoff bundle, unmodified. Design system, site architecture, and the nine `.dc.html` artboards. |
-| `site/` | The same nine pages prepared for hosting: clean filenames, rewritten internal links, page titles. |
+| `docs/` | The same nine pages prepared for hosting: clean filenames, rewritten internal links, page titles. |
 
 ## The prototype
 
 | Page | File |
 |---|---|
-| Home | `site/index.html` |
-| Category listing | `site/category.html` |
-| Product detail | `site/product.html` |
-| Gauge Finder | `site/gauge-finder.html` |
-| Always Stocked | `site/always-stocked.html` |
-| Clinic Portal | `site/clinic-portal.html` |
-| Learn | `site/learn.html` |
-| Contact | `site/contact.html` |
-| About | `site/about.html` |
+| Home | `docs/index.html` |
+| Category listing | `docs/category.html` |
+| Product detail | `docs/product.html` |
+| Gauge Finder | `docs/gauge-finder.html` |
+| Always Stocked | `docs/always-stocked.html` |
+| Clinic Portal | `docs/clinic-portal.html` |
+| Learn | `docs/learn.html` |
+| Contact | `docs/contact.html` |
+| About | `docs/about.html` |
 
 Every page is interactive. Filters, the gauge questionnaire, the cadence
 selector, the quantity stepper and cart count, and the contact routing all work.
@@ -33,7 +33,7 @@ selector, the quantity stepper and cart count, and the contact routing all work.
 ## Running it locally
 
 ```
-cd site && python3 -m http.server 8000
+cd docs && python3 -m http.server 8000
 ```
 
 Then open http://localhost:8000.
