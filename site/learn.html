@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learn | Good Practice Supply</title>
+<script>window.__resources={"https://unpkg.com/react@18.3.1/umd/react.production.min.js":"./vendor/react.production.min.js","https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js":"./vendor/react-dom.production.min.js"};</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #FAFAFA; color: #0E0E0E; font-family: 'Archivo', system-ui, sans-serif; font-size: 16px; letter-spacing: -.005em; -webkit-font-smoothing: antialiased; }
+  a { color: #0E0E0E; text-decoration: none; }
+  a:hover { color: #59595A; }
+  :focus-visible { outline: 2.5px solid #0E0E0E; outline-offset: 3px; border-radius: 4px; }
+  img { display: block; }
+  :root { --ease-out: cubic-bezier(.2,.6,.2,1); --dur-base: 260ms; --dur-slow: 560ms; }
+  a, button, [data-card] { transition: color var(--dur-base) var(--ease-out), background-color var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out); }
+  [data-card]:hover { transform: translateY(-3px); }
+  [data-card] img { transition: transform var(--dur-slow) var(--ease-out); }
+  [data-card]:hover img { transform: scale(1.04); }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } }
+</style>
+</helmet>
+
+<div>
+
+  <header style="position:sticky;top:0;z-index:70;padding:14px clamp(12px,3vw,24px) 0;display:flex;justify-content:center">
+    <div style="width:100%;max-width:1440px;background:rgba(20,48,38,.96);border:1px solid rgba(143,191,166,.26);border-radius:22px;padding:12px 14px 12px 22px;display:flex;align-items:center;gap:clamp(14px,3vw,36px);flex-wrap:wrap;color:#FAFAFA">
+      <a href="index.html" style="display:flex;align-items:center;gap:12px;color:#FAFAFA;flex:none">
+        <span aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;flex:none;width:38px;height:38px;border:1.5px solid #FAFAFA;border-radius:1000px;font-family:'Archivo Black','Archivo',sans-serif;font-size:16px;letter-spacing:-.07em;line-height:1;color:#FAFAFA;padding-bottom:4px">gp</span>
+        <span style="display:flex;flex-direction:column;gap:4px">
+          <span style="font-family:'Archivo Black','Archivo',sans-serif;font-size:18px;letter-spacing:-.055em;line-height:.9;color:#FAFAFA">goodpractice</span>
+          <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:rgba(250,250,250,.75);line-height:1">Supply</span>
+        </span>
+      </a>
+      <nav style="display:flex;align-items:center;justify-content:center;gap:10px clamp(16px,2.4vw,30px);font-size:15px;font-weight:500;flex-wrap:wrap;flex:1 1 auto">
+        <a href="category.html" style="color:#FAFAFA">Shop</a>
+        <a href="gauge-finder.html" style="color:#FAFAFA">Gauge Finder</a>
+        <a href="always-stocked.html" style="color:#FAFAFA">Always Stocked</a>
+        <a href="learn.html" style="color:#FAFAFA">Learn</a>
+        <a href="clinic-portal.html" style="color:#FAFAFA">Clinic Portal</a>
+      </nav>
+      <a href="category.html" style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:11px 22px;font-size:14.5px;font-weight:600;white-space:nowrap">Shop</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section style="border-bottom:1px solid #E3E3E1">
+      <div style="max-width:1440px;margin:0 auto;padding:clamp(32px,5vw,64px) clamp(20px,5vw,72px) clamp(36px,5vw,56px)">
+        <div style="max-width:54ch">
+          <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;border:1px solid rgba(28,64,52,.3);border-radius:1000px;padding:7px 13px;margin-bottom:20px">Learn</span>
+          <h1 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(32px,3.8vw,52px);letter-spacing:-.035em;line-height:1.02;margin:0 0 16px">The parts nobody explains.</h1>
+          <p style="margin:0;font-size:17.5px;line-height:1.55;color:#3A3A38">Short, plain guides written by the people who sell the equipment. No jargon and nothing assumed.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="border-bottom:1px solid #E3E3E1">
+      <div style="max-width:1440px;margin:0 auto;padding:0 clamp(20px,5vw,72px) clamp(48px,7vw,88px)">
+        <a href="gauge-finder.html" data-card style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:clamp(24px,3vw,48px);align-items:center;background:#143026;color:#FAFAFA;border-radius:28px;overflow:hidden">
+          <span style="padding:clamp(28px,4vw,52px);display:block">
+            <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#143026;background:#8FBFA6;border-radius:1000px;padding:7px 13px;margin-bottom:20px">Start here</span>
+            <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;line-height:1.05;margin-bottom:14px;color:#FAFAFA">Gauge Finder</span>
+            <span style="display:block;font-size:17px;line-height:1.55;color:#B7CFC3;max-width:40ch;margin-bottom:22px">Three plain questions and we will tell you the thickness, the length and how many to buy. Nothing you answer is stored.</span>
+            <span style="display:inline-block;background:#8FBFA6;color:#143026;border-radius:1000px;padding:14px 26px;font-size:15.5px;font-weight:600">Find my gauge</span>
+          </span>
+          <span style="display:block;background:#0F241C;aspect-ratio:4/3;overflow:hidden">
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_031953_840f20c0-2d59-4c7f-a16a-3f54a1ee9992.png" alt="Three needles of different thicknesses in a row" style="width:100%;height:100%;object-fit:cover">
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section style="background:#F2F2F1;border-bottom:1px solid #E3E3E1">
+      <div style="max-width:1440px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,5vw,72px)">
+        <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3">
+          <div style="margin-bottom:clamp(36px,5vw,56px)">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;margin-bottom:20px">
+              <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.025em;margin:0">{{ g.title }}</h2>
+              <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;color:#59595A">{{ g.count }}</span>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:14px">
+              <sc-for list="{{ g.articles }}" as="a" hint-placeholder-count="3">
+                <a href="#" data-card style="background:#FAFAFA;border:1px solid #E3E3E1;border-radius:22px;padding:26px 24px;display:flex;flex-direction:column;gap:30px" style-hover="border-color:#0E0E0E">
+                  <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;color:#59595A">{{ a.meta }}</span>
+                  <span>
+                    <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:19px;letter-spacing:-.022em;line-height:1.25;margin-bottom:9px">{{ a.title }}</span>
+                    <span style="display:block;font-size:15.5px;line-height:1.55;color:#3A3A38">{{ a.body }}</span>
+                  </span>
+                </a>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="background:#1C4034;color:#FAFAFA">
+      <div style="max-width:1440px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,5vw,72px);display:flex;justify-content:space-between;align-items:center;gap:24px 40px;flex-wrap:wrap">
+        <div>
+          <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(24px,2.8vw,36px);letter-spacing:-.03em;line-height:1.1;margin:0 0 10px;color:#FAFAFA;max-width:24ch">Still not sure what to buy?</h2>
+          <p style="margin:0;font-size:16.5px;line-height:1.5;color:#B7CFC3;max-width:44ch">Ask us. We answer product questions the same business day, and we never ask what it is for.</p>
+        </div>
+        <a href="contact.html" style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600;white-space:nowrap">Ask a question</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="background:#143026;color:#B7CFC3">
+    <div style="max-width:1440px;margin:0 auto;padding:clamp(36px,5vw,64px) clamp(20px,5vw,72px);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end">
+      <a href="index.html" style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-family:'Archivo Black','Archivo',sans-serif;font-size:22px;letter-spacing:-.055em;line-height:.9;color:#FAFAFA">goodpractice</span>
+        <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:#B7CFC3;line-height:1">Supply</span>
+      </a>
+      <div style="font-size:13.5px;line-height:1.7;color:#B7CFC3;max-width:64ch">General information only, not medical advice. Follow the directions of your prescriber or treating practitioner.</div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      groups: [
+        { title: 'Getting started', count: '3 guides', articles: [
+          { meta: 'Guide · 6 min', title: 'What the numbers on a needle mean', body: 'Gauge, length, units on the barrel, and why the scale runs backwards.' },
+          { meta: 'Guide · 5 min', title: '29G, 30G or 31G: which should I buy?', body: 'The trade between comfort and how long you spend drawing up.' },
+          { meta: 'Guide · 8 min', title: 'Your first injection, step by step', body: 'Before, drawing up, injecting, and what to do afterwards.' }
+        ] },
+        { title: 'Technique', count: '3 guides', articles: [
+          { meta: 'Guide · 6 min', title: 'Injecting under the skin', body: 'Angle, pinching the skin, and why short needles changed the advice.' },
+          { meta: 'Guide · 7 min', title: 'Injecting into muscle', body: 'Drawing up with one needle and injecting with another.' },
+          { meta: 'Guide · 8 min', title: 'Mixing a powder with sterile water', body: 'How much to add, how to avoid contaminating the bottle, how long it keeps.' }
+        ] },
+        { title: 'Standards and disposal', count: '3 guides', articles: [
+          { meta: 'Guide · 5 min', title: 'Sharps disposal, state by state', body: 'Where to take a full container in NSW, VIC, QLD, WA, SA and TAS.' },
+          { meta: 'Guide · 4 min', title: 'What ARTG listing actually means', body: 'The difference between listed, registered and neither.' },
+          { meta: 'Guide · 3 min', title: 'Storing supplies correctly', body: 'Temperature, light, and how to read a batch and expiry.' }
+        ] }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

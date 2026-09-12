@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #FAFAFA; color: #0E0E0E; font-family: 'Archivo', system-ui, sans-serif; font-size: 16px; letter-spacing: -.005em; -webkit-font-smoothing: antialiased; }
+  a { color: #0E0E0E; text-decoration: none; }
+  a:hover { color: #59595A; }
+  :focus-visible { outline: 2.5px solid #0E0E0E; outline-offset: 3px; border-radius: 4px; }
+  img { display: block; }
+  :root { --ease-out: cubic-bezier(.2,.6,.2,1); --dur-base: 260ms; }
+  a, button { transition: color var(--dur-base) var(--ease-out), background-color var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out); }
+  button:active { transform: scale(.99); }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } }
+</style>
+</helmet>
+
+<div>
+
+  <header style="position:sticky;top:0;z-index:70;padding:14px clamp(12px,3vw,24px) 0;display:flex;justify-content:center">
+    <div style="width:100%;max-width:1440px;background:rgba(20,48,38,.96);border:1px solid rgba(143,191,166,.26);border-radius:22px;padding:12px 14px 12px 22px;display:flex;align-items:center;gap:clamp(14px,3vw,36px);flex-wrap:wrap;color:#FAFAFA">
+      <a href="Good Practice Supply Homepage.dc.html" style="display:flex;align-items:center;gap:12px;color:#FAFAFA;flex:none">
+        <span aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;flex:none;width:38px;height:38px;border:1.5px solid #FAFAFA;border-radius:1000px;font-family:'Archivo Black','Archivo',sans-serif;font-size:16px;letter-spacing:-.07em;line-height:1;color:#FAFAFA;padding-bottom:4px">gp</span>
+        <span style="display:flex;flex-direction:column;gap:4px">
+          <span style="font-family:'Archivo Black','Archivo',sans-serif;font-size:18px;letter-spacing:-.055em;line-height:.9;color:#FAFAFA">goodpractice</span>
+          <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:rgba(250,250,250,.75);line-height:1">Supply</span>
+        </span>
+      </a>
+      <nav style="display:flex;align-items:center;justify-content:center;gap:10px clamp(16px,2.4vw,30px);font-size:15px;font-weight:500;flex-wrap:wrap;flex:1 1 auto">
+        <a href="Good Practice Category.dc.html" style="color:#FAFAFA">Shop</a>
+        <a href="Good Practice Gauge Finder.dc.html" style="color:#FAFAFA">Gauge Finder</a>
+        <a href="Good Practice Always Stocked.dc.html" style="color:#FAFAFA">Always Stocked</a>
+        <a href="Good Practice Learn.dc.html" style="color:#FAFAFA">Learn</a>
+        <a href="Good Practice Clinic Portal.dc.html" style="color:#FAFAFA">Clinic Portal</a>
+      </nav>
+      <a href="Good Practice Category.dc.html" style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:11px 22px;font-size:14.5px;font-weight:600;white-space:nowrap">Shop</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section style="border-bottom:1px solid #E3E3E1">
+      <div style="max-width:1440px;margin:0 auto;padding:clamp(20px,3vw,36px) clamp(20px,5vw,72px) 0">
+        <div style="border-radius:28px;overflow:hidden;background:#EDEDEB;aspect-ratio:21/9">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_031953_840f20c0-2d59-4c7f-a16a-3f54a1ee9992.png" alt="Three needles of different thicknesses, same length, in a row" style="width:100%;height:100%;object-fit:cover">
+        </div>
+      </div>
+    </section>
+
+    <section id="finder" style="border-bottom:1px solid #E3E3E1">
+      <div style="max-width:1440px;margin:0 auto;padding:clamp(32px,5vw,64px) clamp(20px,5vw,72px) clamp(56px,8vw,104px)">
+        <div style="max-width:52ch;margin-bottom:clamp(32px,4vw,48px)">
+          <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;border:1px solid rgba(28,64,52,.3);border-radius:1000px;padding:7px 13px;margin-bottom:20px">Gauge Finder</span>
+          <h1 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(32px,3.8vw,52px);letter-spacing:-.035em;line-height:1.02;margin:0 0 16px">Not sure which needle to buy?</h1>
+          <p style="margin:0;font-size:17.5px;line-height:1.55;color:#3A3A38">Three plain questions. No medical words. We will tell you the thickness, the length and how many to get.</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:clamp(20px,3vw,40px);align-items:start">
+
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+              <div style="border:1px solid {{ s.border }};background:{{ s.bg }};border-radius:22px;padding:24px 22px">
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px">
+                  <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034">{{ s.label }}</span>
+                  <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;color:#59595A">{{ s.count }}</span>
+                </div>
+                <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:20px;letter-spacing:-.022em;margin-bottom:16px">{{ s.title }}</div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px">
+                  <sc-for list="{{ s.options }}" as="o" hint-placeholder-count="4">
+                    <button type="button" onClick="{{ o.pick }}" aria-pressed="{{ o.on }}" style="cursor:pointer;font-family:'Archivo',sans-serif;font-size:15px;font-weight:500;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.fg }};border-radius:1000px;padding:11px 18px">{{ o.label }}</button>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="background:#143026;color:#FAFAFA;border-radius:22px;overflow:hidden">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:20px 24px;border-bottom:1px solid #2A5245">
+              <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8FBFA6">What to buy</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;color:#B7CFC3">{{ progress }}</span>
+            </div>
+            <div style="padding:8px 24px 4px">
+              <sc-for list="{{ result }}" as="r" hint-placeholder-count="5">
+                <div style="display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid #2A5245;align-items:baseline">
+                  <span style="font-size:15.5px;color:#B7CFC3">{{ r.k }}</span>
+                  <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:15px;color:#FAFAFA;text-align:right">{{ r.v }}</span>
+                </div>
+              </sc-for>
+            </div>
+            <div style="padding:22px 24px 26px">
+              <sc-if value="{{ complete }}" hint-placeholder-val="{{ false }}">
+                <div>
+                  <div style="font-size:15px;line-height:1.6;color:#B7CFC3;margin-bottom:20px">{{ note }}</div>
+                  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+                    <a href="Good Practice Category.dc.html" style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:14px 26px;font-size:15.5px;font-weight:600">Shop this setup</a>
+                    <button type="button" onClick="{{ reset }}" style="background:none;border:0;padding:0;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;color:#B7CFC3">Start again</button>
+                  </div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ incomplete }}" hint-placeholder-val="{{ true }}">
+                <div style="font-size:15px;line-height:1.6;color:#B7CFC3">{{ hint }}</div>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:14px;margin-top:clamp(28px,4vw,44px)">
+          <div style="background:#F2F2F1;border:1px solid #E3E3E1;border-radius:22px;padding:26px 24px">
+            <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:18px;letter-spacing:-.02em;margin-bottom:9px">Nothing you answer is stored</div>
+            <div style="font-size:15.5px;line-height:1.55;color:#3A3A38">Your answers stay in this browser tab. They are not saved to an account, not sent to us, and gone the moment you close it.</div>
+          </div>
+          <div style="background:#F2F2F1;border:1px solid #E3E3E1;border-radius:22px;padding:26px 24px">
+            <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:18px;letter-spacing:-.02em;margin-bottom:9px">We never ask what it is for</div>
+            <div style="font-size:15.5px;line-height:1.55;color:#3A3A38">What you inject is between you and your prescriber. We only need to know enough to pick the right needle.</div>
+          </div>
+          <div style="background:#F2F2F1;border:1px solid #E3E3E1;border-radius:22px;padding:26px 24px">
+            <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:18px;letter-spacing:-.02em;margin-bottom:9px">No tracking, no profiling</div>
+            <div style="font-size:15.5px;line-height:1.55;color:#3A3A38">Nothing here is used for advertising, shared with a third party, or attached to your order history. Ever.</div>
+          </div>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;color:#59595A;margin-top:28px;line-height:1.7;max-width:78ch">General guidance only, not medical advice. Your prescriber or diabetes educator sets your dose, your site and your technique. If what they told you differs from this, follow them.</div>
+      </div>
+    </section>
+
+    <section style="background:#F2F2F1;border-bottom:1px solid #E3E3E1">
+      <div style="max-width:1440px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,5vw,72px)">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:clamp(28px,4vw,64px);align-items:center;margin-bottom:clamp(36px,5vw,64px)">
+          <div>
+            <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;border:1px solid rgba(28,64,52,.3);border-radius:1000px;padding:7px 13px;margin-bottom:20px">Gauge, explained</span>
+            <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;line-height:1.05;margin:0 0 16px;max-width:18ch">Two numbers, doing two different jobs.</h2>
+            <p style="margin:0;font-size:17px;line-height:1.55;color:#3A3A38;max-width:44ch">Gauge is how thick the needle is, and the scale runs backwards. Length is how deep it goes. Get both right and you will barely feel it.</p>
+          </div>
+          <div style="border-radius:28px;overflow:hidden;background:#EDEDEB;aspect-ratio:3/2">
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_031429_9653357d-54b9-47f5-bdac-f1686c716860.png" alt="Macro of a needle tip showing the bevel" style="width:100%;height:100%;object-fit:cover">
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:14px;margin-bottom:14px">
+          <div style="background:#FAFAFA;border:1px solid #E3E3E1;border-radius:22px;padding:26px 24px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;margin-bottom:16px">Thickness</div>
+            <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:19px;letter-spacing:-.02em;margin-bottom:10px">Higher number, thinner needle</div>
+            <div style="font-size:15.5px;line-height:1.55;color:#3A3A38;margin-bottom:18px">31G is finer than 29G. Thinner is more comfortable but slower to fill. Thicker draws faster, which matters for a large or viscous dose.</div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;align-items:center;gap:14px"><span style="height:7px;width:70px;border-radius:4px;background:#0E0E0E;flex:none"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:13.5px">29G, fills fastest</span></div>
+              <div style="display:flex;align-items:center;gap:14px"><span style="height:5px;width:70px;border-radius:4px;background:#0E0E0E;flex:none"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:13.5px">30G, the middle</span></div>
+              <div style="display:flex;align-items:center;gap:14px"><span style="height:3px;width:70px;border-radius:4px;background:#0E0E0E;flex:none"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:13.5px">31G, least sensation</span></div>
+            </div>
+          </div>
+          <div style="background:#FAFAFA;border:1px solid #E3E3E1;border-radius:22px;overflow:hidden;display:flex;flex-direction:column">
+            <div style="background:#EDEDEB;aspect-ratio:16/9;overflow:hidden">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_031429_c3ac1819-2bb8-4e0b-af1e-dbd72e0116fd.png" alt="Three syringes of different needle lengths side by side" style="width:100%;height:100%;object-fit:cover">
+            </div>
+            <div style="padding:24px">
+              <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;margin-bottom:14px">Length</div>
+              <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:19px;letter-spacing:-.02em;margin-bottom:10px">Shorter is safer under the skin</div>
+              <div style="font-size:15.5px;line-height:1.55;color:#3A3A38">Australian diabetes guidance favours the shortest length available, because a short needle rarely reaches muscle whatever your size. 6mm is the shortest on the national schedule.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin:clamp(36px,5vw,56px) 0 22px">
+          <h3 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.025em;margin:0">Read more</h3>
+          <a href="Good Practice Learn.dc.html" style="font-size:15px;font-weight:600;border-bottom:1.5px solid #C4C4C2;padding-bottom:3px">All guides →</a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:14px">
+          <sc-for list="{{ articles }}" as="a" hint-placeholder-count="3">
+            <a href="Good Practice Learn.dc.html" style="background:#FAFAFA;border:1px solid #E3E3E1;border-radius:22px;padding:26px 24px;display:flex;flex-direction:column;gap:34px" style-hover="border-color:#0E0E0E">
+              <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;color:#59595A">{{ a.meta }}</span>
+              <span>
+                <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:19px;letter-spacing:-.02em;line-height:1.25;margin-bottom:9px">{{ a.title }}</span>
+                <span style="display:block;font-size:15.5px;line-height:1.55;color:#3A3A38">{{ a.body }}</span>
+              </span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="background:#143026;color:#B7CFC3">
+    <div style="max-width:1440px;margin:0 auto;padding:clamp(36px,5vw,64px) clamp(20px,5vw,72px);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end">
+      <a href="Good Practice Supply Homepage.dc.html" style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-family:'Archivo Black','Archivo',sans-serif;font-size:22px;letter-spacing:-.055em;line-height:.9;color:#FAFAFA">goodpractice</span>
+        <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:#B7CFC3;line-height:1">Supply</span>
+      </a>
+      <div style="font-size:13.5px;line-height:1.7;color:#B7CFC3;max-width:64ch">Good Practice Supply supplies medical consumables only. Nothing here is medical advice.</div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:820}}">
+class Component extends DCLogic {
+  state = { what: null, where: null, often: null };
+
+  renderVals() {
+    const s = this.state;
+    const defs = [
+      { key: 'what', label: 'Step one', title: 'What are you injecting?', options: [
+        { v: 'glp', label: 'Weight-loss injection' },
+        { v: 'insulin', label: 'Insulin' },
+        { v: 'peptide', label: 'A prescribed peptide' },
+        { v: 'unsure', label: "I'm not sure" }
+      ] },
+      { key: 'where', label: 'Step two', title: 'Where will you inject?', options: [
+        { v: 'tummy', label: 'Tummy' },
+        { v: 'thigh', label: 'Outer thigh' },
+        { v: 'arm', label: 'Back of the arm' },
+        { v: 'rotate', label: 'I want to move around' }
+      ] },
+      { key: 'often', label: 'Step three', title: 'How often?', options: [
+        { v: 'weekly', label: 'Once a week' },
+        { v: 'few', label: 'A few times a week' },
+        { v: 'daily', label: 'Every day' },
+        { v: 'unsure', label: "I'm not sure" }
+      ] }
+    ];
+
+    const answered = defs.filter(d => s[d.key]).length;
+    const open = defs.find(d => !s[d.key]);
+
+    const steps = defs.map((d, i) => {
+      const isOpen = open && open.key === d.key;
+      return {
+        label: d.label,
+        title: d.title,
+        count: 'Step ' + (i + 1) + ' of 3',
+        bg: isOpen ? '#FAFAFA' : '#F2F2F1',
+        border: isOpen ? '#0E0E0E' : '#E3E3E1',
+        options: d.options.map(o => {
+          const on = s[d.key] === o.v;
+          return {
+            label: o.label, on,
+            bg: on ? '#0E0E0E' : '#FAFAFA',
+            fg: on ? '#FAFAFA' : '#0E0E0E',
+            border: on ? '#0E0E0E' : '#E3E3E1',
+            pick: () => this.setState({ [d.key]: o.v })
+          };
+        })
+      };
+    });
+
+    const dash = '—';
+    const complete = answered === 3;
+    const short = s.where === 'arm' || s.where === 'tummy';
+    const gauge = complete ? (s.what === 'insulin' ? '30G' : '31G') : null;
+    const length = complete ? (short ? '6mm' : '8mm') : null;
+    const inj = { weekly: 4, few: 10, daily: 30, unsure: 10 }[s.often];
+    const notes = {
+      tummy: 'The tummy is the easiest place to start. Stay a few centimetres clear of the navel.',
+      thigh: 'Use the outer front of the thigh, a hand-width above the knee.',
+      arm: 'The back of the arm has the least padding, so the shorter needle matters here.',
+      rotate: 'Moving the spot each time is the single best thing you can do for your skin.'
+    };
+
+    return {
+      articles: [
+        { meta: 'Guide · 6 min', title: 'What the numbers on a needle mean', body: 'Gauge, length and why the scale runs backwards, in plain words.' },
+        { meta: 'Guide · 5 min', title: '29G, 30G or 31G: which should I buy?', body: 'The trade between comfort and how long you spend drawing up.' },
+        { meta: 'Guide · 8 min', title: 'Your first injection, step by step', body: 'Before, drawing up, injecting and what to do with the needle afterwards.' }
+      ],
+      steps,
+      complete,
+      incomplete: !complete,
+      progress: answered + ' of 3 answered',
+      hint: open ? 'Answer ' + open.title.toLowerCase().replace('?', '') + ' to fill in the rest.' : '',
+      note: complete ? notes[s.where] + ' You will also need alcohol wipes and a sharps container.' : '',
+      reset: () => this.setState({ what: null, where: null, often: null }),
+      result: [
+        { k: 'Needle thickness', v: gauge ? gauge + ', very fine' : dash },
+        { k: 'Needle length', v: length ? length + ', stays out of muscle' : dash },
+        { k: 'Syringe', v: complete ? '0.5mL, needle attached' : dash },
+        { k: 'Injections a month', v: inj && complete ? String(inj) : dash },
+        { k: 'Alcohol wipes', v: inj && complete ? inj * 2 + ' a month' : dash }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

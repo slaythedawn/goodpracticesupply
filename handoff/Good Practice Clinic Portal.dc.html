@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #FAFAFA; color: #0E0E0E; font-family: 'Archivo', system-ui, sans-serif; font-size: 16px; letter-spacing: -.005em; -webkit-font-smoothing: antialiased; }
+  a { color: #0E0E0E; text-decoration: none; }
+  a:hover { color: #59595A; }
+  :focus-visible { outline: 2.5px solid #0E0E0E; outline-offset: 3px; border-radius: 4px; }
+  img { display: block; }
+  input { font: inherit; color: inherit; width: 100%; background: #FAFAFA; border: 1px solid #E3E3E1; border-radius: 12px; padding: 14px 16px; }
+  input:focus { border-color: #0E0E0E; outline: none; }
+  label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px; }
+  :root { --ease-out: cubic-bezier(.2,.6,.2,1); --dur-base: 260ms; }
+  a, button, input { transition: color var(--dur-base) var(--ease-out), background-color var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out); }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } }
+</style>
+</helmet>
+
+<div>
+
+  <header style="position:sticky;top:0;z-index:70;padding:14px clamp(12px,3vw,24px) 0;display:flex;justify-content:center">
+    <div style="width:100%;max-width:1440px;background:rgba(20,48,38,.96);border:1px solid rgba(143,191,166,.26);border-radius:22px;padding:12px 14px 12px 22px;display:flex;align-items:center;gap:clamp(14px,3vw,36px);flex-wrap:wrap;color:#FAFAFA">
+      <a href="Good Practice Supply Homepage.dc.html" style="display:flex;align-items:center;gap:12px;color:#FAFAFA;flex:none">
+        <span aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;flex:none;width:38px;height:38px;border:1.5px solid #FAFAFA;border-radius:1000px;font-family:'Archivo Black','Archivo',sans-serif;font-size:16px;letter-spacing:-.07em;line-height:1;color:#FAFAFA;padding-bottom:4px">gp</span>
+        <span style="display:flex;flex-direction:column;gap:4px">
+          <span style="font-family:'Archivo Black','Archivo',sans-serif;font-size:18px;letter-spacing:-.055em;line-height:.9;color:#FAFAFA">goodpractice</span>
+          <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:rgba(250,250,250,.75);line-height:1">Supply</span>
+        </span>
+      </a>
+      <nav style="display:flex;align-items:center;justify-content:center;gap:10px clamp(16px,2.4vw,30px);font-size:15px;font-weight:500;flex-wrap:wrap;flex:1 1 auto">
+        <a href="Good Practice Category.dc.html" style="color:#FAFAFA">Shop</a>
+        <a href="Good Practice Gauge Finder.dc.html" style="color:#FAFAFA">Gauge Finder</a>
+        <a href="Good Practice Always Stocked.dc.html" style="color:#FAFAFA">Always Stocked</a>
+        <a href="Good Practice Learn.dc.html" style="color:#FAFAFA">Learn</a>
+        <a href="Good Practice Clinic Portal.dc.html" style="color:#FAFAFA">Clinic Portal</a>
+      </nav>
+      <a href="#apply" style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:11px 22px;font-size:14.5px;font-weight:600;white-space:nowrap">Open an account</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="portal" style="background:#1C4034;color:#FAFAFA">
+      <div style="max-width:1440px;margin:0 auto;padding:clamp(40px,6vw,88px) clamp(20px,5vw,72px)">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:clamp(28px,4vw,64px);align-items:center">
+          <div>
+            <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#143026;background:#8FBFA6;border-radius:1000px;padding:8px 14px;margin-bottom:22px">Clinic Portal</span>
+            <h1 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(32px,3.8vw,52px);letter-spacing:-.035em;line-height:1.02;margin:0 0 18px;color:#FAFAFA;max-width:18ch">You trained for medicine, not stocktake.</h1>
+            <p style="margin:0 0 30px;font-size:17.5px;line-height:1.55;color:#B7CFC3;max-width:44ch">Trade pricing, invoicing and a standing order that keeps every room stocked without a purchase order each time.</p>
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <a href="#apply" style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600">Open an account</a>
+              <a href="#signin" style="border:1px solid rgba(143,191,166,.55);color:#FAFAFA;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600">Sign in</a>
+            </div>
+          </div>
+          <div id="signin" style="background:rgba(250,250,250,.06);border:1px solid rgba(143,191,166,.3);border-radius:28px;padding:clamp(26px,3.4vw,40px)">
+            <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:22px;letter-spacing:-.025em;color:#FAFAFA;margin-bottom:20px">Sign in to your account</div>
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <div><label for="cp-email" style="color:#B7CFC3">Email</label><input id="cp-email" type="email" placeholder="orders@yourclinic.com.au" style="background:rgba(250,250,250,.06);border-color:rgba(143,191,166,.34);color:#FAFAFA"></div>
+              <div><label for="cp-pass" style="color:#B7CFC3">Password</label><input id="cp-pass" type="password" placeholder="••••••••" style="background:rgba(250,250,250,.06);border-color:rgba(143,191,166,.34);color:#FAFAFA"></div>
+              <button type="button" style="cursor:pointer;border:0;background:#FAFAFA;color:#143026;border-radius:1000px;padding:15px 28px;font-size:16px;font-weight:600;font-family:'Archivo',sans-serif;margin-top:4px">Sign in</button>
+              <div style="font-size:14.5px;color:#B7CFC3">Approval takes one business day. No minimum order, ever.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="border-bottom:1px solid #E3E3E1">
+      <div style="max-width:1440px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,5vw,72px)">
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;line-height:1.05;margin:0 0 30px;max-width:20ch">Three things the portal does</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:14px">
+          <sc-for list="{{ features }}" as="f" hint-placeholder-count="6">
+            <div style="background:#F2F2F1;border:1px solid #E3E3E1;border-radius:22px;padding:26px 24px">
+              <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;margin-bottom:16px">{{ f.n }}</div>
+              <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:22px;letter-spacing:-.025em;margin-bottom:11px">{{ f.title }}</div>
+              <div style="font-size:16px;line-height:1.6;color:#3A3A38">{{ f.body }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section id="apply" style="background:#F2F2F1;border-bottom:1px solid #E3E3E1">
+      <div style="max-width:1440px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,5vw,72px)">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:clamp(28px,4vw,64px);align-items:start">
+          <div>
+            <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;border:1px solid rgba(28,64,52,.3);border-radius:1000px;padding:7px 13px;margin-bottom:20px">Apply</span>
+            <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;line-height:1.05;margin:0 0 16px;max-width:18ch">Open an account</h2>
+            <p style="margin:0 0 26px;font-size:17px;line-height:1.55;color:#3A3A38;max-width:44ch">Four fields and an ABN. We verify and come back within one business day with your pricing tier.</p>
+            <div style="border-top:1px solid #E3E3E1">
+              <sc-for list="{{ terms }}" as="t" hint-placeholder-count="5">
+                <div style="display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px solid #E3E3E1;align-items:baseline">
+                  <span style="font-size:15.5px;color:#59595A">{{ t.k }}</span>
+                  <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:14.5px;text-align:right">{{ t.v }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="background:#FAFAFA;border:1px solid #E3E3E1;border-radius:28px;padding:clamp(26px,3.4vw,40px)">
+            <div style="display:flex;flex-direction:column;gap:16px">
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:16px">
+                <div><label for="cp-practice">Practice name</label><input id="cp-practice" type="text" placeholder="Bondi Family Practice"></div>
+                <div><label for="cp-abn">ABN</label><input id="cp-abn" type="text" placeholder="00 000 000 000"></div>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:16px">
+                <div><label for="cp-contact">Contact name</label><input id="cp-contact" type="text" placeholder="Jane Chen"></div>
+                <div><label for="cp-work">Work email</label><input id="cp-work" type="email" placeholder="jane@clinic.com.au"></div>
+              </div>
+              <button type="button" onClick="{{ apply }}" style="cursor:pointer;border:0;background:#0E0E0E;color:#FAFAFA;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600;font-family:'Archivo',sans-serif;margin-top:4px">{{ applyLabel }}</button>
+              <div style="font-size:14.5px;color:#59595A">{{ applyNote }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="background:#143026;color:#B7CFC3">
+    <div style="max-width:1440px;margin:0 auto;padding:clamp(36px,5vw,64px) clamp(20px,5vw,72px);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end">
+      <a href="Good Practice Supply Homepage.dc.html" style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-family:'Archivo Black','Archivo',sans-serif;font-size:22px;letter-spacing:-.055em;line-height:.9;color:#FAFAFA">goodpractice</span>
+        <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:#B7CFC3;line-height:1">Supply</span>
+      </a>
+      <div style="font-size:13.5px;line-height:1.7;color:#B7CFC3;max-width:64ch">Good Practice Supply supplies medical consumables only. Nothing here is medical advice.</div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:880}}">
+class Component extends DCLogic {
+  state = { applied: false };
+
+  renderVals() {
+    return {
+      applyLabel: this.state.applied ? 'Application sent' : 'Apply for an account',
+      applyNote: this.state.applied ? 'We will come back within one business day with your pricing tier.' : 'No obligation, no minimum order, and you can keep buying at retail in the meantime.',
+      apply: () => this.setState({ applied: true }),
+      features: [
+        { n: '01', title: 'Buy at trade', body: 'Your pricing applies across the whole site the moment you sign in, with 30 day invoicing and PO references. No quote requests.' },
+        { n: '02', title: 'Never run out', body: 'Always Stocked keeps a list and a schedule for every room and every site, and ships before a line runs low.' },
+        { n: '03', title: 'Send it to patients', body: 'Specify a kit and we pack and post it in your clinic name. Order history keeps batch and expiry on every line.' }
+      ],
+      terms: [
+        { k: 'Pricing', v: 'Trade, tiered by volume' },
+        { k: 'Payment', v: '30 day invoice' },
+        { k: 'Approval', v: '1 business day' },
+        { k: 'Minimum order', v: 'None' },
+        { k: 'Account fee', v: 'Free' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
