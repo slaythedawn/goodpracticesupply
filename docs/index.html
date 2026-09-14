@@ -108,6 +108,17 @@
        so it sat flush left with a 50px gutter on the right and read as a
        misalignment. Let them fill the gutters instead. */
     [data-gp-overlay] { width: 100% !important; }
+    /* The 170px column floor collapses the footer to a single stack on a phone,
+       which runs to roughly 900px. Two columns of links under a full width
+       brand block reads as a footer rather than a list. */
+    [data-gp-footer-grid] { grid-template-columns: 1fr 1fr !important; gap: 30px 20px !important; }
+    [data-gp-footer-grid] > :nth-child(1) { grid-column: 1 / -1; }
+    /* Three link groups do not divide into two columns, so place them: the long
+       Shop list down the left, the two short lists stacked on the right. Left to
+       flow, Company sat alone and left a hole in the bottom corner. */
+    [data-gp-footer-grid] > :nth-child(2) { grid-column: 1; grid-row: 2 / span 2; }
+    [data-gp-footer-grid] > :nth-child(3) { grid-column: 2; grid-row: 2; }
+    [data-gp-footer-grid] > :nth-child(4) { grid-column: 2; grid-row: 3; }
   }
   /* Below 360px the full lockup plus the actions no longer fit on one row and the
      pill wrapped to two. Fall back to the monogram, which stands alone by design. */
@@ -406,7 +417,7 @@
 
   <footer style="background:#143026;color:#B7CFC3">
     <div style="max-width:1440px;margin:0 auto;padding:clamp(40px,6vw,80px) clamp(20px,5vw,72px)">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(170px,100%),1fr));gap:36px;padding-bottom:36px;border-bottom:1px solid #2A5245">
+      <div data-gp-footer-grid style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(170px,100%),1fr));gap:36px;padding-bottom:36px;border-bottom:1px solid #2A5245">
         <div>
           <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:16px">
             <span style="font-family:'Archivo Black','Archivo',sans-serif;font-size:25px;letter-spacing:-.055em;line-height:.9;color:#FAFAFA">goodpractice</span>
