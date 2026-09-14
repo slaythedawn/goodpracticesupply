@@ -18,10 +18,18 @@
   function sync() {
     raf = null;
     var h = document.querySelector('[data-gp-header]');
-    if (h) document.documentElement.style.setProperty('--gp-header-h', h.offsetHeight + 'px');
+    if (!h) return;
+    var scrolled = window.scrollY > 8;
+    // Measure only at the top, where the strip is always shown. The spacer must
+    // keep reserving the full height or the page would jump when the strip goes.
+    if (!scrolled) document.documentElement.style.setProperty('--gp-header-h', h.offsetHeight + 'px');
+    // Off the top of the page, content would otherwise scroll through the gap
+    // between the utility strip and the floating nav pill.
+    h.toggleAttribute('data-gp-scrolled', scrolled);
   }
   function queue() { if (raf === null) raf = requestAnimationFrame(sync); }
   window.addEventListener('resize', queue);
+  window.addEventListener('scroll', queue, { passive: true });
   window.addEventListener('load', queue);
   document.addEventListener('DOMContentLoaded', queue);
   if (window.MutationObserver) {
@@ -53,6 +61,11 @@
   [data-gp-burger] { display: none; }
   [data-gp-navpanel] { display: none; }
   [data-gp-spacer] { height: var(--gp-header-h, 132px); }
+  /* The glass pill floats over the hero at the top of the page, which is the
+     intended look. Once scrolled, the strip and the pill become one solid band
+     so page content cannot show through the gap between them. */
+  [data-gp-header] { transition: background-color 260ms cubic-bezier(.2,.6,.2,1); }
+  [data-gp-header][data-gp-scrolled] { background: #143026; }
 
   /* --- Page head. Anchors the headline to the same place on every page that
      shares this layout, so navigating between them does not jump. --- */
@@ -67,6 +80,15 @@
     [data-gp-burger] { display: inline-flex !important; }
     [data-gp-navpanel] { display: grid !important; }
     [data-gp-pill] { padding: 10px 12px 10px 14px !important; gap: 12px !important; }
+    /* 22 category chips filled an entire phone screen at desktop sizing. */
+    [data-chip] { font-size: 14px !important; padding: 9px 15px !important; }
+    /* The strip costs 50px of a 844px screen. It earns that at the top of the
+       page; once scrolling it does not, so give the height back. */
+    [data-gp-header][data-gp-scrolled] > :first-child { display: none; }
+    /* Footer links were 18px tall with an 11px gap, which is a mis-tap waiting
+       to happen on a phone. The underline moves with the padding. */
+    footer a { padding-block: 8px !important; }
+    footer a::after { bottom: 6px !important; }
   }
   /* Below 360px the full lockup plus the actions no longer fit on one row and the
      pill wrapped to two. Fall back to the monogram, which stands alone by design. */
