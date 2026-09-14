@@ -112,13 +112,9 @@
        which runs to roughly 900px. Two columns of links under a full width
        brand block reads as a footer rather than a list. */
     [data-gp-footer-grid] { grid-template-columns: 1fr 1fr !important; gap: 30px 20px !important; }
+    /* Brand across the top, then the four link groups two by two, which divides
+       evenly and leaves no hole in the corner. */
     [data-gp-footer-grid] > :nth-child(1) { grid-column: 1 / -1; }
-    /* Three link groups do not divide into two columns, so place them: the long
-       Shop list down the left, the two short lists stacked on the right. Left to
-       flow, Company sat alone and left a hole in the bottom corner. */
-    [data-gp-footer-grid] > :nth-child(2) { grid-column: 1; grid-row: 2 / span 2; }
-    [data-gp-footer-grid] > :nth-child(3) { grid-column: 2; grid-row: 2; }
-    [data-gp-footer-grid] > :nth-child(4) { grid-column: 2; grid-row: 3; }
   }
   /* Below 360px the full lockup plus the actions no longer fit on one row and the
      pill wrapped to two. Fall back to the monogram, which stands alone by design. */
@@ -252,43 +248,6 @@
               <div style="font-size:15px;font-weight:500;color:#FAFAFA;line-height:1.35">{{ f.v }}</div>
             </div>
           </sc-for>
-        </div>
-      </div>
-    </section>
-
-    <section id="tools" style="background:#FAFAFA;border-bottom:1px solid #E3E3E1">
-      <div style="max-width:1440px;margin:0 auto;padding:clamp(56px,9vw,120px) clamp(20px,5vw,72px)">
-        <div style="max-width:52ch;margin-bottom:clamp(32px,4vw,48px)">
-          <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;border:1px solid rgba(28,64,52,.3);border-radius:1000px;padding:7px 13px;margin-bottom:20px">Free tools</span>
-          <h2 data-reveal style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(28px,3.4vw,46px);letter-spacing:-.03em;line-height:1.05;margin:0 0 16px">Work out what you need, before you spend anything.</h2>
-          <p style="margin:0;font-size:17.5px;line-height:1.55;color:#3A3A38">Three tools, free, no account and nothing stored. They answer the questions people actually type into a search bar at eleven at night, and then tell you which box to buy.</p>
-        </div>
-
-        <a href="/tools/reconstitution-calculator" data-card data-reveal style="display:block;background:#143026;color:#FAFAFA;border-radius:28px;padding:clamp(28px,4vw,48px);margin-bottom:14px;border:1px solid #143026" style-hover="border-color:#8FBFA6">
-          <span style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:clamp(24px,4vw,56px);align-items:center">
-            <span style="display:block">
-              <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#143026;background:#8FBFA6;border-radius:1000px;padding:7px 13px;margin-bottom:18px">Most used</span>
-              <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(24px,2.8vw,36px);letter-spacing:-.03em;line-height:1.08;margin-bottom:12px;color:#FAFAFA">Peptide reconstitution calculator</span>
-              <span style="display:block;font-size:17px;line-height:1.55;color:#DCE5E1;max-width:46ch">Powder in the vial, water going in, and the dose you were given. It returns the concentration and exactly where to draw to on a U-100 barrel, plus the six things that actually go wrong. Arithmetic, not advice.</span>
-              <span style="display:inline-block;margin-top:22px;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8FBFA6;border-bottom:1px solid #2A5245;padding-bottom:4px">Open the calculator <span data-arrow>&rarr;</span></span>
-            </span>
-            <span style="display:block;background:rgba(250,250,250,.06);border:1px solid #2A5245;border-radius:22px;padding:28px 24px;text-align:center">
-              <span style="display:block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:clamp(40px,6vw,58px);line-height:1;color:#FAFAFA">20</span>
-              <span style="display:block;font-size:15px;color:#B7CFC3;margin-top:10px">units on a U-100 syringe</span>
-              <span style="display:block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;color:#8FBFA6;margin-top:16px;letter-spacing:.1em;text-transform:uppercase">10mg in 2mL, 1mg dose</span>
-            </span>
-          </span>
-        </a>
-
-        <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:14px">
-          <a href="/gauge-finder" data-card style="background:#F2F2F1;border:1px solid #E3E3E1;border-radius:22px;padding:28px 26px;display:block" style-hover="border-color:#0E0E0E">
-            <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:19px;letter-spacing:-.02em;margin-bottom:9px">Gauge Finder</span>
-            <span style="display:block;font-size:15.5px;line-height:1.55;color:#3A3A38">Three plain questions, no medical words, and it picks the thickness and the length for you.</span>
-          </a>
-          <a href="/learn/needle-gauge-chart" data-card style="background:#F2F2F1;border:1px solid #E3E3E1;border-radius:22px;padding:28px 26px;display:block" style-hover="border-color:#0E0E0E">
-            <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:19px;letter-spacing:-.02em;margin-bottom:9px">Needle gauge chart</span>
-            <span style="display:block;font-size:15.5px;line-height:1.55;color:#3A3A38">Every gauge from 14G to 34G, with the outer diameter in millimetres and the ISO hub colour.</span>
-          </a>
         </div>
       </div>
     </section>
@@ -436,6 +395,33 @@
       </div>
     </section>
 
+    <section id="tools" style="background:#F2F2F1;border-bottom:1px solid #E3E3E1">
+      <div style="max-width:1440px;margin:0 auto;padding:clamp(56px,9vw,120px) clamp(20px,5vw,72px)">
+        <div style="max-width:50ch;margin-bottom:clamp(32px,4vw,48px)">
+          <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;border:1px solid rgba(28,64,52,.3);border-radius:1000px;padding:7px 13px;margin-bottom:20px">Tools to help you</span>
+          <h2 data-reveal style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;line-height:1.05;margin:0 0 16px">Not sure what you need? Start here.</h2>
+          <p style="margin:0;font-size:17px;line-height:1.55;color:#3A3A38">Three free tools, no account and nothing stored. They answer the question first and then point you at the box.</p>
+        </div>
+        <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:14px">
+          <a href="/gauge-finder" data-card style="background:#FAFAFA;border:1px solid #E3E3E1;border-radius:22px;padding:28px 26px;display:block" style-hover="border-color:#0E0E0E">
+            <span style="display:block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#59595A;margin-bottom:16px">Which needle</span>
+            <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:19px;letter-spacing:-.02em;margin-bottom:9px">Gauge Finder</span>
+            <span style="display:block;font-size:15.5px;line-height:1.55;color:#3A3A38">Three plain questions, no medical words, and it picks the thickness and the length for you.</span>
+          </a>
+          <a href="/tools/reconstitution-calculator" data-card style="background:#FAFAFA;border:1px solid #E3E3E1;border-radius:22px;padding:28px 26px;display:block" style-hover="border-color:#0E0E0E">
+            <span style="display:block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#59595A;margin-bottom:16px">How many units</span>
+            <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:19px;letter-spacing:-.02em;margin-bottom:9px">Reconstitution calculator</span>
+            <span style="display:block;font-size:15.5px;line-height:1.55;color:#3A3A38">Turns a dose in milligrams into the mark to line up on a U-100 syringe, and shows you the barrel.</span>
+          </a>
+          <a href="/learn/needle-gauge-chart" data-card style="background:#FAFAFA;border:1px solid #E3E3E1;border-radius:22px;padding:28px 26px;display:block" style-hover="border-color:#0E0E0E">
+            <span style="display:block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#59595A;margin-bottom:16px">What the numbers mean</span>
+            <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:19px;letter-spacing:-.02em;margin-bottom:9px">Needle gauge chart</span>
+            <span style="display:block;font-size:15.5px;line-height:1.55;color:#3A3A38">Every gauge from 14G to 34G with the outer diameter in millimetres and the ISO hub colour.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section id="clinics" style="background:#1C4034;color:#FAFAFA">
       <div style="max-width:1440px;margin:0 auto;padding:clamp(56px,9vw,120px) clamp(20px,5vw,72px)">
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:clamp(28px,4vw,72px);align-items:center">
@@ -466,24 +452,50 @@
     <div style="max-width:1440px;margin:0 auto;padding:clamp(40px,6vw,80px) clamp(20px,5vw,72px)">
       <div data-gp-footer-grid style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(170px,100%),1fr));gap:36px;padding-bottom:36px;border-bottom:1px solid #2A5245">
         <div>
-          <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:16px">
+          <a href="/" style="display:flex;flex-direction:column;gap:6px;margin-bottom:16px">
             <span style="font-family:'Archivo Black','Archivo',sans-serif;font-size:25px;letter-spacing:-.055em;line-height:.9;color:#FAFAFA">goodpractice</span>
             <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#B7CFC3;line-height:1">Supply</span>
-          </div>
+          </a>
           <div style="font-size:15px;color:#B7CFC3">Medical supplies for clinics and home.</div>
         </div>
-        <sc-for list="{{ footerCols }}" as="col" hint-placeholder-count="3">
-          <div style="display:flex;flex-direction:column;gap:11px">
-            <div style="font-size:13.5px;font-weight:600;color:#FAFAFA;margin-bottom:3px">{{ col.title }}</div>
-            <sc-for list="{{ col.links }}" as="l" hint-placeholder-count="4">
-              <a href="{{ l.href }}" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">{{ l.label }}</a>
-            </sc-for>
-          </div>
-        </sc-for>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <div style="font-size:13.5px;font-weight:600;color:#FAFAFA;margin-bottom:3px">Shop</div>
+          <a href="/shop/syringes-needles" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Syringes &amp; needles</a>
+          <a href="/shop/gloves-ppe" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Gloves &amp; PPE</a>
+          <a href="/shop/diluents-swabs" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Diluents &amp; swabs</a>
+          <a href="/shop/wound-care" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Wound care</a>
+          <a href="/shop/diagnostics" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Diagnostics</a>
+          <a href="/shop/clinic-disposal" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Clinic &amp; disposal</a>
+          <a href="/shop" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">All products</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <div style="font-size:13.5px;font-weight:600;color:#FAFAFA;margin-bottom:3px">Shop by protocol</div>
+          <a href="/for/glp-1-injections" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">GLP-1 and weight loss</a>
+          <a href="/for/trt-injections" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">TRT and hormone therapy</a>
+          <a href="/for/peptide-reconstitution" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Peptide reconstitution</a>
+          <a href="/for/diabetes-at-home" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Diabetes at home</a>
+          <a href="/for/wound-care-at-home" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Wound care at home</a>
+          <a href="/for/clinic-fit-out" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Clinic fit-out</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <div style="font-size:13.5px;font-weight:600;color:#FAFAFA;margin-bottom:3px">Guides &amp; tools</div>
+          <a href="/tools/reconstitution-calculator" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Peptide reconstitution calculator</a>
+          <a href="/learn/needle-gauge-chart" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Needle gauge chart</a>
+          <a href="/gauge-finder" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Gauge Finder</a>
+          <a href="/always-stocked" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Always Stocked</a>
+          <a href="/learn" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">All guides</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <div style="font-size:13.5px;font-weight:600;color:#FAFAFA;margin-bottom:3px">Company</div>
+          <a href="/about" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">About</a>
+          <a href="/clinic-portal" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Clinic Portal</a>
+          <a href="/contact" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Contact</a>
+          <a href="/contact" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Delivery &amp; returns</a>
+        </div>
       </div>
       <div style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-top:24px">
         <div style="font-size:13.5px;line-height:1.7;color:#B7CFC3;max-width:74ch">Good Practice Supply supplies medical consumables only. We do not supply peptides, hormones or any prescription medicine. Australian approval status is shown per product where it applies. Nothing here is medical advice, so follow the directions of your prescriber or treating practitioner.</div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;color:#B7CFC3;white-space:nowrap">© 2026 Good Practice Supply</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;color:#B7CFC3;white-space:nowrap">&copy; 2026 Good Practice Supply</div>
       </div>
     </div>
   </footer>

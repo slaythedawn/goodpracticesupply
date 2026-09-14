@@ -100,13 +100,9 @@
        which runs to roughly 900px. Two columns of links under a full width
        brand block reads as a footer rather than a list. */
     [data-gp-footer-grid] { grid-template-columns: 1fr 1fr !important; gap: 30px 20px !important; }
+    /* Brand across the top, then the four link groups two by two, which divides
+       evenly and leaves no hole in the corner. */
     [data-gp-footer-grid] > :nth-child(1) { grid-column: 1 / -1; }
-    /* Three link groups do not divide into two columns, so place them: the long
-       Shop list down the left, the two short lists stacked on the right. Left to
-       flow, Company sat alone and left a hole in the bottom corner. */
-    [data-gp-footer-grid] > :nth-child(2) { grid-column: 1; grid-row: 2 / span 2; }
-    [data-gp-footer-grid] > :nth-child(3) { grid-column: 2; grid-row: 2; }
-    [data-gp-footer-grid] > :nth-child(4) { grid-column: 2; grid-row: 3; }
   }
   /* Below 360px the full lockup plus the actions no longer fit on one row and the
      pill wrapped to two. Fall back to the monogram, which stands alone by design. */
@@ -290,12 +286,54 @@
   </main>
 
   <footer style="background:#143026;color:#B7CFC3">
-    <div style="max-width:1440px;margin:0 auto;padding:clamp(36px,5vw,64px) clamp(20px,5vw,72px);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end">
-      <a href="/" style="display:flex;flex-direction:column;gap:6px">
-        <span style="font-family:'Archivo Black','Archivo',sans-serif;font-size:22px;letter-spacing:-.055em;line-height:.9;color:#FAFAFA">goodpractice</span>
-        <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:#B7CFC3;line-height:1">Supply</span>
-      </a>
-      <div style="font-size:13.5px;line-height:1.7;color:#B7CFC3;max-width:64ch">Good Practice Supply supplies medical consumables only. Nothing here is medical advice.</div>
+    <div style="max-width:1440px;margin:0 auto;padding:clamp(40px,6vw,80px) clamp(20px,5vw,72px)">
+      <div data-gp-footer-grid style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(170px,100%),1fr));gap:36px;padding-bottom:36px;border-bottom:1px solid #2A5245">
+        <div>
+          <a href="/" style="display:flex;flex-direction:column;gap:6px;margin-bottom:16px">
+            <span style="font-family:'Archivo Black','Archivo',sans-serif;font-size:25px;letter-spacing:-.055em;line-height:.9;color:#FAFAFA">goodpractice</span>
+            <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#B7CFC3;line-height:1">Supply</span>
+          </a>
+          <div style="font-size:15px;color:#B7CFC3">Medical supplies for clinics and home.</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <div style="font-size:13.5px;font-weight:600;color:#FAFAFA;margin-bottom:3px">Shop</div>
+          <a href="/shop/syringes-needles" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Syringes &amp; needles</a>
+          <a href="/shop/gloves-ppe" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Gloves &amp; PPE</a>
+          <a href="/shop/diluents-swabs" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Diluents &amp; swabs</a>
+          <a href="/shop/wound-care" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Wound care</a>
+          <a href="/shop/diagnostics" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Diagnostics</a>
+          <a href="/shop/clinic-disposal" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Clinic &amp; disposal</a>
+          <a href="/shop" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">All products</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <div style="font-size:13.5px;font-weight:600;color:#FAFAFA;margin-bottom:3px">Shop by protocol</div>
+          <a href="/for/glp-1-injections" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">GLP-1 and weight loss</a>
+          <a href="/for/trt-injections" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">TRT and hormone therapy</a>
+          <a href="/for/peptide-reconstitution" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Peptide reconstitution</a>
+          <a href="/for/diabetes-at-home" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Diabetes at home</a>
+          <a href="/for/wound-care-at-home" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Wound care at home</a>
+          <a href="/for/clinic-fit-out" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Clinic fit-out</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <div style="font-size:13.5px;font-weight:600;color:#FAFAFA;margin-bottom:3px">Guides &amp; tools</div>
+          <a href="/tools/reconstitution-calculator" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Peptide reconstitution calculator</a>
+          <a href="/learn/needle-gauge-chart" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Needle gauge chart</a>
+          <a href="/gauge-finder" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Gauge Finder</a>
+          <a href="/always-stocked" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Always Stocked</a>
+          <a href="/learn" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">All guides</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <div style="font-size:13.5px;font-weight:600;color:#FAFAFA;margin-bottom:3px">Company</div>
+          <a href="/about" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">About</a>
+          <a href="/clinic-portal" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Clinic Portal</a>
+          <a href="/contact" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Contact</a>
+          <a href="/contact" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Delivery &amp; returns</a>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-top:24px">
+        <div style="font-size:13.5px;line-height:1.7;color:#B7CFC3;max-width:74ch">Good Practice Supply supplies medical consumables only. We do not supply peptides, hormones or any prescription medicine. Australian approval status is shown per product where it applies. Nothing here is medical advice, so follow the directions of your prescriber or treating practitioner.</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;color:#B7CFC3;white-space:nowrap">&copy; 2026 Good Practice Supply</div>
+      </div>
     </div>
   </footer>
 
