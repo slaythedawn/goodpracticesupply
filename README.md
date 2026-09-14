@@ -27,6 +27,34 @@ prototype for review.
 | Contact | `docs/contact.html` |
 | About | `docs/about.html` |
 
+## Tools, and why these two
+
+Built off Ahrefs keyword data rather than instinct. The finding that drove it:
+the traffic is in the tools, not the product names.
+
+| Keyword | Global / month | AU / month | Difficulty |
+|---|---|---|---|
+| peptide calculator | 224,000 | 15,000 | 0 |
+| bacteriostatic water | 67,000 | 5,700 | 14 |
+| bacteriostatic water chemist warehouse | 3,000 | 3,000 | 0 |
+| needle gauge sizes | 5,500 | | 0 |
+| 1 ml is equal to how many units in insulin syringe | 7,300 | | 26 |
+| insulin syringes australia | 40 | 40 | 0 |
+| sharps container australia | 30 | 30 | 0 |
+
+`docs/tools/reconstitution-calculator.html` answers the 224,000 cluster and the
+unit conversion cluster with one tool, and outputs the two things we sell:
+bacteriostatic water and U-100 syringes.
+
+`docs/learn/needle-gauge-chart.html` covers the gauge reference cluster and the
+long tail of individual gauge searches, linking each to the product.
+
+Both are featured on the home page directly under the hero.
+
+The calculator takes the dose as an input rather than suggesting one. It is unit
+conversion, not dosing advice, and it says so on the page. Good Practice Supply
+supplies the water and the syringes, never the compound.
+
 ## The shop
 
 43 generated pages forming the commerce spine, so every link on the site lands
