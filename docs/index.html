@@ -118,6 +118,79 @@
   }
   /* Below 360px the full lockup plus the actions no longer fit on one row and the
      pill wrapped to two. Fall back to the monogram, which stands alone by design. */
+  /* ---- Hero -------------------------------------------------------------
+     The glass card used to float over the photograph, which put a 620px panel
+     across the subject's face on desktop and covered it entirely on a phone.
+     The photograph now carries its own gradient and the words sit on it
+     directly, in the empty half of the frame. On a phone the two stop
+     overlapping altogether: words, then picture, then the facts strip. */
+  [data-gp-hero] {
+    position: relative;
+    overflow: hidden;
+    background: #143026;
+    min-height: clamp(620px, 86vh, 880px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  [data-gp-hero-media] { position: absolute; inset: 0; z-index: 0; }
+  [data-gp-hero-media] img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 40%;
+    animation: gpFade 1.1s var(--ease-out) both;
+  }
+  /* Two passes: a short one down from the top so the transparent header stays
+     legible, and a long one in from the left so the copy has a ground. */
+  [data-gp-hero-scrim] {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(11,26,21,.52) 0%, rgba(11,26,21,.14) 18%, rgba(11,26,21,0) 36%),
+      linear-gradient(96deg, rgba(11,26,21,.84) 0%, rgba(11,26,21,.68) 24%, rgba(11,26,21,.36) 45%, rgba(11,26,21,.07) 63%, rgba(11,26,21,0) 80%);
+  }
+  [data-gp-hero-copy], [data-gp-hero-facts] {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-left: clamp(20px, 5vw, 72px);
+    padding-right: clamp(20px, 5vw, 72px);
+  }
+  [data-gp-hero-copy] { padding-top: calc(var(--gp-header-h, 132px) + clamp(24px, 4vw, 56px)); }
+  [data-gp-hero-facts] { padding-top: clamp(30px, 3.4vw, 46px); padding-bottom: clamp(32px, 3.6vw, 52px); }
+  /* The subject sits on the right third of the frame, so the copy is held to
+     just under half the width and never reaches her. */
+  [data-gp-hero-copy] > div, [data-gp-hero-facts] > div { width: min(600px, 47%); min-width: min(330px, 100%); }
+  [data-gp-hero-facts] > div { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(128px, 45%), 1fr)); gap: 18px 24px; }
+  [data-gp-fact] { border-top: 1px solid rgba(143,191,166,.42); padding-top: 12px; }
+
+  @media (max-width: 900px) {
+    /* No overlap at all on a phone. The picture becomes its own block between
+       the words and the facts, which also gives the section a real height
+       instead of 86vh of absolutely positioned image. */
+    [data-gp-hero] { min-height: 0; }
+    [data-gp-hero-media] {
+      position: relative;
+      inset: auto;
+      order: 2;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      max-height: 68vh;
+      overflow: hidden;
+      margin-top: clamp(28px, 7vw, 40px);
+    }
+    [data-gp-hero-media] img { object-position: 50% 32%; }
+    [data-gp-hero-scrim] { background: linear-gradient(180deg, rgba(20,48,38,0) 58%, rgba(20,48,38,.5) 86%, rgba(20,48,38,.94) 100%); }
+    [data-gp-hero-copy] { order: 1; padding-top: calc(var(--gp-header-h, 124px) + 24px); }
+    [data-gp-hero-facts] { order: 3; padding-top: clamp(26px, 6vw, 34px); padding-bottom: clamp(32px, 7vw, 44px); }
+    [data-gp-hero-copy] > div, [data-gp-hero-facts] > div { width: 100% !important; }
+    [data-gp-hero-facts] > div { grid-template-columns: 1fr 1fr !important; }
+  }
+
   @media (max-width: 359px) {
     [data-gp-wordmark] { display: none !important; }
     [data-gp-pill] { padding: 10px 10px !important; gap: 10px !important; }
@@ -228,23 +301,32 @@
 
   <main>
 
-    <section style="position:relative;overflow:hidden;background:#E4E4E2;min-height:clamp(600px,84vh,860px);display:flex;align-items:center">
-      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_031953_2283d88b-f765-40ec-8500-ec3cb3057547.png" alt="A woman smiling in a bright, light-filled room" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:74% center;animation:gpFade 1.1s var(--ease-out) both">
-      <div aria-hidden="true" style="position:absolute;inset:0;background:rgba(14,14,14,.2)"></div>
-      <div style="position:relative;width:100%;max-width:1440px;margin:0 auto;padding:clamp(190px,22vw,270px) clamp(20px,5vw,72px) clamp(28px,4vw,52px)">
-        <div data-gp-overlay style="width:min(620px,64%);min-width:min(320px,100%);background:rgba(20,48,38,.66);backdrop-filter:blur(30px) saturate(1.6);-webkit-backdrop-filter:blur(30px) saturate(1.6);border:1px solid rgba(143,191,166,.3);border-radius:28px;padding:clamp(28px,3.6vw,46px);color:#FAFAFA;animation:gpRise .8s var(--ease-out) both">
+    <section data-gp-hero>
+      <div data-gp-hero-media>
+        <picture>
+          <source media="(max-width: 900px)" srcset="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_221227_9a8d13dd-ce51-4fd9-8042-f14760169b5a.png">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_221227_2b38c468-8254-46ac-b932-3c1c774f9587.png" alt="A woman standing in a quiet, light-filled room">
+        </picture>
+        <div aria-hidden="true" data-gp-hero-scrim></div>
+      </div>
+
+      <div data-gp-hero-copy>
+        <div style="animation:gpRise .8s var(--ease-out) both">
           <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#143026;background:#8FBFA6;border-radius:1000px;padding:8px 14px;margin-bottom:24px">Australian medical supplies</span>
-          <h1 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(36px,4.4vw,62px);line-height:.98;letter-spacing:-.04em;margin:0 0 20px;max-width:14ch;color:#FAFAFA">Better medical supplies, for everyone.</h1>
-          <p style="margin:0 0 30px;font-size:18.5px;line-height:1.45;color:rgba(250,250,250,.88);max-width:42ch">A box of gloves for the bathroom cupboard or a whole treatment room. Same Australian stock, same prices on the page, out the door the same day.</p>
+          <h1 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(38px,5vw,68px);line-height:.96;letter-spacing:-.045em;margin:0 0 20px;max-width:13ch;color:#FAFAFA">Better medical supplies, for everyone.</h1>
+          <p style="margin:0 0 30px;font-size:18.5px;line-height:1.45;color:rgba(250,250,250,.9);max-width:42ch">A box of gloves for the bathroom cupboard or a whole treatment room. Same Australian stock, same prices on the page, out the door the same day.</p>
           <div style="display:flex;gap:12px;flex-wrap:wrap">
             <a href="#shop" data-cta style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600" style-hover="background:#FAFAFA;color:#143026">Shop the range</a>
-            <a href="#how" data-cta style="border:1px solid rgba(143,191,166,.55);color:#FAFAFA;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600" style-hover="background:rgba(250,250,250,.16);color:#FAFAFA">How it works</a>
+            <a href="#how" data-cta style="border:1px solid rgba(250,250,250,.45);color:#FAFAFA;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600" style-hover="background:rgba(250,250,250,.16);color:#FAFAFA">How it works</a>
           </div>
         </div>
-        <div data-gp-overlay style="margin-top:12px;width:min(620px,64%);min-width:min(320px,100%);background:rgba(20,48,38,.6);backdrop-filter:blur(26px) saturate(1.6);-webkit-backdrop-filter:blur(26px) saturate(1.6);border:1px solid rgba(143,191,166,.28);border-radius:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr));gap:1px;overflow:hidden">
+      </div>
+
+      <div data-gp-hero-facts>
+        <div>
           <sc-for list="{{ facts }}" as="f" hint-placeholder-count="4">
-            <div style="background:rgba(20,48,38,.22);padding:16px 18px">
-              <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,250,250,.72);margin-bottom:6px">{{ f.k }}</div>
+            <div data-gp-fact>
+              <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,250,250,.7);margin-bottom:6px">{{ f.k }}</div>
               <div style="font-size:15px;font-weight:500;color:#FAFAFA;line-height:1.35">{{ f.v }}</div>
             </div>
           </sc-for>
@@ -403,20 +485,35 @@
           <p style="margin:0;font-size:17px;line-height:1.55;color:#3A3A38">Three free tools, no account and nothing stored. They answer the question first and then point you at the box.</p>
         </div>
         <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:14px">
-          <a href="/gauge-finder" data-card style="background:#FAFAFA;border:1px solid #E3E3E1;border-radius:22px;padding:28px 26px;display:block" style-hover="border-color:#0E0E0E">
-            <span style="display:block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#59595A;margin-bottom:16px">Which needle</span>
-            <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:19px;letter-spacing:-.02em;margin-bottom:9px">Gauge Finder</span>
-            <span style="display:block;font-size:15.5px;line-height:1.55;color:#3A3A38">Three plain questions, no medical words, and it picks the thickness and the length for you.</span>
+          <a href="/gauge-finder" data-card style="background:#FAFAFA;border:1px solid #E3E3E1;border-radius:22px;display:block;overflow:hidden" style-hover="border-color:#0E0E0E">
+            <span style="display:block;aspect-ratio:16/10;background:#E4E4E2">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_222009_770720fa-5378-48dc-be8b-7838da365e47.png" alt="A hand holding an insulin syringe" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+            </span>
+            <span style="display:block;padding:26px 26px 28px">
+              <span style="display:block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#59595A;margin-bottom:14px">Which needle</span>
+              <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:19px;letter-spacing:-.02em;margin-bottom:9px">Gauge Finder</span>
+              <span style="display:block;font-size:15.5px;line-height:1.55;color:#3A3A38">Three plain questions, no medical words, and it picks the thickness and the length for you.</span>
+            </span>
           </a>
-          <a href="/tools/reconstitution-calculator" data-card style="background:#FAFAFA;border:1px solid #E3E3E1;border-radius:22px;padding:28px 26px;display:block" style-hover="border-color:#0E0E0E">
-            <span style="display:block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#59595A;margin-bottom:16px">How many units</span>
-            <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:19px;letter-spacing:-.02em;margin-bottom:9px">Reconstitution calculator</span>
-            <span style="display:block;font-size:15.5px;line-height:1.55;color:#3A3A38">Turns a dose in milligrams into the mark to line up on a U-100 syringe, and shows you the barrel.</span>
+          <a href="/tools/reconstitution-calculator" data-card style="background:#FAFAFA;border:1px solid #E3E3E1;border-radius:22px;display:block;overflow:hidden" style-hover="border-color:#0E0E0E">
+            <span style="display:block;aspect-ratio:16/10;background:#E4E4E2">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_222009_ca63e697-bb9a-48ee-8c04-2df005311eb5.png" alt="A vial, a syringe, an ampoule of water and alcohol swabs laid out in a row" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+            </span>
+            <span style="display:block;padding:26px 26px 28px">
+              <span style="display:block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#59595A;margin-bottom:14px">How many units</span>
+              <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:19px;letter-spacing:-.02em;margin-bottom:9px">Reconstitution calculator</span>
+              <span style="display:block;font-size:15.5px;line-height:1.55;color:#3A3A38">Turns a dose in milligrams into the mark to line up on a U-100 syringe, and shows you the barrel.</span>
+            </span>
           </a>
-          <a href="/learn/needle-gauge-chart" data-card style="background:#FAFAFA;border:1px solid #E3E3E1;border-radius:22px;padding:28px 26px;display:block" style-hover="border-color:#0E0E0E">
-            <span style="display:block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#59595A;margin-bottom:16px">What the numbers mean</span>
-            <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:19px;letter-spacing:-.02em;margin-bottom:9px">Needle gauge chart</span>
-            <span style="display:block;font-size:15.5px;line-height:1.55;color:#3A3A38">Every gauge from 14G to 34G with the outer diameter in millimetres and the ISO hub colour.</span>
+          <a href="/learn/needle-gauge-chart" data-card style="background:#FAFAFA;border:1px solid #E3E3E1;border-radius:22px;display:block;overflow:hidden" style-hover="border-color:#0E0E0E">
+            <span style="display:block;aspect-ratio:16/10;background:#E4E4E2">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_222009_74578d27-0f2f-4e67-bddc-bd5e151ef2fe.png" alt="Seven capped needles laid side by side, largest to smallest" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+            </span>
+            <span style="display:block;padding:26px 26px 28px">
+              <span style="display:block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#59595A;margin-bottom:14px">What the numbers mean</span>
+              <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:19px;letter-spacing:-.02em;margin-bottom:9px">Needle gauge chart</span>
+              <span style="display:block;font-size:15.5px;line-height:1.55;color:#3A3A38">Every gauge from 14G to 34G with the outer diameter in millimetres and the ISO hub colour.</span>
+            </span>
           </a>
         </div>
       </div>
@@ -648,7 +745,8 @@ class Component extends DCLogic {
 
       tradeRows: [
         { k: 'Pricing', v: 'Trade, tiered by volume' },
-        { k: 'Payment', v: '30 day invoice' },
+        { k: 'Payment', v: 'Card or transfer, up front' },
+        { k: 'Invoice terms', v: 'By application later' },
         { k: 'Delivery', v: 'Multiple sites' },
         { k: 'Approval', v: '1 business day' }
       ],

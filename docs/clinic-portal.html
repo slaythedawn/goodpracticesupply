@@ -215,7 +215,7 @@
           <div>
             <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#143026;background:#8FBFA6;border-radius:1000px;padding:8px 14px;margin-bottom:22px">Clinic Portal</span>
             <h1 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(32px,3.8vw,52px);letter-spacing:-.035em;line-height:1.02;margin:0 0 18px;color:#FAFAFA;max-width:18ch">You trained for medicine, not stocktake.</h1>
-            <p style="margin:0 0 30px;font-size:17.5px;line-height:1.55;color:#B7CFC3;max-width:44ch">Trade pricing, invoicing and a standing order that keeps every room stocked without a purchase order each time.</p>
+            <p style="margin:0 0 30px;font-size:17.5px;line-height:1.55;color:#B7CFC3;max-width:44ch">Trade pricing, account-only offers and a standing order that keeps every room stocked without a purchase order each time.</p>
             <div style="display:flex;gap:12px;flex-wrap:wrap">
               <a href="#apply" style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600">Open an account</a>
               <a href="#signin" style="border:1px solid rgba(143,191,166,.55);color:#FAFAFA;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600">Sign in</a>
@@ -249,13 +249,60 @@
       </div>
     </section>
 
+    <section id="benefits" style="background:#1C4034;color:#FAFAFA">
+      <div style="max-width:1440px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,5vw,72px)">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:clamp(28px,4vw,64px);align-items:start">
+          <div>
+            <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#143026;background:#8FBFA6;border-radius:1000px;padding:8px 14px;margin-bottom:22px">What you get</span>
+            <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;line-height:1.05;margin:0 0 16px;color:#FAFAFA;max-width:18ch">An account changes the price and the paperwork.</h2>
+            <p style="margin:0 0 28px;font-size:17px;line-height:1.55;color:#B7CFC3;max-width:44ch">Everything below sits behind a sign-in. The catalogue, the stock and the delivery promise are the same ones on the public site.</p>
+            <div data-reveal style="border-radius:28px;overflow:hidden;background:#143026;aspect-ratio:16/10">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_222009_f49c67e1-cb1b-4456-96c9-2986bca79bc1.png" alt="A practice manager checking a supply list at a clinic back-office bench" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:2px 32px">
+            <sc-for list="{{ benefits }}" as="b" hint-placeholder-count="8">
+              <div style="padding:18px 0;border-top:1px solid #2A5245">
+                <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:17px;letter-spacing:-.02em;color:#FAFAFA;margin-bottom:7px">{{ b.title }}</div>
+                <div style="font-size:15.5px;line-height:1.55;color:#B7CFC3">{{ b.body }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="eligibility" style="background:#FAFAFA;border-bottom:1px solid #E3E3E1">
+      <div style="max-width:1440px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,5vw,72px)">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:clamp(28px,4vw,64px);align-items:center">
+          <div data-reveal style="border-radius:28px;overflow:hidden;background:#E4E4E2;aspect-ratio:3/2">
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_222009_7a0dfd11-856c-4782-8f4e-4a4403da4cdf.png" alt="A clinic treatment room with a stocked supply trolley beside the bed" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+          </div>
+          <div>
+            <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;border:1px solid rgba(28,64,52,.3);border-radius:1000px;padding:7px 13px;margin-bottom:20px">Who it is for</span>
+            <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;line-height:1.05;margin:0 0 16px;max-width:20ch">Accounts are checked, not handed out.</h2>
+            <p style="margin:0 0 24px;font-size:17px;line-height:1.55;color:#3A3A38;max-width:46ch">Trade pricing only works if the people on it are buying to use, not to resell. Every application is read by a person before an account opens.</p>
+            <div style="border-top:1px solid #E3E3E1">
+              <sc-for list="{{ gate }}" as="g" hint-placeholder-count="4">
+                <div style="display:flex;gap:14px;padding:15px 0;border-bottom:1px solid #E3E3E1;align-items:baseline">
+                  <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;color:#8FBFA6;flex:none">&#9679;</span>
+                  <span style="font-size:15.5px;line-height:1.55;color:#0E0E0E">{{ g }}</span>
+                </div>
+              </sc-for>
+            </div>
+            <p style="margin:22px 0 0;font-size:15px;line-height:1.55;color:#59595A;max-width:46ch">Pricing tiers are set when the account opens and reviewed as volume changes. Anyone can buy at the prices on the page in the meantime, with no account and no minimum.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="apply" style="background:#F2F2F1;border-bottom:1px solid #E3E3E1">
       <div style="max-width:1440px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,5vw,72px)">
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:clamp(28px,4vw,64px);align-items:start">
           <div>
             <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;border:1px solid rgba(28,64,52,.3);border-radius:1000px;padding:7px 13px;margin-bottom:20px">Apply</span>
             <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;line-height:1.05;margin:0 0 16px;max-width:18ch">Open an account</h2>
-            <p style="margin:0 0 26px;font-size:17px;line-height:1.55;color:#3A3A38;max-width:44ch">Four fields and an ABN. We verify and come back within one business day with your pricing tier.</p>
+            <p style="margin:0 0 26px;font-size:17px;line-height:1.55;color:#3A3A38;max-width:44ch">Four fields and an ABN. We check the business is a genuine healthcare practice and come back within one business day with your pricing tier.</p>
             <div style="border-top:1px solid #E3E3E1">
               <sc-for list="{{ terms }}" as="t" hint-placeholder-count="5">
                 <div style="display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px solid #E3E3E1;align-items:baseline">
@@ -412,13 +459,31 @@ class Component extends DCLogic {
       applyNote: this.state.applied ? 'We will come back within one business day with your pricing tier.' : 'No obligation, no minimum order, and you can keep buying at retail in the meantime.',
       apply: () => this.setState({ applied: true }),
       features: [
-        { n: '01', title: 'Buy at trade', body: 'Your pricing applies across the whole site the moment you sign in, with 30 day invoicing and PO references. No quote requests.' },
+        { n: '01', title: 'Buy at trade', body: 'Your pricing applies across the whole site the moment you sign in, with PO references on every order and no quote requests. New accounts pay up front.' },
         { n: '02', title: 'Never run out', body: 'Always Stocked keeps a list and a schedule for every room and every site, and ships before a line runs low.' },
         { n: '03', title: 'Send it to patients', body: 'Specify a kit and we pack and post it in your clinic name. Order history keeps batch and expiry on every line.' }
       ],
+      benefits: [
+        { title: 'Account pricing', body: 'Trade rates on every line, tiered by volume, applied the moment you sign in. Same catalogue, same pages, different numbers.' },
+        { title: 'Carton rates', body: 'Break points that are not published at retail, so a full carton lands cheaper per unit than a box.' },
+        { title: 'Account-only offers', body: 'Run-out lines, first call on new products and periodic account pricing that never appears on the public site.' },
+        { title: 'Standing orders', body: 'Always Stocked keeps a list and a schedule per room and per site, and ships before a line runs low.' },
+        { title: 'Patient-direct despatch', body: 'Specify a kit and we pack and post it in your clinic name, in a plain box.' },
+        { title: 'Records that hold up', body: 'Batch and expiry on every line in your order history, and statements your bookkeeper can work from.' },
+        { title: 'A person to call', body: 'A named contact who knows your list, and first call when a line is short.' },
+        { title: 'Terms, once earned', body: 'Accounts start on payment up front. Once yours has a trading history you can apply for thirty day invoicing.' }
+      ],
+      gate: [
+        'A current ABN in the name of the practice or the practitioner',
+        'A healthcare practice, pharmacy or registered practitioner, buying to use rather than to resell',
+        'A business delivery address we can verify',
+        'A named person responsible for ordering on the account'
+      ],
       terms: [
         { k: 'Pricing', v: 'Trade, tiered by volume' },
-        { k: 'Payment', v: '30 day invoice' },
+        { k: 'Payment', v: 'Card or transfer, up front' },
+        { k: 'Invoice terms', v: 'By application later' },
+        { k: 'Eligibility', v: 'Verified ABN' },
         { k: 'Approval', v: '1 business day' },
         { k: 'Minimum order', v: 'None' },
         { k: 'Account fee', v: 'Free' }
