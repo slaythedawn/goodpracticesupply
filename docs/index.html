@@ -103,6 +103,11 @@
        to happen on a phone. The underline moves with the padding. */
     footer a { padding-block: 8px !important; }
     footer a::after { bottom: 6px !important; }
+    /* The glass cards are sized as a column over the photograph, which is the
+       intent on desktop. On a phone that left a 320px card in a 350px container,
+       so it sat flush left with a 50px gutter on the right and read as a
+       misalignment. Let them fill the gutters instead. */
+    [data-gp-overlay] { width: 100% !important; }
   }
   /* Below 360px the full lockup plus the actions no longer fit on one row and the
      pill wrapped to two. Fall back to the monogram, which stands alone by design. */
@@ -210,7 +215,7 @@
       <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_031953_2283d88b-f765-40ec-8500-ec3cb3057547.png" alt="A woman smiling in a bright, light-filled room" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:74% center;animation:gpFade 1.1s var(--ease-out) both">
       <div aria-hidden="true" style="position:absolute;inset:0;background:rgba(14,14,14,.2)"></div>
       <div style="position:relative;width:100%;max-width:1440px;margin:0 auto;padding:clamp(190px,22vw,270px) clamp(20px,5vw,72px) clamp(28px,4vw,52px)">
-        <div style="width:min(620px,64%);min-width:min(320px,100%);background:rgba(20,48,38,.66);backdrop-filter:blur(30px) saturate(1.6);-webkit-backdrop-filter:blur(30px) saturate(1.6);border:1px solid rgba(143,191,166,.3);border-radius:28px;padding:clamp(28px,3.6vw,46px);color:#FAFAFA;animation:gpRise .8s var(--ease-out) both">
+        <div data-gp-overlay style="width:min(620px,64%);min-width:min(320px,100%);background:rgba(20,48,38,.66);backdrop-filter:blur(30px) saturate(1.6);-webkit-backdrop-filter:blur(30px) saturate(1.6);border:1px solid rgba(143,191,166,.3);border-radius:28px;padding:clamp(28px,3.6vw,46px);color:#FAFAFA;animation:gpRise .8s var(--ease-out) both">
           <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#143026;background:#8FBFA6;border-radius:1000px;padding:8px 14px;margin-bottom:24px">Australian medical supplies</span>
           <h1 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(36px,4.4vw,62px);line-height:.98;letter-spacing:-.04em;margin:0 0 20px;max-width:14ch;color:#FAFAFA">Better medical supplies, for everyone.</h1>
           <p style="margin:0 0 30px;font-size:18.5px;line-height:1.45;color:rgba(250,250,250,.88);max-width:42ch">A box of gloves for the bathroom cupboard or a whole treatment room. Same Australian stock, same prices on the page, out the door the same day.</p>
@@ -219,7 +224,7 @@
             <a href="#how" data-cta style="border:1px solid rgba(143,191,166,.55);color:#FAFAFA;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600" style-hover="background:rgba(250,250,250,.16);color:#FAFAFA">How it works</a>
           </div>
         </div>
-        <div style="margin-top:12px;width:min(620px,64%);min-width:min(320px,100%);background:rgba(20,48,38,.6);backdrop-filter:blur(26px) saturate(1.6);-webkit-backdrop-filter:blur(26px) saturate(1.6);border:1px solid rgba(143,191,166,.28);border-radius:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr));gap:1px;overflow:hidden">
+        <div data-gp-overlay style="margin-top:12px;width:min(620px,64%);min-width:min(320px,100%);background:rgba(20,48,38,.6);backdrop-filter:blur(26px) saturate(1.6);-webkit-backdrop-filter:blur(26px) saturate(1.6);border:1px solid rgba(143,191,166,.28);border-radius:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr));gap:1px;overflow:hidden">
           <sc-for list="{{ facts }}" as="f" hint-placeholder-count="4">
             <div style="background:rgba(20,48,38,.22);padding:16px 18px">
               <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,250,250,.72);margin-bottom:6px">{{ f.k }}</div>
@@ -312,7 +317,7 @@
       <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_020758_985a7053-47db-4ce5-9ab8-2018a6b9adda.png" alt="Hands lifting the lid from a delivery box of supplies" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% center">
       <div aria-hidden="true" style="position:absolute;inset:0;background:rgba(14,14,14,.22)"></div>
       <div style="position:relative;width:100%;max-width:1440px;margin:0 auto;padding:clamp(56px,9vw,120px) clamp(20px,5vw,72px);display:flex;justify-content:flex-start">
-        <div data-reveal style="width:min(560px,62%);min-width:min(320px,100%);background:rgba(20,48,38,.66);backdrop-filter:blur(30px) saturate(1.6);-webkit-backdrop-filter:blur(30px) saturate(1.6);border:1px solid rgba(143,191,166,.3);border-radius:28px;padding:clamp(28px,3.6vw,44px);color:#FAFAFA">
+        <div data-reveal data-gp-overlay style="width:min(560px,62%);min-width:min(320px,100%);background:rgba(20,48,38,.66);backdrop-filter:blur(30px) saturate(1.6);-webkit-backdrop-filter:blur(30px) saturate(1.6);border:1px solid rgba(143,191,166,.3);border-radius:28px;padding:clamp(28px,3.6vw,44px);color:#FAFAFA">
           <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#143026;background:#8FBFA6;border-radius:1000px;padding:8px 14px;margin-bottom:22px">Always Stocked</span>
           <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3.2vw,42px);letter-spacing:-.03em;line-height:1.05;margin:0 0 24px;max-width:16ch;color:#FAFAFA">Always Stocked watches your shelf so you don’t have to.</h2>
           <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">

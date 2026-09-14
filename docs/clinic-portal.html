@@ -91,6 +91,11 @@
        to happen on a phone. The underline moves with the padding. */
     footer a { padding-block: 8px !important; }
     footer a::after { bottom: 6px !important; }
+    /* The glass cards are sized as a column over the photograph, which is the
+       intent on desktop. On a phone that left a 320px card in a 350px container,
+       so it sat flush left with a 50px gutter on the right and read as a
+       misalignment. Let them fill the gutters instead. */
+    [data-gp-overlay] { width: 100% !important; }
   }
   /* Below 360px the full lockup plus the actions no longer fit on one row and the
      pill wrapped to two. Fall back to the monogram, which stands alone by design. */
