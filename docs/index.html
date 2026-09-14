@@ -87,7 +87,7 @@
   /* The grid is centred so imagery balances the text, but that made the headline
      ride on the height of the opposite column. Pin the text column to the top. */
   [data-gp-pagehead-grid] > :first-child { align-self: start !important; }
-  @media (max-width: 900px) {
+  @media (max-width: 999px) {
     /* !important is required: the prototype styles every element inline. */
     [data-gp-nav] { display: none !important; }
     [data-gp-desktoponly] { display: none !important; }
@@ -133,17 +133,17 @@
     flex-direction: column;
     justify-content: flex-end;
   }
-  /* His head sits 4% from the top edge of this frame, which is less headroom
-     than the header is deep, so the picture starts below the header rather
-     than running under it. The section ground fills the strip behind the nav,
-     the same way it already does on a phone. */
-  [data-gp-hero-media] { position: absolute; inset: 0; top: var(--gp-header-h, 107px); z-index: 0; }
+  /* Full bleed, running under the header. The nav pill is glass, and the
+     photograph is the only thing it has to blur: start the picture below the
+     header and the pill reads as a solid bar instead. This frame carries the
+     headroom that makes that safe, with his face 24% down. */
+  [data-gp-hero-media] { position: absolute; inset: 0; z-index: 0; }
   [data-gp-hero-media] img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 100% 0%;
+    object-position: 100% 30%;
     animation: gpFade 1.1s var(--ease-out) both;
   }
   /* A short pass down from the top so the transparent header stays legible,
@@ -191,7 +191,22 @@
   }
   [data-gp-fact] { background: rgba(20,48,38,.22); padding: 15px 17px; }
 
-  @media (max-width: 900px) {
+  /* Between 900 and 1200 the hero is nearly square, because the card stack is
+     as tall as the viewport is wide. object-fit: cover then throws away half the
+     width of a 16:9 frame and drags him back behind the card. Cap the picture's
+     height instead, so the crop stays shallow, and let the section ground carry
+     the last of the card. */
+  @media (min-width: 1000px) and (max-width: 1200px) {
+    [data-gp-hero-media] { bottom: auto; height: min(100%, 68vw); }
+    [data-gp-hero-scrim] {
+      background:
+        linear-gradient(180deg, rgba(11,26,21,.5) 0%, rgba(11,26,21,.13) 18%, rgba(11,26,21,0) 36%),
+        linear-gradient(0deg, rgba(20,48,38,.96) 0%, rgba(20,48,38,.4) 12%, rgba(20,48,38,0) 30%),
+        linear-gradient(96deg, rgba(11,26,21,.62) 0%, rgba(11,26,21,.46) 26%, rgba(11,26,21,.2) 46%, rgba(11,26,21,.03) 64%, rgba(11,26,21,0) 80%);
+    }
+  }
+
+  @media (max-width: 999px) {
     /* The picture becomes its own block and the card straddles its bottom edge.
        The scrim fades the foot of the image to the section ground so the card
        reads as one panel across the join. */
@@ -201,11 +216,11 @@
       inset: auto;
       order: 1;
       width: 100%;
-      aspect-ratio: 3 / 4;
+      aspect-ratio: 4 / 5;
       overflow: hidden;
       margin-top: var(--gp-header-h, 124px);
     }
-    [data-gp-hero-media] img { object-position: 50% 25%; }
+    [data-gp-hero-media] img { object-position: 50% 15%; }
     [data-gp-hero-scrim] { background: linear-gradient(0deg, rgba(20,48,38,.94) 0%, rgba(20,48,38,.34) 13%, rgba(20,48,38,0) 32%); }
     [data-gp-hero-copy] {
       order: 2;
@@ -331,8 +346,8 @@
     <section data-gp-hero>
       <div data-gp-hero-media>
         <picture>
-          <source media="(max-width: 900px)" srcset="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_223608_779d7ef7-5a09-4a9b-8280-3edf6f34f911.png">
-          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_223340_9437cbb8-79a4-42e2-912d-7cbf9eab7f96.png" alt="A man standing against a bare wall in a bright, modern room">
+          <source media="(max-width: 999px)" srcset="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_230049_da1ac0eb-1511-4ffe-b2db-24109bd49953.png">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_230224_9a313bac-1e72-4681-ae86-93b0d6fd46f8.png" alt="A man standing against a bare concrete wall in a quiet, modern room">
         </picture>
         <div aria-hidden="true" data-gp-hero-scrim></div>
       </div>
@@ -440,7 +455,7 @@
     </section>
 
     <section id="how" style="position:relative;overflow:hidden;background:#E4E4E2;min-height:clamp(540px,70vh,760px);display:flex;align-items:center">
-      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_020758_985a7053-47db-4ce5-9ab8-2018a6b9adda.png" alt="Hands lifting the lid from a delivery box of supplies" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% center">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_230049_8a9652c1-a537-4cad-bdfb-4a9bbd376d5f.png" alt="Hands lifting the lid from a delivery box of supplies" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% center">
       <div aria-hidden="true" style="position:absolute;inset:0;background:rgba(14,14,14,.22)"></div>
       <div style="position:relative;width:100%;max-width:1440px;margin:0 auto;padding:clamp(56px,9vw,120px) clamp(20px,5vw,72px);display:flex;justify-content:flex-start">
         <div data-reveal data-gp-overlay style="width:min(560px,62%);min-width:min(320px,100%);background:rgba(20,48,38,.66);backdrop-filter:blur(30px) saturate(1.6);-webkit-backdrop-filter:blur(30px) saturate(1.6);border:1px solid rgba(143,191,166,.3);border-radius:28px;padding:clamp(28px,3.6vw,44px);color:#FAFAFA">
@@ -486,7 +501,7 @@
     <section id="home" style="background:#FAFAFA;border-bottom:1px solid #E3E3E1">
       <div style="max-width:1440px;margin:0 auto;padding:clamp(56px,9vw,120px) clamp(20px,5vw,72px)">
         <div style="border-radius:28px;overflow:hidden;background:#EDEDEB;aspect-ratio:16/7;margin-bottom:clamp(32px,4vw,48px)">
-          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_022802_f28c42bc-71f1-4a97-b2c2-7b73573f080c.png" alt="A man reaching for a supply carton at his kitchen bench" style="width:100%;height:100%;object-fit:cover;object-position:center 42%">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_230049_385327a8-ca0c-4721-89cd-aa18b47c1084.png" alt="A man reaching for a carton of supplies at his kitchen bench" style="width:100%;height:100%;object-fit:cover;object-position:center 42%">
         </div>
         <div style="max-width:46ch;margin-bottom:clamp(32px,4vw,48px)">
           <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;border:1px solid rgba(28,64,52,.3);border-radius:1000px;padding:7px 13px;margin-bottom:20px">For home</span>
@@ -514,7 +529,7 @@
         <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:14px">
           <a href="/gauge-finder" data-card style="background:#FAFAFA;border:1px solid #E3E3E1;border-radius:22px;display:block;overflow:hidden" style-hover="border-color:#0E0E0E">
             <span style="display:block;aspect-ratio:16/10;background:#E4E4E2">
-              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_222009_770720fa-5378-48dc-be8b-7838da365e47.png" alt="A hand holding an insulin syringe" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_230049_96279861-b990-4958-94e3-40fcc4f1904d.png" alt="Hands holding an insulin syringe" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
             </span>
             <span style="display:block;padding:26px 26px 28px">
               <span style="display:block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#59595A;margin-bottom:14px">Which needle</span>
@@ -557,7 +572,7 @@
           </div>
           <div>
             <div data-reveal style="border-radius:28px;overflow:hidden;background:#143026;aspect-ratio:3/2;margin-bottom:24px">
-              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_024336_577eda08-aacb-46e4-9674-3ce3c2cced4d.png" alt="A practice manager at a modern clinic reception counter" style="width:100%;height:100%;object-fit:cover">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_230049_f71776a5-56a5-45a2-9705-b71f8aae8c72.png" alt="A practice manager at a clinic reception counter" style="width:100%;height:100%;object-fit:cover">
             </div>
             <sc-for list="{{ tradeRows }}" as="r" hint-placeholder-count="4">
               <div style="display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid #2A5245;font-size:16px">
