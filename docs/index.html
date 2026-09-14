@@ -445,22 +445,22 @@ class Component extends DCLogic {
       toggleLearn: () => this.setState(s => ({ menu: s.menu === 'learn' ? null : 'learn' })),
       learnCols: [
         { title: 'Getting started', links: [
-          { label: 'Gauge Finder', href: 'gauge-finder.html' },
-          { label: 'What the numbers mean', href: 'learn.html' },
-          { label: 'Your first injection', href: 'learn.html' },
-          { label: 'Reading a syringe', href: 'learn.html' }
+          { label: 'Gauge Finder', href: '/gauge-finder' },
+          { label: 'What the numbers mean', href: '/learn' },
+          { label: 'Your first injection', href: '/learn' },
+          { label: 'Reading a syringe', href: '/learn' }
         ] },
         { title: 'Technique', links: [
-          { label: 'Injecting under the skin', href: 'learn.html' },
-          { label: 'Injecting into muscle', href: 'learn.html' },
-          { label: 'Reconstituting a powder', href: 'learn.html' },
-          { label: 'Rotating injection sites', href: 'learn.html' }
+          { label: 'Injecting under the skin', href: '/learn' },
+          { label: 'Injecting into muscle', href: '/learn' },
+          { label: 'Reconstituting a powder', href: '/learn' },
+          { label: 'Rotating injection sites', href: '/learn' }
         ] },
         { title: 'Standards & disposal', links: [
-          { label: 'Sharps disposal by state', href: 'learn.html' },
-          { label: 'What ARTG listing means', href: 'learn.html' },
-          { label: 'Storing supplies correctly', href: 'learn.html' },
-          { label: 'Batch and expiry explained', href: 'learn.html' }
+          { label: 'Sharps disposal by state', href: '/learn' },
+          { label: 'What ARTG listing means', href: '/learn' },
+          { label: 'Storing supplies correctly', href: '/learn' },
+          { label: 'Batch and expiry explained', href: '/learn' }
         ] }
       ],
       menuCols: [
@@ -515,23 +515,23 @@ class Component extends DCLogic {
 
       footerCols: [
         { title: 'Shop', links: [
-          { label: 'Syringes & needles', href: 'category.html' },
-          { label: 'Gloves & PPE', href: 'category.html' },
-          { label: 'Diluents & swabs', href: 'category.html' },
-          { label: 'Wound care', href: 'category.html' },
-          { label: 'Diagnostics', href: 'category.html' },
-          { label: 'Clinic & disposal', href: 'category.html' }
+          { label: 'Syringes & needles', href: '/category' },
+          { label: 'Gloves & PPE', href: '/category' },
+          { label: 'Diluents & swabs', href: '/category' },
+          { label: 'Wound care', href: '/category' },
+          { label: 'Diagnostics', href: '/category' },
+          { label: 'Clinic & disposal', href: '/category' }
         ] },
         { title: 'Help', links: [
-          { label: 'Gauge Finder', href: 'gauge-finder.html' },
+          { label: 'Gauge Finder', href: '/gauge-finder' },
           { label: 'Always Stocked', href: '#how' },
-          { label: 'Delivery & returns', href: 'contact.html' },
-          { label: 'Contact', href: 'contact.html' }
+          { label: 'Delivery & returns', href: '/contact' },
+          { label: 'Contact', href: '/contact' }
         ] },
         { title: 'Company', links: [
-          { label: 'About', href: 'about.html' },
+          { label: 'About', href: '/about' },
           { label: 'Sourcing', href: '#sourcing' },
-          { label: 'Clinic Portal', href: 'clinic-portal.html' },
+          { label: 'Clinic Portal', href: '/clinic-portal' },
           { label: 'Privacy', href: '#' }
         ] }
       ]
