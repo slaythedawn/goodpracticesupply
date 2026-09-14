@@ -185,7 +185,7 @@
       </sc-if>
       <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ false }}">
         <div data-gp-navpanel style="width:100%;border-top:1px solid rgba(143,191,166,.24);margin-top:12px;padding:18px 8px 8px;gap:2px;grid-template-columns:1fr">
-          <a href="/category" style="color:#FAFAFA;font-size:17px;font-weight:500;padding:11px 0">Shop</a>
+          <a href="/shop" style="color:#FAFAFA;font-size:17px;font-weight:500;padding:11px 0">Shop</a>
           <a href="/gauge-finder" style="color:#FAFAFA;font-size:17px;font-weight:500;padding:11px 0">Gauge Finder</a>
           <a href="/always-stocked" style="color:#FAFAFA;font-size:17px;font-weight:500;padding:11px 0">Always Stocked</a>
           <a href="/learn" style="color:#FAFAFA;font-size:17px;font-weight:500;padding:11px 0">Learn</a>
@@ -338,12 +338,12 @@ class Component extends DCLogic {
       ],
       menuCols: [
         { title: 'By category', links: [
-          { label: 'Injection & infusion', href: '/category' },
-          { label: 'Diluents & skin prep', href: '/category' },
-          { label: 'Gloves, PPE & hygiene', href: '/category' },
-          { label: 'Wound care & dressings', href: '/category' },
-          { label: 'Diagnostics & consult room', href: '/category' },
-          { label: 'Recovery & everyday', href: '/category' }
+          { label: 'Syringes & needles', href: '/shop/syringes-needles' },
+          { label: 'Diluents & swabs', href: '/shop/diluents-swabs' },
+          { label: 'Gloves & PPE', href: '/shop/gloves-ppe' },
+          { label: 'Wound care', href: '/shop/wound-care' },
+          { label: 'Diagnostics', href: '/shop/diagnostics' },
+          { label: 'Clinic & disposal', href: '/shop/clinic-disposal' }
         ] },
         { title: 'By protocol', links: [
           { label: 'GLP-1 and weight loss', href: '/for/glp-1-injections' },
@@ -358,15 +358,15 @@ class Component extends DCLogic {
           { label: 'Treatment room restock', href: '/for/clinic-fit-out' },
           { label: 'Diabetes management', href: '/for/diabetes-at-home' },
           { label: 'Post-procedure care', href: '/for/wound-care-at-home' },
-          { label: 'First aid & home kit', href: '/category' },
-          { label: 'Vaccination clinics', href: '/category' }
+          { label: 'First aid & home kit', href: '/shop' },
+          { label: 'Vaccination clinics', href: '/shop' }
         ] },
         { title: 'Featured', links: [
-          { label: 'Specials & clearance', href: '/category' },
-          { label: 'New this month', href: '/category' },
-          { label: 'Bestsellers', href: '/category' },
-          { label: 'Quick order by code', href: '/category' },
-          { label: 'Shop all 155', href: '/category' }
+          { label: 'Specials & clearance', href: '/shop' },
+          { label: 'New this month', href: '/shop' },
+          { label: 'Bestsellers', href: '/shop' },
+          { label: 'Quick order by code', href: '/shop' },
+          { label: 'Shop all 155', href: '/shop' }
         ] }
       ],
       applyLabel: this.state.applied ? 'Application sent' : 'Apply for an account',

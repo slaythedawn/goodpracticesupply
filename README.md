@@ -27,6 +27,24 @@ prototype for review.
 | Contact | `docs/contact.html` |
 | About | `docs/about.html` |
 
+## The shop
+
+43 generated pages forming the commerce spine, so every link on the site lands
+somewhere real:
+
+| Path | Count | What it is |
+|---|---|---|
+| `docs/shop.html` | 1 | All categories, plus protocol entry points |
+| `docs/shop/{category}.html` | 6 | Editorial intro, working filters, six product cards |
+| `docs/shop/{category}/{product}.html` | 36 | Gallery, variants, pack sizes, quantity, cart, spec sheet, related |
+
+The catalogue lives in one data file and the pages are generated from it, so the
+6 categories and 36 products share a single template each rather than 42 hand
+edited copies.
+
+The prices, product codes and batch numbers are invented placeholders. They are
+plausible and internally consistent, but nothing here is a real product record.
+
 ## Protocol landings
 
 Six pages under `/for/`, built from the site architecture doc, which calls

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Always Stocked | Good Practice Supply</title>
+<title>Drawing-up needles | Good Practice Supply</title>
 <link rel="icon" href="/brand/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/brand/gps-icon-180.png">
@@ -54,8 +54,7 @@
   :focus-visible { outline: 2.5px solid #0E0E0E; outline-offset: 3px; border-radius: 4px; }
   img { display: block; }
   :root { --ease-out: cubic-bezier(.2,.6,.2,1); --dur-base: 260ms; }
-  a, button { transition: color var(--dur-base) var(--ease-out), background-color var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out); }
-  button:active { transform: scale(.99); }
+  a { transition: color var(--dur-base) var(--ease-out), background-color var(--dur-base) var(--ease-out); }
   @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } }
   /* --- Sitewide header. Identical markup on every page so nav elements never shift. --- */
   [data-gp-burger] { display: none; }
@@ -209,21 +208,69 @@
   <div data-gp-spacer aria-hidden="true"></div>
 
   <main>
-
-    <section id="how" style="border-bottom:1px solid #E3E3E1">
+    <section style="border-bottom:1px solid #E3E3E1">
       <div data-gp-pagehead style="max-width:1440px;margin:0 auto;padding:clamp(32px,5vw,64px) clamp(20px,5vw,72px) clamp(48px,7vw,96px)">
-        <div data-gp-pagehead-grid style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:clamp(28px,4vw,64px);align-items:center">
+        <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#59595A;margin-bottom:clamp(20px,3vw,28px)">
+          <a href="/" style="color:#59595A">Home</a> / <a href="/shop" style="color:#59595A">Shop</a> / <a href="/shop/syringes-needles" style="color:#59595A">Syringes &amp; needles</a> / <span style="color:#0E0E0E">Drawing-up needles</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:clamp(28px,4vw,64px);align-items:start">
           <div>
-            <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;border:1px solid rgba(28,64,52,.3);border-radius:1000px;padding:7px 13px;margin-bottom:20px">Always Stocked</span>
-            <h1 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(32px,3.8vw,52px);letter-spacing:-.035em;line-height:1.02;margin:0 0 18px;max-width:16ch">Software that keeps your shelf full.</h1>
-            <p style="margin:0 0 30px;font-size:17.5px;line-height:1.55;color:#3A3A38;max-width:46ch">Connect your practice software or set a rhythm by hand. Always Stocked tracks what you get through, sees a line running low and sends it before anyone notices, at 15% off every time.</p>
-            <div style="display:flex;gap:12px;flex-wrap:wrap">
-              <a href="/shop" style="background:#0E0E0E;color:#FAFAFA;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600">Build a list</a>
-              <a href="/clinic-portal" style="border:1px solid #0E0E0E;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600">For clinics</a>
+            <div style="position:relative;border-radius:28px;overflow:hidden;background:#EDEDEB;aspect-ratio:4/3">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_023904_70721a4d-07ea-42bc-b730-aba9835e34b7.png" alt="The box, closed" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ op0 }};transition:opacity var(--dur-base,260ms) ease">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_031429_9653357d-54b9-47f5-bdac-f1686c716860.png" alt="Macro of the bevel" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ op1 }};transition:opacity var(--dur-base,260ms) ease">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_031429_c3ac1819-2bb8-4e0b-af1e-dbd72e0116fd.png" alt="Lengths side by side" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ op2 }};transition:opacity var(--dur-base,260ms) ease">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_023904_ee6d90dc-da5a-4635-81c5-6707caee41a3.png" alt="Blister wrapped, in the tray" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ op3 }};transition:opacity var(--dur-base,260ms) ease">
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px">
+              <button type="button" onClick="{{ pick0 }}" aria-label="The box, closed" style="padding:0;cursor:pointer;background:#EDEDEB;border:1px solid {{ th0 }};border-radius:14px;overflow:hidden;aspect-ratio:1/1">
+                <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_023904_70721a4d-07ea-42bc-b730-aba9835e34b7.png" alt="" style="width:100%;height:100%;object-fit:cover">
+              </button>
+              <button type="button" onClick="{{ pick1 }}" aria-label="Macro of the bevel" style="padding:0;cursor:pointer;background:#EDEDEB;border:1px solid {{ th1 }};border-radius:14px;overflow:hidden;aspect-ratio:1/1">
+                <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_031429_9653357d-54b9-47f5-bdac-f1686c716860.png" alt="" style="width:100%;height:100%;object-fit:cover">
+              </button>
+              <button type="button" onClick="{{ pick2 }}" aria-label="Lengths side by side" style="padding:0;cursor:pointer;background:#EDEDEB;border:1px solid {{ th2 }};border-radius:14px;overflow:hidden;aspect-ratio:1/1">
+                <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_031429_c3ac1819-2bb8-4e0b-af1e-dbd72e0116fd.png" alt="" style="width:100%;height:100%;object-fit:cover">
+              </button>
+              <button type="button" onClick="{{ pick3 }}" aria-label="Blister wrapped, in the tray" style="padding:0;cursor:pointer;background:#EDEDEB;border:1px solid {{ th3 }};border-radius:14px;overflow:hidden;aspect-ratio:1/1">
+                <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_023904_ee6d90dc-da5a-4635-81c5-6707caee41a3.png" alt="" style="width:100%;height:100%;object-fit:cover">
+              </button>
             </div>
           </div>
-          <div style="border-radius:28px;overflow:hidden;background:#EDEDEB;aspect-ratio:4/3">
-            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_023904_70721a4d-07ea-42bc-b730-aba9835e34b7.png" alt="An open carton of supplies with blister-wrapped rows inside" style="width:100%;height:100%;object-fit:cover">
+          <div id="buy">
+            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px">
+              <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#143026;background:#8FBFA6;border-radius:1000px;padding:7px 12px">In stock</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;color:#59595A">{{ batchLine }}</span>
+            </div>
+            <h1 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(30px,3.4vw,46px);letter-spacing:-.035em;line-height:1.04;margin:0 0 14px">Drawing-up needles</h1>
+            <p style="margin:0 0 26px;font-size:17px;line-height:1.55;color:#3A3A38;max-width:46ch">Blunt, so it cannot be injected with by accident, and wide enough to pull a thick oil out of a vial in seconds rather than a minute.</p>
+            <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;margin-bottom:12px">Option</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px">
+              <sc-for list="{{ variants }}" as="v" hint-placeholder-count="2">
+                <button type="button" onClick="{{ v.pick }}" aria-pressed="{{ v.on }}" style="cursor:pointer;text-align:left;font-family:'Archivo',sans-serif;font-size:15px;font-weight:500;border:1px solid {{ v.border }};background:{{ v.bg }};color:{{ v.fg }};border-radius:14px;padding:12px 16px">
+                  <span style="display:block">{{ v.label }}</span>
+                  <span style="display:block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;opacity:.7;margin-top:4px">{{ v.hint }}</span>
+                </button>
+              </sc-for>
+            </div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;margin-bottom:12px">Pack size</div>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px">
+              <sc-for list="{{ packs }}" as="k" hint-placeholder-count="2">
+                <button type="button" onClick="{{ k.pick }}" aria-pressed="{{ k.on }}" style="cursor:pointer;text-align:left;width:100%%;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:'Archivo',sans-serif;font-size:15.5px;font-weight:500;border:1px solid {{ k.border }};background:{{ k.bg }};color:{{ k.fg }};border-radius:14px;padding:14px 18px">
+                  <span>{{ k.label }}</span>
+                  <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:14px">{{ k.price }}</span>
+                </button>
+              </sc-for>
+            </div>
+            <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px">
+              <div style="display:flex;align-items:center;gap:6px;border:1px solid #E3E3E1;border-radius:1000px;padding:6px 10px;background:#FAFAFA">
+                <button type="button" onClick="{{ dec }}" aria-label="Decrease quantity" style="border:0;background:none;cursor:pointer;font-size:19px;width:34px;height:34px;color:#0E0E0E">&minus;</button>
+                <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:15px;min-width:26px;text-align:center">{{ qty }}</span>
+                <button type="button" onClick="{{ inc }}" aria-label="Increase quantity" style="border:0;background:none;cursor:pointer;font-size:19px;width:34px;height:34px;color:#0E0E0E">+</button>
+              </div>
+              <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:22px">{{ totalLabel }}</span>
+            </div>
+            <button type="button" onClick="{{ addToCart }}" data-cta style="width:100%%;cursor:pointer;border:0;background:#0E0E0E;color:#FAFAFA;border-radius:1000px;padding:17px 30px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:600">{{ ctaLabel }}</button>
+            <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;color:#59595A;margin-top:14px;line-height:1.7">Free delivery over $99. Dispatched the same day from Sydney. Plain unmarked box.</div>
           </div>
         </div>
       </div>
@@ -231,51 +278,18 @@
 
     <section style="background:#F2F2F1;border-bottom:1px solid #E3E3E1">
       <div style="max-width:1440px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,5vw,72px)">
-        <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;line-height:1.05;margin:0 0 30px;max-width:20ch">Set it once</h2>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:clamp(20px,3vw,40px);align-items:start">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:clamp(28px,4vw,64px);align-items:start">
           <div>
-            <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#59595A;margin-bottom:14px">How often</div>
-            <div style="display:flex;gap:9px;flex-wrap:wrap;margin-bottom:26px">
-              <sc-for list="{{ cadences }}" as="c" hint-placeholder-count="4">
-                <button type="button" onClick="{{ c.pick }}" aria-pressed="{{ c.on }}" style="cursor:pointer;font-family:'Archivo',sans-serif;font-size:15.5px;font-weight:600;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.fg }};border-radius:1000px;padding:13px 22px">{{ c.label }}</button>
-              </sc-for>
-            </div>
-            <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#59595A;margin-bottom:14px">What is in it</div>
-            <div style="background:#FAFAFA;border:1px solid #E3E3E1;border-radius:22px;padding:8px 22px 10px">
-              <sc-for list="{{ items }}" as="i" hint-placeholder-count="4">
-                <div style="display:flex;justify-content:space-between;gap:16px;padding:15px 0;border-bottom:1px solid #E3E3E1;align-items:baseline">
-                  <span style="font-size:15.5px">{{ i.name }}</span>
-                  <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:14px;color:#59595A">{{ i.spec }}</span>
-                </div>
-              </sc-for>
-              <div style="display:flex;justify-content:space-between;gap:16px;padding:15px 0;align-items:baseline">
-                <span style="font-size:15.5px;color:#59595A">Add or remove anything</span>
-                <a href="/shop" style="font-size:15px;font-weight:600;border-bottom:1.5px solid #C4C4C2;padding-bottom:2px">Edit list</a>
-              </div>
-            </div>
+            <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;line-height:1.05;margin:0 0 16px">Everything on the box, before you buy.</h2>
+            <p style="margin:0;font-size:17.5px;line-height:1.55;color:#3A3A38;max-width:52ch">The incumbents make you register to see a price. The batch and the expiry you are shipped are the ones printed here.</p>
           </div>
-
-          <div style="background:#143026;color:#FAFAFA;border-radius:28px;overflow:hidden">
-            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:20px 24px;border-bottom:1px solid #2A5245">
-              <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8FBFA6">Your schedule</span>
-              <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;color:#B7CFC3">{{ cadenceLabel }}</span>
-            </div>
-            <div style="padding:8px 24px 4px">
-              <sc-for list="{{ deliveries }}" as="d" hint-placeholder-count="3">
-                <div style="display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid #2A5245;align-items:baseline">
-                  <span style="font-size:15.5px;color:#B7CFC3">{{ d.k }}</span>
-                  <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:15px;color:#FAFAFA;text-align:right">{{ d.v }}</span>
-                </div>
-              </sc-for>
-            </div>
-            <div style="padding:22px 24px 26px">
-              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:8px">
-                <span style="font-size:16px;color:#B7CFC3">Each delivery</span>
-                <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:30px;letter-spacing:-.025em;color:#FAFAFA">{{ total }}</span>
+          <div style="border-top:1px solid #E3E3E1">
+            <sc-for list="{{ specRows }}" as="r" hint-placeholder-count="9">
+              <div style="display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid #E3E3E1;align-items:baseline">
+                <span style="font-size:16px;color:#3A3A38">{{ r.k }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:14.5px;color:#0E0E0E;text-align:right">{{ r.v }}</span>
               </div>
-              <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;color:#8FBFA6;margin-bottom:22px">{{ saving }}</div>
-              <a href="/shop" style="display:inline-block;background:#8FBFA6;color:#143026;border-radius:1000px;padding:14px 26px;font-size:15.5px;font-weight:600">Start Always Stocked</a>
-            </div>
+            </sc-for>
           </div>
         </div>
       </div>
@@ -283,25 +297,51 @@
 
     <section style="border-bottom:1px solid #E3E3E1">
       <div style="max-width:1440px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,5vw,72px)">
-        <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;line-height:1.05;margin:0 0 30px;max-width:22ch">No lock-in, ever</h2>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:14px">
-          <sc-for list="{{ rules }}" as="r" hint-placeholder-count="4">
-            <div style="background:#F2F2F1;border:1px solid #E3E3E1;border-radius:22px;padding:26px 24px">
-              <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:18px;letter-spacing:-.02em;margin-bottom:9px">{{ r.title }}</div>
-              <div style="font-size:15.5px;line-height:1.55;color:#3A3A38">{{ r.body }}</div>
-            </div>
-          </sc-for>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:22px">
+          <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.025em;margin:0">Often bought together</h2>
+          <a href="/shop/syringes-needles" data-link style="font-size:15px;font-weight:600;border-bottom:1.5px solid #C4C4C2;padding-bottom:3px;white-space:nowrap">All syringes &amp; needles <span data-arrow>&rarr;</span></a>
         </div>
-      </div>
-    </section>
-
-    <section style="background:#1C4034;color:#FAFAFA">
-      <div style="max-width:1440px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,5vw,72px);display:flex;justify-content:space-between;align-items:center;gap:24px 40px;flex-wrap:wrap">
-        <div>
-          <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(24px,2.8vw,36px);letter-spacing:-.03em;line-height:1.1;margin:0 0 10px;color:#FAFAFA;max-width:24ch">Running more than one room?</h2>
-          <p style="margin:0;font-size:16.5px;line-height:1.5;color:#B7CFC3;max-width:46ch">Clinic accounts keep a separate list and schedule per site, on 30 day invoicing.</p>
+        <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:14px">
+          <a href="/shop/syringes-needles/u-100-insulin-syringes" data-card data-tag="insulin" style="border:1px solid #E3E3E1;border-radius:22px;overflow:hidden;display:block;background:#FAFAFA" style-hover="border-color:#0E0E0E">
+            <span style="display:block;background:#EDEDEB;aspect-ratio:4/3;overflow:hidden">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_014655_c87ec5d7-96f6-4729-b6ef-fc062184ab3f.png" alt="The box, closed" style="width:100%;height:100%;object-fit:cover">
+            </span>
+            <span style="padding:18px 20px 20px;display:flex;flex-direction:column;gap:7px">
+              <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#59595A">Fixed needle, graduated in units</span>
+              <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:17px;letter-spacing:-.02em">U-100 insulin syringes</span>
+              <span style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:4px">
+                <span style="font-size:16.5px;font-weight:600">$47.76</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;color:#59595A">Box of 100</span>
+              </span>
+            </span>
+          </a>
+          <a href="/shop/syringes-needles/luer-lock-syringes" data-card data-tag="luer" style="border:1px solid #E3E3E1;border-radius:22px;overflow:hidden;display:block;background:#FAFAFA" style-hover="border-color:#0E0E0E">
+            <span style="display:block;background:#EDEDEB;aspect-ratio:4/3;overflow:hidden">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_014655_c87ec5d7-96f6-4729-b6ef-fc062184ab3f.png" alt="The box, closed" style="width:100%;height:100%;object-fit:cover">
+            </span>
+            <span style="padding:18px 20px 20px;display:flex;flex-direction:column;gap:7px">
+              <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#59595A">Three part, screw fitting</span>
+              <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:17px;letter-spacing:-.02em">Luer-lock syringes</span>
+              <span style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:4px">
+                <span style="font-size:16.5px;font-weight:600">$32.40</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;color:#59595A">Box of 100</span>
+              </span>
+            </span>
+          </a>
+          <a href="/shop/syringes-needles/hypodermic-needles" data-card data-tag="needles" style="border:1px solid #E3E3E1;border-radius:22px;overflow:hidden;display:block;background:#FAFAFA" style-hover="border-color:#0E0E0E">
+            <span style="display:block;background:#EDEDEB;aspect-ratio:4/3;overflow:hidden">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260912_023904_70721a4d-07ea-42bc-b730-aba9835e34b7.png" alt="The box, closed" style="width:100%;height:100%;object-fit:cover">
+            </span>
+            <span style="padding:18px 20px 20px;display:flex;flex-direction:column;gap:7px">
+              <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#59595A">ISO colour coded hub</span>
+              <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:17px;letter-spacing:-.02em">Hypodermic needles</span>
+              <span style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:4px">
+                <span style="font-size:16.5px;font-weight:600">$12.90</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;color:#59595A">Box of 100</span>
+              </span>
+            </span>
+          </a>
         </div>
-        <a href="/clinic-portal" style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600;white-space:nowrap">Clinic Portal</a>
       </div>
     </section>
 
@@ -313,7 +353,7 @@
         <span style="font-family:'Archivo Black','Archivo',sans-serif;font-size:22px;letter-spacing:-.055em;line-height:.9;color:#FAFAFA">goodpractice</span>
         <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:#B7CFC3;line-height:1">Supply</span>
       </a>
-      <div style="font-size:13.5px;line-height:1.7;color:#B7CFC3;max-width:64ch">Good Practice Supply supplies medical consumables only. Nothing here is medical advice.</div>
+      <div style="font-size:13.5px;line-height:1.7;color:#B7CFC3;max-width:64ch">Good Practice Supply supplies medical consumables only. We do not supply peptides, hormones or any prescription medicine. Nothing here is medical advice.</div>
     </div>
   </footer>
 
@@ -322,26 +362,40 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:880}}">
 class Component extends DCLogic {
-  state = { menu: null, weeks: 8 };
+  state = { menu: null, img: 0, variant: 0, pack: 0, qty: 1, cart: 0, added: false };
 
-  fmt(d) {
-    return d.toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short' });
+  componentDidMount() {
+    const nodes = Array.from(document.querySelectorAll('[data-reveal]'));
+    if (!nodes.length || !('IntersectionObserver' in window)) return;
+    this._io = new IntersectionObserver((entries, obs) => {
+      entries.filter(e => e.isIntersecting).forEach((e, i) => {
+        e.target.style.setProperty('--reveal-delay', (i * 70) + 'ms');
+        e.target.classList.add('is-in');
+        obs.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+    nodes.forEach(n => this._io.observe(n));
+  }
+
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
   }
 
   renderVals() {
-    const w = this.state.weeks;
-    const now = new Date();
-    const deliveries = [1, 2, 3].map(n => {
-      const d = new Date(now.getTime());
-      d.setDate(d.getDate() + w * 7 * n);
-      return { k: n === 1 ? 'Next delivery' : 'Then', v: this.fmt(d) };
+    const s = this.state;
+    const VARIANTS = [{"label": "18G blunt fill", "hint": "Standard"}, {"label": "21G sharp fill", "hint": "Through a stopper"}];
+    const PACKS = [{"label": "Box of 100", "price": 1420}, {"label": "Box of 500", "price": 6200}];
+    const money = c => '$' + (c / 100).toFixed(2);
+    const sel = on => ({
+      bg: on ? '#0E0E0E' : '#FAFAFA',
+      fg: on ? '#FAFAFA' : '#0E0E0E',
+      border: on ? '#0E0E0E' : '#E3E3E1'
     });
+    const pack = PACKS[s.pack];
+    const total = pack.price * s.qty;
+    const code = "GPS-SYR-004" + '-' + String(s.variant + 1).padStart(2, '0');
 
-    const base = 76.06;
-    const total = base * 0.85;
-    const money = n => '$' + n.toFixed(2);
-
-    return {
+    const vals = {
       shopOpen: this.state.menu === 'shop',
       shopCaret: this.state.menu === 'shop' ? 'rotate(180deg)' : 'none',
       toggleShop: () => this.setState(s => ({ menu: s.menu === 'shop' ? null : 'shop' })),
@@ -350,7 +404,34 @@ class Component extends DCLogic {
       toggleLearn: () => this.setState(s => ({ menu: s.menu === 'learn' ? null : 'learn' })),
       navOpen: this.state.menu === 'nav',
       toggleNav: () => this.setState(s => ({ menu: s.menu === 'nav' ? null : 'nav' })),
-      cartCount: String(this.state.cart || 0),
+      cartCount: String(s.cart),
+
+      variants: VARIANTS.map((v, i) => {
+        const c = sel(s.variant === i);
+        return { label: v.label, hint: v.hint || '\u00a0', on: s.variant === i,
+                 bg: c.bg, fg: c.fg, border: c.border,
+                 pick: () => this.setState({ variant: i, added: false }) };
+      }),
+      packs: PACKS.map((k, i) => {
+        const c = sel(s.pack === i);
+        return { label: k.label, price: money(k.price), on: s.pack === i,
+                 bg: c.bg, fg: c.fg, border: c.border,
+                 pick: () => this.setState({ pack: i, added: false }) };
+      }),
+      qty: String(s.qty),
+      inc: () => this.setState(p => ({ qty: Math.min(20, p.qty + 1), added: false })),
+      dec: () => this.setState(p => ({ qty: Math.max(1, p.qty - 1), added: false })),
+      totalLabel: money(total),
+      ctaLabel: s.added ? 'Added to cart' : 'Add to cart',
+      addToCart: () => this.setState(p => ({ added: true, cart: p.cart + p.qty })),
+
+      batchLine: code + ' · Batch 26F-114 · Exp 04/28',
+      code,
+      batch: '26F-114',
+      packLabel: pack.label,
+      artg: 'Listed, see carton',
+      specRows: [{"k": "Brand", "v": "Good Practice Supply"}, {"k": "Tip", "v": "Blunt fill"}, {"k": "Use", "v": "Drawing only"}, {"k": "Pack", "v": pack.label}, {"k": "Product code", "v": code}, {"k": "Batch", "v": '26F-114'}, {"k": "Expiry", "v": "04/2028"}, {"k": "Country of origin", "v": "Malaysia"}, {"k": "ARTG", "v": "Listed, see carton"}],
+
       learnCols: [
         { title: 'Getting started', links: [
           { label: 'Gauge Finder', href: '/gauge-finder' },
@@ -404,33 +485,14 @@ class Component extends DCLogic {
           { label: 'Shop all 155', href: '/shop' }
         ] }
       ],
-      cadences: [4, 6, 8, 12].map(n => {
-        const on = w === n;
-        return {
-          label: n + ' weeks', on,
-          bg: on ? '#0E0E0E' : '#FAFAFA',
-          fg: on ? '#FAFAFA' : '#0E0E0E',
-          border: on ? '#0E0E0E' : '#E3E3E1',
-          pick: () => this.setState({ weeks: n })
-        };
-      }),
-      cadenceLabel: 'Every ' + w + ' weeks',
-      deliveries,
-      items: [
-        { name: 'U-100 insulin syringes', spec: '30G × 8mm · 100' },
-        { name: 'Alcohol swabs', spec: '70% IPA · 100' },
-        { name: 'Bacteriostatic water', spec: '10mL vial' },
-        { name: 'Sharps container', spec: '1.4L' }
-      ],
-      total: money(total),
-      saving: 'Saving ' + money(base - total) + ' against buying each time',
-      rules: [
-        { title: 'Skip a delivery', body: 'One tap to push the next one back. Nothing is charged until it ships.' },
-        { title: 'Change anything', body: 'Swap a gauge, add a product or change the quantity between deliveries.' },
-        { title: 'Stop whenever', body: 'Cancel in a click. No notice period, no phone call, no retention offer.' },
-        { title: 'Told before it ships', body: 'An email three days before each delivery, with what is in it and what it costs.' }
-      ]
     };
+    // four stacked images, one visible
+    for (let i = 0; i < 4; i++) {
+      vals['op' + i] = s.img === i ? '1' : '0';
+      vals['th' + i] = s.img === i ? '#0E0E0E' : '#E3E3E1';
+      vals['pick' + i] = () => this.setState({ img: i });
+    }
+    return vals;
   }
 }
 </script>

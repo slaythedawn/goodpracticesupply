@@ -182,7 +182,7 @@
       </sc-if>
       <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ false }}">
         <div data-gp-navpanel style="width:100%;border-top:1px solid rgba(143,191,166,.24);margin-top:12px;padding:18px 8px 8px;gap:2px;grid-template-columns:1fr">
-          <a href="/category" style="color:#FAFAFA;font-size:17px;font-weight:500;padding:11px 0">Shop</a>
+          <a href="/shop" style="color:#FAFAFA;font-size:17px;font-weight:500;padding:11px 0">Shop</a>
           <a href="/gauge-finder" style="color:#FAFAFA;font-size:17px;font-weight:500;padding:11px 0">Gauge Finder</a>
           <a href="/always-stocked" style="color:#FAFAFA;font-size:17px;font-weight:500;padding:11px 0">Always Stocked</a>
           <a href="/learn" style="color:#FAFAFA;font-size:17px;font-weight:500;padding:11px 0">Learn</a>
@@ -280,7 +280,7 @@
                 <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:22px;color:#FAFAFA">{{ total }}</span>
               </div>
               <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-                <a href="/category" data-cta style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:14px 26px;font-size:15.5px;font-weight:600">Add the kit</a>
+                <a href="/shop/wound-care" data-cta style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:14px 26px;font-size:15.5px;font-weight:600">Add the kit</a>
                 <a href="/always-stocked" style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#B7CFC3;border-bottom:1px solid #2A5245;padding-bottom:3px">Or set it to repeat</a>
               </div>
             </div>
@@ -390,7 +390,7 @@
           </div>
           <div style="display:flex;gap:12px;flex-wrap:wrap">
             <a href="/gauge-finder" data-cta style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600">Open the Gauge Finder</a>
-            <a href="/category" data-cta style="border:1px solid rgba(143,191,166,.55);color:#FAFAFA;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600">Browse the range</a>
+            <a href="/shop" data-cta style="border:1px solid rgba(143,191,166,.55);color:#FAFAFA;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600">Browse the range</a>
           </div>
         </div>
       </div>
@@ -565,12 +565,12 @@ class Component extends DCLogic {
       ],
       menuCols: [
         { title: 'By category', links: [
-          { label: 'Injection & infusion', href: '/category' },
-          { label: 'Diluents & skin prep', href: '/category' },
-          { label: 'Gloves, PPE & hygiene', href: '/category' },
-          { label: 'Wound care & dressings', href: '/category' },
-          { label: 'Diagnostics & consult room', href: '/category' },
-          { label: 'Recovery & everyday', href: '/category' }
+          { label: 'Syringes & needles', href: '/shop/syringes-needles' },
+          { label: 'Diluents & swabs', href: '/shop/diluents-swabs' },
+          { label: 'Gloves & PPE', href: '/shop/gloves-ppe' },
+          { label: 'Wound care', href: '/shop/wound-care' },
+          { label: 'Diagnostics', href: '/shop/diagnostics' },
+          { label: 'Clinic & disposal', href: '/shop/clinic-disposal' }
         ] },
         { title: 'By protocol', links: [
           { label: 'GLP-1 and weight loss', href: '/for/glp-1-injections' },
@@ -585,15 +585,15 @@ class Component extends DCLogic {
           { label: 'Treatment room restock', href: '/for/clinic-fit-out' },
           { label: 'Diabetes management', href: '/for/diabetes-at-home' },
           { label: 'Post-procedure care', href: '/for/wound-care-at-home' },
-          { label: 'First aid & home kit', href: '/category' },
-          { label: 'Vaccination clinics', href: '/category' }
+          { label: 'First aid & home kit', href: '/shop' },
+          { label: 'Vaccination clinics', href: '/shop' }
         ] },
         { title: 'Featured', links: [
-          { label: 'Specials & clearance', href: '/category' },
-          { label: 'New this month', href: '/category' },
-          { label: 'Bestsellers', href: '/category' },
-          { label: 'Quick order by code', href: '/category' },
-          { label: 'Shop all 155', href: '/category' }
+          { label: 'Specials & clearance', href: '/shop' },
+          { label: 'New this month', href: '/shop' },
+          { label: 'Bestsellers', href: '/shop' },
+          { label: 'Quick order by code', href: '/shop' },
+          { label: 'Shop all 155', href: '/shop' }
         ] }
       ],
     };
