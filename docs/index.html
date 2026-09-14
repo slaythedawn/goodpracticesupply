@@ -133,13 +133,17 @@
     flex-direction: column;
     justify-content: flex-end;
   }
-  [data-gp-hero-media] { position: absolute; inset: 0; z-index: 0; }
+  /* His head sits 4% from the top edge of this frame, which is less headroom
+     than the header is deep, so the picture starts below the header rather
+     than running under it. The section ground fills the strip behind the nav,
+     the same way it already does on a phone. */
+  [data-gp-hero-media] { position: absolute; inset: 0; top: var(--gp-header-h, 107px); z-index: 0; }
   [data-gp-hero-media] img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 100% 12%;
+    object-position: 100% 0%;
     animation: gpFade 1.1s var(--ease-out) both;
   }
   /* A short pass down from the top so the transparent header stays legible,
@@ -186,14 +190,6 @@
     gap: 1px;
   }
   [data-gp-fact] { background: rgba(20,48,38,.22); padding: 15px 17px; }
-
-  /* Between 900 and 1100 the announcement strip wraps to two lines and the
-     header grows to 172px, which is deeper than the headroom above his head in
-     the photograph. Start the picture below the header at those widths, the
-     way it already does on a phone, and let the section ground fill the strip. */
-  @media (min-width: 901px) and (max-width: 1100px) {
-    [data-gp-hero-media] { top: var(--gp-header-h, 107px); }
-  }
 
   @media (max-width: 900px) {
     /* The picture becomes its own block and the card straddles its bottom edge.
@@ -336,7 +332,7 @@
       <div data-gp-hero-media>
         <picture>
           <source media="(max-width: 900px)" srcset="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_223608_779d7ef7-5a09-4a9b-8280-3edf6f34f911.png">
-          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_223609_6f7f8787-d3c8-4c63-95f6-6dabb3c68cd1.png" alt="A man standing against a bare wall in a bright, modern room">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_223340_9437cbb8-79a4-42e2-912d-7cbf9eab7f96.png" alt="A man standing against a bare wall in a bright, modern room">
         </picture>
         <div aria-hidden="true" data-gp-hero-scrim></div>
       </div>
