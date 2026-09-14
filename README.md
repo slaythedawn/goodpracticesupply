@@ -27,8 +27,29 @@ prototype for review.
 | Contact | `docs/contact.html` |
 | About | `docs/about.html` |
 
+## Protocol landings
+
+Six pages under `/for/`, built from the site architecture doc, which calls
+protocol based shopping "the wedge, and it should be built first":
+
+| Page | Target query |
+|---|---|
+| `docs/for/glp-1-injections.html` | what do I need to inject a GLP-1 at home |
+| `docs/for/trt-injections.html` | trt injection supplies australia |
+| `docs/for/peptide-reconstitution.html` | bacteriostatic water australia |
+| `docs/for/diabetes-at-home.html` | insulin syringes australia |
+| `docs/for/wound-care-at-home.html` | dressings for home use |
+| `docs/for/clinic-fit-out.html` | setting up a medical practice supplies |
+
+Each carries a kit sized by a frequency selector, showing how long each pack
+lasts at that rate rather than implying a box of 100 is a month's use. Each also
+states plainly what Good Practice Supply sells and what comes from a pharmacy,
+because the compliance line in the handoff is absolute: consumables only, never
+peptides, hormones or any prescription medicine.
+
 Every page is interactive. Filters, the gauge questionnaire, the cadence
-selector, the quantity stepper and cart count, and the contact routing all work.
+selector, the quantity stepper and cart count, the protocol kit selectors and
+the contact routing all work.
 
 ## Running it locally
 
