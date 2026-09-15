@@ -1,2 +1,7 @@
+# https://goodpracticesupply.com.au
 User-agent: *
-Disallow: /
+Allow: /
+# Every page currently carries a noindex meta tag and a matching
+# X-Robots-Tag header. Crawling is allowed so that is readable.
+
+Sitemap: https://goodpracticesupply.com.au/sitemap.xml

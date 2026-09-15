@@ -1,6 +1,7 @@
 import io, json, os, sys, html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from catalogue import CATEGORIES, SHOTS, I
+import seo as SEO
 
 import pathlib
 DOCS=str(pathlib.Path(__file__).resolve().parent.parent / 'docs')
@@ -33,9 +34,15 @@ def crumbs(items):
     out.append('          '+' / '.join(parts)+'\n        </div>\n')
     return ''.join(out)
 
-def page(title, main, script):
+def page(title, main, script, head_extra=''):
     head=HEAD.replace('<title>About | Good Practice Supply</title>','<title>%s | Good Practice Supply</title>'%E(title))
     assert E(title) in head
+    if SEO.INDEXABLE:
+        head=head.replace('<meta name="robots" content="noindex, nofollow">',
+                          '<meta name="robots" content="index, follow, max-image-preview:large">')
+    if head_extra:
+        assert '</head>' in head
+        head=head.replace('</head>', head_extra.rstrip()+'\n</head>', 1)
     return head+'\n\n  '+main+'\n\n  '+FOOTER+'\n\n</div>\n\n</x-dc>\n'+script+'\n</body>\n</html>\n'
 
 SCRIPT_OPEN='<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:880}}">'
@@ -64,6 +71,81 @@ REVEAL="""  componentDidMount() {
     if (this._io) this._io.disconnect();
   }
 """
+
+# ------------------------------------------------------- long form sections
+# A product page with a buy panel and a spec table has nothing on it for a
+# search engine to understand, and nothing for a buyer who has not decided yet.
+# These two sections are what the page is actually about.
+
+def prose(sections, bg=''):
+    """[(heading, [paragraph, ...])] as one readable column."""
+    o=[]; a=o.append
+    a('    <section style="%sborder-bottom:1px solid #E3E3E1">\n      <div style="%s">\n'%(bg,WRAP))
+    for i,(head,paras) in enumerate(sections):
+        a('        <div style="max-width:74ch%s">\n'%('' if i==0 else ';margin-top:clamp(36px,5vw,60px)'))
+        a('          <h2 style="%s">%s</h2>\n'%(H2,E(head)))
+        for t in paras:
+            a('          <p style="margin:0 0 18px;font-size:17px;line-height:1.62;color:#3A3A38">%s</p>\n'%E(t))
+        a('        </div>\n')
+    a('      </div>\n    </section>\n\n')
+    return ''.join(o)
+
+def faq_block(title, pairs, bg='background:#F2F2F1;'):
+    o=[]; a=o.append
+    a('    <section style="%sborder-bottom:1px solid #E3E3E1">\n      <div style="%s">\n'%(bg,WRAP))
+    a('        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:clamp(28px,4vw,64px);align-items:start">\n')
+    a('          <div>\n            <h2 style="%s">%s</h2>\n'%(H2,E(title)))
+    a('            <p style="%s">If yours is not here, the contact form routes to the person who can answer it.</p>\n          </div>\n'%LEAD.replace('0 0 16px','0'))
+    a('          <div style="border-top:1px solid #E3E3E1">\n')
+    for q,ans in pairs:
+        a('            <div style="padding:22px 0;border-bottom:1px solid #E3E3E1">\n')
+        a('              <h3 style="font-family:\'Archivo\',sans-serif;font-weight:600;font-size:17px;letter-spacing:-.02em;margin:0 0 8px">%s</h3>\n'%E(q))
+        a('              <div style="font-size:15.5px;line-height:1.6;color:#3A3A38">%s</div>\n            </div>\n'%E(ans))
+    a('          </div>\n        </div>\n      </div>\n    </section>\n\n')
+    return ''.join(o)
+
+# Where a category sits in the rest of the site. Product pages that only link to
+# other product pages are a dead end for a crawler and for a reader.
+USE_WITH = {
+ 'syringes-needles': [('/gauge-finder','Gauge Finder','Three questions and it picks the thickness and the length.'),
+                      ('/learn/needle-gauge-chart','Needle gauge chart','Every gauge, its diameter in millimetres and its hub colour.'),
+                      ('/for/glp-1-injections','For GLP-1 injections','The whole kit for a weekly injection at home.')],
+ 'diluents-swabs':  [('/tools/reconstitution-calculator','Reconstitution calculator','Turns a dose in milligrams into a mark on the barrel.'),
+                      ('/for/peptide-reconstitution','For reconstitution','What to have on the bench, and the part that goes wrong.'),
+                      ('/learn/needle-gauge-chart','Needle gauge chart','Which gauge draws and which one injects.')],
+ 'gloves-ppe':      [('/for/clinic-fit-out','For a clinic fit-out','The consumables list, room by room, priced.'),
+                      ('/always-stocked','Always Stocked','Set the list once and the room looks after itself.'),
+                      ('/clinic-portal','Clinic Portal','Trade pricing and standing orders per site.')],
+ 'wound-care':      [('/for/wound-care-at-home','For wound care at home','What a treatment room does differently.'),
+                      ('/for/clinic-fit-out','For a clinic fit-out','The consumables list, room by room, priced.'),
+                      ('/always-stocked','Always Stocked','It ships before a line runs low.')],
+ 'diagnostics':     [('/for/diabetes-at-home','For diabetes at home','Lancets, strips and what the NDSS covers.'),
+                      ('/for/clinic-fit-out','For a clinic fit-out','The consumables list, room by room, priced.'),
+                      ('/clinic-portal','Clinic Portal','Trade pricing and standing orders per site.')],
+ 'clinic-disposal': [('/for/clinic-fit-out','For a clinic fit-out','The consumables list, room by room, priced.'),
+                      ('/always-stocked','Always Stocked','The category that should never be on someone\u2019s memory.'),
+                      ('/learn','Guides','Sharps disposal, state by state.')],
+ 'hygiene-cleaning':[('/always-stocked','Always Stocked','Set the list once and the basin looks after itself.'),
+                      ('/for/clinic-fit-out','For a clinic fit-out','The consumables list, room by room, priced.'),
+                      ('/clinic-portal','Clinic Portal','Carton rates and standing orders per site.')],
+ 'taping-supports': [('/for/clinic-fit-out','For a clinic fit-out','The consumables list, room by room, priced.'),
+                      ('/clinic-portal','Clinic Portal','Trade pricing and standing orders per site.'),
+                      ('/always-stocked','Always Stocked','It ships before a line runs low.')],
+}
+
+def use_with(cat_slug, heading='Use it with'):
+    links=USE_WITH.get(cat_slug) or []
+    if not links: return ''
+    o=[]; a=o.append
+    a('    <section style="border-bottom:1px solid #E3E3E1">\n      <div style="%s">\n'%WRAP)
+    a('        <h2 style="font-family:\'Archivo\',sans-serif;font-weight:600;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.025em;margin:0 0 22px">%s</h2>\n'%E(heading))
+    a('        <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:14px">\n')
+    for href,name,blurb in links:
+        a('          <a href="%s" data-card style="%s;display:block" style-hover="border-color:#0E0E0E">\n'%(href,CARD))
+        a('            <span style="display:block;font-family:\'Archivo\',sans-serif;font-weight:600;font-size:17px;letter-spacing:-.02em;margin-bottom:8px">%s</span>\n'%E(name))
+        a('            <span style="display:block;font-size:15px;line-height:1.5;color:#3A3A38">%s</span>\n          </a>\n'%E(blurb))
+    a('        </div>\n      </div>\n    </section>\n\n')
+    return ''.join(o)
 
 def product_card(cat, p):
     url='/shop/%s/%s'%(cat['slug'],p['slug'])
@@ -110,7 +192,12 @@ def build_category(cat):
     a('        <div>\n          <h2 style="%s;color:#FAFAFA">Not sure which one you need?</h2>\n'%H2)
     a('          <p style="margin:0;font-size:16.5px;line-height:1.5;color:#B7CFC3;max-width:46ch">Three plain questions and the Gauge Finder tells you the thickness, the length and how many. Nothing you answer is stored.</p>\n        </div>\n')
     a('        <a href="/gauge-finder" data-cta style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600;white-space:nowrap">Open the Gauge Finder</a>\n')
-    a('      </div>\n    </section>\n\n  </main>')
+    a('      </div>\n    </section>\n\n')
+    cs=SEO.CATEGORY_SEO[cat['slug']]
+    a(prose(cs['guide'], bg='background:#F2F2F1;'))
+    a(use_with(cat['slug'], 'Work out what you need'))
+    a(faq_block('Questions about %s'%SEO.lower_name(cat['name']), cs['faq'], bg=''))
+    a('  </main>')
     tags=[t for t,_ in cat['filters']]
     prods=[{'tag':p['tag']} for p in cat['products']]
     script="""%s
@@ -158,7 +245,17 @@ class Component extends DCLogic {
               json.dumps([{'tag':t,'label':l} for t,l in cat['filters']]),
               json.dumps([p['tag'] for p in cat['products']]),
               HEADER_VALS, LEARNCOLS, MENUCOLS)
-    return ''.join(m), script
+    path='/shop/'+cat['slug']
+    head_extra='\n'.join([
+        SEO.head_tags(path=path, title=cs['title'], description=cs['desc'], image=cat['img']),
+        SEO.jsonld({'@context':'https://schema.org','@type':'CollectionPage',
+                    'name':cs['title'],'description':cs['desc'],'url':SEO.ORIGIN+path,
+                    'isPartOf':{'@type':'WebSite','name':SEO.BRAND,'url':SEO.ORIGIN}}),
+        SEO.jsonld(SEO.breadcrumbs([('Home','/'),('Shop','/shop'),(cat['name'],path)])),
+        SEO.jsonld(SEO.item_list(cat['products'], cat['slug'])),
+        SEO.jsonld(SEO.faq_schema(cs['faq'])),
+    ])
+    return ''.join(m), script, head_extra
 
 # ---------------------------------------------------------------- product page
 def build_product(cat, p, idx):
@@ -210,6 +307,8 @@ def build_product(cat, p, idx):
     a('            <button type="button" onClick="{{ addToCart }}" data-cta style="width:100%%;cursor:pointer;border:0;background:#0E0E0E;color:#FAFAFA;border-radius:1000px;padding:17px 30px;font-family:\'Archivo\',sans-serif;font-size:16px;font-weight:600">{{ ctaLabel }}</button>\n')
     a('            <div style="%s;font-size:11.5px;color:#59595A;margin-top:14px;line-height:1.7">Free delivery over $99. Dispatched from Sydney. Plain unmarked box.</div>\n'%MONO)
     a('          </div>\n        </div>\n      </div>\n    </section>\n\n')
+    ps=SEO.compose(cat,p)
+    a(prose(ps['body']))
     # specs
     a('    <section style="background:#F2F2F1;border-bottom:1px solid #E3E3E1">\n      <div style="%s">\n'%WRAP)
     a('        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:clamp(28px,4vw,64px);align-items:start">\n')
@@ -221,8 +320,10 @@ def build_product(cat, p, idx):
     a('                <span style="font-size:16px;color:#3A3A38">{{ r.k }}</span>\n')
     a('                <span style="%s;font-size:14.5px;color:#0E0E0E;text-align:right">{{ r.v }}</span>\n'%MONO)
     a('              </div>\n            </sc-for>\n          </div>\n        </div>\n      </div>\n    </section>\n\n')
+    a(faq_block('Questions about %s'%SEO.lower_name(p['name']), ps['faq'], bg=''))
+    a(use_with(cat['slug']))
     # related
-    a('    <section style="border-bottom:1px solid #E3E3E1">\n      <div style="%s">\n'%WRAP)
+    a('    <section style="background:#F2F2F1;border-bottom:1px solid #E3E3E1">\n      <div style="%s">\n'%WRAP)
     a('        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:22px">\n')
     a('          <h2 style="font-family:\'Archivo\',sans-serif;font-weight:600;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.025em;margin:0">Often bought together</h2>\n')
     a('          <a href="/shop/%s" data-link style="font-size:15px;font-weight:600;border-bottom:1.5px solid #C4C4C2;padding-bottom:3px;white-space:nowrap">All %s <span data-arrow>&rarr;</span></a>\n        </div>\n'%(cat['slug'],E(cat['name'].lower())))
@@ -305,7 +406,22 @@ class Component extends DCLogic {
               HEADER_VALS,
               json.dumps([{'k':k,'v':v} for k,v in specs]).replace('"{{ packLabel }}"','pack.label').replace('"{{ code }}"','code').replace('"{{ batch }}"',"'26F-114'").replace('"{{ artg }}"',"'Listed, see carton'"),
               LEARNCOLS, MENUCOLS)
-    return ''.join(m), script
+    path='/shop/%s/%s'%(cat['slug'],p['slug'])
+    # The offer carries the cheapest pack, because that is the price a result
+    # should show. Prices are still placeholders: nothing is sourced yet, which
+    # is the other reason SEO.INDEXABLE is off.
+    head_extra='\n'.join([
+        SEO.head_tags(path=path, title=ps['title'], description=ps['desc'],
+                      image=I[SHOTS[p['family']][0][0]], kind='product'),
+        SEO.jsonld(SEO.product_schema(path=path, name=p['name'],
+                    description=ps['desc'], image=I[SHOTS[p['family']][0][0]],
+                    sku=code, price_cents=min(pr for _,pr in p['packs']),
+                    category=cat['name'])),
+        SEO.jsonld(SEO.breadcrumbs([('Home','/'),('Shop','/shop'),
+                    (cat['name'],'/shop/'+cat['slug']),(p['name'],path)])),
+        SEO.jsonld(SEO.faq_schema(ps['faq'])),
+    ])
+    return ''.join(m), script, head_extra
 
 # ---------------------------------------------------------------- shop index
 def build_shop():
@@ -317,7 +433,7 @@ def build_shop():
     a('        <div data-gp-pagehead-grid style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:clamp(28px,4vw,64px);align-items:center">\n')
     a('          <div>\n            <span style="display:inline-block;%s;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;border:1px solid rgba(28,64,52,.3);border-radius:1000px;padding:7px 13px;margin-bottom:20px">%d products</span>\n'%(MONO,total))
     a('            <h1 style="%s">Every product, priced, without an account.</h1>\n'%H1)
-    a('            <p style="%s">Six categories covering what a treatment room and a bathroom cupboard both need. Every price on this site is visible to anyone, including search engines, which is not true of a single one of our competitors.</p>\n          </div>\n'%LEAD)
+    a('            <p style="%s">Eight categories covering what a treatment room and a bathroom cupboard both need. Every price on this site is visible to anyone, including search engines, which is not true of a single one of our competitors.</p>\n          </div>\n'%LEAD)
     a('          <div style="border-radius:28px;overflow:hidden;background:#EDEDEB;aspect-ratio:4/3">\n')
     a('            <img src="%s" alt="A box of insulin syringes with three laid in front" style="width:100%%;height:100%%;object-fit:cover">\n          </div>\n        </div>\n      </div>\n    </section>\n\n'%I['syringe_box'])
     # category grid
@@ -348,7 +464,29 @@ def build_shop():
         a('          <a href="/for/%s" data-card style="%s;display:block" style-hover="border-color:#0E0E0E">\n'%(slug,CARD))
         a('            <span style="display:block;font-family:\'Archivo\',sans-serif;font-weight:600;font-size:17px;letter-spacing:-.02em;margin-bottom:8px">%s</span>\n'%E(name))
         a('            <span style="display:block;font-size:15px;line-height:1.5;color:#3A3A38">%s</span>\n          </a>\n'%E(blurb))
-    a('        </div>\n      </div>\n    </section>\n\n  </main>')
+    a('        </div>\n      </div>\n    </section>\n\n')
+    a(prose([
+      ('How the shop is organised', [
+       'Eight categories, and a product only ever sits in one of them, so there is no hunting through three places for the same box. If you know what you want, the category is the fastest route. If you know the job but not the part number, the protocol pages below list a whole kit with every line priced.',
+       'Every price on this page and every page under it is visible without an account, including to search engines. That is not true of a single one of the incumbents, and it is the main thing we are trying to change about buying consumables in Australia.',
+      ]),
+      ('Pack sizes and what they are for', [
+       'Most lines come in three sizes: a box for a household, a larger box for someone injecting regularly, and a carton for a treatment room. The carton is always cheaper per unit and the difference is on the page, so you can see whether it is worth the shelf space.',
+       'There is no minimum order. One box of gloves is a normal thing to buy here, and it costs what the page says it costs.',
+      ]),
+    ], bg='background:#F2F2F1;'))
+    SHOP_FAQ=[
+      ('Do I need an account to buy?',
+       'No. Every price is on the page and you can order without one. A Clinic Portal account adds trade pricing and standing orders on top, but it is not a gate.'),
+      ('Is there a minimum order?',
+       'No. One box is fine.'),
+      ('Do I need a prescription for any of this?',
+       'No. Everything here is a consumable. We do not stock peptides, hormones or any prescription medicine, and anything that needs a script comes from your pharmacy.'),
+      ('Where do orders ship from?',
+       'Sydney, Australia wide, in a plain unmarked box. Delivery is free over $99.'),
+    ]
+    a(faq_block('Questions about ordering', SHOP_FAQ, bg=''))
+    a('  </main>')
     script="""%s
 class Component extends DCLogic {
   state = { menu: null };
@@ -365,20 +503,36 @@ class Component extends DCLogic {
   }
 }
 </script>"""%(SCRIPT_OPEN, REVEAL, HEADER_VALS, LEARNCOLS, MENUCOLS)
-    return ''.join(m), script
+    desc=('Every product priced on the page, no account needed. %d medical consumables across %d categories, '
+          'from insulin syringes to sharps containers. Dispatched from Sydney.'%(total,len(CATEGORIES)))
+    head_extra='\n'.join([
+        SEO.head_tags(path='/shop', title='Shop all products', description=desc, image=I['syringe_box']),
+        SEO.jsonld({'@context':'https://schema.org','@type':'CollectionPage',
+                    'name':'Shop all products','description':desc,'url':SEO.ORIGIN+'/shop',
+                    'isPartOf':{'@type':'WebSite','name':SEO.BRAND,'url':SEO.ORIGIN}}),
+        SEO.jsonld(SEO.breadcrumbs([('Home','/'),('Shop','/shop')])),
+        SEO.jsonld({'@context':'https://schema.org','@type':'ItemList',
+                    'itemListElement':[{'@type':'ListItem','position':i+1,'name':c['name'],
+                                        'url':'%s/shop/%s'%(SEO.ORIGIN,c['slug'])}
+                                       for i,c in enumerate(CATEGORIES)]}),
+        SEO.jsonld(SEO.faq_schema(SHOP_FAQ)),
+    ])
+    return ''.join(m), script, head_extra
 
 def main():
     os.makedirs(DOCS+'/shop',exist_ok=True)
     n=0
-    mn,sc=build_shop()
-    io.open(DOCS+'/shop.html','w',encoding='utf-8').write(page('Shop all products',mn,sc)); n+=1
+    mn,sc,hx=build_shop()
+    io.open(DOCS+'/shop.html','w',encoding='utf-8').write(page('Shop all products',mn,sc,hx)); n+=1
     for cat in CATEGORIES:
         os.makedirs('%s/shop/%s'%(DOCS,cat['slug']),exist_ok=True)
-        mn,sc=build_category(cat)
-        io.open('%s/shop/%s.html'%(DOCS,cat['slug']),'w',encoding='utf-8').write(page(cat['name'],mn,sc)); n+=1
+        mn,sc,hx=build_category(cat)
+        cs=SEO.CATEGORY_SEO[cat['slug']]
+        io.open('%s/shop/%s.html'%(DOCS,cat['slug']),'w',encoding='utf-8').write(page(cs['title'],mn,sc,hx)); n+=1
         for i,p in enumerate(cat['products']):
-            mn,sc=build_product(cat,p,i)
-            io.open('%s/shop/%s/%s.html'%(DOCS,cat['slug'],p['slug']),'w',encoding='utf-8').write(page(p['name'],mn,sc)); n+=1
+            mn,sc,hx=build_product(cat,p,i)
+            io.open('%s/shop/%s/%s.html'%(DOCS,cat['slug'],p['slug']),'w',encoding='utf-8').write(
+                page(SEO.compose(cat,p)['title'],mn,sc,hx)); n+=1
     print('wrote',n,'pages')
 
 main()

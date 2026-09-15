@@ -6,6 +6,7 @@ COLS = [
  ('Shop', [('Syringes & needles','/shop/syringes-needles'),('Gloves & PPE','/shop/gloves-ppe'),
            ('Diluents & swabs','/shop/diluents-swabs'),('Wound care','/shop/wound-care'),
            ('Diagnostics','/shop/diagnostics'),('Clinic & disposal','/shop/clinic-disposal'),
+           ('Hygiene & cleaning','/shop/hygiene-cleaning'),('Taping & supports','/shop/taping-supports'),
            ('All products','/shop')]),
  ('Shop by protocol', [('GLP-1 and weight loss','/for/glp-1-injections'),('TRT and hormone therapy','/for/trt-injections'),
            ('Peptide reconstitution','/for/peptide-reconstitution'),('Diabetes at home','/for/diabetes-at-home'),

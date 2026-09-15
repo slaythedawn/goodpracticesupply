@@ -38,25 +38,25 @@ CATEGORIES = [
  'filters':[('all','Everything'),('insulin','Insulin syringes'),('luer','Luer-lock'),('needles','Needles'),('access','Vial access')],
  'products':[
   P('U-100 insulin syringes','u-100-insulin-syringes','insulin','Fixed needle, graduated in units','A fixed needle and a unit scale, which is what makes a small dose readable. The finer gauges are noticeably more comfortable and slightly slower to draw.','syringe',
-    [('29G × 13mm','Fills fastest'),('30G × 8mm','The middle'),('31G × 6mm','Least sensation')],
+    [('27G × 13mm','Reference spec'),('29G × 13mm','Fills fastest'),('30G × 8mm','The middle'),('31G × 6mm','Least sensation')],
     [('Box of 100',4776),('Box of 200',8990),('Carton of 500',20450)],
-    [('Graduation','1 unit'),('Barrel','0.5mL')]),
+    [('Barrel','1.0mL and 0.5mL'),('Graduation','1 unit'),('Needle','Fixed, pre-attached'),('Dead space','Low'),('Material','DEHP free, PVC free'),('Sterilisation','Ethylene oxide')]),
   P('Luer-lock syringes','luer-lock-syringes','luer','Three part, screw fitting','A screw fitting that cannot separate under pressure, which matters the moment you push anything viscous. Three part construction for a smooth plunger.','syringe',
     [('1mL','Fine graduations'),('3mL','The common one'),('5mL','Larger volumes')],
     [('Box of 100',3240),('Box of 200',6100)],
-    [('Construction','Three part'),('Fitting','Luer-lock')]),
+    [('Construction','Three part, siliconised'),('Fitting','Luer-lock'),('Sterilisation','Ethylene oxide'),('Single use','Yes')]),
   P('Hypodermic needles','hypodermic-needles','needles','ISO colour coded hub','Separate needles for drawing and injecting, colour coded to the ISO standard so the gauge is readable across a bench at a glance.','needle',
-    [('23G × 1in','Intramuscular'),('25G × 1in','Finer IM'),('27G × 1/2in','Subcutaneous')],
+    [('23G × 1in','Intramuscular'),('23G × 1.5in','Deeper IM'),('25G × 1in','Finer IM'),('27G × 1/2in','Subcutaneous')],
     [('Box of 100',1290),('Box of 500',5450)],
-    [('Hub','ISO colour coded'),('Bevel','Triple ground')]),
+    [('Hub','ISO 6009 colour coded'),('Bevel','Triple ground'),('Range','18G to 25G'),('Sterilisation','Ethylene oxide')]),
   P('Drawing-up needles','drawing-up-needles','needles','Blunt fill, wide bore','Blunt, so it cannot be injected with by accident, and wide enough to pull a thick oil out of a vial in seconds rather than a minute.','needle',
     [('18G blunt fill','Standard'),('21G sharp fill','Through a stopper')],
     [('Box of 100',1420),('Box of 500',6200)],
-    [('Tip','Blunt fill'),('Use','Drawing only')]),
+    [('Gauge','18G'),('Tip','Blunt fill or sharp fill'),('Use','Drawing and reconstitution only'),('Sterilisation','Ethylene oxide')]),
   P('Vial access devices','vial-access-devices','access','Needle free, vented','Seats once in the stopper and gives you a clean luer port to work through, so you stop pushing a needle through the same spot and coring rubber into the vial.','prep',
     [('20mm','Standard vial'),('13mm','Small vial')],
     [('Box of 50',2650),('Box of 100',4900)],
-    [('Filter','0.2 micron vented'),('Port','Luer-lock')]),
+    [('Neck sizes','13mm and 20mm'),('Filter','0.2 micron vented'),('Port','Luer-lock, needle free'),('Sterility','Sterile, single use')]),
   P('Pen needles','pen-needles','needles','Fits every standard injector pen','The shortest and finest on the Australian market. A 4mm needle very rarely reaches muscle whatever your build, which is why guidance has moved to it.','needle',
     [('32G × 4mm','Shortest'),('31G × 5mm','Slightly longer'),('31G × 8mm','If advised')],
     [('Box of 100',1890),('Box of 200',3490)],
@@ -102,19 +102,19 @@ CATEGORIES = [
   P('Alcohol swabs','alcohol-swabs','swabs','70% isopropyl, foil sachet','Two per injection, one for the stopper and one for the skin. Buy the two hundred, it is cheaper per swab and you will not run out mid month.','prep',
     [('70% isopropyl','Standard'),('With chlorhexidine','Stronger')],
     [('Box of 200',890),('Carton of 20 boxes',15900)],
-    [('Saturation','Single use sachet'),('Size','65 × 30mm')]),
+    [('Alcohol','70% isopropyl'),('Pad','Two ply non-woven'),('Size','65 × 30mm'),('Wrap','Individual foil sachet')]),
   P('Bacteriostatic water','bacteriostatic-water','water','Benzyl alcohol preserved','Preserved, so the vial keeps for weeks refrigerated once broached. Sterile water has no preservative and is single use the moment you open it.','prep',
     [('10mL',''),('30mL','')],
     [('Each',1450),('Pack of 5',6800)],
-    [('Preservative','0.9% benzyl alcohol'),('Stopper','Butyl rubber')]),
+    [('Preservative','0.9% benzyl alcohol'),('Vial','Multi-dose glass'),('Stopper','Butyl rubber, aluminium crimp'),('Sizes','10mL and 30mL')]),
   P('Sterile water for injection','sterile-water-for-injection','water','No preservative, single use','Unpreserved. Use the whole ampoule or discard it, because there is nothing in it holding back growth.','prep',
-    [('10mL ampoule',''),('20mL ampoule','')],
+    [('10mL ampoule','The standard'),('20mL ampoule','Larger volume')],
     [('Box of 50',3900),('Box of 100',7200)],
-    [('Preservative','None'),('Use','Single use')]),
+    [('Preservative','None'),('Format','Plastic ampoule, twist open'),('Grade','Water for injection BP'),('Use','Single use')]),
   P('Chlorhexidine skin prep','chlorhexidine-skin-prep','antiseptic','2% in 70% alcohol','The combination used before anything invasive. Let it dry, which is the step everyone skips and the step that does the work.','prep',
-    [('Applicator wand','Single use'),('500mL bottle','Bulk')],
+    [('Swabsticks','Small site'),('Applicator wand','Larger field'),('500mL bottle','Bulk')],
     [('Box of 25',4900),('Each',1690)],
-    [('Chlorhexidine','2% w/v'),('Alcohol','70% v/v')]),
+    [('Chlorhexidine','0.5% to 2% w/v'),('Alcohol','70% v/v'),('Format','Swabstick or single use applicator')]),
   P('Povidone iodine swabsticks','povidone-iodine-swabsticks','antiseptic','10% solution, triple stick','Where chlorhexidine is contraindicated or unavailable. Stains, which is occasionally useful for seeing what you have covered.','prep',
     [('Triple stick',''),('Single stick','')],
     [('Box of 50',2450),('Box of 200',8200)],
@@ -193,9 +193,9 @@ CATEGORIES = [
  'filters':[('all','Everything'),('sharps','Sharps containers'),('couch','Couch roll & blueys'),('waste','Clinical waste')],
  'products':[
   P('Sharps container, bench','sharps-container-bench','sharps','AS 4031, one hand aperture','Sized for a bench or a bathroom cupboard. A one hand aperture, because the other hand is holding something sharp.','clinic',
-    [('1.4L','Home or bench'),('2L','Busier bench')],
+    [('0.5L','Bag or cupboard'),('1.4L','Home or bench'),('2L','Busier bench')],
     [('Each',1250),('Carton of 12',12900)],
-    [('Standard','AS 4031'),('Closure','Temporary and final')]),
+    [('Standard','AS 4031'),('Material','Puncture resistant polypropylene'),('Colour','Yellow'),('Closure','Temporary and final, with finger guard')]),
   P('Sharps container, wall mount','sharps-container-wall-mount','sharps','Bracketed, keyed final closure','One per treatment room, bracketed at the point of use. Carrying a sharp between rooms is how staff get injured.','clinic',
     [('5L',''),('10L',''),('20L','')],
     [('Each',2450),('Carton of 6',12900)],
@@ -218,3 +218,24 @@ CATEGORIES = [
     [('Contact time','Printed on tub'),('Format','Canister')]),
  ]},
 ]
+
+
+# --- the launch range -------------------------------------------------------
+# Merged at the end so the categories above keep their original copy. See
+# catalogue_extra.py for where these came from.
+from catalogue_extra import EXTRA_PRODUCTS, EXTRA_CATEGORIES, EXTRA_FILTERS
+
+_by = {c['slug']: c for c in CATEGORIES}
+for _slug, _prods in EXTRA_PRODUCTS.items():
+    _by[_slug]['products'].extend(_prods)
+for _slug, _fs in EXTRA_FILTERS.items():
+    _by[_slug]['filters'].extend(_fs)
+for _c in EXTRA_CATEGORIES:
+    _c['img'] = I[_c.pop('imgkey')]
+    CATEGORIES.append(_c)
+# The count a category advertises in the nav and on the shop index. It used to be
+# a forward looking number against a placeholder catalogue. These are real
+# products now, so it is the number of pages that exist.
+for _c in CATEGORIES:
+    _c['count'] = len(_c['products'])
+TOTAL = sum(len(_c['products']) for _c in CATEGORIES)
