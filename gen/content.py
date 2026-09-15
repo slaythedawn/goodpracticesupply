@@ -184,7 +184,7 @@ PAGES = [
    ("Are these the same as the pharmacy ones?",
     "They come from the same manufacturers that supply Australian hospital tenders and the major pharmacy groups. Where a product is ARTG listed, the listing is shown on its own page as a data field rather than as a claim about the site."),
    ("Can I get these faster?",
-    "Orders placed before the cut off dispatch the same day from Sydney. Delivery is free over $99 Australia wide."),
+    "Orders are picked and dispatched from Sydney. Delivery is free over $99 Australia wide."),
    ("What do I do with a full sharps container?",
     "It depends which state you are in. Our sharps disposal guide covers all eight, because the rules genuinely differ."),
  ],

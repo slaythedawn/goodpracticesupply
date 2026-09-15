@@ -5,9 +5,12 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Good Practice Supply</title>
-<link rel="icon" href="/brand/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/brand/gps-icon-180.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1C4034">
 <script>window.__resources={"https://unpkg.com/react@18.3.1/umd/react.production.min.js":"/vendor/react.production.min.js","https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js":"/vendor/react-dom.production.min.js"};</script>
 <script src="/support.js"></script>
 <script>
@@ -220,11 +223,14 @@
       overflow: hidden;
       margin-top: var(--gp-header-h, 124px);
     }
-    [data-gp-hero-media] img { object-position: 50% 15%; }
+    /* His face sits between 64% and 79% across the wide frame, and a 4:5 block
+       shows only 45% of its width, so the crop is pinned near the right edge
+       to keep him centred in it. */
+    [data-gp-hero-media] img { object-position: 89% 50%; }
     [data-gp-hero-scrim] { background: linear-gradient(0deg, rgba(20,48,38,.94) 0%, rgba(20,48,38,.34) 13%, rgba(20,48,38,0) 32%); }
     [data-gp-hero-copy] {
       order: 2;
-      margin-top: calc(-1 * clamp(120px, 34vw, 190px));
+      margin-top: calc(-1 * clamp(100px, 28vw, 160px));
       padding-top: 0;
       padding-bottom: 0;
     }
@@ -255,12 +261,12 @@
     <div style="max-width:1440px;margin:0 auto;padding:7px clamp(18px,4vw,32px);display:flex;justify-content:center;gap:6px clamp(14px,3vw,30px);flex-wrap:wrap;text-align:center">
       <span>Free delivery over $99</span>
       <span style="color:#2A5245" data-gp-desktoponly>&middot;</span>
-      <span>Same-day dispatch from Sydney</span>
+      <span>Dispatched from Sydney</span>
       <span style="color:#2A5245" data-gp-desktoponly>&middot;</span>
       <a href="/contact" style="color:#FAFAFA">Help</a>
     </div>
   </div>
-  <header style="padding:14px clamp(12px,3vw,24px) 0;display:flex;justify-content:center;pointer-events:none">
+  <header style="padding:14px clamp(12px,3vw,24px);display:flex;justify-content:center;pointer-events:none">
     <div data-gp-pill style="pointer-events:auto;width:100%;max-width:1440px;background:rgba(20,48,38,.72);backdrop-filter:blur(26px) saturate(1.6);-webkit-backdrop-filter:blur(26px) saturate(1.6);border:1px solid rgba(143,191,166,.26);border-radius:22px;padding:12px 14px 12px 22px;display:flex;align-items:center;gap:clamp(14px,3vw,36px);flex-wrap:wrap;color:#FAFAFA">
       <a href="/" style="display:flex;align-items:center;gap:12px;color:#FAFAFA;flex:none">
         <span aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;flex:none;width:38px;height:38px;border:1.5px solid #FAFAFA;border-radius:1000px;font-family:'Archivo Black','Archivo',sans-serif;font-size:16px;letter-spacing:-.07em;line-height:1;color:#FAFAFA;padding-bottom:4px">gp</span>
@@ -346,7 +352,6 @@
     <section data-gp-hero>
       <div data-gp-hero-media>
         <picture>
-          <source media="(max-width: 999px)" srcset="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_230049_da1ac0eb-1511-4ffe-b2db-24109bd49953.png">
           <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_230224_9a313bac-1e72-4681-ae86-93b0d6fd46f8.png" alt="A man standing against a bare concrete wall in a quiet, modern room">
         </picture>
         <div aria-hidden="true" data-gp-hero-scrim></div>
@@ -356,7 +361,7 @@
         <div>
           <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#143026;background:#8FBFA6;border-radius:1000px;padding:8px 14px;margin-bottom:24px">Australian medical supplies</span>
           <h1 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(38px,5vw,68px);line-height:.96;letter-spacing:-.045em;margin:0 0 20px;max-width:13ch;color:#FAFAFA">Better medical supplies, for everyone.</h1>
-          <p style="margin:0 0 30px;font-size:18.5px;line-height:1.45;color:rgba(250,250,250,.9);max-width:42ch">A box of gloves for the bathroom cupboard or a whole treatment room. Same Australian stock, same prices on the page, out the door the same day.</p>
+          <p style="margin:0 0 30px;font-size:18.5px;line-height:1.45;color:rgba(250,250,250,.9);max-width:42ch">Medical supplies for clinics and home. One box for the bathroom cupboard or a whole treatment room, out of the same Australian stock, with the price on the page rather than behind a quote.</p>
           <div style="display:flex;gap:12px;flex-wrap:wrap">
             <a href="#shop" data-cta style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600" style-hover="background:#FAFAFA;color:#143026">Shop the range</a>
             <a href="#how" data-cta style="border:1px solid rgba(250,250,250,.45);color:#FAFAFA;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600" style-hover="background:rgba(250,250,250,.16);color:#FAFAFA">How it works</a>
@@ -455,7 +460,7 @@
     </section>
 
     <section id="how" style="position:relative;overflow:hidden;background:#E4E4E2;min-height:clamp(540px,70vh,760px);display:flex;align-items:center">
-      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_230049_8a9652c1-a537-4cad-bdfb-4a9bbd376d5f.png" alt="Hands lifting the lid from a delivery box of supplies" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% center">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260914_235750_88f52bed-0320-48d5-ac6e-f64a3193e6f1.png" alt="Hands lifting the lid from a box of supplies on a bench" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% center">
       <div aria-hidden="true" style="position:absolute;inset:0;background:rgba(14,14,14,.22)"></div>
       <div style="position:relative;width:100%;max-width:1440px;margin:0 auto;padding:clamp(56px,9vw,120px) clamp(20px,5vw,72px);display:flex;justify-content:flex-start">
         <div data-reveal data-gp-overlay style="width:min(560px,62%);min-width:min(320px,100%);background:rgba(20,48,38,.66);backdrop-filter:blur(30px) saturate(1.6);-webkit-backdrop-filter:blur(30px) saturate(1.6);border:1px solid rgba(143,191,166,.3);border-radius:28px;padding:clamp(28px,3.6vw,44px);color:#FAFAFA">
@@ -735,7 +740,7 @@ class Component extends DCLogic {
 
       facts: [
         { k: 'No account', v: 'One box or a pallet' },
-        { k: 'Same day', v: 'Out of Sydney' },
+        { k: 'Ships from', v: 'Sydney' },
         { k: 'Free freight', v: 'Over $' + threshold },
         { k: 'Plain box', v: 'Unmarked' }
       ],

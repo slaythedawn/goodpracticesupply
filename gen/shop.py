@@ -208,7 +208,7 @@ def build_product(cat, p, idx):
     a('                <button type="button" onClick="{{ inc }}" aria-label="Increase quantity" style="border:0;background:none;cursor:pointer;font-size:19px;width:34px;height:34px;color:#0E0E0E">+</button>\n')
     a('              </div>\n              <span style="%s;font-size:22px">{{ totalLabel }}</span>\n            </div>\n'%MONO)
     a('            <button type="button" onClick="{{ addToCart }}" data-cta style="width:100%%;cursor:pointer;border:0;background:#0E0E0E;color:#FAFAFA;border-radius:1000px;padding:17px 30px;font-family:\'Archivo\',sans-serif;font-size:16px;font-weight:600">{{ ctaLabel }}</button>\n')
-    a('            <div style="%s;font-size:11.5px;color:#59595A;margin-top:14px;line-height:1.7">Free delivery over $99. Dispatched the same day from Sydney. Plain unmarked box.</div>\n'%MONO)
+    a('            <div style="%s;font-size:11.5px;color:#59595A;margin-top:14px;line-height:1.7">Free delivery over $99. Dispatched from Sydney. Plain unmarked box.</div>\n'%MONO)
     a('          </div>\n        </div>\n      </div>\n    </section>\n\n')
     # specs
     a('    <section style="background:#F2F2F1;border-bottom:1px solid #E3E3E1">\n      <div style="%s">\n'%WRAP)
