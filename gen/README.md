@@ -9,6 +9,7 @@ the fifty-eight pages come out of these scripts, so a change made by hand in
 | `style.py` | nothing | the locked human photography prompt, see `brand/PHOTOGRAPHY.md` |
 | `seo.py` | nothing | head tags, structured data, and the written copy behind every shop page |
 | `catalogue.py` | nothing | the eight categories, their products and their shots |
+| | | every image URL on the site is declared in `I` here, and every one has passed the OCR gate in `brand/PHOTOGRAPHY.md` |
 | `catalogue_extra.py` | nothing | the launch range from the sourcing shortlist, merged into `catalogue.py` |
 | `content.py` | nothing | the six protocol pages: copy, kit tuples, imagery |
 | `prodmap.py` | nothing | kit item name to product URL |

@@ -270,11 +270,16 @@ def build_product(cat, p, idx):
     a('          <div>\n            <div style="position:relative;border-radius:28px;overflow:hidden;background:#EDEDEB;aspect-ratio:4/3">\n')
     for i,(key,alt) in enumerate(shots):
         a('              <img src="%s" alt="%s" style="position:absolute;inset:0;width:100%%;height:100%%;object-fit:cover;opacity:{{ op%d }};transition:opacity var(--dur-base,260ms) ease">\n'%(I[key],E(alt),i))
-    a('            </div>\n            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px">\n')
-    for i,(key,alt) in enumerate(shots):
-        a('              <button type="button" onClick="{{ pick%d }}" aria-label="%s" style="padding:0;cursor:pointer;background:#EDEDEB;border:1px solid {{ th%d }};border-radius:14px;overflow:hidden;aspect-ratio:1/1">\n'%(i,E(alt),i))
-        a('                <img src="%s" alt="" style="width:100%%;height:100%%;object-fit:cover">\n              </button>\n'%I[key])
-    a('            </div>\n          </div>\n')
+    a('            </div>\n')
+    # A product with one photograph gets no thumbnail strip. A single thumbnail
+    # under a single image is a control that does nothing.
+    if len(shots) > 1:
+        a('            <div style="display:grid;grid-template-columns:repeat(%d,1fr);gap:10px;margin-top:10px">\n'%len(shots))
+        for i,(key,alt) in enumerate(shots):
+            a('              <button type="button" onClick="{{ pick%d }}" aria-label="%s" style="padding:0;cursor:pointer;background:#EDEDEB;border:1px solid {{ th%d }};border-radius:14px;overflow:hidden;aspect-ratio:1/1">\n'%(i,E(alt),i))
+            a('                <img src="%s" alt="" style="width:100%%;height:100%%;object-fit:cover">\n              </button>\n'%I[key])
+        a('            </div>\n')
+    a('          </div>\n')
     # buy panel
     a('          <div id="buy">\n')
     a('            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px">\n')
@@ -390,8 +395,8 @@ class Component extends DCLogic {
 %s
 %s
     };
-    // four stacked images, one visible
-    for (let i = 0; i < 4; i++) {
+    // stacked images, one visible
+    for (let i = 0; i < %d; i++) {
       vals['op' + i] = s.img === i ? '1' : '0';
       vals['th' + i] = s.img === i ? '#0E0E0E' : '#E3E3E1';
       vals['pick' + i] = () => this.setState({ img: i });
@@ -405,7 +410,7 @@ class Component extends DCLogic {
               json.dumps(code),
               HEADER_VALS,
               json.dumps([{'k':k,'v':v} for k,v in specs]).replace('"{{ packLabel }}"','pack.label').replace('"{{ code }}"','code').replace('"{{ batch }}"',"'26F-114'").replace('"{{ artg }}"',"'Listed, see carton'"),
-              LEARNCOLS, MENUCOLS)
+              LEARNCOLS, MENUCOLS, len(shots))
     path='/shop/%s/%s'%(cat['slug'],p['slug'])
     # The offer carries the cheapest pack, because that is the price a result
     # should show. Prices are still placeholders: nothing is sourced yet, which

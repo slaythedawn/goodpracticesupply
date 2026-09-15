@@ -1,6 +1,8 @@
 # Placeholder catalogue. Prices, codes and batch data are invented so the browsing
 # experience is complete end to end. Nothing here is a real product record.
 B = "https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/"
+# Images that were repaired locally and re-uploaded sit on the other bucket.
+U = "https://d2ol7oe51mr4n9.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/"
 I = {
  'syringe_box': B+'hf_20260912_014655_c87ec5d7-96f6-4729-b6ef-fc062184ab3f.png',
  'syringes':    B+'hf_20260912_023904_ac99bf9d-40bb-4cb3-b197-e10d78b28291.png',
@@ -15,6 +17,26 @@ I = {
  'sharps':      B+'hf_20260912_014655_ff570e50-4d34-4cd4-882b-4e40b83438e1.png',
  'needle_macro':B+'hf_20260912_031429_9653357d-54b9-47f5-bdac-f1686c716860.png',
  'lengths':     B+'hf_20260912_031429_c3ac1819-2bb8-4e0b-af1e-dbd72e0116fd.png',
+ # The launch range. One photograph per product rather than a shared family set,
+ # because these are the first real SKUs and a picture of something else is not
+ # a picture of the thing you are buying.
+ 'cotton_wool': B+'hf_20260915_111902_1adc5949-ff18-47c2-a576-2cfb89e269e1.png',
+ 'hand_towels': B+'hf_20260915_111901_c5c01f5a-5e9d-4cd1-81fa-de32f17fa06f.png',
+ 'tissues':     B+'hf_20260915_111902_f3e1fc31-f656-45cf-b97d-4e59d6ade4a9.png',
+ 'crepe':       B+'hf_20260915_111902_73529e6d-85a5-4ad0-b520-6895ba5d18d8.png',
+ 'sutures':     B+'hf_20260915_111902_0a56cd8c-12a4-4c97-a2b2-e3822156c612.png',
+ 'depressors':  B+'hf_20260915_111920_7a628413-5282-4fd0-9ef1-a6cdc1feec3d.png',
+ 'continence':  B+'hf_20260915_111920_76f6efeb-d410-4d6d-a284-d9bc4471f625.png',
+ 'kinesio':     B+'hf_20260915_112232_e93ce35d-9a21-4d6b-bed9-d925f476a1a9.png',
+ 'stockings':   B+'hf_20260915_112231_8109e286-e963-4222-a9c4-eb6082edb19f.png',
+ 'plasters':    B+'hf_20260915_112445_a17e73ef-2587-4d63-b396-e5482f228145.png',
+ 'scar_gel':    B+'hf_20260915_112445_df1c68f9-58ba-4ea0-91e5-d922bb72275c.png',
+ # Repaired after the OCR gate found generated lettering. See brand/PHOTOGRAPHY.md.
+ 'hand_wash':   U+'cd48a92f-24bd-4e14-91e7-c8539ca1b0c2.png',
+ 'rigid_tape':  U+'c5ace70a-b068-4174-89a0-6967a0428a36.png',
+ 'urine_strips':U+'0c77e718-d1f9-4641-99a2-412f2643e68d.png',
+ 'eab':         U+'e5cd5eeb-ff9a-4071-ad51-a5105a08bfbf.png',
+ 'specula':     U+'21cf8591-5e0e-4502-b291-4ffe19155c2f.png',
 }
 SHOTS = {  # four views per product family, reused across the catalogue
  'syringe': [('syringe_box','The box, closed'),('syringes','Three out of the box'),('barrel','Lengths side by side'),('carton','The carton opened')],
@@ -24,6 +46,24 @@ SHOTS = {  # four views per product family, reused across the catalogue
  'wound':   [('dressings','Sterile pouches and gauze'),('tray','A pouch opened'),('carton','The carton'),('blister','Layered in the box')],
  'diag':    [('diagnostic','Strips and a lancet'),('tray','The vial of strips'),('carton','The carton'),('blister','Single use, sealed')],
  'clinic':  [('sharps','The container, lid open'),('carton','The carton'),('tray','Bracket and key'),('blister','Aperture detail')],
+ # The launch range. A single shot each: one honest photograph beats four where
+ # three of them are something else in the same box.
+ 'cotton':     [('cotton_wool','Cotton wool, out of the bag')],
+ 'plasters':   [('plasters','Unwrapped, fabric and plastic')],
+ 'bandage':    [('crepe','Rolled, out of the pack')],
+ 'scar':       [('scar_gel','The nozzle, cap beside it')],
+ 'suture':     [('sutures','Foil packs laid out')],
+ 'urine':      [('urine_strips','The tube')],
+ 'specula':    [('specula','Tips, largest to smallest')],
+ 'depressor':  [('depressors','A fan of them')],
+ 'continence': [('continence','Two pads, laid flat')],
+ 'handwash':   [('hand_wash','The pump bottle and the refill')],
+ 'towels':     [('hand_towels','Interleaved, stacked')],
+ 'tissues':    [('tissues','The flat box')],
+ 'rigid':      [('rigid_tape','Three rolls')],
+ 'eab':        [('eab','Two rolls')],
+ 'kinesio':    [('kinesio','Three rolls, from above')],
+ 'stockings':  [('stockings','Folded flat')],
 }
 
 def P(name, slug, tag, spec, blurb, family, variants, packs, extra=()):

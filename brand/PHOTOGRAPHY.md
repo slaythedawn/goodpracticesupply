@@ -87,3 +87,28 @@ an exact fit rather than an approximation. Two rules keep it honest:
 
 Repaired files live on a separate media host to the generated ones, which is why
 two CloudFront domains appear in the markup.
+
+## Product still life
+
+The human brief above does not cover the catalogue shots, which are the other
+half of the site's imagery and follow their own short brief:
+
+- One product, on a pale cool-grey seamless surface, nothing else in frame.
+- Cool neutral daylight raking from the left. The same light as the portraits,
+  so the two sit together on a category page.
+- Muted, desaturated, plain and unbranded. No packaging, no wrappers, no
+  printed labels, and nothing that invites the model to draw a logo.
+- Crisp and sharp, clean digital, no film grain.
+- Close, but not so close that the product stops being recognisable.
+
+Every product in the launch range has its own photograph. That matters more
+than it sounds: a page selling cotton wool illustrated with a picture of a vial
+is not a product page, it is a placeholder with a price on it. Where a shot is
+shared, it is shared between two products of the same thing in the same
+category (crepe and cohesive bandage, cotton wool balls and cotton wool rolls),
+never across categories.
+
+The older families still carry four views each, because those shots were made
+as a set. The launch range carries one view each, and the product page drops
+its thumbnail strip when there is only one image, rather than showing a single
+thumbnail of the picture already on screen.
