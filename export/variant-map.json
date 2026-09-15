@@ -1,0 +1,3020 @@
+[
+ {
+  "handle": "u-100-insulin-syringes",
+  "name": "U-100 insulin syringes",
+  "category": "syringes-needles",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-SYR-U-100-INSULIN-SYRINGES-0101",
+    "option1": "27G × 13mm",
+    "option2": "Box of 100",
+    "price_cents": 4776,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-U-100-INSULIN-SYRINGES-0102",
+    "option1": "27G × 13mm",
+    "option2": "Box of 200",
+    "price_cents": 8990,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-U-100-INSULIN-SYRINGES-0103",
+    "option1": "27G × 13mm",
+    "option2": "Carton of 500",
+    "price_cents": 20450,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-U-100-INSULIN-SYRINGES-0201",
+    "option1": "29G × 13mm",
+    "option2": "Box of 100",
+    "price_cents": 4776,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-U-100-INSULIN-SYRINGES-0202",
+    "option1": "29G × 13mm",
+    "option2": "Box of 200",
+    "price_cents": 8990,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-U-100-INSULIN-SYRINGES-0203",
+    "option1": "29G × 13mm",
+    "option2": "Carton of 500",
+    "price_cents": 20450,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-U-100-INSULIN-SYRINGES-0301",
+    "option1": "30G × 8mm",
+    "option2": "Box of 100",
+    "price_cents": 4776,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-U-100-INSULIN-SYRINGES-0302",
+    "option1": "30G × 8mm",
+    "option2": "Box of 200",
+    "price_cents": 8990,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-U-100-INSULIN-SYRINGES-0303",
+    "option1": "30G × 8mm",
+    "option2": "Carton of 500",
+    "price_cents": 20450,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-U-100-INSULIN-SYRINGES-0401",
+    "option1": "31G × 6mm",
+    "option2": "Box of 100",
+    "price_cents": 4776,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-U-100-INSULIN-SYRINGES-0402",
+    "option1": "31G × 6mm",
+    "option2": "Box of 200",
+    "price_cents": 8990,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-U-100-INSULIN-SYRINGES-0403",
+    "option1": "31G × 6mm",
+    "option2": "Carton of 500",
+    "price_cents": 20450,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "luer-lock-syringes",
+  "name": "Luer-lock syringes",
+  "category": "syringes-needles",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-SYR-LUER-LOCK-SYRINGES-0101",
+    "option1": "1mL",
+    "option2": "Box of 100",
+    "price_cents": 3240,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-LUER-LOCK-SYRINGES-0102",
+    "option1": "1mL",
+    "option2": "Box of 200",
+    "price_cents": 6100,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-LUER-LOCK-SYRINGES-0201",
+    "option1": "3mL",
+    "option2": "Box of 100",
+    "price_cents": 3240,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-LUER-LOCK-SYRINGES-0202",
+    "option1": "3mL",
+    "option2": "Box of 200",
+    "price_cents": 6100,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-LUER-LOCK-SYRINGES-0301",
+    "option1": "5mL",
+    "option2": "Box of 100",
+    "price_cents": 3240,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-LUER-LOCK-SYRINGES-0302",
+    "option1": "5mL",
+    "option2": "Box of 200",
+    "price_cents": 6100,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "hypodermic-needles",
+  "name": "Hypodermic needles",
+  "category": "syringes-needles",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-SYR-HYPODERMIC-NEEDLES-0101",
+    "option1": "23G × 1in",
+    "option2": "Box of 100",
+    "price_cents": 1290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-HYPODERMIC-NEEDLES-0102",
+    "option1": "23G × 1in",
+    "option2": "Box of 500",
+    "price_cents": 5450,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-HYPODERMIC-NEEDLES-0201",
+    "option1": "23G × 1.5in",
+    "option2": "Box of 100",
+    "price_cents": 1290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-HYPODERMIC-NEEDLES-0202",
+    "option1": "23G × 1.5in",
+    "option2": "Box of 500",
+    "price_cents": 5450,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-HYPODERMIC-NEEDLES-0301",
+    "option1": "25G × 1in",
+    "option2": "Box of 100",
+    "price_cents": 1290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-HYPODERMIC-NEEDLES-0302",
+    "option1": "25G × 1in",
+    "option2": "Box of 500",
+    "price_cents": 5450,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-HYPODERMIC-NEEDLES-0401",
+    "option1": "27G × 1/2in",
+    "option2": "Box of 100",
+    "price_cents": 1290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-HYPODERMIC-NEEDLES-0402",
+    "option1": "27G × 1/2in",
+    "option2": "Box of 500",
+    "price_cents": 5450,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "drawing-up-needles",
+  "name": "Drawing-up needles",
+  "category": "syringes-needles",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-SYR-DRAWING-UP-NEEDLES-0101",
+    "option1": "18G blunt fill",
+    "option2": "Box of 100",
+    "price_cents": 1420,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-DRAWING-UP-NEEDLES-0102",
+    "option1": "18G blunt fill",
+    "option2": "Box of 500",
+    "price_cents": 6200,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-DRAWING-UP-NEEDLES-0201",
+    "option1": "21G sharp fill",
+    "option2": "Box of 100",
+    "price_cents": 1420,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-DRAWING-UP-NEEDLES-0202",
+    "option1": "21G sharp fill",
+    "option2": "Box of 500",
+    "price_cents": 6200,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "vial-access-devices",
+  "name": "Vial access devices",
+  "category": "syringes-needles",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-SYR-VIAL-ACCESS-DEVICES-0101",
+    "option1": "20mm",
+    "option2": "Box of 50",
+    "price_cents": 2650,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-VIAL-ACCESS-DEVICES-0102",
+    "option1": "20mm",
+    "option2": "Box of 100",
+    "price_cents": 4900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-VIAL-ACCESS-DEVICES-0201",
+    "option1": "13mm",
+    "option2": "Box of 50",
+    "price_cents": 2650,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-VIAL-ACCESS-DEVICES-0202",
+    "option1": "13mm",
+    "option2": "Box of 100",
+    "price_cents": 4900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "pen-needles",
+  "name": "Pen needles",
+  "category": "syringes-needles",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-SYR-PEN-NEEDLES-0101",
+    "option1": "32G × 4mm",
+    "option2": "Box of 100",
+    "price_cents": 1890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-PEN-NEEDLES-0102",
+    "option1": "32G × 4mm",
+    "option2": "Box of 200",
+    "price_cents": 3490,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-PEN-NEEDLES-0201",
+    "option1": "31G × 5mm",
+    "option2": "Box of 100",
+    "price_cents": 1890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-PEN-NEEDLES-0202",
+    "option1": "31G × 5mm",
+    "option2": "Box of 200",
+    "price_cents": 3490,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-PEN-NEEDLES-0301",
+    "option1": "31G × 8mm",
+    "option2": "Box of 100",
+    "price_cents": 1890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-PEN-NEEDLES-0302",
+    "option1": "31G × 8mm",
+    "option2": "Box of 200",
+    "price_cents": 3490,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "luer-slip-syringes",
+  "name": "Luer-slip syringes",
+  "category": "syringes-needles",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-SYR-LUER-SLIP-SYRINGES-0101",
+    "option1": "1mL",
+    "option2": "Box of 100",
+    "price_cents": 3180,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-LUER-SLIP-SYRINGES-0102",
+    "option1": "1mL",
+    "option2": "Carton of 500",
+    "price_cents": 14200,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-LUER-SLIP-SYRINGES-0103",
+    "option1": "1mL",
+    "option2": "Carton of 1000",
+    "price_cents": 26900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-LUER-SLIP-SYRINGES-0201",
+    "option1": "3mL",
+    "option2": "Box of 100",
+    "price_cents": 3180,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-LUER-SLIP-SYRINGES-0202",
+    "option1": "3mL",
+    "option2": "Carton of 500",
+    "price_cents": 14200,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-LUER-SLIP-SYRINGES-0203",
+    "option1": "3mL",
+    "option2": "Carton of 1000",
+    "price_cents": 26900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-LUER-SLIP-SYRINGES-0301",
+    "option1": "5mL",
+    "option2": "Box of 100",
+    "price_cents": 3180,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-LUER-SLIP-SYRINGES-0302",
+    "option1": "5mL",
+    "option2": "Carton of 500",
+    "price_cents": 14200,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-LUER-SLIP-SYRINGES-0303",
+    "option1": "5mL",
+    "option2": "Carton of 1000",
+    "price_cents": 26900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-LUER-SLIP-SYRINGES-0401",
+    "option1": "10mL",
+    "option2": "Box of 100",
+    "price_cents": 3180,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-LUER-SLIP-SYRINGES-0402",
+    "option1": "10mL",
+    "option2": "Carton of 500",
+    "price_cents": 14200,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-SYR-LUER-SLIP-SYRINGES-0403",
+    "option1": "10mL",
+    "option2": "Carton of 1000",
+    "price_cents": 26900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "nitrile-examination-gloves",
+  "name": "Nitrile examination gloves",
+  "category": "gloves-ppe",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-GLO-NITRILE-EXAMINATION-GLOVES-0101",
+    "option1": "Small",
+    "option2": "Box of 100",
+    "price_cents": 1990,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-NITRILE-EXAMINATION-GLOVES-0102",
+    "option1": "Small",
+    "option2": "Carton of 10 boxes",
+    "price_cents": 17900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-NITRILE-EXAMINATION-GLOVES-0201",
+    "option1": "Medium",
+    "option2": "Box of 100",
+    "price_cents": 1990,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-NITRILE-EXAMINATION-GLOVES-0202",
+    "option1": "Medium",
+    "option2": "Carton of 10 boxes",
+    "price_cents": 17900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-NITRILE-EXAMINATION-GLOVES-0301",
+    "option1": "Large",
+    "option2": "Box of 100",
+    "price_cents": 1990,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-NITRILE-EXAMINATION-GLOVES-0302",
+    "option1": "Large",
+    "option2": "Carton of 10 boxes",
+    "price_cents": 17900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-NITRILE-EXAMINATION-GLOVES-0401",
+    "option1": "Extra large",
+    "option2": "Box of 100",
+    "price_cents": 1990,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-NITRILE-EXAMINATION-GLOVES-0402",
+    "option1": "Extra large",
+    "option2": "Carton of 10 boxes",
+    "price_cents": 17900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "latex-examination-gloves",
+  "name": "Latex examination gloves",
+  "category": "gloves-ppe",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-GLO-LATEX-EXAMINATION-GLOVES-0101",
+    "option1": "Small",
+    "option2": "Box of 100",
+    "price_cents": 1650,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-LATEX-EXAMINATION-GLOVES-0102",
+    "option1": "Small",
+    "option2": "Carton of 10 boxes",
+    "price_cents": 14800,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-LATEX-EXAMINATION-GLOVES-0201",
+    "option1": "Medium",
+    "option2": "Box of 100",
+    "price_cents": 1650,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-LATEX-EXAMINATION-GLOVES-0202",
+    "option1": "Medium",
+    "option2": "Carton of 10 boxes",
+    "price_cents": 14800,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-LATEX-EXAMINATION-GLOVES-0301",
+    "option1": "Large",
+    "option2": "Box of 100",
+    "price_cents": 1650,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-LATEX-EXAMINATION-GLOVES-0302",
+    "option1": "Large",
+    "option2": "Carton of 10 boxes",
+    "price_cents": 14800,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "surgical-masks-level-2",
+  "name": "Surgical masks, Level 2",
+  "category": "gloves-ppe",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-GLO-SURGICAL-MASKS-LEVEL-2-0101",
+    "option1": "Level 1",
+    "option2": "Box of 50",
+    "price_cents": 1290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-SURGICAL-MASKS-LEVEL-2-0102",
+    "option1": "Level 1",
+    "option2": "Carton of 40 boxes",
+    "price_cents": 44900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-SURGICAL-MASKS-LEVEL-2-0201",
+    "option1": "Level 2",
+    "option2": "Box of 50",
+    "price_cents": 1290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-SURGICAL-MASKS-LEVEL-2-0202",
+    "option1": "Level 2",
+    "option2": "Carton of 40 boxes",
+    "price_cents": 44900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-SURGICAL-MASKS-LEVEL-2-0301",
+    "option1": "Level 3",
+    "option2": "Box of 50",
+    "price_cents": 1290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-SURGICAL-MASKS-LEVEL-2-0302",
+    "option1": "Level 3",
+    "option2": "Carton of 40 boxes",
+    "price_cents": 44900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "isolation-gowns",
+  "name": "Isolation gowns",
+  "category": "gloves-ppe",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-GLO-ISOLATION-GOWNS-0101",
+    "option1": "Regular",
+    "option2": "Pack of 10",
+    "price_cents": 3450,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-ISOLATION-GOWNS-0102",
+    "option1": "Regular",
+    "option2": "Carton of 50",
+    "price_cents": 15900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-ISOLATION-GOWNS-0201",
+    "option1": "Large",
+    "option2": "Pack of 10",
+    "price_cents": 3450,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-ISOLATION-GOWNS-0202",
+    "option1": "Large",
+    "option2": "Carton of 50",
+    "price_cents": 15900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "aprons-on-a-roll",
+  "name": "Aprons on a roll",
+  "category": "gloves-ppe",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-GLO-APRONS-ON-A-ROLL-0101",
+    "option1": "Standard",
+    "option2": "Roll of 200",
+    "price_cents": 2290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-APRONS-ON-A-ROLL-0102",
+    "option1": "Standard",
+    "option2": "Carton of 6 rolls",
+    "price_cents": 12400,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-APRONS-ON-A-ROLL-0201",
+    "option1": "Heavy duty",
+    "option2": "Roll of 200",
+    "price_cents": 2290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-APRONS-ON-A-ROLL-0202",
+    "option1": "Heavy duty",
+    "option2": "Carton of 6 rolls",
+    "price_cents": 12400,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "alcohol-hand-rub",
+  "name": "Alcohol hand rub",
+  "category": "gloves-ppe",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-GLO-ALCOHOL-HAND-RUB-0101",
+    "option1": "500mL pump",
+    "option2": "Each",
+    "price_cents": 1290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-ALCOHOL-HAND-RUB-0102",
+    "option1": "500mL pump",
+    "option2": "Carton of 6",
+    "price_cents": 6900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-ALCOHOL-HAND-RUB-0201",
+    "option1": "5L refill",
+    "option2": "Each",
+    "price_cents": 1290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-GLO-ALCOHOL-HAND-RUB-0202",
+    "option1": "5L refill",
+    "option2": "Carton of 6",
+    "price_cents": 6900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "alcohol-swabs",
+  "name": "Alcohol swabs",
+  "category": "diluents-swabs",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-DIL-ALCOHOL-SWABS-0101",
+    "option1": "70% isopropyl",
+    "option2": "Box of 200",
+    "price_cents": 890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-ALCOHOL-SWABS-0102",
+    "option1": "70% isopropyl",
+    "option2": "Carton of 20 boxes",
+    "price_cents": 15900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-ALCOHOL-SWABS-0201",
+    "option1": "With chlorhexidine",
+    "option2": "Box of 200",
+    "price_cents": 890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-ALCOHOL-SWABS-0202",
+    "option1": "With chlorhexidine",
+    "option2": "Carton of 20 boxes",
+    "price_cents": 15900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "bacteriostatic-water",
+  "name": "Bacteriostatic water",
+  "category": "diluents-swabs",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-DIL-BACTERIOSTATIC-WATER-0101",
+    "option1": "10mL",
+    "option2": "Each",
+    "price_cents": 1450,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-BACTERIOSTATIC-WATER-0102",
+    "option1": "10mL",
+    "option2": "Pack of 5",
+    "price_cents": 6800,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-BACTERIOSTATIC-WATER-0201",
+    "option1": "30mL",
+    "option2": "Each",
+    "price_cents": 1450,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-BACTERIOSTATIC-WATER-0202",
+    "option1": "30mL",
+    "option2": "Pack of 5",
+    "price_cents": 6800,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "sterile-water-for-injection",
+  "name": "Sterile water for injection",
+  "category": "diluents-swabs",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-DIL-STERILE-WATER-FOR-INJECTION-0101",
+    "option1": "10mL ampoule",
+    "option2": "Box of 50",
+    "price_cents": 3900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-STERILE-WATER-FOR-INJECTION-0102",
+    "option1": "10mL ampoule",
+    "option2": "Box of 100",
+    "price_cents": 7200,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-STERILE-WATER-FOR-INJECTION-0201",
+    "option1": "20mL ampoule",
+    "option2": "Box of 50",
+    "price_cents": 3900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-STERILE-WATER-FOR-INJECTION-0202",
+    "option1": "20mL ampoule",
+    "option2": "Box of 100",
+    "price_cents": 7200,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "chlorhexidine-skin-prep",
+  "name": "Chlorhexidine skin prep",
+  "category": "diluents-swabs",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-DIL-CHLORHEXIDINE-SKIN-PREP-0101",
+    "option1": "Swabsticks",
+    "option2": "Box of 25",
+    "price_cents": 4900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-CHLORHEXIDINE-SKIN-PREP-0102",
+    "option1": "Swabsticks",
+    "option2": "Each",
+    "price_cents": 1690,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-CHLORHEXIDINE-SKIN-PREP-0201",
+    "option1": "Applicator wand",
+    "option2": "Box of 25",
+    "price_cents": 4900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-CHLORHEXIDINE-SKIN-PREP-0202",
+    "option1": "Applicator wand",
+    "option2": "Each",
+    "price_cents": 1690,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-CHLORHEXIDINE-SKIN-PREP-0301",
+    "option1": "500mL bottle",
+    "option2": "Box of 25",
+    "price_cents": 4900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-CHLORHEXIDINE-SKIN-PREP-0302",
+    "option1": "500mL bottle",
+    "option2": "Each",
+    "price_cents": 1690,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "povidone-iodine-swabsticks",
+  "name": "Povidone iodine swabsticks",
+  "category": "diluents-swabs",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-DIL-POVIDONE-IODINE-SWABSTICKS-0101",
+    "option1": "Triple stick",
+    "option2": "Box of 50",
+    "price_cents": 2450,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-POVIDONE-IODINE-SWABSTICKS-0102",
+    "option1": "Triple stick",
+    "option2": "Box of 200",
+    "price_cents": 8200,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-POVIDONE-IODINE-SWABSTICKS-0201",
+    "option1": "Single stick",
+    "option2": "Box of 50",
+    "price_cents": 2450,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-POVIDONE-IODINE-SWABSTICKS-0202",
+    "option1": "Single stick",
+    "option2": "Box of 200",
+    "price_cents": 8200,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "sodium-chloride-sachets",
+  "name": "Sodium chloride sachets",
+  "category": "diluents-swabs",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-DIL-SODIUM-CHLORIDE-SACHETS-0101",
+    "option1": "30mL",
+    "option2": "Box of 50",
+    "price_cents": 1890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-SODIUM-CHLORIDE-SACHETS-0102",
+    "option1": "30mL",
+    "option2": "Carton of 10 boxes",
+    "price_cents": 16500,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-SODIUM-CHLORIDE-SACHETS-0201",
+    "option1": "20mL",
+    "option2": "Box of 50",
+    "price_cents": 1890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-SODIUM-CHLORIDE-SACHETS-0202",
+    "option1": "20mL",
+    "option2": "Carton of 10 boxes",
+    "price_cents": 16500,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "cotton-wool-balls",
+  "name": "Cotton wool balls",
+  "category": "diluents-swabs",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-DIL-COTTON-WOOL-BALLS-0101",
+    "option1": "Balls, medium",
+    "option2": "Bag of 500",
+    "price_cents": 890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-COTTON-WOOL-BALLS-0102",
+    "option1": "Balls, medium",
+    "option2": "Bag of 1000",
+    "price_cents": 1540,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-COTTON-WOOL-BALLS-0103",
+    "option1": "Balls, medium",
+    "option2": "Carton of 5000",
+    "price_cents": 6900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-COTTON-WOOL-BALLS-0201",
+    "option1": "Balls, large",
+    "option2": "Bag of 500",
+    "price_cents": 890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-COTTON-WOOL-BALLS-0202",
+    "option1": "Balls, large",
+    "option2": "Bag of 1000",
+    "price_cents": 1540,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-COTTON-WOOL-BALLS-0203",
+    "option1": "Balls, large",
+    "option2": "Carton of 5000",
+    "price_cents": 6900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-COTTON-WOOL-BALLS-0301",
+    "option1": "Tipped applicators",
+    "option2": "Bag of 500",
+    "price_cents": 890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-COTTON-WOOL-BALLS-0302",
+    "option1": "Tipped applicators",
+    "option2": "Bag of 1000",
+    "price_cents": 1540,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIL-COTTON-WOOL-BALLS-0303",
+    "option1": "Tipped applicators",
+    "option2": "Carton of 5000",
+    "price_cents": 6900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "non-adherent-dressings",
+  "name": "Non-adherent dressings",
+  "category": "wound-care",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-WOU-NON-ADHERENT-DRESSINGS-0101",
+    "option1": "5 × 5cm",
+    "option2": "Box of 50",
+    "price_cents": 2650,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-NON-ADHERENT-DRESSINGS-0102",
+    "option1": "5 × 5cm",
+    "option2": "Box of 100",
+    "price_cents": 4900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-NON-ADHERENT-DRESSINGS-0201",
+    "option1": "7.5 × 10cm",
+    "option2": "Box of 50",
+    "price_cents": 2650,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-NON-ADHERENT-DRESSINGS-0202",
+    "option1": "7.5 × 10cm",
+    "option2": "Box of 100",
+    "price_cents": 4900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-NON-ADHERENT-DRESSINGS-0301",
+    "option1": "10 × 20cm",
+    "option2": "Box of 50",
+    "price_cents": 2650,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-NON-ADHERENT-DRESSINGS-0302",
+    "option1": "10 × 20cm",
+    "option2": "Box of 100",
+    "price_cents": 4900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "sterile-gauze-swabs",
+  "name": "Sterile gauze swabs",
+  "category": "wound-care",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-WOU-STERILE-GAUZE-SWABS-0101",
+    "option1": "5 × 5cm",
+    "option2": "Box of 100",
+    "price_cents": 1450,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-STERILE-GAUZE-SWABS-0102",
+    "option1": "5 × 5cm",
+    "option2": "Carton of 10 boxes",
+    "price_cents": 12900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-STERILE-GAUZE-SWABS-0201",
+    "option1": "7.5 × 7.5cm",
+    "option2": "Box of 100",
+    "price_cents": 1450,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-STERILE-GAUZE-SWABS-0202",
+    "option1": "7.5 × 7.5cm",
+    "option2": "Carton of 10 boxes",
+    "price_cents": 12900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-STERILE-GAUZE-SWABS-0301",
+    "option1": "10 × 10cm",
+    "option2": "Box of 100",
+    "price_cents": 1450,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-STERILE-GAUZE-SWABS-0302",
+    "option1": "10 × 10cm",
+    "option2": "Carton of 10 boxes",
+    "price_cents": 12900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "fixation-tape",
+  "name": "Fixation tape",
+  "category": "wound-care",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-WOU-FIXATION-TAPE-0101",
+    "option1": "2.5cm",
+    "option2": "Roll",
+    "price_cents": 690,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-FIXATION-TAPE-0102",
+    "option1": "2.5cm",
+    "option2": "Box of 12 rolls",
+    "price_cents": 7200,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-FIXATION-TAPE-0201",
+    "option1": "5cm",
+    "option2": "Roll",
+    "price_cents": 690,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-FIXATION-TAPE-0202",
+    "option1": "5cm",
+    "option2": "Box of 12 rolls",
+    "price_cents": 7200,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-FIXATION-TAPE-0301",
+    "option1": "7.5cm",
+    "option2": "Roll",
+    "price_cents": 690,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-FIXATION-TAPE-0302",
+    "option1": "7.5cm",
+    "option2": "Box of 12 rolls",
+    "price_cents": 7200,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "conforming-bandages",
+  "name": "Conforming bandages",
+  "category": "wound-care",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-WOU-CONFORMING-BANDAGES-0101",
+    "option1": "5cm",
+    "option2": "Pack of 12",
+    "price_cents": 2190,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-CONFORMING-BANDAGES-0102",
+    "option1": "5cm",
+    "option2": "Carton of 6 packs",
+    "price_cents": 11400,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-CONFORMING-BANDAGES-0201",
+    "option1": "7.5cm",
+    "option2": "Pack of 12",
+    "price_cents": 2190,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-CONFORMING-BANDAGES-0202",
+    "option1": "7.5cm",
+    "option2": "Carton of 6 packs",
+    "price_cents": 11400,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-CONFORMING-BANDAGES-0301",
+    "option1": "10cm",
+    "option2": "Pack of 12",
+    "price_cents": 2190,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-CONFORMING-BANDAGES-0302",
+    "option1": "10cm",
+    "option2": "Carton of 6 packs",
+    "price_cents": 11400,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "island-dressings",
+  "name": "Island dressings",
+  "category": "wound-care",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-WOU-ISLAND-DRESSINGS-0101",
+    "option1": "6 × 7cm",
+    "option2": "Box of 50",
+    "price_cents": 3290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-ISLAND-DRESSINGS-0102",
+    "option1": "6 × 7cm",
+    "option2": "Box of 100",
+    "price_cents": 6100,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-ISLAND-DRESSINGS-0201",
+    "option1": "10 × 8cm",
+    "option2": "Box of 50",
+    "price_cents": 3290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-ISLAND-DRESSINGS-0202",
+    "option1": "10 × 8cm",
+    "option2": "Box of 100",
+    "price_cents": 6100,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-ISLAND-DRESSINGS-0301",
+    "option1": "10 × 15cm",
+    "option2": "Box of 50",
+    "price_cents": 3290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-ISLAND-DRESSINGS-0302",
+    "option1": "10 × 15cm",
+    "option2": "Box of 100",
+    "price_cents": 6100,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "first-aid-kit-workplace",
+  "name": "First aid kit, workplace",
+  "category": "wound-care",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-WOU-FIRST-AID-KIT-WORKPLACE-0101",
+    "option1": "1 to 25 people",
+    "option2": "Each",
+    "price_cents": 8900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-FIRST-AID-KIT-WORKPLACE-0102",
+    "option1": "1 to 25 people",
+    "option2": "Refill pack",
+    "price_cents": 3400,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-FIRST-AID-KIT-WORKPLACE-0201",
+    "option1": "26 to 100 people",
+    "option2": "Each",
+    "price_cents": 8900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-FIRST-AID-KIT-WORKPLACE-0202",
+    "option1": "26 to 100 people",
+    "option2": "Refill pack",
+    "price_cents": 3400,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "adhesive-plasters",
+  "name": "Adhesive plasters",
+  "category": "wound-care",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-WOU-ADHESIVE-PLASTERS-0101",
+    "option1": "Plastic, assorted",
+    "option2": "Box of 100",
+    "price_cents": 1290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-ADHESIVE-PLASTERS-0102",
+    "option1": "Plastic, assorted",
+    "option2": "Box of 250",
+    "price_cents": 2840,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-ADHESIVE-PLASTERS-0103",
+    "option1": "Plastic, assorted",
+    "option2": "Carton of 1000",
+    "price_cents": 9900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-ADHESIVE-PLASTERS-0201",
+    "option1": "Fabric, assorted",
+    "option2": "Box of 100",
+    "price_cents": 1290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-ADHESIVE-PLASTERS-0202",
+    "option1": "Fabric, assorted",
+    "option2": "Box of 250",
+    "price_cents": 2840,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-ADHESIVE-PLASTERS-0203",
+    "option1": "Fabric, assorted",
+    "option2": "Carton of 1000",
+    "price_cents": 9900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-ADHESIVE-PLASTERS-0301",
+    "option1": "Blue detectable",
+    "option2": "Box of 100",
+    "price_cents": 1290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-ADHESIVE-PLASTERS-0302",
+    "option1": "Blue detectable",
+    "option2": "Box of 250",
+    "price_cents": 2840,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-ADHESIVE-PLASTERS-0303",
+    "option1": "Blue detectable",
+    "option2": "Carton of 1000",
+    "price_cents": 9900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "crepe-bandages",
+  "name": "Crepe bandages",
+  "category": "wound-care",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-WOU-CREPE-BANDAGES-0101",
+    "option1": "5cm",
+    "option2": "Each",
+    "price_cents": 340,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-CREPE-BANDAGES-0102",
+    "option1": "5cm",
+    "option2": "Box of 12",
+    "price_cents": 3660,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-CREPE-BANDAGES-0103",
+    "option1": "5cm",
+    "option2": "Carton of 72",
+    "price_cents": 19800,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-CREPE-BANDAGES-0201",
+    "option1": "7.5cm",
+    "option2": "Each",
+    "price_cents": 340,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-CREPE-BANDAGES-0202",
+    "option1": "7.5cm",
+    "option2": "Box of 12",
+    "price_cents": 3660,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-CREPE-BANDAGES-0203",
+    "option1": "7.5cm",
+    "option2": "Carton of 72",
+    "price_cents": 19800,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-CREPE-BANDAGES-0301",
+    "option1": "10cm",
+    "option2": "Each",
+    "price_cents": 340,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-CREPE-BANDAGES-0302",
+    "option1": "10cm",
+    "option2": "Box of 12",
+    "price_cents": 3660,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-CREPE-BANDAGES-0303",
+    "option1": "10cm",
+    "option2": "Carton of 72",
+    "price_cents": 19800,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-CREPE-BANDAGES-0401",
+    "option1": "15cm",
+    "option2": "Each",
+    "price_cents": 340,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-CREPE-BANDAGES-0402",
+    "option1": "15cm",
+    "option2": "Box of 12",
+    "price_cents": 3660,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-CREPE-BANDAGES-0403",
+    "option1": "15cm",
+    "option2": "Carton of 72",
+    "price_cents": 19800,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "cohesive-bandage",
+  "name": "Cohesive bandage",
+  "category": "wound-care",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-WOU-COHESIVE-BANDAGE-0101",
+    "option1": "2.5cm",
+    "option2": "Box of 12",
+    "price_cents": 2280,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-COHESIVE-BANDAGE-0102",
+    "option1": "2.5cm",
+    "option2": "Box of 24",
+    "price_cents": 4180,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-COHESIVE-BANDAGE-0103",
+    "option1": "2.5cm",
+    "option2": "Carton of 96",
+    "price_cents": 15600,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-COHESIVE-BANDAGE-0201",
+    "option1": "5cm",
+    "option2": "Box of 12",
+    "price_cents": 2280,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-COHESIVE-BANDAGE-0202",
+    "option1": "5cm",
+    "option2": "Box of 24",
+    "price_cents": 4180,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-COHESIVE-BANDAGE-0203",
+    "option1": "5cm",
+    "option2": "Carton of 96",
+    "price_cents": 15600,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-COHESIVE-BANDAGE-0301",
+    "option1": "7.5cm",
+    "option2": "Box of 12",
+    "price_cents": 2280,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-COHESIVE-BANDAGE-0302",
+    "option1": "7.5cm",
+    "option2": "Box of 24",
+    "price_cents": 4180,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-COHESIVE-BANDAGE-0303",
+    "option1": "7.5cm",
+    "option2": "Carton of 96",
+    "price_cents": 15600,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "hydrocolloid-foam-dressings",
+  "name": "Hydrocolloid and foam dressings",
+  "category": "wound-care",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-WOU-HYDROCOLLOID-FOAM-DRESSINGS-0101",
+    "option1": "Hydrocolloid, 10 x 10cm",
+    "option2": "Box of 5",
+    "price_cents": 2450,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-HYDROCOLLOID-FOAM-DRESSINGS-0102",
+    "option1": "Hydrocolloid, 10 x 10cm",
+    "option2": "Box of 10",
+    "price_cents": 4590,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-HYDROCOLLOID-FOAM-DRESSINGS-0103",
+    "option1": "Hydrocolloid, 10 x 10cm",
+    "option2": "Carton of 50",
+    "price_cents": 20900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-HYDROCOLLOID-FOAM-DRESSINGS-0201",
+    "option1": "Foam, 10 x 10cm",
+    "option2": "Box of 5",
+    "price_cents": 2450,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-HYDROCOLLOID-FOAM-DRESSINGS-0202",
+    "option1": "Foam, 10 x 10cm",
+    "option2": "Box of 10",
+    "price_cents": 4590,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-HYDROCOLLOID-FOAM-DRESSINGS-0203",
+    "option1": "Foam, 10 x 10cm",
+    "option2": "Carton of 50",
+    "price_cents": 20900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-HYDROCOLLOID-FOAM-DRESSINGS-0301",
+    "option1": "Foam adhesive border",
+    "option2": "Box of 5",
+    "price_cents": 2450,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-HYDROCOLLOID-FOAM-DRESSINGS-0302",
+    "option1": "Foam adhesive border",
+    "option2": "Box of 10",
+    "price_cents": 4590,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-HYDROCOLLOID-FOAM-DRESSINGS-0303",
+    "option1": "Foam adhesive border",
+    "option2": "Carton of 50",
+    "price_cents": 20900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "silicone-scar-gel",
+  "name": "Silicone scar gel",
+  "category": "wound-care",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-WOU-SILICONE-SCAR-GEL-0101",
+    "option1": "15g tube",
+    "option2": "Each",
+    "price_cents": 2990,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-SILICONE-SCAR-GEL-0102",
+    "option1": "15g tube",
+    "option2": "Box of 6",
+    "price_cents": 16400,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-SILICONE-SCAR-GEL-0103",
+    "option1": "15g tube",
+    "option2": "Box of 12",
+    "price_cents": 30800,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-SILICONE-SCAR-GEL-0201",
+    "option1": "30g tube",
+    "option2": "Each",
+    "price_cents": 2990,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-SILICONE-SCAR-GEL-0202",
+    "option1": "30g tube",
+    "option2": "Box of 6",
+    "price_cents": 16400,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-SILICONE-SCAR-GEL-0203",
+    "option1": "30g tube",
+    "option2": "Box of 12",
+    "price_cents": 30800,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "sutures",
+  "name": "Sutures",
+  "category": "wound-care",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-WOU-SUTURES-0101",
+    "option1": "Nylon 3-0",
+    "option2": "Box of 12",
+    "price_cents": 4290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-SUTURES-0102",
+    "option1": "Nylon 3-0",
+    "option2": "Box of 24",
+    "price_cents": 7980,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-SUTURES-0103",
+    "option1": "Nylon 3-0",
+    "option2": "Carton of 72",
+    "price_cents": 22400,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-SUTURES-0201",
+    "option1": "Nylon 4-0",
+    "option2": "Box of 12",
+    "price_cents": 4290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-SUTURES-0202",
+    "option1": "Nylon 4-0",
+    "option2": "Box of 24",
+    "price_cents": 7980,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-SUTURES-0203",
+    "option1": "Nylon 4-0",
+    "option2": "Carton of 72",
+    "price_cents": 22400,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-SUTURES-0301",
+    "option1": "Absorbable 3-0",
+    "option2": "Box of 12",
+    "price_cents": 4290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-SUTURES-0302",
+    "option1": "Absorbable 3-0",
+    "option2": "Box of 24",
+    "price_cents": 7980,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-SUTURES-0303",
+    "option1": "Absorbable 3-0",
+    "option2": "Carton of 72",
+    "price_cents": 22400,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-SUTURES-0401",
+    "option1": "Absorbable 4-0",
+    "option2": "Box of 12",
+    "price_cents": 4290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-SUTURES-0402",
+    "option1": "Absorbable 4-0",
+    "option2": "Box of 24",
+    "price_cents": 7980,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-WOU-SUTURES-0403",
+    "option1": "Absorbable 4-0",
+    "option2": "Carton of 72",
+    "price_cents": 22400,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "safety-lancets",
+  "name": "Safety lancets",
+  "category": "diagnostics",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-DIA-SAFETY-LANCETS-0101",
+    "option1": "28G, 1.8mm",
+    "option2": "Box of 100",
+    "price_cents": 2290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-SAFETY-LANCETS-0102",
+    "option1": "28G, 1.8mm",
+    "option2": "Box of 200",
+    "price_cents": 4200,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-SAFETY-LANCETS-0201",
+    "option1": "30G, 1.5mm",
+    "option2": "Box of 100",
+    "price_cents": 2290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-SAFETY-LANCETS-0202",
+    "option1": "30G, 1.5mm",
+    "option2": "Box of 200",
+    "price_cents": 4200,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-SAFETY-LANCETS-0301",
+    "option1": "21G, 2.2mm",
+    "option2": "Box of 100",
+    "price_cents": 2290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-SAFETY-LANCETS-0302",
+    "option1": "21G, 2.2mm",
+    "option2": "Box of 200",
+    "price_cents": 4200,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "blood-glucose-test-strips",
+  "name": "Blood glucose test strips",
+  "category": "diagnostics",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-DIA-BLOOD-GLUCOSE-TEST-STRIPS-0101",
+    "option1": "Vial of 50",
+    "option2": "Box of 2 vials",
+    "price_cents": 3900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-BLOOD-GLUCOSE-TEST-STRIPS-0102",
+    "option1": "Vial of 50",
+    "option2": "Carton of 10",
+    "price_cents": 17900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-BLOOD-GLUCOSE-TEST-STRIPS-0201",
+    "option1": "Vial of 100",
+    "option2": "Box of 2 vials",
+    "price_cents": 3900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-BLOOD-GLUCOSE-TEST-STRIPS-0202",
+    "option1": "Vial of 100",
+    "option2": "Carton of 10",
+    "price_cents": 17900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "thermometer-probe-covers",
+  "name": "Thermometer probe covers",
+  "category": "diagnostics",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-DIA-THERMOMETER-PROBE-COVERS-0101",
+    "option1": "Universal oral",
+    "option2": "Box of 100",
+    "price_cents": 890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-THERMOMETER-PROBE-COVERS-0102",
+    "option1": "Universal oral",
+    "option2": "Carton of 20 boxes",
+    "price_cents": 15400,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-THERMOMETER-PROBE-COVERS-0201",
+    "option1": "Tympanic",
+    "option2": "Box of 100",
+    "price_cents": 890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-THERMOMETER-PROBE-COVERS-0202",
+    "option1": "Tympanic",
+    "option2": "Carton of 20 boxes",
+    "price_cents": 15400,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "vaginal-speculum-disposable",
+  "name": "Vaginal speculum, disposable",
+  "category": "diagnostics",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-DIA-VAGINAL-SPECULUM-DISPOSABLE-0101",
+    "option1": "Small",
+    "option2": "Box of 25",
+    "price_cents": 4900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-VAGINAL-SPECULUM-DISPOSABLE-0102",
+    "option1": "Small",
+    "option2": "Carton of 100",
+    "price_cents": 17900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-VAGINAL-SPECULUM-DISPOSABLE-0201",
+    "option1": "Medium",
+    "option2": "Box of 25",
+    "price_cents": 4900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-VAGINAL-SPECULUM-DISPOSABLE-0202",
+    "option1": "Medium",
+    "option2": "Carton of 100",
+    "price_cents": 17900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-VAGINAL-SPECULUM-DISPOSABLE-0301",
+    "option1": "Large",
+    "option2": "Box of 25",
+    "price_cents": 4900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-VAGINAL-SPECULUM-DISPOSABLE-0302",
+    "option1": "Large",
+    "option2": "Carton of 100",
+    "price_cents": 17900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "ecg-electrodes",
+  "name": "ECG electrodes",
+  "category": "diagnostics",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-DIA-ECG-ELECTRODES-0101",
+    "option1": "Adult",
+    "option2": "Bag of 50",
+    "price_cents": 1890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-ECG-ELECTRODES-0102",
+    "option1": "Adult",
+    "option2": "Carton of 600",
+    "price_cents": 19900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-ECG-ELECTRODES-0201",
+    "option1": "Paediatric",
+    "option2": "Bag of 50",
+    "price_cents": 1890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-ECG-ELECTRODES-0202",
+    "option1": "Paediatric",
+    "option2": "Carton of 600",
+    "price_cents": 19900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "ultrasound-gel",
+  "name": "Ultrasound gel",
+  "category": "diagnostics",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-DIA-ULTRASOUND-GEL-0101",
+    "option1": "250mL bottle",
+    "option2": "Each",
+    "price_cents": 890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-ULTRASOUND-GEL-0102",
+    "option1": "250mL bottle",
+    "option2": "Carton of 6",
+    "price_cents": 4600,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-ULTRASOUND-GEL-0201",
+    "option1": "5L refill",
+    "option2": "Each",
+    "price_cents": 890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-ULTRASOUND-GEL-0202",
+    "option1": "5L refill",
+    "option2": "Carton of 6",
+    "price_cents": 4600,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "urinalysis-strips",
+  "name": "Urinalysis strips",
+  "category": "diagnostics",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-DIA-URINALYSIS-STRIPS-0101",
+    "option1": "10 parameter",
+    "option2": "Tube of 100",
+    "price_cents": 2190,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-URINALYSIS-STRIPS-0102",
+    "option1": "10 parameter",
+    "option2": "Box of 5 tubes",
+    "price_cents": 9900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-URINALYSIS-STRIPS-0103",
+    "option1": "10 parameter",
+    "option2": "Carton of 20 tubes",
+    "price_cents": 36800,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-URINALYSIS-STRIPS-0201",
+    "option1": "4 parameter",
+    "option2": "Tube of 100",
+    "price_cents": 2190,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-URINALYSIS-STRIPS-0202",
+    "option1": "4 parameter",
+    "option2": "Box of 5 tubes",
+    "price_cents": 9900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-URINALYSIS-STRIPS-0203",
+    "option1": "4 parameter",
+    "option2": "Carton of 20 tubes",
+    "price_cents": 36800,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "otoscope-ear-specula",
+  "name": "Otoscope ear specula",
+  "category": "diagnostics",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-DIA-OTOSCOPE-EAR-SPECULA-0101",
+    "option1": "2.5mm",
+    "option2": "Bag of 100",
+    "price_cents": 1690,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-OTOSCOPE-EAR-SPECULA-0102",
+    "option1": "2.5mm",
+    "option2": "Box of 500",
+    "price_cents": 7400,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-OTOSCOPE-EAR-SPECULA-0103",
+    "option1": "2.5mm",
+    "option2": "Carton of 1000",
+    "price_cents": 13800,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-OTOSCOPE-EAR-SPECULA-0201",
+    "option1": "4mm",
+    "option2": "Bag of 100",
+    "price_cents": 1690,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-OTOSCOPE-EAR-SPECULA-0202",
+    "option1": "4mm",
+    "option2": "Box of 500",
+    "price_cents": 7400,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-OTOSCOPE-EAR-SPECULA-0203",
+    "option1": "4mm",
+    "option2": "Carton of 1000",
+    "price_cents": 13800,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-OTOSCOPE-EAR-SPECULA-0301",
+    "option1": "Mixed bag",
+    "option2": "Bag of 100",
+    "price_cents": 1690,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-OTOSCOPE-EAR-SPECULA-0302",
+    "option1": "Mixed bag",
+    "option2": "Box of 500",
+    "price_cents": 7400,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-OTOSCOPE-EAR-SPECULA-0303",
+    "option1": "Mixed bag",
+    "option2": "Carton of 1000",
+    "price_cents": 13800,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "blood-glucose-meter",
+  "name": "Blood glucose meter",
+  "category": "diagnostics",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-DIA-BLOOD-GLUCOSE-METER-0101",
+    "option1": "Meter only",
+    "option2": "Each",
+    "price_cents": 3490,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-BLOOD-GLUCOSE-METER-0102",
+    "option1": "Meter only",
+    "option2": "Box of 5",
+    "price_cents": 15900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-BLOOD-GLUCOSE-METER-0103",
+    "option1": "Meter only",
+    "option2": "Carton of 20",
+    "price_cents": 58000,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-BLOOD-GLUCOSE-METER-0201",
+    "option1": "Starter kit",
+    "option2": "Each",
+    "price_cents": 3490,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-BLOOD-GLUCOSE-METER-0202",
+    "option1": "Starter kit",
+    "option2": "Box of 5",
+    "price_cents": 15900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-BLOOD-GLUCOSE-METER-0203",
+    "option1": "Starter kit",
+    "option2": "Carton of 20",
+    "price_cents": 58000,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "tongue-depressors",
+  "name": "Tongue depressors",
+  "category": "diagnostics",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-DIA-TONGUE-DEPRESSORS-0101",
+    "option1": "Adult",
+    "option2": "Box of 100",
+    "price_cents": 690,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-TONGUE-DEPRESSORS-0102",
+    "option1": "Adult",
+    "option2": "Carton of 1000",
+    "price_cents": 5400,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-TONGUE-DEPRESSORS-0103",
+    "option1": "Adult",
+    "option2": "Carton of 5000",
+    "price_cents": 24500,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-TONGUE-DEPRESSORS-0201",
+    "option1": "Paediatric",
+    "option2": "Box of 100",
+    "price_cents": 690,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-TONGUE-DEPRESSORS-0202",
+    "option1": "Paediatric",
+    "option2": "Carton of 1000",
+    "price_cents": 5400,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-DIA-TONGUE-DEPRESSORS-0203",
+    "option1": "Paediatric",
+    "option2": "Carton of 5000",
+    "price_cents": 24500,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "sharps-container-bench",
+  "name": "Sharps container, bench",
+  "category": "clinic-disposal",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-CLI-SHARPS-CONTAINER-BENCH-0101",
+    "option1": "0.5L",
+    "option2": "Each",
+    "price_cents": 1250,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-SHARPS-CONTAINER-BENCH-0102",
+    "option1": "0.5L",
+    "option2": "Carton of 12",
+    "price_cents": 12900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-SHARPS-CONTAINER-BENCH-0201",
+    "option1": "1.4L",
+    "option2": "Each",
+    "price_cents": 1250,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-SHARPS-CONTAINER-BENCH-0202",
+    "option1": "1.4L",
+    "option2": "Carton of 12",
+    "price_cents": 12900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-SHARPS-CONTAINER-BENCH-0301",
+    "option1": "2L",
+    "option2": "Each",
+    "price_cents": 1250,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-SHARPS-CONTAINER-BENCH-0302",
+    "option1": "2L",
+    "option2": "Carton of 12",
+    "price_cents": 12900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "sharps-container-wall-mount",
+  "name": "Sharps container, wall mount",
+  "category": "clinic-disposal",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-CLI-SHARPS-CONTAINER-WALL-MOUNT-0101",
+    "option1": "5L",
+    "option2": "Each",
+    "price_cents": 2450,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-SHARPS-CONTAINER-WALL-MOUNT-0102",
+    "option1": "5L",
+    "option2": "Carton of 6",
+    "price_cents": 12900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-SHARPS-CONTAINER-WALL-MOUNT-0201",
+    "option1": "10L",
+    "option2": "Each",
+    "price_cents": 2450,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-SHARPS-CONTAINER-WALL-MOUNT-0202",
+    "option1": "10L",
+    "option2": "Carton of 6",
+    "price_cents": 12900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-SHARPS-CONTAINER-WALL-MOUNT-0301",
+    "option1": "20L",
+    "option2": "Each",
+    "price_cents": 2450,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-SHARPS-CONTAINER-WALL-MOUNT-0302",
+    "option1": "20L",
+    "option2": "Carton of 6",
+    "price_cents": 12900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "couch-roll",
+  "name": "Couch roll",
+  "category": "clinic-disposal",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-CLI-COUCH-ROLL-0101",
+    "option1": "50cm",
+    "option2": "Carton of 6",
+    "price_cents": 4250,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-COUCH-ROLL-0102",
+    "option1": "50cm",
+    "option2": "Pallet of 48",
+    "price_cents": 31900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-COUCH-ROLL-0201",
+    "option1": "60cm",
+    "option2": "Carton of 6",
+    "price_cents": 4250,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-COUCH-ROLL-0202",
+    "option1": "60cm",
+    "option2": "Pallet of 48",
+    "price_cents": 31900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "blueys-underpads",
+  "name": "Blueys, underpads",
+  "category": "clinic-disposal",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-CLI-BLUEYS-UNDERPADS-0101",
+    "option1": "60 × 90cm",
+    "option2": "Box of 50",
+    "price_cents": 3890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-BLUEYS-UNDERPADS-0102",
+    "option1": "60 × 90cm",
+    "option2": "Carton of 4 boxes",
+    "price_cents": 13900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-BLUEYS-UNDERPADS-0201",
+    "option1": "60 × 60cm",
+    "option2": "Box of 50",
+    "price_cents": 3890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-BLUEYS-UNDERPADS-0202",
+    "option1": "60 × 60cm",
+    "option2": "Carton of 4 boxes",
+    "price_cents": 13900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "clinical-waste-bags",
+  "name": "Clinical waste bags",
+  "category": "clinic-disposal",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-CLI-CLINICAL-WASTE-BAGS-0101",
+    "option1": "27L",
+    "option2": "Roll of 50",
+    "price_cents": 1890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-CLINICAL-WASTE-BAGS-0102",
+    "option1": "27L",
+    "option2": "Carton of 10 rolls",
+    "price_cents": 16400,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-CLINICAL-WASTE-BAGS-0201",
+    "option1": "72L",
+    "option2": "Roll of 50",
+    "price_cents": 1890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-CLINICAL-WASTE-BAGS-0202",
+    "option1": "72L",
+    "option2": "Carton of 10 rolls",
+    "price_cents": 16400,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "surface-wipes-clinical",
+  "name": "Surface wipes, clinical",
+  "category": "clinic-disposal",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-CLI-SURFACE-WIPES-CLINICAL-0101",
+    "option1": "Alcohol free",
+    "option2": "Tub of 200",
+    "price_cents": 1590,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-SURFACE-WIPES-CLINICAL-0102",
+    "option1": "Alcohol free",
+    "option2": "Carton of 6 tubs",
+    "price_cents": 8400,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-SURFACE-WIPES-CLINICAL-0201",
+    "option1": "70% alcohol",
+    "option2": "Tub of 200",
+    "price_cents": 1590,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-SURFACE-WIPES-CLINICAL-0202",
+    "option1": "70% alcohol",
+    "option2": "Carton of 6 tubs",
+    "price_cents": 8400,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "incontinence-pads",
+  "name": "Incontinence pads and pants",
+  "category": "clinic-disposal",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-CLI-INCONTINENCE-PADS-0101",
+    "option1": "Pad, moderate",
+    "option2": "Pack of 14",
+    "price_cents": 1890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-INCONTINENCE-PADS-0102",
+    "option1": "Pad, moderate",
+    "option2": "Carton of 4 packs",
+    "price_cents": 6900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-INCONTINENCE-PADS-0103",
+    "option1": "Pad, moderate",
+    "option2": "Carton of 8 packs",
+    "price_cents": 12900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-INCONTINENCE-PADS-0201",
+    "option1": "Pad, maximum",
+    "option2": "Pack of 14",
+    "price_cents": 1890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-INCONTINENCE-PADS-0202",
+    "option1": "Pad, maximum",
+    "option2": "Carton of 4 packs",
+    "price_cents": 6900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-INCONTINENCE-PADS-0203",
+    "option1": "Pad, maximum",
+    "option2": "Carton of 8 packs",
+    "price_cents": 12900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-INCONTINENCE-PADS-0301",
+    "option1": "Pull-up, medium",
+    "option2": "Pack of 14",
+    "price_cents": 1890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-INCONTINENCE-PADS-0302",
+    "option1": "Pull-up, medium",
+    "option2": "Carton of 4 packs",
+    "price_cents": 6900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-INCONTINENCE-PADS-0303",
+    "option1": "Pull-up, medium",
+    "option2": "Carton of 8 packs",
+    "price_cents": 12900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-INCONTINENCE-PADS-0401",
+    "option1": "Pull-up, large",
+    "option2": "Pack of 14",
+    "price_cents": 1890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-INCONTINENCE-PADS-0402",
+    "option1": "Pull-up, large",
+    "option2": "Carton of 4 packs",
+    "price_cents": 6900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-CLI-INCONTINENCE-PADS-0403",
+    "option1": "Pull-up, large",
+    "option2": "Carton of 8 packs",
+    "price_cents": 12900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "hand-soap",
+  "name": "Liquid hand wash",
+  "category": "hygiene-cleaning",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-HYG-HAND-SOAP-0101",
+    "option1": "pH neutral",
+    "option2": "500mL pump",
+    "price_cents": 790,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-HYG-HAND-SOAP-0102",
+    "option1": "pH neutral",
+    "option2": "5L refill",
+    "price_cents": 3290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-HYG-HAND-SOAP-0103",
+    "option1": "pH neutral",
+    "option2": "Carton of 2 x 5L",
+    "price_cents": 6200,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-HYG-HAND-SOAP-0201",
+    "option1": "Antibacterial",
+    "option2": "500mL pump",
+    "price_cents": 790,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-HYG-HAND-SOAP-0202",
+    "option1": "Antibacterial",
+    "option2": "5L refill",
+    "price_cents": 3290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-HYG-HAND-SOAP-0203",
+    "option1": "Antibacterial",
+    "option2": "Carton of 2 x 5L",
+    "price_cents": 6200,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "hand-towels",
+  "name": "Interleaved hand towels",
+  "category": "hygiene-cleaning",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-HYG-HAND-TOWELS-0101",
+    "option1": "Slimfold",
+    "option2": "Carton of 2400",
+    "price_cents": 4290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-HYG-HAND-TOWELS-0102",
+    "option1": "Slimfold",
+    "option2": "Carton of 4000",
+    "price_cents": 6890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-HYG-HAND-TOWELS-0201",
+    "option1": "Ultraslim",
+    "option2": "Carton of 2400",
+    "price_cents": 4290,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-HYG-HAND-TOWELS-0202",
+    "option1": "Ultraslim",
+    "option2": "Carton of 4000",
+    "price_cents": 6890,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "facial-tissues",
+  "name": "Facial tissues",
+  "category": "hygiene-cleaning",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-HYG-FACIAL-TISSUES-0101",
+    "option1": "Standard box",
+    "option2": "Box of 100",
+    "price_cents": 190,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-HYG-FACIAL-TISSUES-0102",
+    "option1": "Standard box",
+    "option2": "Carton of 24 boxes",
+    "price_cents": 3890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-HYG-FACIAL-TISSUES-0103",
+    "option1": "Standard box",
+    "option2": "Carton of 48 boxes",
+    "price_cents": 7200,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-HYG-FACIAL-TISSUES-0201",
+    "option1": "Cube box",
+    "option2": "Box of 100",
+    "price_cents": 190,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-HYG-FACIAL-TISSUES-0202",
+    "option1": "Cube box",
+    "option2": "Carton of 24 boxes",
+    "price_cents": 3890,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-HYG-FACIAL-TISSUES-0203",
+    "option1": "Cube box",
+    "option2": "Carton of 48 boxes",
+    "price_cents": 7200,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "cotton-wool-rolls",
+  "name": "Cotton wool rolls",
+  "category": "hygiene-cleaning",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-HYG-COTTON-WOOL-ROLLS-0101",
+    "option1": "375g roll",
+    "option2": "Each",
+    "price_cents": 1090,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-HYG-COTTON-WOOL-ROLLS-0102",
+    "option1": "375g roll",
+    "option2": "Box of 6",
+    "price_cents": 5900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-HYG-COTTON-WOOL-ROLLS-0103",
+    "option1": "375g roll",
+    "option2": "Carton of 12",
+    "price_cents": 10900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-HYG-COTTON-WOOL-ROLLS-0201",
+    "option1": "500g roll",
+    "option2": "Each",
+    "price_cents": 1090,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-HYG-COTTON-WOOL-ROLLS-0202",
+    "option1": "500g roll",
+    "option2": "Box of 6",
+    "price_cents": 5900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-HYG-COTTON-WOOL-ROLLS-0203",
+    "option1": "500g roll",
+    "option2": "Carton of 12",
+    "price_cents": 10900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "rigid-strapping-tape",
+  "name": "Rigid strapping tape",
+  "category": "taping-supports",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-TAP-RIGID-STRAPPING-TAPE-0101",
+    "option1": "25mm",
+    "option2": "Each",
+    "price_cents": 690,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-RIGID-STRAPPING-TAPE-0102",
+    "option1": "25mm",
+    "option2": "Box of 8",
+    "price_cents": 4990,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-RIGID-STRAPPING-TAPE-0103",
+    "option1": "25mm",
+    "option2": "Carton of 48",
+    "price_cents": 27900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-RIGID-STRAPPING-TAPE-0201",
+    "option1": "38mm",
+    "option2": "Each",
+    "price_cents": 690,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-RIGID-STRAPPING-TAPE-0202",
+    "option1": "38mm",
+    "option2": "Box of 8",
+    "price_cents": 4990,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-RIGID-STRAPPING-TAPE-0203",
+    "option1": "38mm",
+    "option2": "Carton of 48",
+    "price_cents": 27900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-RIGID-STRAPPING-TAPE-0301",
+    "option1": "50mm",
+    "option2": "Each",
+    "price_cents": 690,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-RIGID-STRAPPING-TAPE-0302",
+    "option1": "50mm",
+    "option2": "Box of 8",
+    "price_cents": 4990,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-RIGID-STRAPPING-TAPE-0303",
+    "option1": "50mm",
+    "option2": "Carton of 48",
+    "price_cents": 27900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "elastic-adhesive-bandage",
+  "name": "Elastic adhesive bandage",
+  "category": "taping-supports",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-TAP-ELASTIC-ADHESIVE-BANDAGE-0101",
+    "option1": "50mm",
+    "option2": "Each",
+    "price_cents": 1090,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-ELASTIC-ADHESIVE-BANDAGE-0102",
+    "option1": "50mm",
+    "option2": "Box of 6",
+    "price_cents": 5900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-ELASTIC-ADHESIVE-BANDAGE-0103",
+    "option1": "50mm",
+    "option2": "Carton of 36",
+    "price_cents": 32400,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-ELASTIC-ADHESIVE-BANDAGE-0201",
+    "option1": "75mm",
+    "option2": "Each",
+    "price_cents": 1090,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-ELASTIC-ADHESIVE-BANDAGE-0202",
+    "option1": "75mm",
+    "option2": "Box of 6",
+    "price_cents": 5900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-ELASTIC-ADHESIVE-BANDAGE-0203",
+    "option1": "75mm",
+    "option2": "Carton of 36",
+    "price_cents": 32400,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "kinesiology-tape",
+  "name": "Kinesiology tape",
+  "category": "taping-supports",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-TAP-KINESIOLOGY-TAPE-0101",
+    "option1": "Beige",
+    "option2": "Roll",
+    "price_cents": 1490,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-KINESIOLOGY-TAPE-0102",
+    "option1": "Beige",
+    "option2": "Box of 6 rolls",
+    "price_cents": 7900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-KINESIOLOGY-TAPE-0103",
+    "option1": "Beige",
+    "option2": "Bulk roll, 31.5m",
+    "price_cents": 6900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-KINESIOLOGY-TAPE-0201",
+    "option1": "Black",
+    "option2": "Roll",
+    "price_cents": 1490,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-KINESIOLOGY-TAPE-0202",
+    "option1": "Black",
+    "option2": "Box of 6 rolls",
+    "price_cents": 7900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-KINESIOLOGY-TAPE-0203",
+    "option1": "Black",
+    "option2": "Bulk roll, 31.5m",
+    "price_cents": 6900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-KINESIOLOGY-TAPE-0301",
+    "option1": "Blue",
+    "option2": "Roll",
+    "price_cents": 1490,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-KINESIOLOGY-TAPE-0302",
+    "option1": "Blue",
+    "option2": "Box of 6 rolls",
+    "price_cents": 7900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-KINESIOLOGY-TAPE-0303",
+    "option1": "Blue",
+    "option2": "Bulk roll, 31.5m",
+    "price_cents": 6900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-KINESIOLOGY-TAPE-0401",
+    "option1": "Pre-cut strips",
+    "option2": "Roll",
+    "price_cents": 1490,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-KINESIOLOGY-TAPE-0402",
+    "option1": "Pre-cut strips",
+    "option2": "Box of 6 rolls",
+    "price_cents": 7900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-KINESIOLOGY-TAPE-0403",
+    "option1": "Pre-cut strips",
+    "option2": "Bulk roll, 31.5m",
+    "price_cents": 6900,
+    "variant_id": null
+   }
+  ]
+ },
+ {
+  "handle": "compression-stockings",
+  "name": "Compression stockings",
+  "category": "taping-supports",
+  "product_id": null,
+  "variants": [
+   {
+    "sku": "GPS-TAP-COMPRESSION-STOCKINGS-0101",
+    "option1": "Small",
+    "option2": "Pair",
+    "price_cents": 2490,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-COMPRESSION-STOCKINGS-0102",
+    "option1": "Small",
+    "option2": "Box of 5 pairs",
+    "price_cents": 10900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-COMPRESSION-STOCKINGS-0103",
+    "option1": "Small",
+    "option2": "Carton of 20 pairs",
+    "price_cents": 39900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-COMPRESSION-STOCKINGS-0201",
+    "option1": "Medium",
+    "option2": "Pair",
+    "price_cents": 2490,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-COMPRESSION-STOCKINGS-0202",
+    "option1": "Medium",
+    "option2": "Box of 5 pairs",
+    "price_cents": 10900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-COMPRESSION-STOCKINGS-0203",
+    "option1": "Medium",
+    "option2": "Carton of 20 pairs",
+    "price_cents": 39900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-COMPRESSION-STOCKINGS-0301",
+    "option1": "Large",
+    "option2": "Pair",
+    "price_cents": 2490,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-COMPRESSION-STOCKINGS-0302",
+    "option1": "Large",
+    "option2": "Box of 5 pairs",
+    "price_cents": 10900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-COMPRESSION-STOCKINGS-0303",
+    "option1": "Large",
+    "option2": "Carton of 20 pairs",
+    "price_cents": 39900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-COMPRESSION-STOCKINGS-0401",
+    "option1": "Extra large",
+    "option2": "Pair",
+    "price_cents": 2490,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-COMPRESSION-STOCKINGS-0402",
+    "option1": "Extra large",
+    "option2": "Box of 5 pairs",
+    "price_cents": 10900,
+    "variant_id": null
+   },
+   {
+    "sku": "GPS-TAP-COMPRESSION-STOCKINGS-0403",
+    "option1": "Extra large",
+    "option2": "Carton of 20 pairs",
+    "price_cents": 39900,
+    "variant_id": null
+   }
+  ]
+ }
+]

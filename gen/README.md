@@ -19,6 +19,8 @@ the fifty-eight pages come out of these scripts, so a change made by hand in
 | `footer.py` | all 81 | applies the sitewide footer |
 | `searchindex.py` | `search-index.json` | what the header search matches against, including the synonym list |
 | `sitemap.py` | `sitemap.xml`, `robots.txt` | run it after anything that adds or removes a page |
+| `shopify_export.py` | `export/shopify-products.csv`, `export/variant-map.json` | the catalogue in Shopify import format |
+| `photoreview.py` | `docs/internal/photo-review.html` | working page, delete once the photography is settled |
 
 `shop.py` runs its `main()` on import, so `python3 gen/build.py` rebuilds 72
 pages, not 6. That is intended. Run from anywhere: the output path is resolved
@@ -68,3 +70,37 @@ search that misses on the first try does not get a second one. Add to it
 whenever a product has a name customers do not use.
 
 Run `searchindex.py` after anything that adds, renames or removes a page.
+
+## Shopify
+
+Headless: this repo stays the storefront and the source of truth for the
+catalogue. Shopify holds a copy so it can price, take money, and manage orders.
+Products are never authored in the Shopify admin, because then the catalogue
+stops being reviewable and a diff stops being the record.
+
+    python3 gen/shopify_export.py
+
+writes `export/shopify-products.csv` (57 products, 366 variants) and
+`export/variant-map.json`. Everything imports as **draft and unpublished** on
+purpose: every price in `catalogue.py` is invented until a factory quotes, and a
+draft product cannot be sold by accident.
+
+After importing, pull the variant IDs back out of Shopify and fill them into
+`variant-map.json`. The storefront needs those IDs to build a cart, because SKUs
+are not addressable through the Storefront API.
+
+Still to fill before anything is published:
+
+- **Variant Grams.** Exported as 0. Shipping rates are wrong until real weights
+  are in, and 0 grams reads as free freight.
+- **Prices.** Placeholders, in cents, in `catalogue.py`.
+- **ARTG and country of origin.** See `REGULATORY` in `catalogue.py`.
+
+## Regulatory claims
+
+`REGULATORY` in `catalogue.py` is empty and product pages print nothing for ARTG
+or country of origin as a result. That is deliberate. Those are claims about
+specific goods and they need a real value from a real supplier per product. The
+site used to print `ARTG: Listed, see carton` and `Country of origin: Malaysia`
+on all fifty-seven products, cotton wool and facial tissues included, which was
+neither true nor defensible.

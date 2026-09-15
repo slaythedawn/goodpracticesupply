@@ -66,6 +66,19 @@ SHOTS = {  # four views per product family, reused across the catalogue
  'stockings':  [('stockings','Folded flat')],
 }
 
+# Per-product regulatory and origin facts, keyed by slug.
+#
+# Deliberately empty. An ARTG entry and a country of origin are claims about
+# specific goods, and until a supplier has given us one for a specific product
+# there is nothing true to print. shop.py renders these rows only where a value
+# exists, so an unfilled product simply does not make the claim rather than
+# making a generic one.
+#
+#   REGULATORY = {'nitrile-examination-gloves':
+#                   [('ARTG', 'ARTG 123456'), ('Country of origin', 'Malaysia')]}
+REGULATORY = {}
+
+
 def P(name, slug, tag, spec, blurb, family, variants, packs, extra=()):
     return dict(name=name, slug=slug, tag=tag, spec=spec, blurb=blurb,
                 family=family, variants=variants, packs=packs, extra=list(extra))

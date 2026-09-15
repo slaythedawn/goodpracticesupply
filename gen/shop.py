@@ -1,6 +1,6 @@
 import io, json, os, sys, html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from catalogue import CATEGORIES, SHOTS, I
+from catalogue import CATEGORIES, SHOTS, I, REGULATORY
 import seo as SEO
 
 import pathlib
@@ -337,11 +337,13 @@ def build_product(cat, p, idx):
         a(product_card(cat,q))
     a('        </div>\n      </div>\n    </section>\n\n  </main>')
 
-    specs=[('Brand','Good Practice Supply'),('ARTG','{{ artg }}'),('Sterility','EN 556, ethylene oxide'),
-           ('Material','Medical grade polypropylene'),('Single use','Yes')]
+    # ARTG and country of origin come from REGULATORY, which is empty until a
+    # supplier gives us a real value per product. A generic "ARTG: Listed" on a
+    # box of tissues is a claim we cannot stand behind, so nothing is printed
+    # rather than something convenient.
     specs=[('Brand','Good Practice Supply')]+[(k,v) for k,v in p['extra']]+[
            ('Pack','{{ packLabel }}'),('Product code','{{ code }}'),('Batch','{{ batch }}'),
-           ('Expiry','04/2028'),('Country of origin','Malaysia'),('ARTG','Listed, see carton')]
+           ('Expiry','04/2028')]+[(k,v) for k,v in REGULATORY.get(p['slug'],[])]
     code='GPS-%s-%03d'%(cat['slug'][:3].upper(), idx+1)
     script="""%s
 class Component extends DCLogic {
