@@ -4,7 +4,7 @@ B = "https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/"
 I = {
  'syringe_box': B+'hf_20260912_014655_c87ec5d7-96f6-4729-b6ef-fc062184ab3f.png',
  'syringes':    B+'hf_20260912_023904_ac99bf9d-40bb-4cb3-b197-e10d78b28291.png',
- 'barrel':      B+'hf_20260912_023904_a7844854-85e0-4acd-9497-383cfaf455a4.png',
+ 'barrel':      B+'hf_20260912_031429_c3ac1819-2bb8-4e0b-af1e-dbd72e0116fd.png',
  'carton':      B+'hf_20260912_023904_70721a4d-07ea-42bc-b730-aba9835e34b7.png',
  'blister':     B+'hf_20260912_023904_ee6d90dc-da5a-4635-81c5-6707caee41a3.png',
  'tray':        B+'hf_20260912_023904_19f69ed5-241c-4963-8176-8700fc6688c2.png',
@@ -17,7 +17,7 @@ I = {
  'lengths':     B+'hf_20260912_031429_c3ac1819-2bb8-4e0b-af1e-dbd72e0116fd.png',
 }
 SHOTS = {  # four views per product family, reused across the catalogue
- 'syringe': [('syringe_box','The box, closed'),('syringes','Three out of the box'),('barrel','Close up of the barrel graduations'),('carton','The carton opened')],
+ 'syringe': [('syringe_box','The box, closed'),('syringes','Three out of the box'),('barrel','Lengths side by side'),('carton','The carton opened')],
  'needle':  [('carton','The box, closed'),('needle_macro','Macro of the bevel'),('lengths','Lengths side by side'),('blister','Blister wrapped, in the tray')],
  'glove':   [('gloves','The dispenser box'),('tray','A pair, laid flat'),('carton','The carton'),('blister','Cuff detail')],
  'prep':    [('vial_swabs','Foil sachets beside a vial'),('carton','The carton'),('tray','A sachet opened'),('blister','Stacked in the tray')],

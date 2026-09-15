@@ -58,3 +58,32 @@ A hero photograph has to be shot for the panel that sits on it.
 The canonical wording lives in `HUMAN_STYLE` in the page generators
 (`gen/style.py`), so that every regeneration inherits it rather than
 paraphrasing it. Change it there and rebuild, do not edit a generated page.
+
+## Generated lettering
+
+Image models put lettering on anything that looks like packaging, and it always
+comes out as gibberish: AVORID DN S PODA on a supply box, Bolioabetrine on a
+vial. Prompting against it does not work reliably. Six of seven attempts to
+regenerate one shot came back with text on them despite the brief spelling out
+"no writing, no letters, no numbers, no words, no text, no symbols, no barcode,
+no label" every time.
+
+So it is checked mechanically rather than by eye. Every image on the site is run
+through OCR (`rapidocr-onnxruntime`), and anything that reads back as a word is
+either repaired or retired.
+
+Repairing beats regenerating, because a composition that works is worth more
+than a clean one that does not. The lettering sits on flat, smoothly lit
+surfaces, so the fix is a bilinear reconstruction from the four borders of the
+patch plus noise matched to the surrounding grain, which on a matte box face is
+an exact fit rather than an approximation. Two rules keep it honest:
+
+- Only repair text-shaped regions: short, wide, small. A tall or square
+  detection is a real object the detector mistook for a glyph, and filling it
+  takes a bite out of the picture. A glucose monitor once came back as "D".
+- If the lettering is the subject, retire the shot instead. A close-up of
+  syringe graduations reading 43, 45 and 23 cannot be repaired, because painting
+  out the numbers paints out the graduations.
+
+Repaired files live on a separate media host to the generated ones, which is why
+two CloudFront domains appear in the markup.

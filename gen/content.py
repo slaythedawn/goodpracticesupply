@@ -7,11 +7,14 @@
 # advice. No em dashes, per the house rule.
 
 IMG = "https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/"
+# Shots whose generated lettering was painted out; they live on the repaired
+# media host rather than the generation host. See brand/PHOTOGRAPHY.md.
+FIXED = "https://d2ol7oe51mr4n9.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/"
 
 PAGES = [
 {
  "slug": "glp-1-injections",
- "scene": IMG + "hf_20260914_230049_e7968094-f16a-438c-a832-d29dec46845c.png",
+ "scene": FIXED + "318e9be0-e636-449e-83c1-22856a30335c.png",
  "scene_alt": 'Laying out a swab and a capped syringe on a tray at a kitchen bench',
  "title": "What you need to inject a GLP-1 at home",
  "eyebrow": "For GLP-1",
@@ -56,7 +59,7 @@ PAGES = [
 },
 {
  "slug": "trt-injections",
- "scene": IMG + "hf_20260914_231033_7061fe8b-3c75-489f-9b77-7cd7dbdabe88.png",
+ "scene": FIXED + "7f9a2187-56bf-4b60-81ea-59230329df49.png",
  "scene_alt": 'Two capped needles, two swabs and a vial laid out in a row on a bathroom counter',
  "title": "Supplies for testosterone injections at home",
  "eyebrow": "For TRT",
@@ -103,7 +106,7 @@ PAGES = [
 },
 {
  "slug": "peptide-reconstitution",
- "scene": IMG + "hf_20260914_230049_b14d4f51-3749-42ce-b5d1-f40491bc8e16.png",
+ "scene": FIXED + "605f50a3-8fe6-479d-b0b0-7fda0ab96fd4.png",
  "scene_alt": 'Hands holding a vial and a syringe above a clean bench',
  "title": "Bacteriostatic water and reconstitution supplies",
  "eyebrow": "For reconstitution",
@@ -150,7 +153,7 @@ PAGES = [
 },
 {
  "slug": "diabetes-at-home",
- "scene": IMG + "hf_20260914_222806_7bed0347-356b-40c0-a091-457301315ddf.png",
+ "scene": FIXED + "8d04232a-9f64-47a0-a0ce-0ca76aa388b1.png",
  "scene_alt": 'A monitor, test strips and lancets on a kitchen table beside a mug of tea',
  "title": "Insulin syringes, pen needles and diabetes consumables",
  "eyebrow": "For diabetes",
@@ -243,7 +246,7 @@ PAGES = [
 },
 {
  "slug": "clinic-fit-out",
- "scene": IMG + "hf_20260914_230049_449cd8b1-d66b-42c3-a4d1-bb64faeffdc8.png",
+ "scene": FIXED + "4e3a9500-63d7-4842-9236-ba6b0f6152aa.png",
  "scene_alt": 'Restocking a wall-mounted glove dispenser in a treatment room',
  "title": "Setting up a treatment room, consumables list",
  "eyebrow": "For clinics",

@@ -8,7 +8,7 @@ EYE_L = ('<span style="display:inline-block;%s;font-size:12px;letter-spacing:.16
          'color:#1C4034;border:1px solid rgba(28,64,52,.3);border-radius:1000px;padding:7px 13px;margin-bottom:20px">%%s</span>'%MONO)
 
 CDN='https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/'
-SHOT_VIAL=CDN+'hf_20260914_222009_ca63e697-bb9a-48ee-8c04-2df005311eb5.png'
+SHOT_VIAL=CDN+'hf_20260912_014655_c87ec5d7-96f6-4729-b6ef-fc062184ab3f.png'
 SHOT_NEEDLES=CDN+'hf_20260914_222009_74578d27-0f2f-4e67-bddc-bd5e151ef2fe.png'
 
 def head_grid_open():
@@ -94,7 +94,7 @@ def reconstitution():
     a('          <h1 style="%s">Peptide reconstitution calculator</h1>\n'%H1)
     a('          <p style="%s">Enter what is in the vial, how much bacteriostatic water you are adding and the dose you were given. You get the concentration, the volume to draw, and the exact mark to line up on a U-100 insulin syringe.</p>\n'%LEAD)
     a('          <p style="%s;margin-top:14px">We do not decide your dose. Your prescriber does that. This turns the number they gave you into a mark on a barrel.</p>\n        </div>\n'%LEAD)
-    a(head_shot(SHOT_VIAL, 'A vial, an insulin syringe, an ampoule of water and alcohol swabs laid out in a row'))
+    a(head_shot(SHOT_VIAL, 'A glass vial beside a carton and foil swab sachets'))
     a('      </div>\n    </section>\n\n')
     # calculator
     a('    <section id="calc" style="border-bottom:1px solid #E3E3E1">\n      <div style="max-width:1440px;margin:0 auto;padding:clamp(28px,4vw,44px) clamp(20px,5vw,72px) clamp(48px,7vw,96px)">\n')
