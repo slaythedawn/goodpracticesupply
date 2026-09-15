@@ -11,16 +11,53 @@
 # from their own spec, variants and packs, which are different for every product,
 # so no two pages come out the same.
 
+import re
+
 ORIGIN = 'https://goodpracticesupply.com.au'
 BRAND = 'Good Practice Supply'
 
-# The site is still a prototype: prices are invented, no factory has quoted, and
-# the copy has not been through legal review. Letting search engines index fake
-# prices on a medical supply site would be worse than not ranking at all, so
-# every page carries noindex until this flips. Flipping it is the whole change:
-# the tags, the canonicals and the structured data are already in place, and
-# vercel.json carries a matching X-Robots-Tag header to remove at the same time.
-INDEXABLE = False
+# Two switches, deliberately independent of each other.
+#
+# PURCHASABLE is whether anyone can complete an order. It is off: no factory has
+# quoted, so every price in catalogue.py is invented. While it is off the buy
+# button reads "Coming soon", nothing is added to a cart, and the Product
+# structured data carries no offers block. A price in structured data is a
+# machine-readable offer to sell at that price, and an offer you cannot honour
+# is not a thing to publish.
+PURCHASABLE = False
+
+# Indexing is per section, because the content and the catalogue are ready at
+# different times. The guides, the tools and the fixed pages are finished
+# writing and are the pages that earn authority, so they index. The shop is
+# fifty-seven products that will be replaced, at prices that are not real, so it
+# does not. Flip INDEX_SHOP the day the catalogue is real.
+INDEX_CONTENT = True
+INDEX_SHOP = False
+
+
+def indexable(path):
+    return INDEX_SHOP if path.startswith('/shop') else INDEX_CONTENT
+
+
+def robots(path):
+    return ('index, follow, max-image-preview:large, max-snippet:-1'
+            if indexable(path) else 'noindex, nofollow')
+
+
+def robots_meta(path):
+    return '<meta name="robots" content="%s">' % robots(path)
+
+
+def set_robots(head, path):
+    """Swap whatever robots meta a shell carries for the right one.
+
+    The shell is sliced out of docs/about.html, which is itself a page with its
+    own robots tag, so matching on one exact value breaks the moment that page
+    changes. Match the tag, not its contents.
+    """
+    out, n = re.subn(r'<meta name="robots" content="[^"]*">', robots_meta(path), head, count=1)
+    assert n == 1, 'no robots meta in shell for ' + path
+    return out
 
 
 def esc(t):
@@ -94,7 +131,7 @@ def faq_schema(pairs):
 
 
 def product_schema(*, path, name, description, image, sku, price_cents, category, in_stock=True):
-    return {
+    d = {
         '@context': 'https://schema.org',
         '@type': 'Product',
         'name': name,
@@ -103,7 +140,12 @@ def product_schema(*, path, name, description, image, sku, price_cents, category
         'sku': sku,
         'category': category,
         'brand': {'@type': 'Brand', 'name': BRAND},
-        'offers': {
+    }
+    if not PURCHASABLE:
+        # Everything above is a true description of the product. An offers block
+        # would be a price we are not yet in a position to honour.
+        return d
+    d['offers'] = {
             '@type': 'Offer',
             'url': ORIGIN + path,
             'priceCurrency': 'AUD',
@@ -115,8 +157,8 @@ def product_schema(*, path, name, description, image, sku, price_cents, category
                 '@type': 'OfferShippingDetails',
                 'shippingDestination': {'@type': 'DefinedRegion', 'addressCountry': 'AU'},
             },
-        },
     }
+    return d
 
 
 def item_list(products, cat_slug):

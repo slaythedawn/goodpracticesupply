@@ -35,9 +35,14 @@ STATIC = [
 
 
 def urls():
+    # Only pages that are actually indexable. Listing a noindexed URL in a
+    # sitemap asks a crawler to fetch a page and then tells it to forget what it
+    # found, which wastes crawl budget on a new domain that has little of it.
     today = datetime.date.today().isoformat()
-    out = [(p, pr, cf, today) for p, pr, cf in STATIC]
+    out = [(p, pr, cf, today) for p, pr, cf in STATIC if SEO.indexable(p)]
     for c in CATEGORIES:
+        if not SEO.indexable('/shop/' + c['slug']):
+            continue
         out.append(('/shop/' + c['slug'], '0.8', 'weekly', today))
         for p in c['products']:
             out.append(('/shop/%s/%s' % (c['slug'], p['slug']), '0.7', 'weekly', today))
@@ -55,19 +60,17 @@ def main():
     o.append('</urlset>')
     io.open(DOCS + '/sitemap.xml', 'w', encoding='utf-8').write('\n'.join(o) + '\n')
 
-    robots = ['# %s' % SEO.ORIGIN, 'User-agent: *']
-    if SEO.INDEXABLE:
-        robots.append('Allow: /')
-    else:
-        # Still Allow, on purpose. See the note at the top of this file: the
-        # pages carry noindex, and a crawler has to be able to fetch them to
-        # see it.
-        robots += ['Allow: /',
-                   '# Every page currently carries a noindex meta tag and a matching',
-                   '# X-Robots-Tag header. Crawling is allowed so that is readable.']
+    robots = ['# %s' % SEO.ORIGIN, 'User-agent: *', 'Allow: /']
+    if not SEO.INDEX_SHOP:
+        # Allow, not Disallow, on purpose. See the note at the top of this file:
+        # /shop carries noindex, and a crawler has to fetch a page to read it.
+        robots += ['',
+                   '# /shop carries a noindex meta tag and a matching X-Robots-Tag',
+                   '# header while its prices are placeholders. Crawling stays open so',
+                   '# that the noindex is readable.']
     robots += ['', 'Sitemap: %s/sitemap.xml' % SEO.ORIGIN, '']
     io.open(DOCS + '/robots.txt', 'w', encoding='utf-8').write('\n'.join(robots))
-    print('sitemap: %d urls, robots.txt written (indexable=%s)' % (len(rows), SEO.INDEXABLE))
+    print('sitemap: %d urls (content=%s, shop=%s)' % (len(rows), SEO.INDEX_CONTENT, SEO.INDEX_SHOP))
 
 
 if __name__ == '__main__':

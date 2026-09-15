@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Clinic Portal | Good Practice Supply</title>
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -155,7 +155,6 @@
       <div style="display:flex;align-items:center;gap:16px;flex:none;margin-left:auto">
         <a href="#" aria-label="Search" data-gp-search style="display:flex;color:#FAFAFA"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="5.5" stroke="currentColor" stroke-width="1.6"></circle><path d="m12.5 12.5 3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></a>
         <a href="/clinic-portal" data-gp-desktoponly style="font-size:15px;font-weight:500;color:#FAFAFA;white-space:nowrap">Sign in</a>
-        <a href="#" data-cta style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:11px 20px;font-size:14.5px;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums" style-hover="background:#FAFAFA;color:#143026">Cart &middot; {{ cartCount }}</a>
         <button type="button" data-gp-burger onClick="{{ toggleNav }}" aria-expanded="{{ navOpen }}" aria-label="Menu" style="background:none;border:1px solid rgba(143,191,166,.26);border-radius:1000px;width:38px;height:38px;cursor:pointer;color:#FAFAFA;align-items:center;justify-content:center;flex:none;padding:0">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 5h14M2 9h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>
         </button>
@@ -288,7 +287,7 @@
           <div>
             <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;border:1px solid rgba(28,64,52,.3);border-radius:1000px;padding:7px 13px;margin-bottom:20px">Apply</span>
             <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;line-height:1.05;margin:0 0 16px;max-width:18ch">Open an account</h2>
-            <p style="margin:0 0 26px;font-size:17px;line-height:1.55;color:#3A3A38;max-width:44ch">Four fields and an ABN. We check the business is a genuine healthcare practice and come back within one business day with your pricing tier.</p>
+            <p style="margin:0 0 26px;font-size:17px;line-height:1.55;color:#3A3A38;max-width:44ch">Four fields and an ABN. We check the business is a genuine healthcare practice and set your pricing tier from there. Applications open at the same time as ordering.</p>
             <div style="border-top:1px solid #E3E3E1">
               <sc-for list="{{ terms }}" as="t" hint-placeholder-count="5">
                 <div style="display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px solid #E3E3E1;align-items:baseline">
@@ -445,9 +444,9 @@ class Component extends DCLogic {
           { label: 'Shop all 57', href: '/shop' }
         ] }
       ],
-      applyLabel: this.state.applied ? 'Application sent' : 'Apply for an account',
-      applyNote: this.state.applied ? 'We will come back within one business day with your pricing tier.' : 'No obligation, no minimum order, and you can keep buying at retail in the meantime.',
-      apply: () => this.setState({ applied: true }),
+      applyLabel: 'Coming soon',
+      applyNote: 'Clinic accounts open when ordering does. Nothing entered here is sent anywhere yet.',
+      apply: () => undefined,
       features: [
         { n: '01', title: 'Buy at trade', body: 'Your pricing applies across the whole site the moment you sign in, with PO references on every order and no quote requests. New accounts pay up front.' },
         { n: '02', title: 'Never run out', body: 'Always Stocked keeps a list and a schedule for every room and every site, and ships before a line runs low.' },

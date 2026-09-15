@@ -15,7 +15,7 @@
 
 import csv, io, json, os, pathlib, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from catalogue import CATEGORIES, SHOTS, I
+from catalogue import CATEGORIES, SHOTS, I, sku
 import seo as SEO
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -78,13 +78,6 @@ def option_name(p):
     if any(re.search(r'\d+\s*(cm|mm|m)\b', l) for l in labels):
         return 'Size'
     return 'Type'
-
-
-def sku(cat, p, vi, pi):
-    # The whole slug, not a truncation: blood-glucose-meter and
-    # blood-glucose-test-strips collide at any sensible prefix length.
-    return 'GPS-%s-%s-%02d%02d' % (cat['slug'][:3].upper(), p['slug'].upper(),
-                                   vi + 1, pi + 1)
 
 
 def body_html(cat, p, ps):

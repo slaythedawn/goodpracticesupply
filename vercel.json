@@ -4,7 +4,16 @@
   "trailingSlash": false,
   "headers": [
     {
-      "source": "/(.*)",
+      "comment": "The shop is fifty-seven placeholder products at invented prices and it stays out of the index until the catalogue is real. This header and INDEX_SHOP in gen/seo.py have to agree: the header wins over the meta tag, so flipping one without the other does nothing.",
+      "source": "/shop/:path*",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    },
+    {
+      "source": "/shop",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    },
+    {
+      "source": "/internal/:path*",
       "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
     }
   ]

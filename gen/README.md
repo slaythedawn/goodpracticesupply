@@ -28,24 +28,28 @@ from the script's own location.
 
 ## Going live in search
 
-Every shop page already carries a canonical, a unique title and description,
-Open Graph and Twitter tags, and Product, BreadcrumbList, FAQPage and
-CollectionPage structured data. None of it is indexable yet, on purpose:
-prices are placeholders until a factory quotes, and the copy has not been
-through legal review.
+Two switches in `gen/seo.py`, deliberately independent:
 
-Turning it on is two changes made together:
+- `PURCHASABLE` is whether anyone can complete an order. Off. While it is off the
+  buy button reads "Coming soon" and is disabled, the stock pill says the same,
+  the cart chip is gone from the header, and the Product structured data carries
+  no `offers` block. A price in structured data is a machine-readable offer to
+  sell at that price, and an offer you cannot honour is not a thing to publish.
+- `INDEX_CONTENT` and `INDEX_SHOP` control indexing per section. Content is on,
+  the shop is off. The guides, the tools, the six `/for/` pages and the fixed
+  pages are finished writing and are what earns authority. The shop is
+  fifty-seven products that will be replaced, at prices no factory has quoted.
 
-1. `INDEXABLE = True` in `gen/seo.py`, then rebuild. Every page swaps its
-   noindex for `index, follow, max-image-preview:large`, and `robots.txt` is
-   rewritten to match.
-2. Remove the `X-Robots-Tag: noindex, nofollow` header from `vercel.json`. The
-   header overrides the meta tag, so leaving it in place makes step 1 do
-   nothing.
+Turning the shop on later is two changes made together:
 
-Do not add a `Disallow` to `robots.txt` as a way of staying unlisted. A crawler
-that cannot fetch a page cannot read the noindex on it, which is how URLs end up
-in an index with no way to remove them.
+1. `INDEX_SHOP = True` in `gen/seo.py`, then rebuild.
+2. Remove the `/shop` rules from `vercel.json`. The header overrides the meta
+   tag, so leaving them makes step 1 do nothing.
+
+`sitemap.py` lists only indexable URLs, because pointing a crawler at a page
+that then tells it to forget what it found wastes crawl budget a new domain does
+not have. `robots.txt` still allows everything on purpose: a crawler has to be
+able to fetch `/shop` to read the noindex on it.
 
 The seven hand-written pages are `index`, `about`, `always-stocked`,
 `clinic-portal`, `contact`, `gauge-finder` and `learn`. `shop.py` reads the

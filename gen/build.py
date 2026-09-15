@@ -1,5 +1,6 @@
 import io, json, os, sys, html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import seo as SEO
 from content import PAGES
 from prodmap import PROD
 
@@ -260,6 +261,7 @@ def main():
         head = HEAD.replace('<title>About | Good Practice Supply</title>',
                             '<title>%s | Good Practice Supply</title>' % E(p['title']))
         assert '<title>%s' % E(p['title']) in head, 'title not swapped for ' + p['slug']
+        head = SEO.set_robots(head, '/for/' + p['slug'])
         doc = (head + '\n\n  ' + build_main(p) + '\n\n  ' + FOOTER +
                '\n\n</div>\n\n</x-dc>\n' + build_script(p, learn_cols, menu_cols) + '\n</body>\n</html>\n')
         out = '%s/for/%s.html' % (DOCS, p['slug'])

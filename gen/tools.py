@@ -382,10 +382,12 @@ def main():
     os.makedirs(DOCS+'/learn',exist_ok=True)
     mn,sc=reconstitution()
     io.open(DOCS+'/tools/reconstitution-calculator.html','w',encoding='utf-8').write(
-        page('Peptide reconstitution calculator, mg to units on a syringe',mn,sc))
+        page('Peptide reconstitution calculator, mg to units on a syringe',mn,sc,
+             path='/tools/reconstitution-calculator'))
     mn,sc=gauge_chart()
     io.open(DOCS+'/learn/needle-gauge-chart.html','w',encoding='utf-8').write(
-        page('Needle gauge chart, sizes in mm with hub colours',mn,sc))
+        page('Needle gauge chart, sizes in mm with hub colours',mn,sc,
+             path='/learn/needle-gauge-chart'))
     print('wrote 2 pages')
 
 main()

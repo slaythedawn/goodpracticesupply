@@ -34,12 +34,10 @@ def crumbs(items):
     out.append('          '+' / '.join(parts)+'\n        </div>\n')
     return ''.join(out)
 
-def page(title, main, script, head_extra=''):
+def page(title, main, script, head_extra='', path='/'):
     head=HEAD.replace('<title>About | Good Practice Supply</title>','<title>%s | Good Practice Supply</title>'%E(title))
     assert E(title) in head
-    if SEO.INDEXABLE:
-        head=head.replace('<meta name="robots" content="noindex, nofollow">',
-                          '<meta name="robots" content="index, follow, max-image-preview:large">')
+    head=SEO.set_robots(head, path)
     if head_extra:
         assert '</head>' in head
         head=head.replace('</head>', head_extra.rstrip()+'\n</head>', 1)
@@ -283,7 +281,8 @@ def build_product(cat, p, idx):
     # buy panel
     a('          <div id="buy">\n')
     a('            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px">\n')
-    a('              <span style="display:inline-block;%s;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#143026;background:#8FBFA6;border-radius:1000px;padding:7px 12px">In stock</span>\n'%MONO)
+    pill='In stock' if SEO.PURCHASABLE else 'Coming soon'
+    a('              <span style="display:inline-block;%s;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#143026;background:#8FBFA6;border-radius:1000px;padding:7px 12px">%s</span>\n'%(MONO,pill))
     a('              <span style="%s;font-size:11.5px;color:#59595A">{{ batchLine }}</span>\n            </div>\n'%MONO)
     a('            <h1 style="font-family:\'Archivo\',sans-serif;font-weight:600;font-size:clamp(30px,3.4vw,46px);letter-spacing:-.035em;line-height:1.04;margin:0 0 14px">%s</h1>\n'%E(p['name']))
     a('            <p style="margin:0 0 26px;font-size:17px;line-height:1.55;color:#3A3A38;max-width:46ch">%s</p>\n'%E(p['blurb']))
@@ -309,8 +308,15 @@ def build_product(cat, p, idx):
     a('                <span style="%s;font-size:15px;min-width:26px;text-align:center">{{ qty }}</span>\n'%MONO)
     a('                <button type="button" onClick="{{ inc }}" aria-label="Increase quantity" style="border:0;background:none;cursor:pointer;font-size:19px;width:34px;height:34px;color:#0E0E0E">+</button>\n')
     a('              </div>\n              <span style="%s;font-size:22px">{{ totalLabel }}</span>\n            </div>\n'%MONO)
-    a('            <button type="button" onClick="{{ addToCart }}" data-cta style="width:100%%;cursor:pointer;border:0;background:#0E0E0E;color:#FAFAFA;border-radius:1000px;padding:17px 30px;font-family:\'Archivo\',sans-serif;font-size:16px;font-weight:600">{{ ctaLabel }}</button>\n')
-    a('            <div style="%s;font-size:11.5px;color:#59595A;margin-top:14px;line-height:1.7">Free delivery over $99. Dispatched from Sydney. Plain unmarked box.</div>\n'%MONO)
+    # A button that cannot do anything should not look like it can.
+    if SEO.PURCHASABLE:
+        a('            <button type="button" onClick="{{ addToCart }}" data-cta style="width:100%%;cursor:pointer;border:0;background:#0E0E0E;color:#FAFAFA;border-radius:1000px;padding:17px 30px;font-family:\'Archivo\',sans-serif;font-size:16px;font-weight:600">{{ ctaLabel }}</button>\n')
+    else:
+        a('            <button type="button" disabled style="width:100%%;cursor:not-allowed;border:1px solid #C4C4C2;background:#EDEDEB;color:#59595A;border-radius:1000px;padding:17px 30px;font-family:\'Archivo\',sans-serif;font-size:16px;font-weight:600">{{ ctaLabel }}</button>\n')
+    ship=('Free delivery over $99. Dispatched from Sydney. Plain unmarked box.'
+          if SEO.PURCHASABLE else
+          'Ordering opens shortly. Delivery will be free over $99, dispatched from Sydney in a plain unmarked box.')
+    a('            <div style="%s;font-size:11.5px;color:#59595A;margin-top:14px;line-height:1.7">%s</div>\n'%(MONO,ship))
     a('          </div>\n        </div>\n      </div>\n    </section>\n\n')
     ps=SEO.compose(cat,p)
     a(prose(ps['body']))
@@ -384,8 +390,8 @@ class Component extends DCLogic {
       inc: () => this.setState(p => ({ qty: Math.min(20, p.qty + 1), added: false })),
       dec: () => this.setState(p => ({ qty: Math.max(1, p.qty - 1), added: false })),
       totalLabel: money(total),
-      ctaLabel: s.added ? 'Added to cart' : 'Add to cart',
-      addToCart: () => this.setState(p => ({ added: true, cart: p.cart + p.qty })),
+      ctaLabel: %s,
+      addToCart: () => %s,
 
       batchLine: code + ' · Batch 26F-114 · Exp 04/28',
       code,
@@ -411,8 +417,16 @@ class Component extends DCLogic {
               json.dumps([{'label':l,'price':pr} for l,pr in p['packs']]),
               json.dumps(code),
               HEADER_VALS,
+              # ctaLabel and addToCart sit above specRows in the template, so
+              # they go here. Getting this order wrong puts the spec table in
+              # the button, which is exactly as visible as it sounds.
+              ("s.added ? 'Added to cart' : 'Add to cart'" if SEO.PURCHASABLE
+               else "'Coming soon'"),
+              ("this.setState(p => ({ added: true, cart: p.cart + p.qty }))"
+               if SEO.PURCHASABLE else "undefined"),
               json.dumps([{'k':k,'v':v} for k,v in specs]).replace('"{{ packLabel }}"','pack.label').replace('"{{ code }}"','code').replace('"{{ batch }}"',"'26F-114'").replace('"{{ artg }}"',"'Listed, see carton'"),
-              LEARNCOLS, MENUCOLS, len(shots))
+              LEARNCOLS, MENUCOLS,
+              len(shots))
     path='/shop/%s/%s'%(cat['slug'],p['slug'])
     # The offer carries the cheapest pack, because that is the price a result
     # should show. Prices are still placeholders: nothing is sourced yet, which
@@ -530,16 +544,17 @@ def main():
     os.makedirs(DOCS+'/shop',exist_ok=True)
     n=0
     mn,sc,hx=build_shop()
-    io.open(DOCS+'/shop.html','w',encoding='utf-8').write(page('Shop all products',mn,sc,hx)); n+=1
+    io.open(DOCS+'/shop.html','w',encoding='utf-8').write(page('Shop all products',mn,sc,hx,'/shop')); n+=1
     for cat in CATEGORIES:
         os.makedirs('%s/shop/%s'%(DOCS,cat['slug']),exist_ok=True)
         mn,sc,hx=build_category(cat)
         cs=SEO.CATEGORY_SEO[cat['slug']]
-        io.open('%s/shop/%s.html'%(DOCS,cat['slug']),'w',encoding='utf-8').write(page(cs['title'],mn,sc,hx)); n+=1
+        io.open('%s/shop/%s.html'%(DOCS,cat['slug']),'w',encoding='utf-8').write(page(cs['title'],mn,sc,hx,'/shop/'+cat['slug'])); n+=1
         for i,p in enumerate(cat['products']):
             mn,sc,hx=build_product(cat,p,i)
             io.open('%s/shop/%s/%s.html'%(DOCS,cat['slug'],p['slug']),'w',encoding='utf-8').write(
-                page(SEO.compose(cat,p)['title'],mn,sc,hx)); n+=1
+                page(SEO.compose(cat,p)['title'],mn,sc,hx,
+                     '/shop/%s/%s'%(cat['slug'],p['slug']))); n+=1
     print('wrote',n,'pages')
 
 main()

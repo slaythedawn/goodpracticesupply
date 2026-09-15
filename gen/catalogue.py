@@ -79,6 +79,18 @@ SHOTS = {  # four views per product family, reused across the catalogue
 REGULATORY = {}
 
 
+def sku(cat, p, vi, pi):
+    """Stable code for one product in one variant and one pack size.
+
+    The cart carries it and the Shopify export emits it, so a line someone added
+    before the catalogue was real still identifies the right variant afterwards.
+    The whole slug, not a truncation: blood-glucose-meter and
+    blood-glucose-test-strips collide at any sensible prefix length.
+    """
+    return 'GPS-%s-%s-%02d%02d' % (cat['slug'][:3].upper(), p['slug'].upper(),
+                                   vi + 1, pi + 1)
+
+
 def P(name, slug, tag, spec, blurb, family, variants, packs, extra=()):
     return dict(name=name, slug=slug, tag=tag, spec=spec, blurb=blurb,
                 family=family, variants=variants, packs=packs, extra=list(extra))
