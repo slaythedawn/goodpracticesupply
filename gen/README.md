@@ -17,6 +17,7 @@ the fifty-eight pages come out of these scripts, so a change made by hand in
 | `build.py` | 6 `for/*` pages | imports `shop.py`, so importing it rebuilds the shop too |
 | `tools.py` | calculator, gauge chart | imports `shop.py`, same |
 | `footer.py` | all 81 | applies the sitewide footer |
+| `searchindex.py` | `search-index.json` | what the header search matches against, including the synonym list |
 | `sitemap.py` | `sitemap.xml`, `robots.txt` | run it after anything that adds or removes a page |
 
 `shop.py` runs its `main()` on import, so `python3 gen/build.py` rebuilds 72
@@ -49,3 +50,21 @@ The seven hand-written pages are `index`, `about`, `always-stocked`,
 shared header and footer out of `about.html`, so a header change made there
 propagates to every generated page on the next build. Make it in all 58 at once
 or make it in `about.html` and rebuild.
+
+## Search
+
+The header magnifier opens an overlay served by `docs/search.js`, which is plain
+DOM rather than a page component: every page here is a hydrated component, and
+an overlay inside the component tree would have to be added to all eighty-one of
+them. It delegates from `document`, so it attaches to the control whenever the
+page renders it.
+
+It matches against `docs/search-index.json` (`gen/searchindex.py`), fetched once
+on first open. Eighty entries, seventeen kilobytes, no search backend.
+
+The part worth maintaining is `SYNONYMS` in `gen/searchindex.py`. People type
+"band aid", not "adhesive plasters", and "kt tape", not "kinesiology tape". A
+search that misses on the first try does not get a second one. Add to it
+whenever a product has a name customers do not use.
+
+Run `searchindex.py` after anything that adds, renames or removes a page.
