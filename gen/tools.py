@@ -1,5 +1,6 @@
 import io, json, os, sys, html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import pagemeta as META
 from shop import HEAD, FOOTER, LEARNCOLS, MENUCOLS, HEADER_VALS, REVEAL, SCRIPT_OPEN, MONO, WRAP, H1, H2, LEAD, CARD, crumbs, page, E
 import pathlib
 DOCS=str(pathlib.Path(__file__).resolve().parent.parent / 'docs')
@@ -383,10 +384,14 @@ def main():
     mn,sc=reconstitution()
     io.open(DOCS+'/tools/reconstitution-calculator.html','w',encoding='utf-8').write(
         page('Peptide reconstitution calculator, mg to units on a syringe',mn,sc,
+             head_extra=META.blocks('/tools/reconstitution-calculator',
+                 META.FIXED['/tools/reconstitution-calculator']),
              path='/tools/reconstitution-calculator'))
     mn,sc=gauge_chart()
     io.open(DOCS+'/learn/needle-gauge-chart.html','w',encoding='utf-8').write(
         page('Needle gauge chart, sizes in mm with hub colours',mn,sc,
+             head_extra=META.blocks('/learn/needle-gauge-chart',
+                 META.FIXED['/learn/needle-gauge-chart']),
              path='/learn/needle-gauge-chart'))
     print('wrote 2 pages')
 

@@ -5,7 +5,7 @@ import seo as SEO
 
 import pathlib
 DOCS=str(pathlib.Path(__file__).resolve().parent.parent / 'docs')
-SRC=io.open(DOCS+'/about.html',encoding='utf-8').read()
+SRC=SEO.strip_headmeta(io.open(DOCS+'/about.html',encoding='utf-8').read())
 SP='<div data-gp-spacer aria-hidden="true"></div>'
 HEAD=SRC[:SRC.find(SP)+len(SP)]
 FOOTER=SRC[SRC.find('<footer'):SRC.find('</footer>')+9]

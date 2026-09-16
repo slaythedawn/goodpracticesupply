@@ -20,7 +20,9 @@ the fifty-eight pages come out of these scripts, so a change made by hand in
 | `searchindex.py` | `search-index.json` | what the header search matches against, including the synonym list |
 | `sitemap.py` | `sitemap.xml`, `robots.txt` | run it after anything that adds or removes a page |
 | `shopify_export.py` | `export/shopify-products.csv`, `export/variant-map.json` | the catalogue in Shopify import format |
-| `photoreview.py` | `docs/internal/photo-review.html` | working page, delete once the photography is settled |
+| `pagemeta.py` | nothing | title, description and structured data for every page that is not a shop page |
+| `headmeta.py` | rewrites the 7 hand-written pages | injects the head block, fenced so it is safe to re-run |
+| `photoreview.py` | `docs/internal/photo-review.html` | on demand only, not part of a build |
 
 `shop.py` runs its `main()` on import, so `python3 gen/build.py` rebuilds 72
 pages, not 6. That is intended. Run from anywhere: the output path is resolved
@@ -108,3 +110,47 @@ specific goods and they need a real value from a real supplier per product. The
 site used to print `ARTG: Listed, see carton` and `Country of origin: Malaysia`
 on all fifty-seven products, cotton wool and facial tissues included, which was
 neither true nor defensible.
+
+## Structured data
+
+Every indexable page carries a description, a canonical, Open Graph, Twitter and
+at least one JSON-LD block. Which block depends on the page:
+
+| page | entities |
+| --- | --- |
+| `/` | `Organization`, `WebSite` with a `SearchAction` |
+| `/for/*` | `Article`, `BreadcrumbList`, `FAQPage` |
+| `/learn/needle-gauge-chart` | `Article`, `BreadcrumbList` |
+| `/gauge-finder`, `/tools/*` | `WebApplication`, `BreadcrumbList` |
+| `/about`, `/contact`, `/learn` | `AboutPage`, `ContactPage`, `CollectionPage` |
+| `/shop/*` | `Product`, `BreadcrumbList`, `FAQPage`, `CollectionPage`, `ItemList` |
+
+Two things deliberately absent. The `Organization` carries no `contactPoint` and
+no `sameAs`, because there is no mailbox answering yet and no social profile to
+point at. The `WebApplication` blocks carry no `aggregateRating`, because there
+are no ratings, and inventing them is the most reliable way to earn a manual
+action.
+
+The `SearchAction` target is `/?q={search_term_string}`, and `search.js` reads
+that parameter on load and opens the overlay with it. Declaring a search
+endpoint that does not exist is how this markup usually goes wrong.
+
+### The shell trap
+
+`shop.py` and `build.py` slice their page shell out of `docs/about.html`, which
+is itself a page with its own canonical and its own structured data. Both strip
+the `gen:headmeta` fence first. Without that, every generated page on the site
+inherits About's canonical, which is the sort of thing that is invisible in a
+browser and fatal in a search console.
+
+## Build order
+
+    python3 gen/build.py        # shop + /for/, imports shop.py
+    python3 gen/tools.py        # calculator, gauge chart
+    python3 gen/headmeta.py     # head block on the 7 hand-written pages
+    python3 gen/footer.py       # sitewide footer
+    python3 gen/searchindex.py  # search-index.json
+    python3 gen/sitemap.py      # sitemap.xml, robots.txt
+
+`headmeta.py` after `build.py`, because `build.py` reads `about.html` for its
+shell and `headmeta.py` writes to it.

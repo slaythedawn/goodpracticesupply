@@ -48,6 +48,17 @@ def robots_meta(path):
     return '<meta name="robots" content="%s">' % robots(path)
 
 
+# headmeta.py fences the block it injects into the hand-written pages. Anything
+# that slices a shell out of about.html has to strip it, or every generated page
+# inherits About's canonical and About's structured data.
+HEADMETA_OPEN, HEADMETA_CLOSE = '<!-- gen:headmeta -->', '<!-- /gen:headmeta -->'
+_FENCE = re.compile(re.escape(HEADMETA_OPEN) + r'.*?' + re.escape(HEADMETA_CLOSE) + r'\n?', re.S)
+
+
+def strip_headmeta(html):
+    return _FENCE.sub('', html)
+
+
 def set_robots(head, path):
     """Swap whatever robots meta a shell carries for the right one.
 
@@ -158,6 +169,111 @@ def product_schema(*, path, name, description, image, sku, price_cents, category
                 'shippingDestination': {'@type': 'DefinedRegion', 'addressCountry': 'AU'},
             },
     }
+    return d
+
+
+# ------------------------------------------------------- site-wide entities
+LOGO = ORIGIN + '/icon-512.png'
+
+
+def organization():
+    """The brand entity. One per site, on the homepage.
+
+    No contactPoint and no sameAs: there is no mailbox answering yet and no
+    social profile to point at. An entity that claims a contact channel nobody
+    reads is worse than one that claims none.
+    """
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        '@id': ORIGIN + '/#organization',
+        'name': BRAND,
+        'url': ORIGIN,
+        'logo': LOGO,
+        'description': ('Australian supplier of medical consumables to clinics and '
+                        'to people managing treatment at home. Consumables only.'),
+        'areaServed': {'@type': 'Country', 'name': 'Australia'},
+    }
+
+
+def website():
+    """WebSite, with the search the header actually runs.
+
+    The SearchAction target is a real URL: search.js reads ?q= on load and opens
+    the overlay with it. Declaring a search endpoint that does not exist is the
+    usual way this markup goes wrong.
+    """
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        '@id': ORIGIN + '/#website',
+        'url': ORIGIN,
+        'name': BRAND,
+        'publisher': {'@id': ORIGIN + '/#organization'},
+        'inLanguage': 'en-AU',
+        'potentialAction': {
+            '@type': 'SearchAction',
+            'target': {'@type': 'EntryPoint',
+                       'urlTemplate': ORIGIN + '/?q={search_term_string}'},
+            'query-input': 'required name=search_term_string',
+        },
+    }
+
+
+def web_page(*, path, kind, name, description, image=None):
+    """AboutPage, ContactPage, CollectionPage or plain WebPage."""
+    d = {
+        '@context': 'https://schema.org',
+        '@type': kind,
+        'url': ORIGIN + path,
+        'name': name,
+        'description': description,
+        'isPartOf': {'@id': ORIGIN + '/#website'},
+        'inLanguage': 'en-AU',
+    }
+    if image:
+        d['primaryImageOfPage'] = image
+    return d
+
+
+def article(*, path, headline, description, image=None):
+    d = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        'url': ORIGIN + path,
+        'headline': headline,
+        'description': description,
+        'inLanguage': 'en-AU',
+        'isPartOf': {'@id': ORIGIN + '/#website'},
+        'publisher': {'@id': ORIGIN + '/#organization'},
+        'author': {'@id': ORIGIN + '/#organization'},
+    }
+    if image:
+        d['image'] = image
+    return d
+
+
+def web_application(*, path, name, description, image=None):
+    """The Gauge Finder and the calculator. They run in the browser and are free.
+
+    No aggregateRating: there are no ratings, and inventing them is the single
+    most common way this markup earns a manual action.
+    """
+    d = {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        'url': ORIGIN + path,
+        'name': name,
+        'description': description,
+        'applicationCategory': 'HealthApplication',
+        'operatingSystem': 'Any',
+        'browserRequirements': 'Requires JavaScript',
+        'inLanguage': 'en-AU',
+        'publisher': {'@id': ORIGIN + '/#organization'},
+        'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'AUD'},
+    }
+    if image:
+        d['image'] = image
     return d
 
 

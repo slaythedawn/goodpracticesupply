@@ -1,12 +1,13 @@
 import io, json, os, sys, html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import seo as SEO
+import pagemeta as META
 from content import PAGES
 from prodmap import PROD
 
 import pathlib
 DOCS=str(pathlib.Path(__file__).resolve().parent.parent / 'docs')
-SHELL=io.open(DOCS+'/about.html',encoding='utf-8').read()
+SHELL=SEO.strip_headmeta(io.open(DOCS+'/about.html',encoding='utf-8').read())
 SP='<div data-gp-spacer aria-hidden="true"></div>'
 HEAD=SHELL[:SHELL.find(SP)+len(SP)]
 FOOTER=SHELL[SHELL.find('<footer'):SHELL.find('</footer>')+9]
@@ -254,7 +255,7 @@ class Component extends DCLogic {
                 HEADER_VALS.rstrip(), json.dumps(notes[p['slug']]), learn_cols, menu_cols)
 
 def main():
-    src = io.open(DOCS + '/about.html', encoding='utf-8').read()
+    src = SEO.strip_headmeta(io.open(DOCS + '/about.html', encoding='utf-8').read())
     learn_cols, menu_cols = grab('learnCols', src), grab('menuCols', src)
     os.makedirs(DOCS + '/for', exist_ok=True)
     for p in PAGES:
@@ -262,6 +263,8 @@ def main():
                             '<title>%s | Good Practice Supply</title>' % E(p['title']))
         assert '<title>%s' % E(p['title']) in head, 'title not swapped for ' + p['slug']
         head = SEO.set_robots(head, '/for/' + p['slug'])
+        path, meta = META.guide(p)
+        head = head.replace('</head>', META.blocks(path, meta) + '\n</head>', 1)
         doc = (head + '\n\n  ' + build_main(p) + '\n\n  ' + FOOTER +
                '\n\n</div>\n\n</x-dc>\n' + build_script(p, learn_cols, menu_cols) + '\n</body>\n</html>\n')
         out = '%s/for/%s.html' % (DOCS, p['slug'])

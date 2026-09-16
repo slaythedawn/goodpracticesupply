@@ -204,6 +204,22 @@
     open();
   });
 
+  // ?q= opens the overlay with the term already in it. This is the URL the
+  // WebSite SearchAction in the structured data points at, so it has to work.
+  function fromUrl() {
+    var q = null;
+    try { q = new URLSearchParams(window.location.search).get('q'); } catch (err) { return; }
+    if (!q) return;
+    open();
+    input.value = q;
+    render();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fromUrl);
+  } else {
+    fromUrl();
+  }
+
   document.addEventListener('keydown', function (e) {
     if (isOpen()) return;
     var tag = (document.activeElement && document.activeElement.tagName) || '';
