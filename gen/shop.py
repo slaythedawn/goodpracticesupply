@@ -292,13 +292,17 @@ def build_product(cat, p, idx):
     a('              <sc-for list="{{ variants }}" as="v" hint-placeholder-count="%d">\n'%len(p['variants']))
     a('                <button type="button" onClick="{{ v.pick }}" aria-pressed="{{ v.on }}" style="cursor:pointer;text-align:left;font-family:\'Archivo\',sans-serif;font-size:15px;font-weight:500;border:1px solid {{ v.border }};background:{{ v.bg }};color:{{ v.fg }};border-radius:14px;padding:12px 16px">\n')
     a('                  <span style="display:block">{{ v.label }}</span>\n')
-    a('                  <span style="display:block;%s;font-size:11px;opacity:.7;margin-top:4px">{{ v.hint }}</span>\n'%MONO)
+    # Twenty-two products have no hint on any variant. Rendering the hint span
+    # anyway put a non-breaking space under every label and left the buttons
+    # looking like something failed to load.
+    if any(h.strip() for _,h in p['variants']):
+        a('                  <span style="display:block;%s;font-size:11px;opacity:.7;margin-top:4px">{{ v.hint }}</span>\n'%MONO)
     a('                </button>\n              </sc-for>\n            </div>\n')
     # packs
     a('            <div style="%s;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;margin-bottom:12px">Pack size</div>\n'%MONO)
     a('            <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px">\n')
     a('              <sc-for list="{{ packs }}" as="k" hint-placeholder-count="%d">\n'%len(p['packs']))
-    a('                <button type="button" onClick="{{ k.pick }}" aria-pressed="{{ k.on }}" style="cursor:pointer;text-align:left;width:100%%;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:\'Archivo\',sans-serif;font-size:15.5px;font-weight:500;border:1px solid {{ k.border }};background:{{ k.bg }};color:{{ k.fg }};border-radius:14px;padding:14px 18px">\n')
+    a('                <button type="button" onClick="{{ k.pick }}" aria-pressed="{{ k.on }}" style="cursor:pointer;text-align:left;width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:\'Archivo\',sans-serif;font-size:15.5px;font-weight:500;border:1px solid {{ k.border }};background:{{ k.bg }};color:{{ k.fg }};border-radius:14px;padding:14px 18px">\n')
     a('                  <span>{{ k.label }}</span>\n                  <span style="%s;font-size:14px">{{ k.price }}</span>\n'%MONO)
     a('                </button>\n              </sc-for>\n            </div>\n')
     # qty + cart
@@ -310,9 +314,9 @@ def build_product(cat, p, idx):
     a('              </div>\n              <span style="%s;font-size:22px">{{ totalLabel }}</span>\n            </div>\n'%MONO)
     # A button that cannot do anything should not look like it can.
     if SEO.PURCHASABLE:
-        a('            <button type="button" onClick="{{ addToCart }}" data-cta style="width:100%%;cursor:pointer;border:0;background:#0E0E0E;color:#FAFAFA;border-radius:1000px;padding:17px 30px;font-family:\'Archivo\',sans-serif;font-size:16px;font-weight:600">{{ ctaLabel }}</button>\n')
+        a('            <button type="button" onClick="{{ addToCart }}" data-cta style="width:100%;cursor:pointer;border:0;background:#0E0E0E;color:#FAFAFA;border-radius:1000px;padding:17px 30px;font-family:\'Archivo\',sans-serif;font-size:16px;font-weight:600">{{ ctaLabel }}</button>\n')
     else:
-        a('            <button type="button" disabled style="width:100%%;cursor:not-allowed;border:1px solid #C4C4C2;background:#EDEDEB;color:#59595A;border-radius:1000px;padding:17px 30px;font-family:\'Archivo\',sans-serif;font-size:16px;font-weight:600">{{ ctaLabel }}</button>\n')
+        a('            <button type="button" disabled="disabled" aria-disabled="true" style="width:100%;cursor:not-allowed;border:1px solid #C4C4C2;background:#EDEDEB;color:#59595A;border-radius:1000px;padding:17px 30px;font-family:\'Archivo\',sans-serif;font-size:16px;font-weight:600">{{ ctaLabel }}</button>\n')
     ship=('Free delivery over $99. Dispatched from Sydney. Plain unmarked box.'
           if SEO.PURCHASABLE else
           'Ordering opens shortly. Delivery will be free over $99, dispatched from Sydney in a plain unmarked box.')

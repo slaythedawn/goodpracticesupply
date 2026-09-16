@@ -255,7 +255,7 @@
             <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;margin-bottom:12px">Pack size</div>
             <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px">
               <sc-for list="{{ packs }}" as="k" hint-placeholder-count="2">
-                <button type="button" onClick="{{ k.pick }}" aria-pressed="{{ k.on }}" style="cursor:pointer;text-align:left;width:100%%;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:'Archivo',sans-serif;font-size:15.5px;font-weight:500;border:1px solid {{ k.border }};background:{{ k.bg }};color:{{ k.fg }};border-radius:14px;padding:14px 18px">
+                <button type="button" onClick="{{ k.pick }}" aria-pressed="{{ k.on }}" style="cursor:pointer;text-align:left;width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:'Archivo',sans-serif;font-size:15.5px;font-weight:500;border:1px solid {{ k.border }};background:{{ k.bg }};color:{{ k.fg }};border-radius:14px;padding:14px 18px">
                   <span>{{ k.label }}</span>
                   <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:14px">{{ k.price }}</span>
                 </button>
@@ -269,7 +269,7 @@
               </div>
               <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:22px">{{ totalLabel }}</span>
             </div>
-            <button type="button" disabled style="width:100%%;cursor:not-allowed;border:1px solid #C4C4C2;background:#EDEDEB;color:#59595A;border-radius:1000px;padding:17px 30px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:600">{{ ctaLabel }}</button>
+            <button type="button" disabled="disabled" aria-disabled="true" style="width:100%;cursor:not-allowed;border:1px solid #C4C4C2;background:#EDEDEB;color:#59595A;border-radius:1000px;padding:17px 30px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:600">{{ ctaLabel }}</button>
             <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;color:#59595A;margin-top:14px;line-height:1.7">Ordering opens shortly. Delivery will be free over $99, dispatched from Sydney in a plain unmarked box.</div>
           </div>
         </div>
