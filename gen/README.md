@@ -173,11 +173,15 @@ Three environment variables, set on the Vercel project, never in the repo:
 
     RESEND_API_KEY   required, server side only
     ENQUIRIES_TO     required, where both forms land, any address you can read
-    ENQUIRIES_FROM   optional, defaults to enquiries@goodpracticesupply.com.au
-                     which needs that domain verified in Resend first
+    ENQUIRIES_FROM   optional, defaults to enquiries@gpsupply.com.au
+                     which needs gpsupply.com.au verified in Resend first
 
 With no key set, both endpoints return 503 and a message the form displays as
 written. They never claim a message was received when it was not.
+
+Mail goes out from **gpsupply.com.au**, not from the website's own domain. It is
+shorter, and it is a separate domain in Resend with its own DNS records. The
+addresses printed on the contact page match it.
 
 `checks/config.mjs` validates `vercel.json` against the fields Vercel accepts.
 It exists because an unknown key in a headers rule took production down for two

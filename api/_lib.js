@@ -1,16 +1,18 @@
 // Shared bits for the two form endpoints. Files under api/ that start with an
 // underscore are not routes, so this is importable without being callable.
 //
-// Configuration, all Vercel project environment variables:
+// Configuration, all Vercel project environment variables. Mail goes out from
+// gpsupply.com.au, which is shorter than the website's domain and is a separate
+// domain in Resend with its own DNS records.
 //   RESEND_API_KEY  required. Server side only, never shipped to the browser.
 //   ENQUIRIES_TO    required. Where both forms land. Any address you can read.
 //   ENQUIRIES_FROM  optional. Defaults to the site's own domain, which only
-//                   works once that domain is verified in Resend.
+//                   works once gpsupply.com.au is verified in Resend.
 //
 // With no key set, send() returns a 503 and a message the form shows as
 // written, rather than pretending a message was received.
 
-const FROM_DEFAULT = 'Good Practice Supply <enquiries@goodpracticesupply.com.au>';
+const FROM_DEFAULT = 'Good Practice Supply <enquiries@gpsupply.com.au>';
 
 function clean(v, max) {
   return typeof v === 'string' ? v.trim().slice(0, max) : '';
