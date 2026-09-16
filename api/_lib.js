@@ -1,18 +1,23 @@
 // Shared bits for the two form endpoints. Files under api/ that start with an
 // underscore are not routes, so this is importable without being callable.
 //
-// Configuration, all Vercel project environment variables. Mail goes out from
-// gpsupply.com.au, which is shorter than the website's domain and is a separate
-// domain in Resend with its own DNS records.
-//   RESEND_API_KEY  required. Server side only, never shipped to the browser.
-//   ENQUIRIES_TO    required. Where both forms land. Any address you can read.
-//   ENQUIRIES_FROM  optional. Defaults to the site's own domain, which only
-//                   works once gpsupply.com.au is verified in Resend.
+// One address, hello@gpsupply.com.au. Mail goes out from it, replies come back
+// to it, and it is the only address printed on the site. Forward it to whatever
+// inbox is already being read; there is no second mailbox to check.
+//
+// Configuration, on the Vercel project:
+//   RESEND_API_KEY  the only one that is required. Server side, never shipped.
+//   ENQUIRIES_TO    optional. Defaults to hello@gpsupply.com.au. Set it to a
+//                   different address to receive somewhere else before the
+//                   forwarder exists.
+//   ENQUIRIES_FROM  optional. Defaults to the same address, which needs
+//                   gpsupply.com.au verified in Resend.
 //
 // With no key set, send() returns a 503 and a message the form shows as
 // written, rather than pretending a message was received.
 
-const FROM_DEFAULT = 'Good Practice Supply <enquiries@gpsupply.com.au>';
+const ADDRESS = 'hello@gpsupply.com.au';
+const FROM_DEFAULT = `Good Practice Supply <${ADDRESS}>`;
 
 function clean(v, max) {
   return typeof v === 'string' ? v.trim().slice(0, max) : '';
@@ -54,8 +59,8 @@ function needList(problems) {
 
 async function send({ subject, rows, replyTo }) {
   const key = process.env.RESEND_API_KEY;
-  const to = process.env.ENQUIRIES_TO;
-  if (!key || !to) {
+  const to = process.env.ENQUIRIES_TO || ADDRESS;
+  if (!key) {
     return { status: 503,
       message: 'This form is not connected just yet. Try again shortly.' };
   }

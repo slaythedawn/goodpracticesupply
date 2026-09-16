@@ -169,19 +169,22 @@ Both validate server side, carry an off-screen honeypot field, and post through
 Resend. ABNs are checked against the ATO checksum rather than a length test, so
 a transposed pair is caught.
 
-Three environment variables, set on the Vercel project, never in the repo:
+One address does everything: **hello@gpsupply.com.au**. Mail goes out from it,
+replies come back to it, and it is the only address printed on the site. Forward
+it to whatever inbox is already being read. There is no second mailbox.
 
-    RESEND_API_KEY   required, server side only
-    ENQUIRIES_TO     required, where both forms land, any address you can read
-    ENQUIRIES_FROM   optional, defaults to enquiries@gpsupply.com.au
-                     which needs gpsupply.com.au verified in Resend first
+One required environment variable on the Vercel project:
+
+    RESEND_API_KEY   server side only, never in the repo
+
+Two optional ones, both defaulting to the address above:
+
+    ENQUIRIES_TO     where mail lands. Point it somewhere else to receive
+                     before the forwarder exists
+    ENQUIRIES_FROM   who it comes from. Needs gpsupply.com.au verified in Resend
 
 With no key set, both endpoints return 503 and a message the form displays as
 written. They never claim a message was received when it was not.
-
-Mail goes out from **gpsupply.com.au**, not from the website's own domain. It is
-shorter, and it is a separate domain in Resend with its own DNS records. The
-addresses printed on the contact page match it.
 
 `checks/config.mjs` validates `vercel.json` against the fields Vercel accepts.
 It exists because an unknown key in a headers rule took production down for two

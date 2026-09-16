@@ -274,7 +274,7 @@
             </div>
             <div style="background:#143026;color:#FAFAFA;border-radius:22px;padding:26px 24px">
               <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8FBFA6;margin-bottom:16px">Faster than a form</div>
-              <sc-for list="{{ directRows }}" as="d" hint-placeholder-count="4">
+              <sc-for list="{{ directRows }}" as="d" hint-placeholder-count="2">
                 <div style="display:flex;justify-content:space-between;gap:8px 20px;flex-wrap:wrap;padding:14px 0;border-bottom:1px solid #2A5245;align-items:baseline">
                   <span style="font-size:15.5px;color:#B7CFC3">{{ d.k }}</span>
                   <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:14.5px;color:#FAFAFA;text-align:right;min-width:0;overflow-wrap:anywhere">{{ d.v }}</span>
@@ -499,8 +499,7 @@ class Component extends DCLogic {
         });
       },
       directRows: [
-        { k: 'Customer service', v: 'help@gpsupply.com.au' },
-        { k: 'Media', v: 'press@gpsupply.com.au' },
+        { k: 'Email', v: 'hello@gpsupply.com.au' },
         { k: 'Warehouse', v: 'Alexandria, Sydney' }
       ]
     };
