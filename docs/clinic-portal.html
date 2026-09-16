@@ -234,21 +234,12 @@
           <div>
             <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#143026;background:#8FBFA6;border-radius:1000px;padding:8px 14px;margin-bottom:22px">Clinic Portal</span>
             <h1 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(32px,3.8vw,52px);letter-spacing:-.035em;line-height:1.02;margin:0 0 18px;color:#FAFAFA;max-width:18ch">You trained for medicine, not stocktake.</h1>
-            <p style="margin:0 0 30px;font-size:17.5px;line-height:1.55;color:#B7CFC3;max-width:44ch">Trade pricing, account-only offers and a standing order that keeps every room stocked without a purchase order each time.</p>
+            <p style="margin:0 0 30px;font-size:17.5px;line-height:1.55;color:#B7CFC3;max-width:44ch">Trade pricing, account-only offers and a standing order that keeps every room stocked without a purchase order each time. Ordering opens soon. Accounts are open now.</p>
             <div style="display:flex;gap:12px;flex-wrap:wrap">
               <a href="#apply" style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600">Open an account</a>
-              <a href="#signin" style="border:1px solid rgba(143,191,166,.55);color:#FAFAFA;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600">Sign in</a>
             </div>
           </div>
-          <div id="signin" style="background:rgba(250,250,250,.06);border:1px solid rgba(143,191,166,.3);border-radius:28px;padding:clamp(26px,3.4vw,40px)">
-            <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:22px;letter-spacing:-.025em;color:#FAFAFA;margin-bottom:20px">Sign in to your account</div>
-            <div style="display:flex;flex-direction:column;gap:14px">
-              <div><label for="cp-email" style="color:#B7CFC3">Email</label><input id="cp-email" type="email" placeholder="orders@yourclinic.com.au" style="background:rgba(250,250,250,.06);border-color:rgba(143,191,166,.34);color:#FAFAFA"></div>
-              <div><label for="cp-pass" style="color:#B7CFC3">Password</label><input id="cp-pass" type="password" placeholder="••••••••" style="background:rgba(250,250,250,.06);border-color:rgba(143,191,166,.34);color:#FAFAFA"></div>
-              <button type="button" style="cursor:pointer;border:0;background:#FAFAFA;color:#143026;border-radius:1000px;padding:15px 28px;font-size:16px;font-weight:600;font-family:'Archivo',sans-serif;margin-top:4px">Sign in</button>
-              <div style="font-size:14.5px;color:#B7CFC3">Approval takes one business day. No minimum order, ever.</div>
-            </div>
-          </div>
+          >
         </div>
       </div>
     </section>
@@ -274,7 +265,7 @@
           <div>
             <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#143026;background:#8FBFA6;border-radius:1000px;padding:8px 14px;margin-bottom:22px">What you get</span>
             <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;line-height:1.05;margin:0 0 16px;color:#FAFAFA;max-width:18ch">An account changes the price and the paperwork.</h2>
-            <p style="margin:0 0 28px;font-size:17px;line-height:1.55;color:#B7CFC3;max-width:44ch">Everything below sits behind a sign-in. The catalogue, the stock and the delivery promise are the same ones on the public site.</p>
+            <p style="margin:0 0 28px;font-size:17px;line-height:1.55;color:#B7CFC3;max-width:44ch">Everything below comes with the account. The catalogue, the stock and the delivery promise are the same ones on the public site, at your price instead of ours.</p>
             <div data-reveal style="border-radius:28px;overflow:hidden;background:#143026;aspect-ratio:16/10">
               <img src="https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/hf_20260915_001156_a95351af-cb98-468d-9622-2347071120c9.png" alt="A practice manager at a clinic back-office bench" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
             </div>
@@ -302,7 +293,7 @@
           <div>
             <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;border:1px solid rgba(28,64,52,.3);border-radius:1000px;padding:7px 13px;margin-bottom:20px">Apply</span>
             <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;line-height:1.05;margin:0 0 16px;max-width:18ch">Open an account</h2>
-            <p style="margin:0 0 26px;font-size:17px;line-height:1.55;color:#3A3A38;max-width:44ch">Four fields and an ABN. We check the business is a genuine healthcare practice and set your pricing tier from there. Applications open at the same time as ordering.</p>
+            <p style="margin:0 0 26px;font-size:17px;line-height:1.55;color:#3A3A38;max-width:44ch">Four fields and an ABN. Ordering is not open yet, so applying now means your account and your pricing tier are set and waiting for the day it is. We check the business is a genuine healthcare practice before we come back to you.</p>
             <div style="border-top:1px solid #E3E3E1">
               <sc-for list="{{ terms }}" as="t" hint-placeholder-count="5">
                 <div style="display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px solid #E3E3E1;align-items:baseline">
@@ -321,6 +312,8 @@
               <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:16px">
                 <div><label for="cp-contact">Contact name</label><input id="cp-contact" type="text" placeholder="Jane Chen"></div>
                 <div><label for="cp-work">Work email</label><input id="cp-work" type="email" placeholder="jane@clinic.com.au"></div>
+              <div><label for="cp-note">Anything we should know <span style="opacity:.6">(optional)</span></label><input id="cp-note" type="text" placeholder="What you get through, and how often"></div>
+              <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label for="cp-website">Leave this blank</label><input id="cp-website" type="text" tabindex="-1" autocomplete="off"></div>
               </div>
               <button type="button" onClick="{{ apply }}" style="cursor:pointer;border:0;background:#0E0E0E;color:#FAFAFA;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600;font-family:'Archivo',sans-serif;margin-top:4px">{{ applyLabel }}</button>
               <div style="font-size:14.5px;color:#59595A">{{ applyNote }}</div>
@@ -391,7 +384,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:880}}">
 class Component extends DCLogic {
-  state = { menu: null, applied: false };
+  state = { menu: null, applied: false, applyState: 'idle', applyMsg: '' };
 
   renderVals() {
     return {
@@ -459,9 +452,41 @@ class Component extends DCLogic {
           { label: 'Shop all 57', href: '/shop' }
         ] }
       ],
-      applyLabel: 'Coming soon',
-      applyNote: 'Clinic accounts open when ordering does. Nothing entered here is sent anywhere yet.',
-      apply: () => undefined,
+      applyLabel: this.state.applyState === 'sending' ? 'Sending'
+        : this.state.applyState === 'sent' ? 'Application received' : 'Apply for an account',
+      applyNote: this.state.applyState === 'sent'
+        ? 'Received. We will come back to you about your pricing tier, and tell you the day ordering opens.'
+        : this.state.applyState === 'error' ? this.state.applyMsg
+        : 'No obligation and no minimum order. Ordering is not open yet, so nothing is charged and nothing is shipped.',
+      apply: () => {
+        if (this.state.applyState === 'sending') return;
+        var g = function (id) { var el = document.getElementById(id); return el ? el.value : ''; };
+        var self = this;
+        self.setState({ applyState: 'sending', applyMsg: '' });
+        fetch('/api/apply', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            practice: g('cp-practice'), abn: g('cp-abn'), contact: g('cp-contact'),
+            email: g('cp-work'), note: g('cp-note'), website: g('cp-website')
+          })
+        }).then(function (r) {
+          return r.json().catch(function () { return { ok: r.ok }; });
+        }).then(function (d) {
+          if (d && d.ok) {
+            self.setState({ applyState: 'sent', applyMsg: '' });
+            ['cp-practice','cp-abn','cp-contact','cp-work','cp-note'].forEach(function (id) {
+              var el = document.getElementById(id); if (el) el.value = '';
+            });
+          } else {
+            self.setState({ applyState: 'error',
+              applyMsg: (d && d.message) || 'Something went wrong. Try again in a minute.' });
+          }
+        }).catch(function () {
+          self.setState({ applyState: 'error',
+            applyMsg: 'We could not reach the server. Check your connection and try again.' });
+        });
+      },
       features: [
         { n: '01', title: 'Buy at trade', body: 'Your pricing applies across the whole site the moment you sign in, with PO references on every order and no quote requests. New accounts pay up front.' },
         { n: '02', title: 'Never run out', body: 'Always Stocked keeps a list and a schedule for every room and every site, and ships before a line runs low.' },
@@ -480,7 +505,7 @@ class Component extends DCLogic {
         { k: 'Payment', v: 'Card or transfer, up front' },
         { k: 'Invoice terms', v: 'By application later' },
         { k: 'Eligibility', v: 'Verified ABN' },
-        { k: 'Approval', v: '1 business day' },
+        { k: 'Approval', v: 'By email, once checked' },
         { k: 'Minimum order', v: 'None' },
         { k: 'Account fee', v: 'Free' }
       ]

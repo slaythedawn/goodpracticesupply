@@ -10,12 +10,24 @@ const SITE = p => !p.startsWith('/internal/');
 
 function walk(d, base='') { let o=[]; for (const f of readdirSync(d)) { const p=d+'/'+f; if (statSync(p).isDirectory()) o=o.concat(walk(p, base+'/'+f)); else if (f.endsWith('.html')) o.push(base+'/'+f); } return o; }
 const all = walk('docs').filter(SITE);
-const pages = all.filter((_,i)=> i%6===0).concat(['/index.html','/clinic-portal.html','/for/glp-1-injections.html','/shop.html']);
+// The seven hand-written pages each carry their own component logic, so they are
+// checked every run rather than sampled. A broken one is a broken page, not a
+// broken template.
+const ALWAYS = ['/index.html','/about.html','/contact.html','/learn.html',
+                '/gauge-finder.html','/always-stocked.html','/clinic-portal.html',
+                '/shop.html','/for/glp-1-injections.html'];
+const pages = all.filter((_,i)=> i%6===0).concat(ALWAYS);
 const b=await chromium.launch(); let fails=0, n=0;
 for (const [w,h] of [[390,844],[950,700],[1024,800],[1440,900]]) {
   for (const p of [...new Set(pages)]) {
     const pg=await b.newPage({viewport:{width:w,height:h}});
     const errs=[]; pg.on('pageerror',e=>errs.push(String(e).slice(0,90)));
+    pg.on('console', m => {
+      if (m.type() !== 'error') return;
+      const t = m.text();
+      if (/net::ERR_|Failed to load resource/.test(t)) return;   // blocked CDN, not our bug
+      errs.push('console: ' + t.slice(0,110));
+    });
     await pg.goto('http://127.0.0.1:8777'+p,{waitUntil:'networkidle',timeout:30000}).catch(()=>errs.push('nav'));
     await pg.waitForTimeout(250);
     const r=await pg.evaluate(()=>({sw:document.documentElement.scrollWidth,cw:document.documentElement.clientWidth,

@@ -260,6 +260,7 @@
                 </div>
               </sc-if>
               <div><label for="gp-message">{{ messageLabel }}</label><textarea id="gp-message" rows="5" placeholder="{{ messagePlaceholder }}"></textarea></div>
+                <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label for="gp-website">Leave this blank</label><input id="gp-website" type="text" tabindex="-1" autocomplete="off"></div>
               <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
                 <button type="submit" style="cursor:pointer;border:0;background:#0E0E0E;color:#FAFAFA;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600;font-family:'Archivo',sans-serif">{{ submitLabel }}</button>
                 <span style="font-size:14px;color:#59595A">{{ routeNote }}</span>
@@ -274,9 +275,9 @@
             <div style="background:#143026;color:#FAFAFA;border-radius:22px;padding:26px 24px">
               <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8FBFA6;margin-bottom:16px">Faster than a form</div>
               <sc-for list="{{ directRows }}" as="d" hint-placeholder-count="4">
-                <div style="display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid #2A5245;align-items:baseline">
+                <div style="display:flex;justify-content:space-between;gap:8px 20px;flex-wrap:wrap;padding:14px 0;border-bottom:1px solid #2A5245;align-items:baseline">
                   <span style="font-size:15.5px;color:#B7CFC3">{{ d.k }}</span>
-                  <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:14.5px;color:#FAFAFA;text-align:right">{{ d.v }}</span>
+                  <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:14.5px;color:#FAFAFA;text-align:right;min-width:0;overflow-wrap:anywhere">{{ d.v }}</span>
                 </div>
               </sc-for>
               <div style="font-size:14.5px;line-height:1.6;color:#B7CFC3;margin-top:18px">Monday to Friday, 8.30am to 5pm AEST. Orders are picked and dispatched from our Sydney warehouse.</div>
@@ -362,7 +363,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:880}}">
 class Component extends DCLogic {
-  state = { menu: null, reason: 'trade', sent: false };
+  state = { menu: null, reason: 'trade', sent: false, sendState: 'idle', sendMsg: '' };
 
   renderVals() {
     const defs = [
@@ -461,9 +462,42 @@ class Component extends DCLogic {
       showTrade: this.state.reason === 'trade',
       messageLabel: c.label,
       messagePlaceholder: c.placeholder,
-      submitLabel: this.state.'Opening shortly',
-      routeNote: this.state.'This form is not connected yet. Ordering and enquiries open shortly.',
-      submit: (e) => { e.preventDefault(); },
+      submitLabel: this.state.sendState === 'sending' ? 'Sending'
+        : this.state.sendState === 'sent' ? 'Message sent' : c.submit,
+      routeNote: this.state.sendState === 'sent'
+        ? 'Thanks. That is with us and we will reply to the address you gave.'
+        : this.state.sendState === 'error' ? this.state.sendMsg
+        : c.route,
+      submit: (e) => {
+        e.preventDefault();
+        if (this.state.sendState === 'sending') return;
+        var g = function (id) { var el = document.getElementById(id); return el ? el.value : ''; };
+        var self = this;
+        self.setState({ sendState: 'sending', sendMsg: '' });
+        fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: g('gp-name'), email: g('gp-email'), practice: g('gp-practice'),
+            abn: g('gp-abn'), message: g('gp-message'), website: g('gp-website')
+          })
+        }).then(function (r) {
+          return r.json().catch(function () { return { ok: r.ok }; });
+        }).then(function (d) {
+          if (d && d.ok) {
+            self.setState({ sendState: 'sent', sendMsg: '' });
+            ['gp-name','gp-email','gp-practice','gp-abn','gp-message'].forEach(function (id) {
+              var el = document.getElementById(id); if (el) el.value = '';
+            });
+          } else {
+            self.setState({ sendState: 'error',
+              sendMsg: (d && d.message) || 'Something went wrong. Try again in a minute.' });
+          }
+        }).catch(function () {
+          self.setState({ sendState: 'error',
+            sendMsg: 'We could not reach the server. Check your connection and try again.' });
+        });
+      },
       directRows: [
         { k: 'Customer service', v: 'help@goodpracticesupply.com.au' },
         { k: 'Media', v: 'press@goodpracticesupply.com.au' },

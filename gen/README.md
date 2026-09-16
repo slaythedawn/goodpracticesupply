@@ -154,3 +154,32 @@ browser and fatal in a search console.
 
 `headmeta.py` after `build.py`, because `build.py` reads `about.html` for its
 shell and `headmeta.py` writes to it.
+
+## The two forms
+
+The site is static except for two Vercel serverless functions in `api/`, which
+exist because ordering is not open yet but enquiries and clinic accounts are.
+
+| endpoint | form | required |
+| --- | --- | --- |
+| `POST /api/contact` | `/contact` | name, valid email, a message. ABN optional, checksummed if given |
+| `POST /api/apply` | `/clinic-portal` | practice, contact, valid work email, valid ABN |
+
+Both validate server side, carry an off-screen honeypot field, and post through
+Resend. ABNs are checked against the ATO checksum rather than a length test, so
+a transposed pair is caught.
+
+Three environment variables, set on the Vercel project, never in the repo:
+
+    RESEND_API_KEY   required, server side only
+    ENQUIRIES_TO     required, where both forms land, any address you can read
+    ENQUIRIES_FROM   optional, defaults to enquiries@goodpracticesupply.com.au
+                     which needs that domain verified in Resend first
+
+With no key set, both endpoints return 503 and a message the form displays as
+written. They never claim a message was received when it was not.
+
+`checks/config.mjs` validates `vercel.json` against the fields Vercel accepts.
+It exists because an unknown key in a headers rule took production down for two
+deploys, and because Vercel rejects the config before building, so the failure
+arrives with no build log to read.
