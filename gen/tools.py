@@ -35,7 +35,7 @@ def barrel_svg():
     # barrel body
     a('                <rect x="60" y="41" width="500" height="36" rx="6" fill="rgba(250,250,250,.05)" stroke="#2A5245" stroke-width="2"/>\n')
     # the drawn volume
-    a('                <rect x="60" y="41" width="{{ fillW }}" height="36" rx="6" fill="#8FBFA6" opacity=".55"/>\n')
+    a('                <rect x="60" y="41" width="0" height="36" rx="6" fill="#8FBFA6" opacity=".55" style="width:{{ fillW }}px"/>\n')
     # needle
     a('                <path d="M560 59h34M594 59h34" stroke="#8FBFA6" stroke-width="3" stroke-linecap="round" fill="none"/>\n')
     # graduations, every 10 units, taller and labelled every 20
@@ -47,8 +47,10 @@ def barrel_svg():
         if major:
             a('                <text x="%d" y="108" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#B7CFC3">%d</text>\n'%(x,i*10))
     # the marker
-    a('                <path d="M{{ markX }} 28v53" stroke="#FAFAFA" stroke-width="2.5" stroke-linecap="round"/>\n')
-    a('                <circle cx="{{ markX }}" cy="26" r="5" fill="#FAFAFA"/>\n')
+    a('                <g style="transform:translateX({{ fillW }}px)">\n')
+    a('                  <path d="M60 28v53" stroke="#FAFAFA" stroke-width="2.5" stroke-linecap="round"/>\n')
+    a('                  <circle cx="60" cy="26" r="5" fill="#FAFAFA"/>\n')
+    a('                </g>\n')
     a('              </svg>\n')
     a('              <div style="%s;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8FBFA6;text-align:center;margin-top:14px">Draw to the mark</div>\n'%MONO)
     return ''.join(o)
@@ -241,7 +243,6 @@ class Component extends DCLogic {
       units: trim(units),
       // barrel geometry: 500 user units of SVG span 0 to 100 on the scale
       fillW: String(Math.max(0, Math.min(1, units / 100)) * 500),
-      markX: String(60 + Math.max(0, Math.min(1, units / 100)) * 500),
       mix: mg + 'mg in ' + mL + 'mL',
       rows: [
         { k: 'Concentration', v: trim(conc) + 'mg per mL' },
