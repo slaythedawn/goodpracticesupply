@@ -32,10 +32,18 @@ for (const [w,h] of [[390,844],[950,700],[1024,800],[1440,900]]) {
     await pg.waitForTimeout(250);
     const r=await pg.evaluate(()=>({sw:document.documentElement.scrollWidth,cw:document.documentElement.clientWidth,
       raw:(document.body.innerText.match(/\{\{[^}]*\}\}/g)||[]).length,
+      // Links that go nowhere, counted in the rendered DOM. Several are filled
+      // in by the page component, so grepping the source misses them, which is
+      // how a Learn index advertising nine guides and linking all nine to
+      // nothing went unnoticed. The header search control is excluded: it is a
+      // button that opens an overlay, not a link.
+      stubs:[...document.querySelectorAll('a[href="#"]')]
+        .filter(a=>!a.hasAttribute('data-gp-search'))
+        .map(a=>(a.innerText||a.getAttribute('aria-label')||'?').split('\n')[0].slice(0,40)),
       burger:!!document.querySelector('[data-gp-burger]') && getComputedStyle(document.querySelector('[data-gp-burger]')).display!=='none',
       nav:!!document.querySelector('[data-gp-nav]') && getComputedStyle(document.querySelector('[data-gp-nav]')).display!=='none'}));
     n++;
-    const bad = r.sw>r.cw+1 || r.raw || errs.length || (r.burger===r.nav);
+    const bad = r.sw>r.cw+1 || r.raw || errs.length || (r.burger===r.nav) || r.stubs.length;
     if (bad) { fails++; console.log('FAIL', w, p, JSON.stringify(r), errs.join('|')); }
     await pg.close();
   }
