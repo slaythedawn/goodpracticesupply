@@ -14,6 +14,7 @@ FIXED = "https://d2ol7oe51mr4n9.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/
 PAGES = [
 {
  "slug": "glp-1-injections",
+  'answer': 'Pen needles if your medicine comes in an injector pen, or insulin syringes if it comes in a vial, plus alcohol swabs and a sharps container. The medicine itself comes from your pharmacy on a script.',
  "scene": FIXED + "318e9be0-e636-449e-83c1-22856a30335c.png",
  "scene_alt": 'Laying out a swab and a capped syringe on a tray at a kitchen bench',
  "title": "What you need to inject a GLP-1 at home",
@@ -59,6 +60,7 @@ PAGES = [
 },
 {
  "slug": "trt-injections",
+  'answer': 'A drawing-up needle, a separate injecting needle, a luer-lock syringe, alcohol swabs, gauze and a sharps container. The testosterone is a prescription medicine and comes from your pharmacy.',
  "scene": FIXED + "7f9a2187-56bf-4b60-81ea-59230329df49.png",
  "scene_alt": 'Two capped needles, two swabs and a vial laid out in a row on a bathroom counter',
  "title": "Supplies for testosterone injections at home",
@@ -106,6 +108,7 @@ PAGES = [
 },
 {
  "slug": "peptide-reconstitution",
+  'answer': 'Bacteriostatic water, a vial adapter or drawing-up needle, U-100 insulin syringes and alcohol swabs. We supply the diluent and the equipment, never the compound.',
  "scene": FIXED + "605f50a3-8fe6-479d-b0b0-7fda0ab96fd4.png",
  "scene_alt": 'Hands holding a vial and a syringe above a clean bench',
  "title": "Bacteriostatic water and reconstitution supplies",
@@ -153,6 +156,7 @@ PAGES = [
 },
 {
  "slug": "diabetes-at-home",
+  'answer': 'Test strips and lancets that match your meter, U-100 syringes or pen needles, alcohol swabs and a sharps container. Insulin comes from your pharmacy, and some consumables are subsidised through the NDSS.',
  "scene": FIXED + "8d04232a-9f64-47a0-a0ce-0ca76aa388b1.png",
  "scene_alt": 'A monitor, test strips and lancets on a kitchen table beside a mug of tea',
  "title": "Insulin syringes, pen needles and diabetes consumables",
@@ -199,6 +203,7 @@ PAGES = [
 },
 {
  "slug": "wound-care-at-home",
+  'answer': 'Sterile saline, gauze, a dressing suited to the wound, fixation tape, gloves and a bandage if it needs holding. Prescription ointments and an infected wound are a conversation with a doctor.',
  "scene": IMG + "hf_20260914_230049_24792f15-cbd9-433a-b99e-3f7820efefbc.png",
  "scene_alt": 'Hands opening a sterile gauze pouch beside tape and scissors',
  "title": "Dressings and wound care supplies for home use",
@@ -246,6 +251,7 @@ PAGES = [
 },
 {
  "slug": "clinic-fit-out",
+  'answer': 'Every consumable in the room: gloves and PPE, syringes and needles, swabs and prep, dressings, diagnostics, couch roll and sharps disposal. Scheduled medicines are not something we supply.',
  "scene": FIXED + "4e3a9500-63d7-4842-9236-ba6b0f6152aa.png",
  "scene_alt": 'Restocking a wall-mounted glove dispenser in a treatment room',
  "title": "Setting up a treatment room, consumables list",

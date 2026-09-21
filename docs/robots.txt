@@ -6,4 +6,21 @@ Allow: /
 # header while its prices are placeholders. Crawling stays open so
 # that the noindex is readable.
 
+# Assistant and AI search crawlers, allowed on purpose.
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+User-agent: meta-externalagent
+Allow: /
+
 Sitemap: https://goodpracticesupply.com.au/sitemap.xml
+
+# llms.txt lives at https://goodpracticesupply.com.au/llms.txt

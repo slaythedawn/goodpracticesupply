@@ -19,6 +19,7 @@ the fifty-eight pages come out of these scripts, so a change made by hand in
 | `footer.py` | all 81 | applies the sitewide footer |
 | `searchindex.py` | `search-index.json` | what the header search matches against, including the synonym list |
 | `sitemap.py` | `sitemap.xml`, `robots.txt`, `gen/lastmod.json` | run it last, after every page is written |
+| `llms.py` | `llms.txt` | plain-text site map for language models |
 | `shopify_export.py` | `export/shopify-products.csv`, `export/variant-map.json` | the catalogue in Shopify import format |
 | `pagemeta.py` | nothing | title, description and structured data for every page that is not a shop page |
 | `headmeta.py` | rewrites the 7 hand-written pages | injects the head block, fenced so it is safe to re-run |
@@ -150,6 +151,7 @@ browser and fatal in a search console.
     python3 gen/headmeta.py     # head block on the 7 hand-written pages
     python3 gen/footer.py       # sitewide footer
     python3 gen/searchindex.py  # search-index.json
+    python3 gen/llms.py         # llms.txt
     python3 gen/sitemap.py      # sitemap.xml, robots.txt, lastmod.json
 
 `headmeta.py` after `build.py`, because `build.py` reads `about.html` for its
@@ -205,3 +207,30 @@ untouched page hashes the same and keeps the date it had.
 It runs last, after every generator has written its pages, and it fails loudly
 if a listed URL has no file behind it. Pages that stop being listed are dropped
 from the file rather than accumulating.
+
+## Being quoted rather than ranked
+
+Three things, in descending order of how much they matter.
+
+**The answer sits at the top.** Each `/for/` guide opens with a one-sentence
+answer to the question its headline asks, from `answer` in `content.py`. It used
+to be halfway down the page, under the marketing lead. An assistant looking for
+something to quote takes the sentence that answers the question, and so does a
+reader skimming. It is now about eight per cent into the page text.
+
+**The structured data.** `Organization`, `Article`, `FAQPage`, `WebApplication`
+and `BreadcrumbList`, per page. That is the machine-readable version of the same
+claim and it is what grounding actually consumes.
+
+**`robots.txt` names the assistant crawlers.** Same effect as the wildcard
+already had, but the decision is on the record so nobody later tidies it into a
+block. `Google-Extended` is listed separately on purpose: it governs AI
+Overviews and Gemini grounding, and it is independent of Googlebot and Search.
+
+`llms.txt` is a proposed convention, not a standard, and no major provider has
+committed to reading it. It is here because it costs four kilobytes. Do not
+expect it to do anything on its own.
+
+None of this creates authority. A new domain with no inbound links will not be
+cited any more than it will rank. This makes the site citable for when that
+changes.

@@ -46,6 +46,13 @@ def build_main(p):
     a('            <h1 style="%s">%s</h1>\n'%(H1,E(p['h1'])))
     for i,l in enumerate(p['lead']):
         a('            <p style="%s">%s</p>\n'%(LEAD if i<len(p['lead'])-1 else LEAD.replace('0 0 16px','0'),E(l)))
+    # The answer, straight after the lead rather than halfway down the page. A
+    # reader skimming and a model looking for something to quote want the same
+    # thing: the sentence that answers the question the headline asks.
+    a('            <div style="margin-top:22px;padding:16px 18px;background:#EDEDEB;border-radius:16px;max-width:46ch">\n')
+    a('              <div style="%s;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;margin-bottom:8px">The short answer</div>\n'%MONO)
+    a('              <p style="margin:0;font-size:16px;line-height:1.5;color:#0E0E0E">%s</p>\n'%E(p['answer']))
+    a('            </div>\n')
     a('          </div>\n')
     a('          <div style="border-radius:28px;overflow:hidden;background:#EDEDEB;aspect-ratio:4/3">\n')
     a('            <img src="%s" alt="%s" style="width:100%%;height:100%%;object-fit:cover">\n'%(p['img'],E(p['alt'])))

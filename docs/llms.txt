@@ -1,0 +1,40 @@
+# Good Practice Supply
+
+> Australian supplier of medical consumables to clinics and to people managing
+> treatment at home. Every price is on the page and visible without an account,
+> which is not true of the incumbents.
+
+Good Practice Supply sells consumables only: syringes, needles, gloves, swabs,
+dressings, diagnostics and clinical waste. We do not supply peptides, hormones
+or any prescription medicine, in any form. Nothing on this site is medical
+advice, and the directions of a prescriber or treating practitioner come first.
+
+Ordering is not open yet. Prices shown are indicative and the catalogue is not
+yet listed for search. Clinic account applications are open.
+
+## Start here
+
+- [Medical supplies for clinics and home](https://goodpracticesupply.com.au/): Syringes, needles, gloves, dressings and diagnostics, with every price on the page and no account needed. Dispatched from Sydney, Australia wide.
+
+## Tools
+
+- [Gauge Finder](https://goodpracticesupply.com.au/gauge-finder): Three plain questions and you have the needle gauge and length that suit you. Nothing is stored, nothing is sent, and we never ask what you inject.
+- [Peptide reconstitution calculator](https://goodpracticesupply.com.au/tools/reconstitution-calculator): Enter the vial strength and the water you added, and read the dose off the barrel in units. Works for any U-100 syringe. Nothing is stored.
+
+## Guides
+
+- [Needle gauge chart](https://goodpracticesupply.com.au/learn/needle-gauge-chart): Every needle gauge with its hub colour, outer diameter in millimetres and what it is actually used for. The scale runs backwards, and here is why.
+- [What you need to inject a GLP-1 at home](https://goodpracticesupply.com.au/for/glp-1-injections): Pen needles if your medicine comes in an injector pen, or insulin syringes if it comes in a vial, plus alcohol swabs and a sharps container. The medicine itself comes from your pharmacy on a script.
+- [Supplies for testosterone injections at home](https://goodpracticesupply.com.au/for/trt-injections): A drawing-up needle, a separate injecting needle, a luer-lock syringe, alcohol swabs, gauze and a sharps container. The testosterone is a prescription medicine and comes from your pharmacy.
+- [Bacteriostatic water and reconstitution supplies](https://goodpracticesupply.com.au/for/peptide-reconstitution): Bacteriostatic water, a vial adapter or drawing-up needle, U-100 insulin syringes and alcohol swabs. We supply the diluent and the equipment, never the compound.
+- [Insulin syringes, pen needles and diabetes consumables](https://goodpracticesupply.com.au/for/diabetes-at-home): Test strips and lancets that match your meter, U-100 syringes or pen needles, alcohol swabs and a sharps container. Insulin comes from your pharmacy, and some consumables are subsidised through the NDSS.
+- [Dressings and wound care supplies for home use](https://goodpracticesupply.com.au/for/wound-care-at-home): Sterile saline, gauze, a dressing suited to the wound, fixation tape, gloves and a bandage if it needs holding. Prescription ointments and an infected wound are a conversation with a doctor.
+- [Setting up a treatment room, consumables list](https://goodpracticesupply.com.au/for/clinic-fit-out): Every consumable in the room: gloves and PPE, syringes and needles, swabs and prep, dressings, diagnostics, couch roll and sharps disposal. Scheduled medicines are not something we supply.
+- [Guides](https://goodpracticesupply.com.au/learn): Plain explanations of the things people get wrong about needles, gauges, reconstitution and sharps disposal in Australia. No product pitch.
+
+## About
+
+- [About Good Practice Supply](https://goodpracticesupply.com.au/about): Why we put every price on the page when nobody else in Australian medical consumables does, and what we will and will not supply.
+- [Always Stocked](https://goodpracticesupply.com.au/always-stocked): A standing order that arrives before you run out. Set the cadence, change or skip any delivery, and stop paying attention to the boring things.
+- [Clinic Portal](https://goodpracticesupply.com.au/clinic-portal): Tiered pricing, one login for the whole practice and order support seven days. Apply with an ABN and we set your pricing from there.
+- [Contact us](https://goodpracticesupply.com.au/contact): How to reach a person about an order, delivery or a clinic account. Consumables questions answered seven days, from Sydney.

@@ -102,6 +102,16 @@ def main():
     o.append('</urlset>')
     io.open(DOCS + '/sitemap.xml', 'w', encoding='utf-8').write('\n'.join(o) + '\n')
 
+    # Named explicitly rather than left to the wildcard, so that the decision is
+    # on the record and nobody later "tidies" it into a block. These are the
+    # crawlers behind assistant answers and AI search results, and being quoted
+    # in one is worth more to a new domain than a ranking it will not get yet.
+    #
+    # Google-Extended is separate from Googlebot on purpose: it governs AI
+    # Overviews and Gemini grounding, and blocking it does not affect Search.
+    AI = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-User',
+          'Claude-SearchBot', 'PerplexityBot', 'Perplexity-User',
+          'Google-Extended', 'Applebot-Extended', 'CCBot', 'meta-externalagent']
     robots = ['# %s' % SEO.ORIGIN, 'User-agent: *', 'Allow: /']
     if not SEO.INDEX_SHOP:
         # Allow, not Disallow, on purpose. See the note at the top of this file:
@@ -110,7 +120,17 @@ def main():
                    '# /shop carries a noindex meta tag and a matching X-Robots-Tag',
                    '# header while its prices are placeholders. Crawling stays open so',
                    '# that the noindex is readable.']
-    robots += ['', 'Sitemap: %s/sitemap.xml' % SEO.ORIGIN, '']
+    # One group with many user-agents, which is valid and reads better than
+    # twelve near-identical groups.
+    robots += ['', '# Assistant and AI search crawlers, allowed on purpose.']
+    robots += ['User-agent: %s' % bot for bot in AI]
+    robots += ['Allow: /', '',
+               'Sitemap: %s/sitemap.xml' % SEO.ORIGIN,
+               '',
+               # A comment, not a directive: there is no LLMs: field in the
+               # robots.txt spec and inventing one helps nobody. This is a
+               # signpost for a human reading the file.
+               '# llms.txt lives at %s/llms.txt' % SEO.ORIGIN, '']
     io.open(DOCS + '/robots.txt', 'w', encoding='utf-8').write('\n'.join(robots))
     today = datetime.date.today().isoformat()
     fresh = sum(1 for r in rows if r[3] == today)
