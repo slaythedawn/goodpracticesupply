@@ -18,7 +18,7 @@ the fifty-eight pages come out of these scripts, so a change made by hand in
 | `tools.py` | calculator, gauge chart | imports `shop.py`, same |
 | `footer.py` | all 81 | applies the sitewide footer |
 | `searchindex.py` | `search-index.json` | what the header search matches against, including the synonym list |
-| `sitemap.py` | `sitemap.xml`, `robots.txt` | run it after anything that adds or removes a page |
+| `sitemap.py` | `sitemap.xml`, `robots.txt`, `gen/lastmod.json` | run it last, after every page is written |
 | `shopify_export.py` | `export/shopify-products.csv`, `export/variant-map.json` | the catalogue in Shopify import format |
 | `pagemeta.py` | nothing | title, description and structured data for every page that is not a shop page |
 | `headmeta.py` | rewrites the 7 hand-written pages | injects the head block, fenced so it is safe to re-run |
@@ -150,7 +150,7 @@ browser and fatal in a search console.
     python3 gen/headmeta.py     # head block on the 7 hand-written pages
     python3 gen/footer.py       # sitewide footer
     python3 gen/searchindex.py  # search-index.json
-    python3 gen/sitemap.py      # sitemap.xml, robots.txt
+    python3 gen/sitemap.py      # sitemap.xml, robots.txt, lastmod.json
 
 `headmeta.py` after `build.py`, because `build.py` reads `about.html` for its
 shell and `headmeta.py` writes to it.
@@ -190,3 +190,18 @@ written. They never claim a message was received when it was not.
 It exists because an unknown key in a headers rule took production down for two
 deploys, and because Vercel rejects the config before building, so the failure
 arrives with no build log to read.
+
+## lastmod
+
+`gen/lastmod.json` records a content hash and a date per indexable page, and is
+committed. `sitemap.py` hashes each built page, and only moves its date when the
+hash moves.
+
+Stamping every URL with the build date is the usual way this goes wrong. Google
+uses `lastmod` when it can trust it, and a sitemap that claims fifteen pages all
+changed today, every day, teaches it not to. The build is idempotent, so an
+untouched page hashes the same and keeps the date it had.
+
+It runs last, after every generator has written its pages, and it fails loudly
+if a listed URL has no file behind it. Pages that stop being listed are dropped
+from the file rather than accumulating.

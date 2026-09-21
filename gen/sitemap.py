@@ -5,7 +5,7 @@
 # the page, so blocking it is the one way to end up with URLs in an index that
 # you have no way to remove. Let them crawl; the noindex does the work.
 
-import io, os, pathlib, datetime, sys
+import io, os, json, hashlib, pathlib, datetime, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from catalogue import CATEGORIES
 import seo as SEO
@@ -34,18 +34,60 @@ STATIC = [
 ]
 
 
+# path -> {hash, date}. Committed, because it is the only record of when a page
+# last actually changed.
+STAMPS = str(pathlib.Path(__file__).resolve().parent / 'lastmod.json')
+
+
+def page_file(path):
+    return DOCS + ('/index.html' if path == '/' else path + '.html')
+
+
+def stamps():
+    try:
+        return json.load(io.open(STAMPS, encoding='utf-8'))
+    except (IOError, ValueError):
+        return {}
+
+
+def lastmod(path, store, today):
+    """When this page last changed, not when the build last ran.
+
+    Google uses lastmod when it can trust it, and stamping every page with
+    today's date on every build is how you teach it not to. The build is
+    idempotent, so an unchanged page hashes the same and keeps its date.
+    """
+    f = page_file(path)
+    if not os.path.isfile(f):
+        raise SystemExit('sitemap: %s is listed but %s does not exist' % (path, f))
+    h = hashlib.sha256(io.open(f, 'rb').read()).hexdigest()[:16]
+    was = store.get(path)
+    if was and was.get('hash') == h:
+        return was['date']
+    store[path] = {'hash': h, 'date': today}
+    return today
+
+
 def urls():
     # Only pages that are actually indexable. Listing a noindexed URL in a
     # sitemap asks a crawler to fetch a page and then tells it to forget what it
     # found, which wastes crawl budget on a new domain that has little of it.
     today = datetime.date.today().isoformat()
-    out = [(p, pr, cf, today) for p, pr, cf in STATIC if SEO.indexable(p)]
+    store = stamps()
+    paths = [(p, pr, cf) for p, pr, cf in STATIC if SEO.indexable(p)]
     for c in CATEGORIES:
         if not SEO.indexable('/shop/' + c['slug']):
             continue
-        out.append(('/shop/' + c['slug'], '0.8', 'weekly', today))
+        paths.append(('/shop/' + c['slug'], '0.8', 'weekly'))
         for p in c['products']:
-            out.append(('/shop/%s/%s' % (c['slug'], p['slug']), '0.7', 'weekly', today))
+            paths.append(('/shop/%s/%s' % (c['slug'], p['slug']), '0.7', 'weekly'))
+    out = [(p, pr, cf, lastmod(p, store, today)) for p, pr, cf in paths]
+    # Drop pages that are no longer listed, so the file does not grow forever.
+    live = {p for p, _, _, _ in out}
+    for gone in [k for k in store if k not in live]:
+        del store[gone]
+    io.open(STAMPS, 'w', encoding='utf-8').write(
+        json.dumps(store, indent=1, sort_keys=True) + '\n')
     return out
 
 
@@ -70,7 +112,10 @@ def main():
                    '# that the noindex is readable.']
     robots += ['', 'Sitemap: %s/sitemap.xml' % SEO.ORIGIN, '']
     io.open(DOCS + '/robots.txt', 'w', encoding='utf-8').write('\n'.join(robots))
-    print('sitemap: %d urls (content=%s, shop=%s)' % (len(rows), SEO.INDEX_CONTENT, SEO.INDEX_SHOP))
+    today = datetime.date.today().isoformat()
+    fresh = sum(1 for r in rows if r[3] == today)
+    print('sitemap: %d urls (content=%s, shop=%s), %d with today\'s lastmod'
+          % (len(rows), SEO.INDEX_CONTENT, SEO.INDEX_SHOP, fresh))
 
 
 if __name__ == '__main__':
