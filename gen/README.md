@@ -21,6 +21,8 @@ the fifty-eight pages come out of these scripts, so a change made by hand in
 | `sitemap.py` | `sitemap.xml`, `robots.txt`, `gen/lastmod.json` | run it last, after every page is written |
 | `llms.py` | `llms.txt` | plain-text site map for language models |
 | `shopify_export.py` | `export/shopify-products.csv`, `export/variant-map.json` | the catalogue in Shopify import format |
+| `guidecontent.py` | nothing | the copy for the ten guides under /learn |
+| `guides.py` | 10 `/learn/*` pages | builds them |
 | `pagemeta.py` | nothing | title, description and structured data for every page that is not a shop page |
 | `headmeta.py` | rewrites the 7 hand-written pages | injects the head block, fenced so it is safe to re-run |
 | `photoreview.py` | `docs/internal/photo-review.html` | on demand only, not part of a build |
@@ -148,6 +150,7 @@ browser and fatal in a search console.
 
     python3 gen/build.py        # shop + /for/, imports shop.py
     python3 gen/tools.py        # calculator, gauge chart
+    python3 gen/guides.py       # the ten /learn/ guides
     python3 gen/headmeta.py     # head block on the 7 hand-written pages
     python3 gen/footer.py       # sitewide footer
     python3 gen/searchindex.py  # search-index.json
@@ -234,3 +237,28 @@ expect it to do anything on its own.
 None of this creates authority. A new domain with no inbound links will not be
 cited any more than it will rank. This makes the site citable for when that
 changes.
+
+## The guides
+
+`guidecontent.py` holds the copy, `guides.py` builds the pages. Ten of them,
+under `/learn/`.
+
+They exist because the Learn index had been advertising nine as cards linking to
+`#`, and the nav promised a tenth, on pages open to search. Writing them was the
+only honest way to close that.
+
+House rules for this copy, because it is health-adjacent on a site that sells
+consumables and nothing else:
+
+- Consumables only. Never imply we supply a medicine, a peptide or a hormone.
+- Technique is described in terms of the equipment: gauge, length, angle. Never
+  a dose, never a site for a named drug, never a frequency.
+- The directions that came with the medicine, and the prescriber, come first,
+  and are said to come first. Every guide carries that line under the answer.
+- Australian rules and Australian spelling. The sharps guide deliberately
+  refuses to print a state-by-state list of drop-off points, because such a list
+  goes stale and sends somebody to a chemist that closed.
+
+Each guide leads with `answer`, a single sentence that answers the question the
+title asks. Same reason as the `/for/` pages: that is the line a reader skimming
+wants and the line an assistant will quote.

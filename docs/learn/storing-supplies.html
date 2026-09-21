@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Storing supplies correctly | Good Practice Supply</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<meta name="theme-color" content="#1C4034">
+<script>window.__resources={"https://unpkg.com/react@18.3.1/umd/react.production.min.js":"/vendor/react.production.min.js","https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js":"/vendor/react-dom.production.min.js"};</script>
+<script src="/support.js"></script>
+<script src="/search.js" defer></script>
+<script>
+(function () {
+  // The utility strip wraps on narrow screens, so the header height is content
+  // dependent and must be measured rather than hard coded.
+  var raf = null;
+  function sync() {
+    raf = null;
+    var h = document.querySelector('[data-gp-header]');
+    if (!h) return;
+    var scrolled = window.scrollY > 8;
+    // Measure only at the top, where the strip is always shown. The spacer must
+    // keep reserving the full height or the page would jump when the strip goes.
+    if (!scrolled) document.documentElement.style.setProperty('--gp-header-h', h.offsetHeight + 'px');
+    // Off the top of the page, content would otherwise scroll through the gap
+    // between the utility strip and the floating nav pill.
+    h.toggleAttribute('data-gp-scrolled', scrolled);
+  }
+  function queue() { if (raf === null) raf = requestAnimationFrame(sync); }
+  window.addEventListener('resize', queue);
+  window.addEventListener('scroll', queue, { passive: true });
+  window.addEventListener('load', queue);
+  document.addEventListener('DOMContentLoaded', queue);
+  if (window.MutationObserver) {
+    new MutationObserver(queue).observe(document.documentElement, { childList: true, subtree: true });
+  }
+  queue();
+})();
+</script>
+<meta name="description" content="How to store consumables so they are still sterile and usable when you need them: temperature, light, humidity, and what batch numbers and expiry dates are actually for.">
+<link rel="canonical" href="https://goodpracticesupply.com.au/learn/storing-supplies">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Good Practice Supply">
+<meta property="og:locale" content="en_AU">
+<meta property="og:title" content="Storing supplies correctly">
+<meta property="og:description" content="How to store consumables so they are still sterile and usable when you need them: temperature, light, humidity, and what batch numbers and expiry dates are actually for.">
+<meta property="og:url" content="https://goodpracticesupply.com.au/learn/storing-supplies">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Storing supplies correctly">
+<meta name="twitter:description" content="How to store consumables so they are still sterile and usable when you need them: temperature, light, humidity, and what batch numbers and expiry dates are actually for.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","url":"https://goodpracticesupply.com.au/learn/storing-supplies","headline":"Storing supplies correctly","description":"How to store consumables so they are still sterile and usable when you need them: temperature, light, humidity, and what batch numbers and expiry dates are actually for.","inLanguage":"en-AU","isPartOf":{"@id":"https://goodpracticesupply.com.au/#website"},"publisher":{"@id":"https://goodpracticesupply.com.au/#organization"},"author":{"@id":"https://goodpracticesupply.com.au/#organization"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://goodpracticesupply.com.au/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://goodpracticesupply.com.au/learn"},{"@type":"ListItem","position":3,"name":"Storing supplies correctly","item":"https://goodpracticesupply.com.au/learn/storing-supplies"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I use something just past its expiry date?","acceptedAnswer":{"@type":"Answer","text":"The manufacturer no longer guarantees it is sterile. For a single use sterile item, that is the whole point of the item."}},{"@type":"Question","name":"Does anything here need refrigerating?","acceptedAnswer":{"@type":"Answer","text":"Most consumables do not. Check the packaging, and follow it where it says otherwise. The medicine is a separate question and usually a stricter one."}},{"@type":"Question","name":"What is the batch number for?","acceptedAnswer":{"@type":"Answer","text":"Tracing a production run if a fault is found, so a recall can be precise. It is a good reason to keep the box until the contents are used."}},{"@type":"Question","name":"Where should I not store supplies?","acceptedAnswer":{"@type":"Answer","text":"A car, a bathroom, a windowsill, or anywhere above a heat source. Heat and damp are what ruin adhesives and packaging."}}]}</script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #FAFAFA; color: #0E0E0E; font-family: 'Archivo', system-ui, sans-serif; font-size: 16px; letter-spacing: -.005em; -webkit-font-smoothing: antialiased; }
+  a { color: #0E0E0E; text-decoration: none; }
+  a:hover { color: #59595A; }
+  :focus-visible { outline: 2.5px solid #0E0E0E; outline-offset: 3px; border-radius: 4px; }
+  img { display: block; }
+  :root { --ease-out: cubic-bezier(.2,.6,.2,1); --dur-base: 260ms; }
+  a { transition: color var(--dur-base) var(--ease-out), background-color var(--dur-base) var(--ease-out); }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } }
+  /* --- Sitewide header. Identical markup on every page so nav elements never shift. --- */
+  [data-gp-burger] { display: none; }
+  [data-gp-navpanel] { display: none; }
+  [data-gp-spacer] { height: var(--gp-header-h, 132px); }
+  /* The glass pill floats over the hero at the top of the page, which is the
+     intended look. Once scrolled, the strip and the pill become one solid band
+     so page content cannot show through the gap between them. */
+  [data-gp-header] { transition: background-color 260ms cubic-bezier(.2,.6,.2,1); }
+  [data-gp-header][data-gp-scrolled] { background: #143026; }
+
+  /* --- Page head. Anchors the headline to the same place on every page that
+     shares this layout, so navigating between them does not jump. --- */
+  [data-gp-pagehead] { padding-top: clamp(32px, 5vw, 64px) !important; }
+  /* The grid is centred so imagery balances the text, but that made the headline
+     ride on the height of the opposite column. Pin the text column to the top. */
+  [data-gp-pagehead-grid] > :first-child { align-self: start !important; }
+  @media (max-width: 999px) {
+    /* !important is required: the prototype styles every element inline. */
+    [data-gp-nav] { display: none !important; }
+    [data-gp-desktoponly] { display: none !important; }
+    [data-gp-burger] { display: inline-flex !important; }
+    [data-gp-navpanel] { display: grid !important; }
+    [data-gp-pill] { padding: 10px 12px 10px 14px !important; gap: 12px !important; }
+    /* 22 category chips filled an entire phone screen at desktop sizing. */
+    [data-chip] { font-size: 14px !important; padding: 9px 15px !important; }
+    /* The strip costs 50px of a 844px screen. It earns that at the top of the
+       page; once scrolling it does not, so give the height back. */
+    [data-gp-header][data-gp-scrolled] > :first-child { display: none; }
+    /* Footer links were 18px tall with an 11px gap, which is a mis-tap waiting
+       to happen on a phone. The underline moves with the padding. */
+    footer a { padding-block: 8px !important; }
+    footer a::after { bottom: 6px !important; }
+    /* The glass cards are sized as a column over the photograph, which is the
+       intent on desktop. On a phone that left a 320px card in a 350px container,
+       so it sat flush left with a 50px gutter on the right and read as a
+       misalignment. Let them fill the gutters instead. */
+    [data-gp-overlay] { width: 100% !important; }
+    /* The 170px column floor collapses the footer to a single stack on a phone,
+       which runs to roughly 900px. Two columns of links under a full width
+       brand block reads as a footer rather than a list. */
+    [data-gp-footer-grid] { grid-template-columns: 1fr 1fr !important; gap: 30px 20px !important; }
+    /* Brand across the top, then the four link groups two by two, which divides
+       evenly and leaves no hole in the corner. */
+    [data-gp-footer-grid] > :nth-child(1) { grid-column: 1 / -1; }
+  }
+  /* Below 360px the full lockup plus the actions no longer fit on one row and the
+     pill wrapped to two. Fall back to the monogram, which stands alone by design. */
+  @media (max-width: 359px) {
+    [data-gp-wordmark] { display: none !important; }
+    [data-gp-pill] { padding: 10px 10px !important; gap: 10px !important; }
+  }
+</style>
+</helmet>
+
+<div>
+
+  <div data-gp-header style="position:fixed;top:0;left:0;right:0;z-index:71">
+  <div style="background:#143026;color:#B7CFC3;font-size:12.5px">
+    <div style="max-width:1440px;margin:0 auto;padding:7px clamp(18px,4vw,32px);display:flex;justify-content:center;gap:6px clamp(14px,3vw,30px);flex-wrap:wrap;text-align:center">
+      <span>Free delivery over $99</span>
+      <span style="color:#2A5245" data-gp-desktoponly>&middot;</span>
+      <span>Dispatched from Sydney</span>
+      <span style="color:#2A5245" data-gp-desktoponly>&middot;</span>
+      <a href="/contact" style="color:#FAFAFA">Help</a>
+    </div>
+  </div>
+  <header style="padding:14px clamp(12px,3vw,24px);display:flex;justify-content:center;pointer-events:none">
+    <div data-gp-pill style="pointer-events:auto;width:100%;max-width:1440px;background:rgba(20,48,38,.72);backdrop-filter:blur(26px) saturate(1.6);-webkit-backdrop-filter:blur(26px) saturate(1.6);border:1px solid rgba(143,191,166,.26);border-radius:22px;padding:12px 14px 12px 22px;display:flex;align-items:center;gap:clamp(14px,3vw,36px);flex-wrap:wrap;color:#FAFAFA">
+      <a href="/" style="display:flex;align-items:center;gap:12px;color:#FAFAFA;flex:none">
+        <span aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;flex:none;width:38px;height:38px;border:1.5px solid #FAFAFA;border-radius:1000px;font-family:'Archivo Black','Archivo',sans-serif;font-size:16px;letter-spacing:-.07em;line-height:1;color:#FAFAFA;padding-bottom:4px">gp</span>
+        <span data-gp-wordmark style="display:flex;flex-direction:column;gap:4px">
+          <span style="font-family:'Archivo Black','Archivo',sans-serif;font-size:18px;letter-spacing:-.055em;line-height:.9;color:#FAFAFA">goodpractice</span>
+          <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:rgba(250,250,250,.75);line-height:1">Supply</span>
+        </span>
+      </a>
+      <nav data-gp-nav style="display:flex;align-items:center;justify-content:center;gap:10px clamp(16px,2.4vw,30px);font-size:15px;font-weight:500;flex:1 1 auto">
+        <button type="button" onClick="{{ toggleShop }}" aria-expanded="{{ shopOpen }}" style="background:none;border:0;padding:0 0 3px;cursor:pointer;color:#FAFAFA;font-size:15px;font-weight:500;font-family:'Archivo',sans-serif;display:flex;align-items:center;gap:7px;white-space:nowrap">
+          Shop
+          <span aria-hidden="true" style="display:inline-block;font-size:10px;transform:{{ shopCaret }};transition:transform var(--dur-base) var(--ease-out)">&#9662;</span>
+        </button>
+        <a href="/gauge-finder" style="color:#FAFAFA;white-space:nowrap">Gauge Finder</a>
+        <a href="/always-stocked" style="color:#FAFAFA;white-space:nowrap">Always Stocked</a>
+        <button type="button" onClick="{{ toggleLearn }}" aria-expanded="{{ learnOpen }}" style="background:none;border:0;padding:0 0 3px;cursor:pointer;color:#FAFAFA;font-size:15px;font-weight:500;font-family:'Archivo',sans-serif;display:flex;align-items:center;gap:7px;white-space:nowrap">
+          Learn
+          <span aria-hidden="true" style="display:inline-block;font-size:10px;transform:{{ learnCaret }};transition:transform var(--dur-base) var(--ease-out)">&#9662;</span>
+        </button>
+        <a href="/clinic-portal" style="color:#FAFAFA;white-space:nowrap">Clinic Portal</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px;flex:none;margin-left:auto">
+        <a href="#" aria-label="Search" data-gp-search style="display:flex;color:#FAFAFA"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="5.5" stroke="currentColor" stroke-width="1.6"></circle><path d="m12.5 12.5 3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></a>
+        <a href="/clinic-portal" data-gp-desktoponly style="font-size:15px;font-weight:500;color:#FAFAFA;white-space:nowrap">Sign in</a>
+        <button type="button" data-gp-burger onClick="{{ toggleNav }}" aria-expanded="{{ navOpen }}" aria-label="Menu" style="background:none;border:1px solid rgba(143,191,166,.26);border-radius:1000px;width:38px;height:38px;cursor:pointer;color:#FAFAFA;align-items:center;justify-content:center;flex:none;padding:0">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 5h14M2 9h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>
+        </button>
+      </div>
+      <sc-if value="{{ learnOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="width:100%;border-top:1px solid rgba(143,191,166,.24);margin-top:12px;padding:22px 8px 10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:26px">
+          <sc-for list="{{ learnCols }}" as="c" hint-placeholder-count="3">
+            <div style="display:flex;flex-direction:column;gap:11px">
+              <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8FBFA6;margin-bottom:4px">{{ c.title }}</div>
+              <sc-for list="{{ c.links }}" as="l" hint-placeholder-count="4">
+                <a href="{{ l.href }}" style="color:rgba(250,250,250,.84);font-size:15px" style-hover="color:#FAFAFA">{{ l.label }}</a>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ shopOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="width:100%;border-top:1px solid rgba(143,191,166,.24);margin-top:12px;padding:22px 8px 10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:26px">
+          <sc-for list="{{ menuCols }}" as="c" hint-placeholder-count="4">
+            <div style="display:flex;flex-direction:column;gap:11px">
+              <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8FBFA6;margin-bottom:4px">{{ c.title }}</div>
+              <sc-for list="{{ c.links }}" as="l" hint-placeholder-count="4">
+                <a href="{{ l.href }}" style="color:rgba(250,250,250,.84);font-size:15px" style-hover="color:#FAFAFA">{{ l.label }}</a>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ false }}">
+        <div data-gp-navpanel style="width:100%;border-top:1px solid rgba(143,191,166,.24);margin-top:12px;padding:18px 8px 8px;gap:2px;grid-template-columns:1fr">
+          <a href="/shop" style="color:#FAFAFA;font-size:17px;font-weight:500;padding:11px 0">Shop</a>
+          <a href="/gauge-finder" style="color:#FAFAFA;font-size:17px;font-weight:500;padding:11px 0">Gauge Finder</a>
+          <a href="/always-stocked" style="color:#FAFAFA;font-size:17px;font-weight:500;padding:11px 0">Always Stocked</a>
+          <a href="/learn" style="color:#FAFAFA;font-size:17px;font-weight:500;padding:11px 0">Learn</a>
+          <a href="/tools/reconstitution-calculator" style="color:#FAFAFA;font-size:17px;font-weight:500;padding:11px 0">Reconstitution calculator</a>
+          <a href="/clinic-portal" style="color:#FAFAFA;font-size:17px;font-weight:500;padding:11px 0">Clinic Portal</a>
+          <div style="border-top:1px solid rgba(143,191,166,.24);margin-top:10px;padding-top:14px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8FBFA6;margin-bottom:10px">Shop by protocol</div>
+            <a href="/for/glp-1-injections" style="display:block;color:rgba(250,250,250,.84);font-size:15px;padding:8px 0">GLP-1 and weight loss</a>
+            <a href="/for/trt-injections" style="display:block;color:rgba(250,250,250,.84);font-size:15px;padding:8px 0">TRT and hormone therapy</a>
+            <a href="/for/peptide-reconstitution" style="display:block;color:rgba(250,250,250,.84);font-size:15px;padding:8px 0">Peptide reconstitution</a>
+            <a href="/for/diabetes-at-home" style="display:block;color:rgba(250,250,250,.84);font-size:15px;padding:8px 0">Diabetes at home</a>
+            <a href="/for/wound-care-at-home" style="display:block;color:rgba(250,250,250,.84);font-size:15px;padding:8px 0">Wound care at home</a>
+            <a href="/for/clinic-fit-out" style="display:block;color:rgba(250,250,250,.84);font-size:15px;padding:8px 0">Clinic fit-out</a>
+          </div>
+          <div style="border-top:1px solid rgba(143,191,166,.24);margin-top:10px;padding-top:14px;display:flex;gap:22px;align-items:center">
+            <a href="#" style="color:rgba(250,250,250,.84);font-size:15px;display:flex;align-items:center;gap:9px"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="5.5" stroke="currentColor" stroke-width="1.6"></circle><path d="m12.5 12.5 3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg> Search</a>
+            <a href="/clinic-portal" style="color:rgba(250,250,250,.84);font-size:15px">Sign in</a>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+  </header>
+  </div>
+  <div data-gp-spacer aria-hidden="true"></div>
+
+  <main>
+    <section style="border-bottom:1px solid #E3E3E1">
+      <div data-gp-pagehead style="max-width:1440px;margin:0 auto;padding:clamp(32px,5vw,64px) clamp(20px,5vw,72px) clamp(44px,6vw,80px)">
+        <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#59595A;margin-bottom:clamp(20px,3vw,28px)">
+          <a href="/" style="color:#59595A">Home</a> / <a href="/learn" style="color:#59595A">Guides</a> / <span style="color:#0E0E0E">Storing supplies correctly</span>
+        </div>
+        <div style="max-width:60ch">
+          <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#59595A;margin-bottom:16px">Guide · 3 min</div>
+          <h1 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(32px,3.8vw,52px);letter-spacing:-.035em;line-height:1.02;margin:0 0 16px">Storing supplies correctly</h1>
+          <div style="margin-top:22px;padding:18px 20px;background:#EDEDEB;border-radius:16px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;margin-bottom:8px">The short answer</div>
+            <p style="margin:0;font-size:16.5px;line-height:1.5;color:#0E0E0E">Keep consumables in their packaging, somewhere cool, dry and out of direct sunlight, and use the oldest stock first. The expiry date on a sterile item is the date its sterility is guaranteed to, not a best-before.</p>
+          </div>
+          <p style="margin:18px 0 0;font-size:14.5px;line-height:1.6;color:#59595A">General information about the equipment, not medical advice. The directions that came with your medicine and the person who prescribed it come first, every time.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="border-bottom:1px solid #E3E3E1">
+      <div style="max-width:1440px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,5vw,72px)">
+        <div style="max-width:74ch">
+          <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;line-height:1.05;margin:0 0 16px">Sterile packaging is the product</h2>
+          <p style="margin:0 0 18px;font-size:17px;line-height:1.62;color:#3A3A38">A sterile syringe is only sterile while its wrapper is intact. A pouch that has been opened, torn, crushed or got damp is no longer a sterile item, whatever the date on it says.</p>
+          <p style="margin:0 0 18px;font-size:17px;line-height:1.62;color:#3A3A38">Which means the packaging is not something to get rid of to save space. Leave things in their boxes and blisters until the moment you use them, and check the pouch before you open it.</p>
+        </div>
+        <div style="max-width:74ch;margin-top:clamp(36px,5vw,60px)">
+          <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;line-height:1.05;margin:0 0 16px">Cool, dry, dark</h2>
+          <p style="margin:0 0 18px;font-size:17px;line-height:1.62;color:#3A3A38">Room temperature, out of direct sunlight, away from heat and away from damp. A linen cupboard is usually fine. A car boot in an Australian summer is not, and neither is a windowsill or the cupboard above the kettle.</p>
+          <p style="margin:0 0 18px;font-size:17px;line-height:1.62;color:#3A3A38">Adhesives are the most temperature sensitive things in a normal supply cupboard. Tape and plasters that have been hot go gummy or stop sticking altogether, and there is no way back from that.</p>
+          <p style="margin:0 0 18px;font-size:17px;line-height:1.62;color:#3A3A38">Anything that says refrigerate belongs in a fridge at the stated temperature, not in the freezer and not in the door where the temperature swings every time it opens. Most consumables do not need refrigeration; the medicine often does.</p>
+        </div>
+        <div style="max-width:74ch;margin-top:clamp(36px,5vw,60px)">
+          <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;line-height:1.05;margin:0 0 16px">Batch numbers and expiry dates</h2>
+          <p style="margin:0 0 18px;font-size:17px;line-height:1.62;color:#3A3A38">The batch or lot number identifies the production run. It exists so that if a problem is found, the affected run can be traced and recalled precisely rather than pulling everything. It is the reason keeping the box is useful.</p>
+          <p style="margin:0 0 18px;font-size:17px;line-height:1.62;color:#3A3A38">The expiry date on a sterile single use item is the date the manufacturer guarantees sterility and performance to. It is not a best-before and it is not conservative padding. Past it, the guarantee is gone.</p>
+          <p style="margin:0 0 18px;font-size:17px;line-height:1.62;color:#3A3A38">Use the oldest first. Put new stock behind old stock rather than on top of it, and check dates when something arrives rather than when you reach for it in a hurry.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:#F2F2F1;border-bottom:1px solid #E3E3E1">
+      <div style="max-width:1440px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,5vw,72px)">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:clamp(28px,4vw,64px);align-items:start">
+          <div>
+            <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;line-height:1.05;margin:0 0 16px">Questions about this</h2>
+            <p style="margin:0;font-size:17.5px;line-height:1.55;color:#3A3A38;max-width:52ch">If yours is not here, the contact form routes to the person who can answer it.</p>
+          </div>
+          <div style="border-top:1px solid #E3E3E1">
+            <div style="padding:22px 0;border-bottom:1px solid #E3E3E1">
+              <h3 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:17px;letter-spacing:-.02em;margin:0 0 8px">Can I use something just past its expiry date?</h3>
+              <div style="font-size:15.5px;line-height:1.6;color:#3A3A38">The manufacturer no longer guarantees it is sterile. For a single use sterile item, that is the whole point of the item.</div>
+            </div>
+            <div style="padding:22px 0;border-bottom:1px solid #E3E3E1">
+              <h3 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:17px;letter-spacing:-.02em;margin:0 0 8px">Does anything here need refrigerating?</h3>
+              <div style="font-size:15.5px;line-height:1.6;color:#3A3A38">Most consumables do not. Check the packaging, and follow it where it says otherwise. The medicine is a separate question and usually a stricter one.</div>
+            </div>
+            <div style="padding:22px 0;border-bottom:1px solid #E3E3E1">
+              <h3 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:17px;letter-spacing:-.02em;margin:0 0 8px">What is the batch number for?</h3>
+              <div style="font-size:15.5px;line-height:1.6;color:#3A3A38">Tracing a production run if a fault is found, so a recall can be precise. It is a good reason to keep the box until the contents are used.</div>
+            </div>
+            <div style="padding:22px 0;border-bottom:1px solid #E3E3E1">
+              <h3 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:17px;letter-spacing:-.02em;margin:0 0 8px">Where should I not store supplies?</h3>
+              <div style="font-size:15.5px;line-height:1.6;color:#3A3A38">A car, a bathroom, a windowsill, or anywhere above a heat source. Heat and damp are what ruin adhesives and packaging.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="border-bottom:1px solid #E3E3E1">
+      <div style="max-width:1440px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,5vw,72px)">
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;line-height:1.05;margin:0 0 16px">Read next</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:14px;margin-top:clamp(24px,3vw,36px)">
+          <a href="/learn/artg-explained" data-link style="background:#FAFAFA;border:1px solid #E3E3E1;border-radius:22px;padding:26px 24px;display:block">
+            <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#59595A;margin-bottom:10px">Guide · 4 min</div>
+            <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:17.5px;letter-spacing:-.02em;margin-bottom:8px">What ARTG listing actually means</div>
+            <div style="font-size:15px;line-height:1.55;color:#3A3A38">The difference between listed, registered and neither.</div>
+          </a>
+          <a href="/learn/reconstitution-basics" data-link style="background:#FAFAFA;border:1px solid #E3E3E1;border-radius:22px;padding:26px 24px;display:block">
+            <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#59595A;margin-bottom:10px">Guide · 8 min</div>
+            <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:17.5px;letter-spacing:-.02em;margin-bottom:8px">Mixing a powder with sterile water</div>
+            <div style="font-size:15px;line-height:1.55;color:#3A3A38">How much to add, how to avoid contaminating the bottle, how long it keeps.</div>
+          </a>
+          <a href="/learn/sharps-disposal-australia" data-link style="background:#FAFAFA;border:1px solid #E3E3E1;border-radius:22px;padding:26px 24px;display:block">
+            <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#59595A;margin-bottom:10px">Guide · 5 min</div>
+            <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:17.5px;letter-spacing:-.02em;margin-bottom:8px">Sharps disposal, state by state</div>
+            <div style="font-size:15px;line-height:1.55;color:#3A3A38">Where to take a full container in NSW, VIC, QLD, WA, SA and TAS.</div>
+          </a>
+        </div>
+        <div style="margin-top:clamp(28px,4vw,40px)">
+          <a href="/learn" data-link style="font-size:16px;font-weight:600;border-bottom:1.5px solid #C4C4C2;padding-bottom:3px">All guides <span data-arrow>&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="background:#143026;color:#B7CFC3">
+    <div style="max-width:1440px;margin:0 auto;padding:clamp(40px,6vw,80px) clamp(20px,5vw,72px)">
+      <div data-gp-footer-grid style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(170px,100%),1fr));gap:36px;padding-bottom:36px;border-bottom:1px solid #2A5245">
+        <div>
+          <a href="/" style="display:flex;flex-direction:column;gap:6px;margin-bottom:16px">
+            <span style="font-family:'Archivo Black','Archivo',sans-serif;font-size:25px;letter-spacing:-.055em;line-height:.9;color:#FAFAFA">goodpractice</span>
+            <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#B7CFC3;line-height:1">Supply</span>
+          </a>
+          <div style="font-size:15px;color:#B7CFC3">Medical supplies for clinics and home.</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <div style="font-size:13.5px;font-weight:600;color:#FAFAFA;margin-bottom:3px">Shop</div>
+          <a href="/shop/syringes-needles" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Syringes &amp; needles</a>
+          <a href="/shop/gloves-ppe" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Gloves &amp; PPE</a>
+          <a href="/shop/diluents-swabs" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Diluents &amp; swabs</a>
+          <a href="/shop/wound-care" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Wound care</a>
+          <a href="/shop/diagnostics" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Diagnostics</a>
+          <a href="/shop/clinic-disposal" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Clinic &amp; disposal</a>
+          <a href="/shop/hygiene-cleaning" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Hygiene &amp; cleaning</a>
+          <a href="/shop/taping-supports" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Taping &amp; supports</a>
+          <a href="/shop" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">All products</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <div style="font-size:13.5px;font-weight:600;color:#FAFAFA;margin-bottom:3px">Shop by protocol</div>
+          <a href="/for/glp-1-injections" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">GLP-1 and weight loss</a>
+          <a href="/for/trt-injections" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">TRT and hormone therapy</a>
+          <a href="/for/peptide-reconstitution" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Peptide reconstitution</a>
+          <a href="/for/diabetes-at-home" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Diabetes at home</a>
+          <a href="/for/wound-care-at-home" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Wound care at home</a>
+          <a href="/for/clinic-fit-out" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Clinic fit-out</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <div style="font-size:13.5px;font-weight:600;color:#FAFAFA;margin-bottom:3px">Guides &amp; tools</div>
+          <a href="/tools/reconstitution-calculator" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Peptide reconstitution calculator</a>
+          <a href="/learn/needle-gauge-chart" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Needle gauge chart</a>
+          <a href="/gauge-finder" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Gauge Finder</a>
+          <a href="/always-stocked" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Always Stocked</a>
+          <a href="/learn" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">All guides</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <div style="font-size:13.5px;font-weight:600;color:#FAFAFA;margin-bottom:3px">Company</div>
+          <a href="/about" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">About</a>
+          <a href="/clinic-portal" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Clinic Portal</a>
+          <a href="/contact" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Contact</a>
+          <a href="/contact" style="color:#B7CFC3;font-size:15px" style-hover="color:#FAFAFA">Delivery &amp; returns</a>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-top:24px">
+        <div style="font-size:13.5px;line-height:1.7;color:#B7CFC3;max-width:74ch">Good Practice Supply supplies medical consumables only. We do not supply peptides, hormones or any prescription medicine. Australian approval status is shown per product where it applies. Nothing here is medical advice, so follow the directions of your prescriber or treating practitioner.</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;color:#B7CFC3;white-space:nowrap">&copy; 2026 Good Practice Supply</div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:880}}">
+class Component extends DCLogic {
+  state = { menu: null };
+
+  componentDidMount() {
+    const nodes = Array.from(document.querySelectorAll('[data-reveal]'));
+    if (!nodes.length || !('IntersectionObserver' in window)) return;
+    this._io = new IntersectionObserver((entries, obs) => {
+      entries.filter(e => e.isIntersecting).forEach((e, i) => {
+        e.target.style.setProperty('--reveal-delay', (i * 70) + 'ms');
+        e.target.classList.add('is-in');
+        obs.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+    nodes.forEach(n => this._io.observe(n));
+  }
+
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
+  }
+
+  renderVals() {
+    return {
+      shopOpen: this.state.menu === 'shop',
+      shopCaret: this.state.menu === 'shop' ? 'rotate(180deg)' : 'none',
+      toggleShop: () => this.setState(s => ({ menu: s.menu === 'shop' ? null : 'shop' })),
+      learnOpen: this.state.menu === 'learn',
+      learnCaret: this.state.menu === 'learn' ? 'rotate(180deg)' : 'none',
+      toggleLearn: () => this.setState(s => ({ menu: s.menu === 'learn' ? null : 'learn' })),
+      navOpen: this.state.menu === 'nav',
+      toggleNav: () => this.setState(s => ({ menu: s.menu === 'nav' ? null : 'nav' })),
+      learnCols: [
+        { title: 'Getting started', links: [
+          { label: 'Gauge Finder', href: '/gauge-finder' },
+          { label: 'Needle gauge chart', href: '/learn/needle-gauge-chart' },
+          { label: 'Your first injection', href: '/learn/first-injection' },
+          { label: 'Reading a syringe', href: '/learn/reading-a-syringe' }
+        ] },
+        { title: 'Technique', links: [
+          { label: 'Injecting under the skin', href: '/learn/subcutaneous-technique' },
+          { label: 'Injecting into muscle', href: '/learn/intramuscular-technique' },
+          { label: 'Peptide reconstitution calculator', href: '/tools/reconstitution-calculator' },
+          { label: 'Rotating injection sites', href: '/learn/subcutaneous-technique' }
+        ] },
+        { title: 'Standards & disposal', links: [
+          { label: 'Sharps disposal by state', href: '/learn/sharps-disposal-australia' },
+          { label: 'Storing supplies correctly', href: '/learn/storing-supplies' },
+          { label: 'What ARTG listing means', href: '/learn/artg-explained' },
+          { label: 'Batch and expiry explained', href: '/learn/storing-supplies' }
+        ] }
+      ],
+      menuCols: [
+        { title: 'By category', links: [
+          { label: 'Syringes & needles', href: '/shop/syringes-needles' },
+          { label: 'Diluents & swabs', href: '/shop/diluents-swabs' },
+          { label: 'Gloves & PPE', href: '/shop/gloves-ppe' },
+          { label: 'Wound care', href: '/shop/wound-care' },
+          { label: 'Diagnostics', href: '/shop/diagnostics' },
+          { label: 'Clinic & disposal', href: '/shop/clinic-disposal' },
+          { label: 'Hygiene & cleaning', href: '/shop/hygiene-cleaning' },
+          { label: 'Taping & supports', href: '/shop/taping-supports' }
+        ] },
+        { title: 'By protocol', links: [
+          { label: 'GLP-1 and weight loss', href: '/for/glp-1-injections' },
+          { label: 'TRT and hormone therapy', href: '/for/trt-injections' },
+          { label: 'Peptide reconstitution', href: '/for/peptide-reconstitution' },
+          { label: 'Diabetes at home', href: '/for/diabetes-at-home' },
+          { label: 'Wound care at home', href: '/for/wound-care-at-home' },
+          { label: 'Clinic fit-out', href: '/for/clinic-fit-out' }
+        ] },
+        { title: 'By need', links: [
+          { label: 'Self-injection at home', href: '/for/glp-1-injections' },
+          { label: 'Treatment room restock', href: '/for/clinic-fit-out' },
+          { label: 'Diabetes management', href: '/for/diabetes-at-home' },
+          { label: 'Post-procedure care', href: '/for/wound-care-at-home' },
+          { label: 'First aid & home kit', href: '/shop' },
+          { label: 'Vaccination clinics', href: '/shop' }
+        ] },
+        { title: 'Featured', links: [
+          { label: 'Specials & clearance', href: '/shop' },
+          { label: 'New this month', href: '/shop' },
+          { label: 'Bestsellers', href: '/shop' },
+          { label: 'Quick order by code', href: '/shop' },
+          { label: 'Shop all 57', href: '/shop' }
+        ] }
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

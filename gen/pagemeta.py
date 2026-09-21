@@ -11,6 +11,7 @@ import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import seo as SEO
 from content import PAGES
+from guidecontent import GUIDES
 
 HERO = ('https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/'
         'hf_20260914_230224_9a313bac-1e72-4681-ae86-93b0d6fd46f8.png')
@@ -124,6 +125,9 @@ def all_pages():
     for p in PAGES:
         path, d = guide(p)
         out[path] = d
+    for g in GUIDES:
+        out['/learn/' + g['slug']] = dict(title=g['title'], desc=g['desc'],
+                                          kind='Article', faq=g['faq'])
     return out
 
 

@@ -8,6 +8,7 @@
 import io, os, json, hashlib, pathlib, datetime, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from catalogue import CATEGORIES
+from guidecontent import GUIDES
 import seo as SEO
 
 DOCS = str(pathlib.Path(__file__).resolve().parent.parent / 'docs')
@@ -20,6 +21,9 @@ STATIC = [
     ('/gauge-finder', '0.8', 'monthly'),
     ('/tools/reconstitution-calculator', '0.8', 'monthly'),
     ('/learn/needle-gauge-chart', '0.8', 'monthly'),
+] + [
+    ('/learn/' + g['slug'], '0.7', 'monthly') for g in GUIDES
+] + [
     ('/always-stocked', '0.7', 'monthly'),
     ('/clinic-portal', '0.7', 'monthly'),
     ('/learn', '0.6', 'monthly'),

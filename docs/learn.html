@@ -264,7 +264,7 @@
             </div>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:14px">
               <sc-for list="{{ g.articles }}" as="a" hint-placeholder-count="3">
-                <a href="#" data-card style="background:#FAFAFA;border:1px solid #E3E3E1;border-radius:22px;padding:26px 24px;display:flex;flex-direction:column;gap:30px" style-hover="border-color:#0E0E0E">
+                <a href="{{ a.href }}" data-card style="background:#FAFAFA;border:1px solid #E3E3E1;border-radius:22px;padding:26px 24px;display:flex;flex-direction:column;gap:30px" style-hover="border-color:#0E0E0E">
                   <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;color:#59595A">{{ a.meta }}</span>
                   <span>
                     <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:19px;letter-spacing:-.022em;line-height:1.25;margin-bottom:9px">{{ a.title }}</span>
@@ -366,20 +366,20 @@ class Component extends DCLogic {
         { title: 'Getting started', links: [
           { label: 'Gauge Finder', href: '/gauge-finder' },
           { label: 'Needle gauge chart', href: '/learn/needle-gauge-chart' },
-          { label: 'Your first injection', href: '/learn' },
-          { label: 'Reading a syringe', href: '/learn' }
+          { label: 'Your first injection', href: '/learn/first-injection' },
+          { label: 'Reading a syringe', href: '/learn/reading-a-syringe' }
         ] },
         { title: 'Technique', links: [
-          { label: 'Injecting under the skin', href: '/learn' },
-          { label: 'Injecting into muscle', href: '/learn' },
+          { label: 'Injecting under the skin', href: '/learn/subcutaneous-technique' },
+          { label: 'Injecting into muscle', href: '/learn/intramuscular-technique' },
           { label: 'Peptide reconstitution calculator', href: '/tools/reconstitution-calculator' },
-          { label: 'Rotating injection sites', href: '/learn' }
+          { label: 'Rotating injection sites', href: '/learn/subcutaneous-technique' }
         ] },
         { title: 'Standards & disposal', links: [
-          { label: 'Sharps disposal by state', href: '/learn' },
-          { label: 'Storing supplies correctly', href: '/learn' },
-          { label: 'What ARTG listing means', href: '/learn' },
-          { label: 'Batch and expiry explained', href: '/learn' }
+          { label: 'Sharps disposal by state', href: '/learn/sharps-disposal-australia' },
+          { label: 'Storing supplies correctly', href: '/learn/storing-supplies' },
+          { label: 'What ARTG listing means', href: '/learn/artg-explained' },
+          { label: 'Batch and expiry explained', href: '/learn/storing-supplies' }
         ] }
       ],
       menuCols: [
@@ -419,19 +419,19 @@ class Component extends DCLogic {
       ],
       groups: [
         { title: 'Getting started', count: '3 guides', articles: [
-          { meta: 'Guide · 6 min', title: 'What the numbers on a needle mean', body: 'Gauge, length, units on the barrel, and why the scale runs backwards.' },
-          { meta: 'Guide · 5 min', title: '29G, 30G or 31G: which should I buy?', body: 'The trade between comfort and how long you spend drawing up.' },
-          { meta: 'Guide · 8 min', title: 'Your first injection, step by step', body: 'Before, drawing up, injecting, and what to do afterwards.' }
+          { meta: 'Guide · 6 min', title: 'What the numbers on a needle mean', href: '/learn/needle-numbers-explained', body: 'Gauge, length, units on the barrel, and why the scale runs backwards.' },
+          { meta: 'Guide · 5 min', title: '29G, 30G or 31G: which should I buy?', href: '/learn/gauge-comparison', body: 'The trade between comfort and how long you spend drawing up.' },
+          { meta: 'Guide · 8 min', title: 'Your first injection, step by step', href: '/learn/first-injection', body: 'Before, drawing up, injecting, and what to do afterwards.' }
         ] },
         { title: 'Technique', count: '3 guides', articles: [
-          { meta: 'Guide · 6 min', title: 'Injecting under the skin', body: 'Angle, pinching the skin, and why short needles changed the advice.' },
-          { meta: 'Guide · 7 min', title: 'Injecting into muscle', body: 'Drawing up with one needle and injecting with another.' },
-          { meta: 'Guide · 8 min', title: 'Mixing a powder with sterile water', body: 'How much to add, how to avoid contaminating the bottle, how long it keeps.' }
+          { meta: 'Guide · 6 min', title: 'Injecting under the skin', href: '/learn/subcutaneous-technique', body: 'Angle, pinching the skin, and why short needles changed the advice.' },
+          { meta: 'Guide · 7 min', title: 'Injecting into muscle', href: '/learn/intramuscular-technique', body: 'Drawing up with one needle and injecting with another.' },
+          { meta: 'Guide · 8 min', title: 'Mixing a powder with sterile water', href: '/learn/reconstitution-basics', body: 'How much to add, how to avoid contaminating the bottle, how long it keeps.' }
         ] },
         { title: 'Standards and disposal', count: '3 guides', articles: [
-          { meta: 'Guide · 5 min', title: 'Sharps disposal, state by state', body: 'Where to take a full container in NSW, VIC, QLD, WA, SA and TAS.' },
-          { meta: 'Guide · 4 min', title: 'What ARTG listing actually means', body: 'The difference between listed, registered and neither.' },
-          { meta: 'Guide · 3 min', title: 'Storing supplies correctly', body: 'Temperature, light, and how to read a batch and expiry.' }
+          { meta: 'Guide · 5 min', title: 'Sharps disposal, state by state', href: '/learn/sharps-disposal-australia', body: 'Where to take a full container in NSW, VIC, QLD, WA, SA and TAS.' },
+          { meta: 'Guide · 4 min', title: 'What ARTG listing actually means', href: '/learn/artg-explained', body: 'The difference between listed, registered and neither.' },
+          { meta: 'Guide · 3 min', title: 'Storing supplies correctly', href: '/learn/storing-supplies', body: 'Temperature, light, and how to read a batch and expiry.' }
         ] }
       ]
     };

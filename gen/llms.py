@@ -15,6 +15,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import pagemeta as META
 import seo as SEO
 from content import PAGES
+from guidecontent import GUIDES
 
 DOCS = str(pathlib.Path(__file__).resolve().parent.parent / 'docs')
 
@@ -37,7 +38,8 @@ SECTIONS = [
  ('Guides', ['/learn/needle-gauge-chart', '/for/glp-1-injections',
              '/for/trt-injections', '/for/peptide-reconstitution',
              '/for/diabetes-at-home', '/for/wound-care-at-home',
-             '/for/clinic-fit-out', '/learn']),
+             '/for/clinic-fit-out']
+            + ['/learn/' + g['slug'] for g in GUIDES] + ['/learn']),
  ('About', ['/about', '/always-stocked', '/clinic-portal', '/contact']),
 ]
 
@@ -45,6 +47,7 @@ SECTIONS = [
 def main():
     meta = META.all_pages()
     answers = {'/for/' + p['slug']: p['answer'] for p in PAGES}
+    answers.update({'/learn/' + g['slug']: g['answer'] for g in GUIDES})
     o = ['# %s' % SEO.BRAND, '', INTRO]
     for title, paths in SECTIONS:
         o.append('## %s' % title)

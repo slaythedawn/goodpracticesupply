@@ -280,16 +280,16 @@
                   <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:14.5px;color:#FAFAFA;text-align:right;min-width:0;overflow-wrap:anywhere">{{ d.v }}</span>
                 </div>
               </sc-for>
-              <div style="font-size:14.5px;line-height:1.6;color:#B7CFC3;margin-top:18px">Monday to Friday, 8.30am to 5pm AEST. Orders are picked and dispatched from our Sydney warehouse.</div>
+              <div style="font-size:14.5px;line-height:1.6;color:#B7CFC3;margin-top:18px">Ordering is not open yet, so there are no orders to chase and nothing to return. We read everything that comes in and reply to the address you write from.</div>
             </div>
 
             <div style="background:#F2F2F1;border:1px solid #E3E3E1;border-radius:22px;padding:26px 24px">
               <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:18px;letter-spacing:-.02em;margin-bottom:10px">Before you write</div>
               <div style="display:flex;flex-direction:column;gap:10px">
-                <a href="#" data-link style="font-size:15.5px;border-bottom:1px solid #C4C4C2;padding-bottom:3px;align-self:flex-start">Where is my order →</a>
-                <a href="#" data-link style="font-size:15.5px;border-bottom:1px solid #C4C4C2;padding-bottom:3px;align-self:flex-start">Returns and credits →</a>
-                <a href="#" data-link style="font-size:15.5px;border-bottom:1px solid #C4C4C2;padding-bottom:3px;align-self:flex-start">Delivery and handling charges →</a>
                 <a href="/gauge-finder" data-link style="font-size:15.5px;border-bottom:1px solid #C4C4C2;padding-bottom:3px;align-self:flex-start">Which needle do I need →</a>
+                <a href="/learn/needle-gauge-chart" data-link style="font-size:15.5px;border-bottom:1px solid #C4C4C2;padding-bottom:3px;align-self:flex-start">Needle gauge chart →</a>
+                <a href="/tools/reconstitution-calculator" data-link style="font-size:15.5px;border-bottom:1px solid #C4C4C2;padding-bottom:3px;align-self:flex-start">Work out a reconstitution dose →</a>
+                <a href="/clinic-portal" data-link style="font-size:15.5px;border-bottom:1px solid #C4C4C2;padding-bottom:3px;align-self:flex-start">Open a clinic account →</a>
               </div>
             </div>
 
@@ -398,20 +398,20 @@ class Component extends DCLogic {
         { title: 'Getting started', links: [
           { label: 'Gauge Finder', href: '/gauge-finder' },
           { label: 'Needle gauge chart', href: '/learn/needle-gauge-chart' },
-          { label: 'Your first injection', href: '/learn' },
-          { label: 'Reading a syringe', href: '/learn' }
+          { label: 'Your first injection', href: '/learn/first-injection' },
+          { label: 'Reading a syringe', href: '/learn/reading-a-syringe' }
         ] },
         { title: 'Technique', links: [
-          { label: 'Injecting under the skin', href: '/learn' },
-          { label: 'Injecting into muscle', href: '/learn' },
+          { label: 'Injecting under the skin', href: '/learn/subcutaneous-technique' },
+          { label: 'Injecting into muscle', href: '/learn/intramuscular-technique' },
           { label: 'Peptide reconstitution calculator', href: '/tools/reconstitution-calculator' },
-          { label: 'Rotating injection sites', href: '/learn' }
+          { label: 'Rotating injection sites', href: '/learn/subcutaneous-technique' }
         ] },
         { title: 'Standards & disposal', links: [
-          { label: 'Sharps disposal by state', href: '/learn' },
-          { label: 'Storing supplies correctly', href: '/learn' },
-          { label: 'What ARTG listing means', href: '/learn' },
-          { label: 'Batch and expiry explained', href: '/learn' }
+          { label: 'Sharps disposal by state', href: '/learn/sharps-disposal-australia' },
+          { label: 'Storing supplies correctly', href: '/learn/storing-supplies' },
+          { label: 'What ARTG listing means', href: '/learn/artg-explained' },
+          { label: 'Batch and expiry explained', href: '/learn/storing-supplies' }
         ] }
       ],
       menuCols: [
