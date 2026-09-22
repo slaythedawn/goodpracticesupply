@@ -2,3 +2,6 @@
 # The site generators in gen/ use the standard library only and need none of this.
 higgsfield-client==0.2.0
 python-dotenv==1.2.3
+
+# checks/compliance.py: the house copy rules as typed judgements.
+typesafe-sdk==0.7.1
