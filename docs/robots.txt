@@ -2,8 +2,9 @@
 User-agent: *
 Allow: /
 
-# /shop carries a noindex meta tag and a matching X-Robots-Tag
-# header while its prices are placeholders. Crawling stays open so
+# Product pages carry a noindex meta tag and a matching
+# X-Robots-Tag header while their prices are placeholders. The
+# category pages above them are indexed. Crawling stays open so
 # that the noindex is readable.
 
 # Assistant and AI search crawlers, allowed on purpose.

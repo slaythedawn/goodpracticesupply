@@ -40,16 +40,27 @@ Two switches in `gen/seo.py`, deliberately independent:
   the cart chip is gone from the header, and the Product structured data carries
   no `offers` block. A price in structured data is a machine-readable offer to
   sell at that price, and an offer you cannot honour is not a thing to publish.
-- `INDEX_CONTENT` and `INDEX_SHOP` control indexing per section. Content is on,
-  the shop is off. The guides, the tools, the six `/for/` pages and the fixed
-  pages are finished writing and are what earns authority. The shop is
-  fifty-seven products that will be replaced, at prices no factory has quoted.
+- `INDEX_CONTENT` is on. The guides, the tools, the six `/for/` pages and the
+  fixed pages are finished writing and are what earns authority.
+- The shop splits in two, because its halves have different problems.
+  `INDEX_SHOP_CATEGORIES` is **on**: the eight category pages carry 380 to 616
+  words written by hand, and `/shop/syringes-needles` will still be the syringes
+  page when the real syringes arrive, so an aged crawled URL is worth more on
+  the day products land than a fresh one.
+  `INDEX_SHOP_PRODUCTS` is **off**: every price is invented and every product is
+  a placeholder that will be replaced, so indexing those slugs teaches Google to
+  crawl URLs that are going to die.
 
-Turning the shop on later is two changes made together:
+Turning the products on later is two changes made together:
 
-1. `INDEX_SHOP = True` in `gen/seo.py`, then rebuild.
-2. Remove the `/shop` rules from `vercel.json`. The header overrides the meta
-   tag, so leaving them makes step 1 do nothing.
+1. `INDEX_SHOP_PRODUCTS = True` in `gen/seo.py`, then rebuild.
+2. Remove the `/shop/:category/:product` rule from `vercel.json`. The header
+   overrides the meta tag, so leaving it makes step 1 do nothing.
+
+`checks/config.mjs` tests what those header rules actually match, against six
+known paths, in both directions. A pattern that stopped covering product pages
+would publish fifty-seven invented prices, and one that started covering
+categories would hide eight pages meant to rank. Neither is visible in a browser.
 
 `sitemap.py` lists only indexable URLs, because pointing a crawler at a page
 that then tells it to forget what it found wastes crawl budget a new domain does

@@ -28,15 +28,39 @@ PURCHASABLE = False
 
 # Indexing is per section, because the content and the catalogue are ready at
 # different times. The guides, the tools and the fixed pages are finished
-# writing and are the pages that earn authority, so they index. The shop is
-# fifty-seven products that will be replaced, at prices that are not real, so it
-# does not. Flip INDEX_SHOP the day the catalogue is real.
+# writing and are the pages that earn authority, so they index.
 INDEX_CONTENT = True
-INDEX_SHOP = False
+
+# The shop splits in two, because the two halves have different problems.
+#
+# The eight category pages carry 380 to 616 words of copy written by hand, and
+# their URLs survive any change to the catalogue: /shop/syringes-needles will
+# still be the syringes page when the real syringes arrive. Indexing them now
+# starts the clock on a new domain, and an aged, crawled URL is worth more on
+# the day products land than a fresh one.
+INDEX_SHOP_CATEGORIES = True
+
+# The fifty-seven product pages are the opposite. Every price is invented, and
+# every product is a placeholder that will be replaced, which means these slugs
+# will not survive. Indexing them teaches Google to crawl URLs that are going to
+# die, and publishes prices nobody can honour. Flip this the day the catalogue is
+# real, together with PURCHASABLE.
+INDEX_SHOP_PRODUCTS = False
 
 
 def indexable(path):
-    return INDEX_SHOP if path.startswith('/shop') else INDEX_CONTENT
+    """Whether a path should carry an index directive.
+
+    /shop and /shop/<category> follow INDEX_SHOP_CATEGORIES.
+    /shop/<category>/<product> follows INDEX_SHOP_PRODUCTS.
+    """
+    if path == '/shop' or path == '/shop/':
+        return INDEX_SHOP_CATEGORIES
+    if path.startswith('/shop/'):
+        rest = path[len('/shop/'):].strip('/')
+        depth = len([seg for seg in rest.split('/') if seg])
+        return INDEX_SHOP_CATEGORIES if depth <= 1 else INDEX_SHOP_PRODUCTS
+    return INDEX_CONTENT
 
 
 def robots(path):

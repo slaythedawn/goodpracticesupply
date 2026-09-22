@@ -79,12 +79,18 @@ def urls():
     today = datetime.date.today().isoformat()
     store = stamps()
     paths = [(p, pr, cf) for p, pr, cf in STATIC if SEO.indexable(p)]
+    # Category and product are asked separately. They used to share one switch,
+    # so gating the products on the category was the same question. It is not
+    # any more: the categories index and the products do not, and gating one on
+    # the other put all fifty-seven noindex product URLs in the sitemap.
     for c in CATEGORIES:
-        if not SEO.indexable('/shop/' + c['slug']):
-            continue
-        paths.append(('/shop/' + c['slug'], '0.8', 'weekly'))
+        cat = '/shop/' + c['slug']
+        if SEO.indexable(cat):
+            paths.append((cat, '0.8', 'weekly'))
         for p in c['products']:
-            paths.append(('/shop/%s/%s' % (c['slug'], p['slug']), '0.7', 'weekly'))
+            prod = '%s/%s' % (cat, p['slug'])
+            if SEO.indexable(prod):
+                paths.append((prod, '0.7', 'weekly'))
     out = [(p, pr, cf, lastmod(p, store, today)) for p, pr, cf in paths]
     # Drop pages that are no longer listed, so the file does not grow forever.
     live = {p for p, _, _, _ in out}
@@ -117,12 +123,13 @@ def main():
           'Claude-SearchBot', 'PerplexityBot', 'Perplexity-User',
           'Google-Extended', 'Applebot-Extended', 'CCBot', 'meta-externalagent']
     robots = ['# %s' % SEO.ORIGIN, 'User-agent: *', 'Allow: /']
-    if not SEO.INDEX_SHOP:
+    if not SEO.INDEX_SHOP_PRODUCTS:
         # Allow, not Disallow, on purpose. See the note at the top of this file:
-        # /shop carries noindex, and a crawler has to fetch a page to read it.
+        # product pages carry noindex, and a crawler has to fetch a page to read it.
         robots += ['',
-                   '# /shop carries a noindex meta tag and a matching X-Robots-Tag',
-                   '# header while its prices are placeholders. Crawling stays open so',
+                   '# Product pages carry a noindex meta tag and a matching',
+                   '# X-Robots-Tag header while their prices are placeholders. The',
+                   '# category pages above them are indexed. Crawling stays open so',
                    '# that the noindex is readable.']
     # One group with many user-agents, which is valid and reads better than
     # twelve near-identical groups.
@@ -138,8 +145,10 @@ def main():
     io.open(DOCS + '/robots.txt', 'w', encoding='utf-8').write('\n'.join(robots))
     today = datetime.date.today().isoformat()
     fresh = sum(1 for r in rows if r[3] == today)
-    print('sitemap: %d urls (content=%s, shop=%s), %d with today\'s lastmod'
-          % (len(rows), SEO.INDEX_CONTENT, SEO.INDEX_SHOP, fresh))
+    print('sitemap: %d urls (content=%s, categories=%s, products=%s), %d with '
+          'today\'s lastmod' % (len(rows), SEO.INDEX_CONTENT,
+                                SEO.INDEX_SHOP_CATEGORIES, SEO.INDEX_SHOP_PRODUCTS,
+                                fresh))
 
 
 if __name__ == '__main__':

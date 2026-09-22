@@ -95,6 +95,42 @@
   "date": "2026-09-22",
   "hash": "9989bd9dfabb34be"
  },
+ "/shop": {
+  "date": "2026-09-22",
+  "hash": "1884c824d625ceb8"
+ },
+ "/shop/clinic-disposal": {
+  "date": "2026-09-22",
+  "hash": "32f93f5b28bd6981"
+ },
+ "/shop/diagnostics": {
+  "date": "2026-09-22",
+  "hash": "b892bca0a9c8ec1a"
+ },
+ "/shop/diluents-swabs": {
+  "date": "2026-09-22",
+  "hash": "5b303182226376e6"
+ },
+ "/shop/gloves-ppe": {
+  "date": "2026-09-22",
+  "hash": "59657a82792fdec3"
+ },
+ "/shop/hygiene-cleaning": {
+  "date": "2026-09-22",
+  "hash": "6a8e1976cb2f1189"
+ },
+ "/shop/syringes-needles": {
+  "date": "2026-09-22",
+  "hash": "ae92fd7c4d0315d7"
+ },
+ "/shop/taping-supports": {
+  "date": "2026-09-22",
+  "hash": "9ad700f6358b4394"
+ },
+ "/shop/wound-care": {
+  "date": "2026-09-22",
+  "hash": "57f05b5e24e7c078"
+ },
  "/tools/reconstitution-calculator": {
   "date": "2026-09-21",
   "hash": "18bd4a94a5bc4628"
