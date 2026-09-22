@@ -1,4 +1,4 @@
-import io, json, os, sys, html
+import io, json, os, re, sys, html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from catalogue import CATEGORIES, SHOTS, I, REGULATORY
 import seo as SEO
@@ -10,6 +10,7 @@ SP='<div data-gp-spacer aria-hidden="true"></div>'
 HEAD=SRC[:SRC.find(SP)+len(SP)]
 FOOTER=SRC[SRC.find('<footer'):SRC.find('</footer>')+9]
 E=html.escape
+from inline import EL, LINKSTYLE
 
 def grab(marker, src=SRC):
     i=src.find('      %s: ['%marker); j=src.find('\n      ],',i)+len('\n      ],')
@@ -83,7 +84,7 @@ def prose(sections, bg=''):
         a('        <div style="max-width:74ch%s">\n'%('' if i==0 else ';margin-top:clamp(36px,5vw,60px)'))
         a('          <h2 style="%s">%s</h2>\n'%(H2,E(head)))
         for t in paras:
-            a('          <p style="margin:0 0 18px;font-size:17px;line-height:1.62;color:#3A3A38">%s</p>\n'%E(t))
+            a('          <p style="margin:0 0 18px;font-size:17px;line-height:1.62;color:#3A3A38">%s</p>\n'%EL(t))
         a('        </div>\n')
     a('      </div>\n    </section>\n\n')
     return ''.join(o)
@@ -170,7 +171,7 @@ def build_category(cat):
     a('        <div data-gp-pagehead-grid style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:clamp(28px,4vw,64px);align-items:center">\n')
     a('          <div>\n            <span style="display:inline-block;%s;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#1C4034;border:1px solid rgba(28,64,52,.3);border-radius:1000px;padding:7px 13px;margin-bottom:20px">%d products</span>\n'%(MONO,cat['count']))
     a('            <h1 style="%s">%s</h1>\n'%(H1,E(cat['name'])))
-    a('            <p style="%s">%s</p>\n          </div>\n'%(LEAD,E(cat['intro'])))
+    a('            <p style="%s">%s</p>\n          </div>\n'%(LEAD,EL(cat['intro'])))
     a('          <div style="border-radius:28px;overflow:hidden;background:#EDEDEB;aspect-ratio:4/3">\n')
     a('            <img src="%s" alt="%s" style="width:100%%;height:100%%;object-fit:cover">\n          </div>\n        </div>\n      </div>\n    </section>\n\n'%(cat['img'],E(cat['alt'])))
     # grid

@@ -254,7 +254,7 @@ CATEGORIES = [
 {
  'slug':'clinic-disposal', 'name':'Clinic & disposal', 'count':17, 'img':I['sharps'],
  'alt':'A sharps container beside a roll of couch covering',
- 'intro':'The lines that run out mid clinic and the ones a regulator asks about. Sharps containers to the Australian standard in the sizes that suit a bench, a wall bracket or a home bathroom cupboard, because used needles cannot go in kerbside waste anywhere in the country and the rules for a full container differ by state. Couch roll, blueys and clinical waste bags in cartons rather than singles, because these are the wrong place to be lean.',
+ 'intro':'The lines that run out mid clinic and the ones a regulator asks about. Sharps containers to the Australian standard in the sizes that suit a bench, a wall bracket or a home bathroom cupboard, because used needles cannot go in kerbside waste anywhere in the country and [the rules for a full container differ by state](/learn/sharps-disposal-australia). Couch roll, blueys and clinical waste bags in cartons rather than singles, because these are the wrong place to be lean.',
  'filters':[('all','Everything'),('sharps','Sharps containers'),('couch','Couch roll & blueys'),('waste','Clinical waste')],
  'products':[
   P('Sharps container, bench','sharps-container-bench','sharps','AS 4031, one hand aperture','Sized for a bench or a bathroom cupboard. A one hand aperture, because the other hand is holding something sharp.','clinic',

@@ -39,6 +39,9 @@ for (const p of all) {
       ld,
       words:(document.body.innerText.match(/\S+/g)||[]).length,
       holes:(document.body.innerText.match(/\{\{[^}]*\}\}/g)||[]).length,
+      // A link written as [label](/path) that never got converted arrives as
+      // visible brackets in the copy. Cheap to typo, invisible in a diff.
+      rawlinks:(document.body.innerText.match(/\]\(\//g)||[]).length,
       links:new Set([...document.querySelectorAll('a[href^="/"]')].map(a=>a.getAttribute('href'))).size,
     };});
   pg.off('pageerror',h);
@@ -56,6 +59,7 @@ for (const p of all) {
   if(r.ld.length<floor) probs.push('ld='+r.ld.length);
   if(r.words<400) probs.push('thin '+r.words);
   if(r.holes) probs.push('holes '+r.holes);
+  if(r.rawlinks) probs.push('unconverted link syntax '+r.rawlinks);
   if(errs.length) probs.push('js '+errs[0]);
   counts[SECTION(p)]++;
   titles.add(r.title); descs.add(r.desc);

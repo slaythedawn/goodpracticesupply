@@ -12,6 +12,7 @@ SP='<div data-gp-spacer aria-hidden="true"></div>'
 HEAD=SHELL[:SHELL.find(SP)+len(SP)]
 FOOTER=SHELL[SHELL.find('<footer'):SHELL.find('</footer>')+9]
 E=html.escape
+from inline import EL
 
 MONO="font-family:'IBM Plex Mono',monospace;font-weight:500"
 def eyebrow(t, dark=False):
@@ -45,7 +46,7 @@ def build_main(p):
     a('          <div>\n            %s\n'%eyebrow(p['eyebrow']))
     a('            <h1 style="%s">%s</h1>\n'%(H1,E(p['h1'])))
     for i,l in enumerate(p['lead']):
-        a('            <p style="%s">%s</p>\n'%(LEAD if i<len(p['lead'])-1 else LEAD.replace('0 0 16px','0'),E(l)))
+        a('            <p style="%s">%s</p>\n'%(LEAD if i<len(p['lead'])-1 else LEAD.replace('0 0 16px','0'),EL(l)))
     # The answer, straight after the lead rather than halfway down the page. A
     # reader skimming and a model looking for something to quote want the same
     # thing: the sentence that answers the question the headline asks.
