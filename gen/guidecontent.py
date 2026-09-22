@@ -209,9 +209,9 @@ GUIDES = [
  'title': 'Your first injection, step by step',
  'meta': 'Guide · 8 min',
  'blurb': 'Before, drawing up, injecting, and what to do afterwards.',
- 'desc': ('What to have ready before a first self-injection, how the equipment '
-          'works, and what happens afterwards. General information about the '
-          'consumables, not instruction for any medicine.'),
+ 'desc': ('What to have ready before a first self-injection and how the '
+          'equipment works. General information about the consumables, not '
+          'instruction for any medicine.'),
  'answer': ('Have your medicine, the right syringe or pen needle, alcohol swabs '
             'and a sharps container on a clean surface before you start. The '
             'technique itself, including where and how much, comes from whoever '
@@ -289,8 +289,8 @@ GUIDES = [
  'meta': 'Guide · 6 min',
  'blurb': 'Angle, pinching the skin, and why short needles changed the advice.',
  'desc': ('What subcutaneous means, why guidance moved to shorter needles, and '
-          'what the angle and the skin pinch are actually for. Equipment '
-          'information, not medical advice.'),
+          'what the angle and the skin pinch are for. Equipment information, not '
+          'advice.'),
  'answer': ('Subcutaneous means into the fat layer under the skin rather than into '
             'muscle. Modern short needles usually go straight in at ninety degrees '
             'without a pinch, which is why guidance changed. Your prescriber sets '
@@ -352,8 +352,8 @@ GUIDES = [
  'meta': 'Guide · 7 min',
  'blurb': 'Drawing up with one needle and injecting with another.',
  'desc': ('Why intramuscular injections use two needles, what the gauges and '
-          'lengths are for, and why the drawing-up needle never goes into anyone. '
-          'Equipment information, not medical advice.'),
+          'lengths are for, and why the drawing-up needle never goes into '
+          'anyone.'),
  'answer': ('An intramuscular injection goes through the fat into the muscle, so it '
             'needs a longer needle than a subcutaneous one. Draw up with a wide '
             'blunt needle and swap to a sharp one to inject. The site, the length '
@@ -416,9 +416,9 @@ GUIDES = [
  'title': 'Mixing a powder with sterile water',
  'meta': 'Guide · 8 min',
  'blurb': 'How much to add, how to avoid contaminating the bottle, how long it keeps.',
- 'desc': ('How reconstitution works: what bacteriostatic water is, why the volume '
-          'you add sets the concentration, and how to keep a multi-use vial clean. '
-          'We supply the diluent and the equipment, never the compound.'),
+ 'desc': ('What bacteriostatic water is, why the volume you add sets the '
+          'concentration, and how to keep a multi-use vial clean. We supply the '
+          'diluent, never the compound.'),
  'answer': ('Reconstituting means adding sterile liquid to a powder to dissolve it. '
             'The volume you add decides the concentration, so it decides what every '
             'mark on the syringe is worth afterwards. Use the volume your '
@@ -558,9 +558,8 @@ GUIDES = [
  'title': 'What ARTG listing actually means',
  'meta': 'Guide · 4 min',
  'blurb': 'The difference between listed, registered and neither.',
- 'desc': ('What the Australian Register of Therapeutic Goods is, the difference '
-          'between a listed and a registered product, and why plenty of legitimate '
-          'consumables are on neither.'),
+ 'desc': ('What the ARTG is, the difference between a listed and a registered '
+          'product, and why plenty of legitimate consumables are on neither.'),
  'answer': ('The ARTG is the Therapeutic Goods Administration’s register of '
             'products approved for supply in Australia. Listed means assessed '
             'against a lower risk pathway, registered means individually evaluated, '
@@ -620,9 +619,9 @@ GUIDES = [
  'title': 'Storing supplies correctly',
  'meta': 'Guide · 3 min',
  'blurb': 'Temperature, light, and how to read a batch and expiry.',
- 'desc': ('How to store consumables so they are still sterile and usable when you '
-          'need them: temperature, light, humidity, and what batch numbers and '
-          'expiry dates are actually for.'),
+ 'desc': ('How to store consumables so they are still sterile when you need '
+          'them: temperature, light, humidity, and what batch numbers and expiry '
+          'dates are for.'),
  'answer': ('Keep consumables in their packaging, somewhere cool, dry and out of '
             'direct sunlight, and use the oldest stock first. The expiry date on a '
             'sterile item is the date its sterility is guaranteed to, not a '

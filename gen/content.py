@@ -159,7 +159,7 @@ PAGES = [
   'answer': 'Test strips and lancets that match your meter, U-100 syringes or pen needles, alcohol swabs and a sharps container. Insulin comes from your pharmacy, and some consumables are subsidised through the NDSS.',
  "scene": FIXED + "8d04232a-9f64-47a0-a0ce-0ca76aa388b1.png",
  "scene_alt": 'A monitor, test strips and lancets on a kitchen table beside a mug of tea',
- "title": "Insulin syringes, pen needles and diabetes consumables",
+ "title": "Insulin syringes, pen needles and diabetes supplies",
  "eyebrow": "For diabetes",
  "h1": "The consumables side of managing diabetes.",
  "lead": [
