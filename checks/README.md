@@ -15,9 +15,12 @@ nervous one.
 | `seocheck.mjs` | title and description length, missing canonical or Open Graph, more or fewer than one `h1`, unparseable structured data, thin pages, duplicate titles |
 | `linkcheck.mjs` | internal links pointing at pages that do not exist, and orphans |
 
-`sweep.mjs` samples every sixth page plus a fixed set, because four widths across
-eighty-one pages is slower than it is useful. Widen the sample when touching the
-header or the footer, which are shared by every page.
+`sweep.mjs` samples every sixth page, and checks every hand-written page on each
+run regardless, because four widths across ninety-one pages is slower than it is
+useful. Widen the sample when touching the header or the footer, which are shared
+by every page. A console error counts as a failure, not just an uncaught throw:
+the component runtime swallows a bad logic class and logs it instead, so a dead
+page looks fine until you read the console.
 
 Anything under `docs/internal/` is skipped. Those are working pages with no site
 header and nothing linking to them, which is deliberate.
@@ -34,5 +37,5 @@ It is counted in the rendered DOM instead, which is the only place the real
 answer exists. The header search control is excluded: it is a button that opens
 an overlay, and the `href` is only there so it behaves like one.
 
-**This check is currently red on `/learn`.** That is the nine guides, and it is
-a real defect rather than a broken check. It goes green when they are written.
+It was red on `/learn` until the nine guides were written. It is green now, and
+it stays green as long as every card on a page points at something that exists.
