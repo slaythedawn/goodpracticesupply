@@ -489,70 +489,121 @@ GUIDES = [
 {
  'slug': 'sharps-disposal-australia',
  'title': 'Sharps disposal, state by state',
- 'meta': 'Guide · 5 min',
- 'blurb': 'Where to take a full container in NSW, VIC, QLD, WA, SA and TAS.',
- 'desc': ('What to do with a full sharps container in Australia. Why it never goes '
-          'in household waste, and how disposal differs between states and '
-          'territories.'),
+ 'meta': 'Guide · 7 min',
+ 'blurb': 'Where a full container actually goes, what every state agrees on, and how to find the answer for your address.',
+ 'desc': ('Where to take a full sharps container in Australia. What every state '
+          'agrees on, what differs, and how to find the current answer for your '
+          'own address.'),
  'answer': ('Used needles go straight into an Australian Standard sharps container, '
-            'never into household rubbish or recycling. Where you take a full one '
-            'depends on your state, and your council, pharmacy or state health '
-            'department is the authority on it.'),
+            'never into household rubbish, recycling or the green bin. A full one '
+            'goes back to a participating pharmacy, a council collection point, a '
+            'public disposal bin, or a public hospital or community health centre, '
+            'depending on where you live. Your council and your state health '
+            'department are the authority on which of those applies to your address.'),
  'body': [
   ('The part that is the same everywhere', [
-   'A used needle goes into a rigid, puncture resistant sharps container '
-   'immediately after use, without being recapped. Recapping is when most '
-   'needlestick injuries happen.',
-   'It never goes into household rubbish, never into recycling, and never into '
-   'a drink bottle or a jar. Waste handling in Australia involves people and '
-   'machinery, and a loose needle in a kerbside bin is how someone gets hurt.',
-   'Containers sold for the purpose are made to AS 4031 or AS/NZS 4261. Fill to '
-   'the line and no further, close the lid properly, and do not try to '
-   'decant one container into another.',
+   'Nothing sharp goes in a household bin. Not the rubbish bin, not the recycling, '
+   'not the green waste. A needle in a kerbside bin becomes a needlestick injury for '
+   'whoever handles it next, and that is a waste worker, a sorting line operator, or '
+   'a member of your own household. Every state and territory says the same thing '
+   'about this and none of them makes an exception for a needle that was only used '
+   'once.',
+   'The container has to be a real one. In Australia that means it meets AS 4031 or '
+   'AS/NZS 4261: rigid yellow plastic, a lid that locks shut permanently, a '
+   'biohazard mark, and a fill line. The standard exists because the container is '
+   'the only thing between a used needle and the next pair of hands, and a container '
+   'that can be reopened or crushed is not doing that job.',
+   'Fill it to the line and no further, which is usually about three quarters. '
+   'Overfilling is the most common reason a collection point refuses a container, '
+   'and pressing down on a full one to make room is how people injure themselves.',
+   'Do not recap a needle before it goes in, and do not try to bend, break or cut '
+   'one. Recapping is where a large share of needlestick injuries happen, because it '
+   'puts a moving hand directly in front of a sharp point.',
   ]),
   ('Where a full container goes', [
-   'This is the part that differs. Every state and territory runs its own '
-   'arrangements, and within a state it often varies by local council area as '
-   'well.',
-   'Broadly, the options are a community sharps disposal bin, a participating '
-   'pharmacy, a council collection point, a hospital or a needle and syringe '
-   'program site. Some are free, some are not, and some accept containers only '
-   'if you bought them there.',
-   'Rather than print a list that goes out of date, the reliable answers are '
-   'your state or territory health department, your local council, and the '
-   'pharmacy that dispensed your medicine. A pharmacist will usually know the '
-   'nearest option off the top of their head.',
-   'If you are in a diabetes program, the National Diabetes Services Scheme also '
-   'has arrangements worth asking about, and some supplies are subsidised '
-   'through it.',
+   'There are four routes in Australia, and which ones exist near you depends on '
+   'your council and your state rather than on anything national.',
+   'Participating pharmacies. Many pharmacies accept full containers, and many sell '
+   'empty ones. Participation is voluntary and not universal, so ring before you '
+   'make the trip rather than arriving with a full container and no plan.',
+   'Council collection points and exchange schemes. A lot of councils run a swap: '
+   'bring the full one in, take an empty one away, often at no charge. Councils that '
+   'do this usually run it from a customer service centre or a transfer station.',
+   'Public disposal bins. Some councils install permanent sharps bins in public '
+   'toilets and other locations. These are intended for loose sharps rather than for '
+   'emptying a household container into.',
+   'Public hospitals and community health centres. In several states these accept '
+   'community sharps directly, which is often the most reliable option when the '
+   'other three are unclear.',
+  ]),
+  ('What differs by state', [
+   'New South Wales runs a community sharps programme through NSW Health, and '
+   'disposal points include public hospitals, community health centres, '
+   'participating pharmacies and public disposal bins.',
+   'Queensland works similarly, with public hospitals, participating pharmacies and '
+   'some medical centres accepting community sharps.',
+   'Victoria devolves it almost entirely to councils, and arrangements differ '
+   'between neighbouring councils in the same city. Melbourne alone has more than '
+   'thirty, so the answer for one suburb is not the answer for the next.',
+   'Western Australia also varies by local government, and the state advises '
+   'residents to check with their council or their healthcare provider.',
+   'South Australia, Tasmania, the ACT and the Northern Territory each publish their '
+   'own guidance, and in each case the local council remains the practical starting '
+   'point.',
+   'The honest summary is that there is no single national answer, and anyone who '
+   'gives you one has not checked. What is national is the rule about household '
+   'bins and the container standard.',
+  ]),
+  ('Finding the current answer for your address', [
+   'Specific addresses and opening hours change, and a guide that lists them goes '
+   'stale quietly, which is worse than not listing them at all when the thing you '
+   'are carrying is a container of used needles. Two methods stay reliable.',
+   'Search your council name together with "sharps" or "needle disposal". Almost '
+   'every Australian council publishes this in an A to Z waste guide, and that page '
+   'is maintained by the people who actually run the service.',
+   'Ask the pharmacy that dispenses for you. They will know whether they accept '
+   'containers themselves and, if not, usually where the nearest point is. '
+   'Diabetes Australia also publishes a national resource on safe sharps disposal '
+   'that is kept current.',
+   'We supply containers that meet the standard. We are not a collection service and '
+   'we do not take full containers back, so the routes above are the ones that '
+   'apply.',
   ]),
   ('Travelling with sharps', [
-   'You are allowed to carry needles and syringes on Australian domestic '
-   'flights when they are for a medical condition, carried in the cabin, and '
-   'accompanied by documentation such as a pharmacy label or a letter.',
-   'Rules differ by airline and differ again internationally, sometimes '
-   'sharply. Check with the airline before you fly rather than at the security '
-   'gate, and carry a small travel sharps container so you are not looking for '
-   'somewhere to put a used needle in an airport.',
+   'A sharps container can travel in hand luggage on Australian domestic flights, '
+   'and airlines expect to see it alongside the equipment it belongs to. Keep it in '
+   'the same bag as the rest of your supplies rather than packed separately.',
+   'Going overseas, check the destination rather than assuming. Disposal '
+   'arrangements that are routine here do not exist everywhere, and some countries '
+   'treat used sharps as regulated waste with rules about carrying them.',
   ]),
  ],
  'faq': [
   ('Can I put a sharps container in the wheelie bin?',
-   'No. Not the rubbish bin, not the recycling. It goes to a proper disposal '
-   'point.'),
+   'No, in every state and territory. A sealed container still ends up on a sorting '
+   'line or in a truck where someone handles it, and a needle that comes loose there '
+   'is a needlestick injury for a person doing their job.'),
   ('Can I use a hard plastic bottle instead?',
-   'No. Containers made for the purpose are built to an Australian Standard so '
-   'they cannot be punctured or opened accidentally. A drink bottle is neither.'),
+   'No. A drink bottle is not rigid enough, cannot be sealed permanently, carries no '
+   'biohazard marking, and will not be accepted at a collection point. It also looks '
+   'like a drink bottle, which is the specific reason it is dangerous in a household '
+   'with children.'),
   ('Do pharmacies take full containers?',
-   'Many do, and many do not, and it varies by state and by pharmacy. Ring '
-   'first.'),
+   'Many do and many do not, because participation is voluntary rather than required. '
+   'Ring first. A pharmacy that does not accept them can usually tell you which '
+   'nearby one does.'),
+  ('Is sharps disposal free?',
+   'Collection is usually free where a council or health service provides it. The '
+   'empty container is often not, though a number of councils run an exchange where '
+   'you swap a full one for an empty one at no charge.'),
   ('What do I do if I am stuck by a used needle?',
-   'Wash the area with soap and water, do not scrub, and seek medical advice '
-   'promptly. This is a same-day matter, not a wait-and-see one.'),
+   'Wash the area with soap and running water, do not squeeze it, cover it, and seek '
+   'medical advice promptly rather than waiting to see what happens. In Australia '
+   'that means a GP, an emergency department, or healthdirect on 1800 022 222 for '
+   'advice on where to go.'),
  ],
- 'related': ['first-injection', 'storing-supplies', 'artg-explained'],
+ 'related': ['storing-supplies', 'first-injection', 'artg-explained'],
 },
-
 {
  'slug': 'artg-explained',
  'title': 'What ARTG listing actually means',
