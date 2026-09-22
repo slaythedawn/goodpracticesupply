@@ -1,0 +1,71 @@
+# The checks that have to pass before anything reaches production.
+#
+# The site deploys straight to a live domain with no staging in between, so this
+# is the only thing standing between a bad edit and a broken page in front of a
+# customer. Every one of these exists because something got through: an unknown
+# key in vercel.json took production down for two deploys with no build log, a
+# component runtime swallowed a syntax error and served a dead contact page, and
+# a Learn index advertised nine guides that linked nowhere.
+#
+# Free to run. No API keys, no external calls.
+
+name: Checks
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install a browser
+        run: npm i -D playwright@1 && npx playwright install --with-deps chromium
+
+      - name: vercel.json, and what its header rules actually match
+        run: node checks/config.mjs
+
+      - name: Rebuild, and fail if the build is not idempotent
+        run: |
+          for s in build tools guides learnindex headmeta footer searchindex llms sitemap; do
+            python3 "gen/$s.py" > /dev/null
+          done
+          if ! git diff --quiet; then
+            echo "::error::Generated output differs from what is committed. Run the generators and commit the result."
+            git --no-pager diff --stat
+            exit 1
+          fi
+          echo "generated output matches the repository"
+
+      - name: Internal links resolve, and nothing is orphaned
+        run: node checks/linkcheck.mjs
+
+      - name: Serve the site
+        run: |
+          cd docs && nohup python3 -m http.server 8777 > /dev/null 2>&1 &
+          for i in $(seq 1 20); do
+            curl -sf -o /dev/null http://127.0.0.1:8777/index.html && break
+            sleep 0.5
+          done
+          curl -sf -o /dev/null http://127.0.0.1:8777/index.html
+
+      - name: Titles, descriptions, canonicals and structured data
+        run: node checks/seocheck.mjs
+
+      - name: Every page within three clicks of the home page
+        run: node checks/depth.mjs
+
+      - name: Overflow, console errors, dead links, in a real browser
+        run: node checks/sweep.mjs

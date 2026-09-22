@@ -32,9 +32,18 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DOCS = ROOT / 'docs'
 
-# Shop pages are noindex until the catalogue is real. A link into one is not
-# wasted exactly, but it does not build anything that can rank today.
-EXCLUDE = ('/shop', '/internal/')
+# Only pages that can rank are worth linking between. The shop categories index
+# now and the product pages do not, so the answer comes from seo.py rather than
+# from a path prefix, and it changes on its own when the catalogue is real.
+sys.path.insert(0, str(ROOT / 'gen'))
+import seo as SEO
+
+
+def rankable(rel):
+    path = rel[:-len('.html')] if rel.endswith('.html') else rel
+    if path.endswith('/index'):
+        path = path[:-len('/index')] or '/'
+    return not rel.startswith('/internal/') and SEO.indexable(path)
 
 # Suggest at most this many new links out of any one page. A page that suddenly
 # sprouts fifteen links reads as a link farm and helps nobody.
@@ -57,7 +66,7 @@ def load():
     pages = {}
     for path in sorted(DOCS.rglob('*.html')):
         rel = rel_of(path)
-        if any(rel.startswith(p) for p in EXCLUDE):
+        if not rankable(rel):
             continue
         html = path.read_text(encoding='utf-8')
         main = re.search(r'<main.*?</main>', html, re.S)
@@ -90,20 +99,57 @@ def inbound_counts(pages):
     return counts
 
 
-def candidates(pages, counts, source):
-    """Targets worth asking about: not self, not already linked, thinnest first.
+# Anchor phrases are looked up, not judged. Finding whether a form of words
+# already appears in a page is exact string work, and a model asked to do it
+# would sometimes say yes about a phrase that is not there.
+STOP = {'the', 'a', 'an', 'and', 'or', 'of', 'for', 'to', 'in', 'on', 'at',
+        'is', 'it', 'what', 'how', 'why', 'which', 'your', 'you', 'that',
+        'with', 'step', 'by', 'actually', 'means', 'explained'}
 
-    Thin targets are asked about first because a link is worth most to the page
-    that has fewest, and because asking about every pair costs more than the
-    answers are worth.
-    """
+
+def phrases_for(page):
+    """Forms of words that would honestly introduce this page."""
     out = []
-    for rel, page in pages.items():
-        if rel == source['rel'] or rel in source['links']:
-            continue
-        out.append((counts[rel], rel, page))
+    slug_words = page['rel'].rsplit('/', 1)[-1][:-len('.html')].split('-')
+    slug_words = [w for w in slug_words if w not in STOP]
+    for n in (3, 2):
+        for i in range(len(slug_words) - n + 1):
+            out.append(' '.join(slug_words[i:i + n]))
+    title = re.sub(r'[^a-z0-9 ]', ' ', page['title'].lower()).split()
+    title = [w for w in title if w not in STOP and len(w) > 2]
+    for n in (3, 2):
+        for i in range(len(title) - n + 1):
+            out.append(' '.join(title[i:i + n]))
+    seen, uniq = set(), []
+    for p in out:
+        if p not in seen and len(p) > 6:
+            seen.add(p)
+            uniq.append(p)
+    return uniq
+
+
+def anchor_in(source_text, target):
+    """The phrase already sitting in the copy that should become the link."""
+    low = source_text.lower()
+    for phrase in phrases_for(target):
+        i = low.find(phrase)
+        if i >= 0:
+            return source_text[i:i + len(phrase)]
+    return None
+
+
+def candidates(pages, counts, source):
+    """Every page this one does not already link to.
+
+    Formerly the ten thinnest. At roughly two hundredths of a cent per
+    judgement, shortlisting saved nothing and hid the links it did not ask
+    about. Thinnest first still, because that decides what gets read when there
+    is more here than anyone wants to apply.
+    """
+    out = [(counts[rel], rel, page) for rel, page in pages.items()
+           if rel != source['rel'] and rel not in source['links']]
     out.sort(key=lambda item: item[0])
-    return out[:10]
+    return out
 
 
 def main():
@@ -125,16 +171,23 @@ def main():
         print('thinnest targets, by inbound links from other content pages:')
         for rel, n in sorted(counts.items(), key=lambda kv: kv[1])[:10]:
             print('   %2d  %-42s %s' % (n, rel, pages[rel]['title'][:40]))
+        total = sum(len(candidates(pages, counts, s)) for s in sources)
         example = sources[0]
         cands = candidates(pages, counts, example)
-        print('\nexample request, source %s' % example['rel'])
+        print('\nexample source %s' % example['rel'])
         print('  state: %d characters of its own text' % len(example['text']))
-        print('  %d questions in that one request, one per candidate:' % len(cands))
-        for n, rel, page in cands[:5]:
-            print('     %-40s (%d inbound)' % (rel, n))
-        print('\n%d source pages, so %d requests, %d judgements in total.'
-              % (len(sources), len(sources),
-                 sum(len(candidates(pages, counts, s)) for s in sources)))
+        print('  %d candidates, asked in batches of 20:' % len(cands))
+        for n, rel, page in cands[:4]:
+            anchor = anchor_in(example['text'], page)
+            print('     %-40s %d inbound, anchor: %s'
+                  % (rel, n, ('"%s"' % anchor) if anchor else 'none in copy'))
+        print('\n%d source pages, %d judgements in the full matrix.'
+              % (len(sources), total))
+        with_anchor = sum(1 for src in sources
+                          for _, _, tgt in candidates(pages, counts, src)
+                          if anchor_in(src['text'], tgt))
+        print('%d of those already have anchor text sitting in the source copy.'
+              % with_anchor)
         return 0
 
     try:
@@ -149,45 +202,52 @@ def main():
     from typesafe_sdk import Noul, TypeSafeClient
     from typesafe_sdk import TypeSafeAPIConnectionError, TypeSafeError
 
+    # Questions over one state run in parallel, but a request carrying every
+    # candidate at once is a large body and one failure loses the lot, so they
+    # go in batches.
+    BATCH = 20
     suggestions = []
+    asked = 0
     try:
         with TypeSafeClient() as client:
             for source in sources:
                 cands = candidates(pages, counts, source)
-                if not cands:
-                    continue
-                questions = {}
-                keys = {}
-                for i, (n, rel, page) in enumerate(cands):
-                    key = 'q%d' % i
-                    keys[key] = (rel, page, n)
-                    questions[key] = Noul(
-                        instructions='Would a reader partway through this page have a '
-                                     'genuine reason to follow a link to a separate '
-                                     'page titled "%s", which covers: %s'
-                                     % (page['title'], page['desc'][:200]),
-                        criteria={
-                            'true': 'This page raises a question, term or next step '
-                                    'that the other page answers properly, so the '
-                                    'link would help a reader rather than interrupt '
-                                    'them.',
-                            'false': 'The connection is only that both pages are about '
-                                     'medical supplies. A link would be filler, or '
-                                     'would repeat something this page already covers.',
-                        })
-                result = client.system_one(
-                    state={'page_title': source['title'],
-                           'page_text': source['text'][:6000]},
-                    questions=questions)
-                for key, answer in result.nouls.items():
-                    rel, page, n = keys[key]
-                    if answer.noul >= args.threshold:
-                        suggestions.append({
-                            'from': source['rel'], 'to': rel,
-                            'to_title': page['title'],
-                            'confidence': round(answer.noul, 3),
-                            'target_inbound_before': n,
-                        })
+                for start in range(0, len(cands), BATCH):
+                    chunk = cands[start:start + BATCH]
+                    questions, keys = {}, {}
+                    for i, (n, rel, page) in enumerate(chunk):
+                        key = 'q%d' % i
+                        keys[key] = (rel, page, n)
+                        questions[key] = Noul(
+                            instructions='Would a reader partway through this page '
+                                         'have a genuine reason to follow a link to a '
+                                         'separate page titled "%s", which covers: %s'
+                                         % (page['title'], page['desc'][:200]),
+                            criteria={
+                                'true': 'This page raises a question, term or next '
+                                        'step that the other page answers properly, '
+                                        'so the link would help a reader rather than '
+                                        'interrupt them.',
+                                'false': 'The connection is only that both pages are '
+                                         'about medical supplies. A link would be '
+                                         'filler, or would repeat something this page '
+                                         'already covers.',
+                            })
+                    result = client.system_one(
+                        state={'page_title': source['title'],
+                               'page_text': source['text'][:6000]},
+                        questions=questions)
+                    asked += len(questions)
+                    for key, answer in result.nouls.items():
+                        rel, page, n = keys[key]
+                        if answer.noul >= args.threshold:
+                            suggestions.append({
+                                'from': source['rel'], 'to': rel,
+                                'to_title': page['title'],
+                                'confidence': round(answer.noul, 3),
+                                'target_inbound_before': n,
+                                'anchor': anchor_in(source['text'], page),
+                            })
     except TypeSafeAPIConnectionError as exc:
         print('Could not reach the TypeSafe API: %s' % exc, file=sys.stderr)
         return 3
@@ -205,15 +265,27 @@ def main():
             kept.append(s)
             per_page[s['from']] += 1
 
-    print('\n== Suggested internal links, thinnest targets first ==\n')
-    for s in kept:
-        print('%-40s -> %-40s %.2f  (target had %d)'
-              % (s['from'], s['to'], s['confidence'], s['target_inbound_before']))
+    ready = [s for s in kept if s['anchor']]
+    needs_copy = [s for s in kept if not s['anchor']]
+
+    print('\n== Links with anchor text already in the copy ==\n')
+    for s in ready:
+        print('%-38s -> %-38s %.2f' % (s['from'], s['to'], s['confidence']))
+        print('%s wrap: "%s"' % (' ' * 38, s['anchor']))
+
+    if needs_copy:
+        print('\n== Judged useful, but nothing in the copy to wrap ==')
+        print('   These need a sentence written rather than a word linked.\n')
+        for s in needs_copy:
+            print('%-38s -> %-38s %.2f' % (s['from'], s['to'], s['confidence']))
 
     out = ROOT / 'seo' / 'internal-links-suggested.json'
     out.write_text(json.dumps(kept, indent=1), encoding='utf-8')
-    print('\n%d suggestions across %d pages, capped at %d per page. Written to %s'
-          % (len(kept), len(per_page), MAX_PER_PAGE, out.relative_to(ROOT)))
+    print('\n%d judgements asked, %d suggestions across %d pages, capped at %d each.'
+          % (asked, len(kept), len(per_page), MAX_PER_PAGE))
+    print('%d have anchor text already in the copy, %d need a sentence written.'
+          % (len(ready), len(needs_copy)))
+    print('Written to %s' % out.relative_to(ROOT))
     print('Nothing has been changed. These are for review, and the links belong in '
           'the generators in gen/, not in docs/.')
     return 0
