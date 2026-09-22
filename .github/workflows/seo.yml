@@ -65,3 +65,41 @@ jobs:
           name: triage-result
           path: seo/triage-result.json
           if-no-files-found: ignore
+
+  internal-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install
+        run: pip install -r requirements.txt
+      - name: Map the graph without spending anything
+        run: python seo/internal_links.py --dry-run
+      - name: Ask which links would help a reader
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: |
+          if [ -z "$TYPESAFE_API_KEY" ]; then
+            echo "::error::TYPESAFE_API_KEY is not set."
+            exit 1
+          fi
+          python seo/internal_links.py --threshold "${{ inputs.threshold }}" | tee links.txt
+      - name: Summarise
+        if: always()
+        run: |
+          {
+            echo "## Suggested internal links"
+            echo
+            echo '```'
+            cat links.txt 2>/dev/null || echo "no output"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Keep the suggestions
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: internal-links
+          path: seo/internal-links-suggested.json
+          if-no-files-found: ignore

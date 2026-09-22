@@ -12,3 +12,4 @@ __pycache__/
 
 # Keyword triage output, regenerated per run.
 seo/triage-result.json
+seo/internal-links-suggested.json

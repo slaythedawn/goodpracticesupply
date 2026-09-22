@@ -10,7 +10,10 @@
   "alcohol swabs",
   "nitrile gloves",
   "needle gauge",
-  "reconstitution"
+  "reconstitution",
+  "sharps disposal",
+  "sharps bin",
+  "needle disposal"
  ],
  "keywords": [
   {
@@ -718,6 +721,345 @@
     "commercial",
     "transactional",
     "branded",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps bin",
+   "volume": 700,
+   "difficulty": 0,
+   "cpc": 35,
+   "traffic_potential": 300,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "sharps disposal pharmacy near me",
+   "volume": 600,
+   "difficulty": 0,
+   "cpc": 130,
+   "traffic_potential": 700,
+   "intents": [
+    "informational",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps disposal near me",
+   "volume": 450,
+   "difficulty": 1,
+   "cpc": 130,
+   "traffic_potential": 2200,
+   "intents": [
+    "informational",
+    "transactional",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps disposal",
+   "volume": 300,
+   "difficulty": 1,
+   "cpc": 190,
+   "traffic_potential": 2200,
+   "intents": [
+    "informational",
+    "local"
+   ]
+  },
+  {
+   "keyword": "disposal of sharps containers",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc": 110,
+   "traffic_potential": 2600,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps bin disposal",
+   "volume": 150,
+   "difficulty": 1,
+   "cpc": 250,
+   "traffic_potential": 600,
+   "intents": [
+    "informational",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps disposal chemist warehouse",
+   "volume": 150,
+   "difficulty": 55,
+   "cpc": 35,
+   "traffic_potential": 400,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional",
+    "branded",
+    "local"
+   ]
+  },
+  {
+   "keyword": "needle disposal near me",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc": 110,
+   "traffic_potential": 0,
+   "intents": [
+    "informational",
+    "transactional",
+    "local"
+   ]
+  },
+  {
+   "keyword": "needle disposal",
+   "volume": 150,
+   "difficulty": 1,
+   "cpc": 200,
+   "traffic_potential": 600,
+   "intents": [
+    "informational",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps container disposal brisbane",
+   "volume": 150,
+   "difficulty": 5,
+   "cpc": 130,
+   "traffic_potential": 2100,
+   "intents": [
+    "informational",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps disposal container",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc": 130,
+   "traffic_potential": 2200,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "chemist warehouse sharps disposal",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc": 5,
+   "traffic_potential": 450,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional",
+    "branded",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps bin chemist warehouse",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc": null,
+   "traffic_potential": 500,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional",
+    "branded",
+    "local"
+   ]
+  },
+  {
+   "keyword": "needle disposal melbourne",
+   "volume": 100,
+   "difficulty": null,
+   "cpc": null,
+   "traffic_potential": null,
+   "intents": [
+    "informational",
+    "transactional",
+    "local"
+   ]
+  },
+  {
+   "keyword": "medical sharps disposal service",
+   "volume": 100,
+   "difficulty": null,
+   "cpc": null,
+   "traffic_potential": null,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps disposal bin",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc": 150,
+   "traffic_potential": 2200,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "sharps disposal sydney",
+   "volume": 100,
+   "difficulty": 1,
+   "cpc": 250,
+   "traffic_potential": 70,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps disposal perth",
+   "volume": 100,
+   "difficulty": 2,
+   "cpc": 300,
+   "traffic_potential": 700,
+   "intents": [
+    "informational",
+    "local"
+   ]
+  },
+  {
+   "keyword": "medical sharps disposal",
+   "volume": 80,
+   "difficulty": 1,
+   "cpc": 170,
+   "traffic_potential": 0,
+   "intents": [
+    "informational",
+    "transactional",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps disposal canberra",
+   "volume": 70,
+   "difficulty": 1,
+   "cpc": 90,
+   "traffic_potential": 100,
+   "intents": [
+    "informational",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps disposal adelaide",
+   "volume": 60,
+   "difficulty": null,
+   "cpc": 100,
+   "traffic_potential": null,
+   "intents": [
+    "informational",
+    "transactional",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps bin collection",
+   "volume": 60,
+   "difficulty": 0,
+   "cpc": 130,
+   "traffic_potential": 40,
+   "intents": [
+    "informational",
+    "commercial",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps disposal brisbane",
+   "volume": 60,
+   "difficulty": 5,
+   "cpc": 200,
+   "traffic_potential": 250,
+   "intents": [
+    "informational",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps box disposal",
+   "volume": 50,
+   "difficulty": 0,
+   "cpc": 250,
+   "traffic_potential": 2600,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps container disposal near me",
+   "volume": 50,
+   "difficulty": 1,
+   "cpc": 120,
+   "traffic_potential": 2200,
+   "intents": [
+    "informational",
+    "transactional",
+    "local"
+   ]
+  },
+  {
+   "keyword": "safe sharps disposal",
+   "volume": 50,
+   "difficulty": 2,
+   "cpc": 180,
+   "traffic_potential": 2100,
+   "intents": [
+    "informational",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps waste disposal",
+   "volume": 40,
+   "difficulty": 0,
+   "cpc": 170,
+   "traffic_potential": 2200,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps disposal melbourne",
+   "volume": 40,
+   "difficulty": 0,
+   "cpc": 200,
+   "traffic_potential": 2600,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional",
     "local"
    ]
   }
