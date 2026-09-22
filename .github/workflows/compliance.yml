@@ -1,0 +1,90 @@
+# The house copy rules, run as typed judgements against the built pages.
+#
+# Manual trigger only, on purpose. Every run spends money at TypeSafe, and a
+# paid check firing on every push is a bill nobody reads. Once the threshold has
+# been calibrated against real output it can be promoted to run on pushes that
+# touch copy, which is gen/guidecontent.py, gen/content.py, gen/catalogue.py and
+# gen/pagemeta.py.
+#
+# Needs one repository secret: TYPESAFE_API_KEY
+# Settings > Secrets and variables > Actions > New repository secret
+
+name: Copy compliance
+
+on:
+  workflow_dispatch:
+    inputs:
+      only:
+        description: 'Path substring to limit the run, e.g. /learn/ or /shop/. Blank means every page.'
+        required: false
+        default: '/tools/reconstitution-calculator.html'
+      limit:
+        description: 'Maximum pages to check. Keep it small until the threshold is calibrated.'
+        required: false
+        default: '1'
+      threshold:
+        description: 'Probability at or above which a rule counts as tripped.'
+        required: false
+        default: '0.7'
+
+jobs:
+  compliance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Show the questions without spending anything
+        run: python checks/compliance.py --dry-run
+
+      - name: Check that the key is present
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: |
+          if [ -z "$TYPESAFE_API_KEY" ]; then
+            echo "::error::TYPESAFE_API_KEY is not set. Add it under Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+          echo "key is present, ${#TYPESAFE_API_KEY} characters"
+
+      - name: Run the check
+        id: run
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: |
+          set +e
+          python checks/compliance.py \
+            --only "${{ inputs.only }}" \
+            --limit "${{ inputs.limit }}" \
+            --threshold "${{ inputs.threshold }}" \
+            | tee result.txt
+          echo "code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+
+      - name: Summarise
+        if: always()
+        run: |
+          {
+            echo "## Copy compliance"
+            echo
+            echo "Filter \`${{ inputs.only }}\`, limit \`${{ inputs.limit }}\`, threshold \`${{ inputs.threshold }}\`."
+            echo
+            echo '```'
+            cat result.txt 2>/dev/null || echo "no output"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Report the outcome
+        run: |
+          case "${{ steps.run.outputs.code }}" in
+            0) echo "No findings." ;;
+            1) echo "::warning::Findings reported. Read them before acting: the threshold is not yet calibrated, so treat these as candidates rather than defects." ; exit 1 ;;
+            2) echo "::error::Configuration problem, most likely a missing key." ; exit 1 ;;
+            3) echo "::error::Could not reach the TypeSafe API." ; exit 1 ;;
+            *) echo "::error::Unexpected exit ${{ steps.run.outputs.code }}." ; exit 1 ;;
+          esac
