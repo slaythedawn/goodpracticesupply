@@ -22,7 +22,7 @@ PAGES = [
  "h1": "Everything you need to inject a GLP-1 at home.",
  "lead": [
    "Your prescriber has started you on a weekly injection and handed you a script. What nobody tells you is what else you need to actually do it.",
-   "This is the list. Three things, about the price of a coffee a week, and you can order them without an account."
+   "This is the list. Three things, about the price of a coffee a week, and you can order them without an account. If the packaging numbers are new to you, [what the numbers on a needle mean](/learn/needle-numbers-explained) covers gauge and length, and [injecting under the skin](/learn/subcutaneous-technique) explains the angle and the skin pinch."
  ],
  "img": IMG + "hf_20260912_023904_ac99bf9d-40bb-4cb3-b197-e10d78b28291.png",
  "alt": "Three insulin syringes laid out beside their box",
@@ -68,7 +68,7 @@ PAGES = [
  "h1": "Supplies for injecting testosterone at home.",
  "lead": [
    "Whether you inject into muscle or under the skin, the consumables are the part your prescriber does not hand you.",
-   "Two needles per injection, one to draw and one to inject, plus the syringe and the swabs. Here is the whole list."
+   "Two needles per injection, one to draw and one to inject, plus the syringe and the swabs. Here is the whole list. [What the numbers on a needle mean](/learn/needle-numbers-explained) explains why the two are different gauges, and [reading a syringe](/learn/reading-a-syringe) covers the scale on the barrel."
  ],
  "img": IMG + "hf_20260912_014655_90258385-316a-41e3-ad9d-cb1d75f7eda4.png",
  "alt": "A glass vial beside a carton and foil swab sachets",
@@ -116,7 +116,7 @@ PAGES = [
  "h1": "What you need to reconstitute a powder.",
  "lead": [
    "A lyophilised powder is useless until it is mixed, and mixing it badly wastes the vial.",
-   "Bacteriostatic water, something to move it with, and something fine enough to draw the result. That is the whole kit."
+   "Bacteriostatic water, something to move it with, and something fine enough to draw the result. That is the whole kit, and [reading a syringe](/learn/reading-a-syringe) is worth five minutes before you measure anything. The [syringes and needles](/shop/syringes-needles) range has both the blunt fill and the fine one."
  ],
  "img": IMG + "hf_20260912_014655_c87ec5d7-96f6-4729-b6ef-fc062184ab3f.png",
  "alt": "A box of insulin syringes with three laid in front",
@@ -164,7 +164,7 @@ PAGES = [
  "h1": "The consumables side of managing diabetes.",
  "lead": [
    "Syringes, pen needles, lancets and strips are the parts you get through fastest and think about least, right up until the box is empty on a Sunday.",
-   "Order what you need in whatever quantity you need, see the price before you buy, and set it to arrive before you run out."
+   "Order what you need in whatever quantity you need, see the price before you buy, and set it to arrive before you run out. [29G, 30G or 31G](/learn/gauge-comparison) covers which pen needle to pick, and [what ARTG listing actually means](/learn/artg-explained) explains the approval wording you will see on a carton."
  ],
  "img": IMG + "hf_20260912_014655_b20c505c-894a-4948-a4ec-b6811facc908.png",
  "alt": "Test strips, safety lancets and a monitoring device",
@@ -211,7 +211,7 @@ PAGES = [
  "h1": "Dressing a wound at home, properly.",
  "lead": [
    "After a procedure, a burn or a slow healing graze, the chemist aisle gives you plasters and not much else.",
-   "This is what a treatment room would actually use, in quantities that make sense for one person."
+   "This is what a treatment room would actually use, in quantities that make sense for one person. [Storing supplies correctly](/learn/storing-supplies) matters more here than most people expect, because a dressing that has been opened or kept badly is no longer sterile."
  ],
  "img": IMG + "hf_20260912_014655_fc63b5f4-f8cb-41c5-9e1d-bb51f3eb6a8a.png",
  "alt": "Surgical tape, gauze squares and sterile pouches",
@@ -259,7 +259,7 @@ PAGES = [
  "h1": "Fitting out a treatment room from scratch.",
  "lead": [
    "Equipment gets the attention and the budget. The consumables are what you notice missing on your first morning of patients.",
-   "This is the list per room, priced, with no account needed to see it."
+   "This is the list per room, priced, with no account needed to see it. [The needle gauge chart](/learn/needle-gauge-chart) is the quick reference for stocking the drawer, and [gloves and PPE](/shop/gloves-ppe) covers the barrier side of the same room."
  ],
  "img": IMG + "hf_20260914_230049_f71776a5-56a5-45a2-9705-b71f8aae8c72.png",
  "alt": "A practice manager at a clinic reception counter",

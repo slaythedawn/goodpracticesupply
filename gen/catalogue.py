@@ -99,7 +99,7 @@ CATEGORIES = [
 {
  'slug':'syringes-needles', 'name':'Syringes & needles', 'count':28, 'img':I['syringe_box'],
  'alt':'A box of insulin syringes with three laid in front',
- 'intro':'Everything that goes between the vial and the skin. Insulin syringes with the needle fixed for small doses read in units, luer-lock barrels for anything you draw and swap, and separate needles in the gauges and lengths people actually use rather than the full ISO range. Gauge is thickness and the scale runs backwards, so 31G is finer than 29G. Length decides whether you land under the skin or in muscle. If you are not certain which pair you want, the Gauge Finder asks three plain questions and tells you.',
+ 'intro':'Everything that goes between the vial and the skin. Insulin syringes with the needle fixed for small doses read in units, luer-lock barrels for anything you draw and swap, and separate needles in the gauges and lengths people actually use rather than the full ISO range. Gauge is thickness and the scale runs backwards, so 31G is finer than 29G, and [the difference between 29G, 30G and 31G](/learn/gauge-comparison) is comfort against how long you spend drawing up. Length decides whether you land under the skin or in muscle. The units printed on a barrel measure the liquid rather than the needle, which is worth knowing before you [read a syringe](/learn/reading-a-syringe) in a hurry. If you are not certain which pair you want, the Gauge Finder asks three plain questions and tells you.',
  'filters':[('all','Everything'),('insulin','Insulin syringes'),('luer','Luer-lock'),('needles','Needles'),('access','Vial access')],
  'products':[
   P('U-100 insulin syringes','u-100-insulin-syringes','insulin','Fixed needle, graduated in units','A fixed needle and a unit scale, which is what makes a small dose readable. The finer gauges are noticeably more comfortable and slightly slower to draw.','syringe',
@@ -161,7 +161,7 @@ CATEGORIES = [
 {
  'slug':'diluents-swabs', 'name':'Diluents & swabs', 'count':19, 'img':I['vial_swabs'],
  'alt':'A glass vial, a carton and foil swab sachets',
- 'intro':'Skin prep and the water you mix with. Alcohol swabs are the single highest turnover line in most rooms and the easiest to under order, so they come in two hundreds rather than hundreds. Bacteriostatic water is preserved with benzyl alcohol, which is what lets a vial keep once it has been broached, and sterile water is not the same thing. Chlorhexidine where alcohol alone is not enough. We supply the diluent and the equipment, never the compound.',
+ 'intro':'Skin prep and the water you mix with. Alcohol swabs are the single highest turnover line in most rooms and the easiest to under order, so they come in two hundreds rather than hundreds. Bacteriostatic water is preserved with benzyl alcohol, which is what lets a vial keep once it has been broached, and sterile water is not the same thing. Chlorhexidine where alcohol alone is not enough. You will want [syringes and needles](/shop/syringes-needles) to go with it, and [what the numbers on a needle mean](/learn/needle-numbers-explained) if the gauges are not yet second nature. We supply the diluent and the equipment, never the compound.',
  'filters':[('all','Everything'),('swabs','Swabs'),('water','Water & diluents'),('antiseptic','Antiseptics')],
  'products':[
   P('Alcohol swabs','alcohol-swabs','swabs','70% isopropyl, foil sachet','Two per injection, one for the stopper and one for the skin. Buy the two hundred, it is cheaper per swab and you will not run out mid month.','prep',
@@ -223,7 +223,7 @@ CATEGORIES = [
 {
  'slug':'diagnostics', 'name':'Diagnostics', 'count':26, 'img':I['diagnostic'],
  'alt':'Test strips, safety lancets and a monitoring device',
- 'intro':'The consult room and the kitchen bench, which increasingly want the same things. Safety lancets retract after firing so they cannot be used twice by accident, which is the whole point of them. Thermometer probe covers and speculum covers in the sizes that fit what you already own. Everything here has a batch and an expiry printed on the carton, and both are shown on the product page before you buy rather than discovered when the box arrives.',
+ 'intro':'The consult room and the kitchen bench, which increasingly want the same things. Safety lancets retract after firing so they cannot be used twice by accident, which is the whole point of them. Thermometer probe covers and speculum covers in the sizes that fit what you already own. Everything here has a batch and an expiry printed on the carton, and both are shown on the product page before you buy rather than discovered when the box arrives. [Storing supplies correctly](/learn/storing-supplies) is what keeps those dates meaningful, and anything that has pierced skin goes to [sharps disposal](/learn/sharps-disposal-australia) rather than a bin.',
  'filters':[('all','Everything'),('lancets','Lancets'),('strips','Test strips'),('covers','Covers & consumables'),('ecg','ECG & ultrasound')],
  'products':[
   P('Safety lancets','safety-lancets','lancets','Single use, retracting','Fires once and retracts. It cannot be reused by accident, which is exactly what you want in a shared or domestic setting.','diag',

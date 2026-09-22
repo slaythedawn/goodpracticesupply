@@ -133,6 +133,9 @@ GUIDES = [
    'Australian and international guidance has moved towards shorter needles for '
    'injections under the skin over the last decade, which is why 4mm pen needles '
    'are now standard. Which length suits you is a question for your prescriber.',
+   'Once you know the pair you want, the '
+   '[syringes and needles](/shop/syringes-needles) range lists every gauge and '
+   'length we carry.',
   ]),
  ],
  'faq': [
@@ -264,6 +267,9 @@ GUIDES = [
    'Write down what you did and when, at least for the first few. It is much '
    'easier to have a useful conversation with your prescriber when you can '
    'answer questions about what actually happened.',
+   'If the packaging numbers were the confusing part, '
+   '[what the numbers on a needle mean](/learn/needle-numbers-explained) goes '
+   'through gauge, length and the unit scale on the barrel.',
   ]),
  ],
  'faq': [
@@ -329,6 +335,9 @@ GUIDES = [
    'prescriber should have set out.',
    'Feel the area before you inject. If it is lumpy, hard, bruised or sore, use '
    'somewhere else and mention it at your next appointment.',
+   'The gauge and the length are the two numbers that decide how this feels, and '
+   '[what the numbers on a needle mean](/learn/needle-numbers-explained) explains '
+   'why the gauge scale runs backwards.',
   ]),
  ],
  'faq': [
@@ -392,6 +401,10 @@ GUIDES = [
    'Draw slowly. Pulling hard on a small syringe against a thick liquid is how '
    'you get a barrel full of bubbles that then take longer to clear than the '
    'slow draw would have taken.',
+   'If the gauge and length numbers are not yet second nature, '
+   '[what the numbers on a needle mean](/learn/needle-numbers-explained) covers '
+   'them, and the [syringes and needles](/shop/syringes-needles) range lists '
+   'what we carry in each.',
   ]),
  ],
  'faq': [
@@ -466,6 +479,10 @@ GUIDES = [
    'for itself in coring alone.',
    'Label it. Date, what is in it, and the volume you added. In a month you will '
    'not remember, and guessing is not an option.',
+   'Two needles make this easier than one: a wide blunt one to draw with and a '
+   'fine one to inject with. Both are in '
+   '[syringes and needles](/shop/syringes-needles), alongside the '
+   '[bacteriostatic water and swabs](/shop/diluents-swabs) that go with them.',
   ]),
  ],
  'faq': [
