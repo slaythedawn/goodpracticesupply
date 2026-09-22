@@ -1,5 +1,8 @@
-import glob, io, re, os
-os.chdir('/home/user/goodpracticesupply/docs')
+import glob, io, os, pathlib, re
+# Resolved from this file rather than hardcoded, like every other generator.
+# It was an absolute path to one particular machine, so it ran everywhere
+# that machine was and nowhere else. CI found it on the first push.
+os.chdir(str(pathlib.Path(__file__).resolve().parent.parent / 'docs'))
 MONO="font-family:'IBM Plex Mono',monospace;font-weight:500"
 
 COLS = [
