@@ -1,0 +1,4 @@
+# Higgsfield video generation example (main.py).
+# The site generators in gen/ use the standard library only and need none of this.
+higgsfield-client==0.2.0
+python-dotenv==1.2.3

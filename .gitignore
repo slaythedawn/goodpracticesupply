@@ -3,3 +3,9 @@ node_modules
 .DS_Store
 __pycache__/
 *.pyc
+
+# Secrets and local environment. HF_KEY lives in .env.local and never in the repo.
+.env
+.env.local
+.env.*.local
+.venv/
