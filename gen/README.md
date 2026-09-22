@@ -17,6 +17,7 @@ the fifty-eight pages come out of these scripts, so a change made by hand in
 | `build.py` | 6 `for/*` pages | imports `shop.py`, so importing it rebuilds the shop too |
 | `tools.py` | calculator, gauge chart | imports `shop.py`, same |
 | `footer.py` | all 81 | applies the sitewide footer |
+| `optimise_images.py` | all 81 | points every photograph at Vercel's image optimiser, idempotent |
 | `searchindex.py` | `search-index.json` | what the header search matches against, including the synonym list |
 | `sitemap.py` | `sitemap.xml`, `robots.txt`, `gen/lastmod.json` | run it last, after every page is written |
 | `llms.py` | `llms.txt` | plain-text site map for language models |
@@ -166,6 +167,7 @@ browser and fatal in a search console.
     python3 gen/learnindex.py   # the Learn index cards, from the same data
     python3 gen/headmeta.py     # head block on the 7 hand-written pages
     python3 gen/footer.py       # sitewide footer
+    python3 gen/optimise_images.py  # photographs through the image optimiser
     python3 gen/searchindex.py  # search-index.json
     python3 gen/llms.py         # llms.txt
     python3 gen/sitemap.py      # sitemap.xml, robots.txt, lastmod.json

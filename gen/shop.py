@@ -151,7 +151,7 @@ def product_card(cat, p):
     key,alt=SHOTS[p['family']][0]
     return ('          <a href="%s" data-card data-tag="%s" style="border:1px solid #E3E3E1;border-radius:22px;overflow:hidden;display:block;background:#FAFAFA" style-hover="border-color:#0E0E0E">\n'
             '            <span style="display:block;background:#EDEDEB;aspect-ratio:4/3;overflow:hidden">\n'
-            '              <img src="%s" alt="%s" style="width:100%%;height:100%%;object-fit:cover">\n            </span>\n'
+            '              <img src="%s" alt="%s" loading="lazy" decoding="async" style="width:100%%;height:100%%;object-fit:cover">\n            </span>\n'
             '            <span style="padding:18px 20px 20px;display:flex;flex-direction:column;gap:7px">\n'
             '              <span style="%s;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#59595A">%s</span>\n'
             '              <span style="font-family:\'Archivo\',sans-serif;font-weight:600;font-size:17px;letter-spacing:-.02em">%s</span>\n'
@@ -173,7 +173,7 @@ def build_category(cat):
     a('            <h1 style="%s">%s</h1>\n'%(H1,E(cat['name'])))
     a('            <p style="%s">%s</p>\n          </div>\n'%(LEAD,EL(cat['intro'])))
     a('          <div style="border-radius:28px;overflow:hidden;background:#EDEDEB;aspect-ratio:4/3">\n')
-    a('            <img src="%s" alt="%s" style="width:100%%;height:100%%;object-fit:cover">\n          </div>\n        </div>\n      </div>\n    </section>\n\n'%(cat['img'],E(cat['alt'])))
+    a('            <img src="%s" alt="%s" fetchpriority="high" decoding="async" style="width:100%%;height:100%%;object-fit:cover">\n          </div>\n        </div>\n      </div>\n    </section>\n\n'%(cat['img'],E(cat['alt'])))
     # grid
     a('    <section id="grid" style="border-bottom:1px solid #E3E3E1">\n      <div style="max-width:1440px;margin:0 auto;padding:clamp(28px,4vw,44px) clamp(20px,5vw,72px) clamp(48px,7vw,96px)">\n')
     a('        <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:24px">\n')
@@ -268,7 +268,8 @@ def build_product(cat, p, idx):
     # gallery
     a('          <div>\n            <div style="position:relative;border-radius:28px;overflow:hidden;background:#EDEDEB;aspect-ratio:4/3">\n')
     for i,(key,alt) in enumerate(shots):
-        a('              <img src="%s" alt="%s" style="position:absolute;inset:0;width:100%%;height:100%%;object-fit:cover;opacity:{{ op%d }};transition:opacity var(--dur-base,260ms) ease">\n'%(I[key],E(alt),i))
+        a('              <img src="%s" alt="%s"%s style="position:absolute;inset:0;width:100%%;height:100%%;object-fit:cover;opacity:{{ op%d }};transition:opacity var(--dur-base,260ms) ease">\n'%(I[key],E(alt),
+             ' fetchpriority="high" decoding="async"' if i==0 else ' loading="lazy" decoding="async"', i))
     a('            </div>\n')
     # A product with one photograph gets no thumbnail strip. A single thumbnail
     # under a single image is a control that does nothing.
@@ -276,7 +277,7 @@ def build_product(cat, p, idx):
         a('            <div style="display:grid;grid-template-columns:repeat(%d,1fr);gap:10px;margin-top:10px">\n'%len(shots))
         for i,(key,alt) in enumerate(shots):
             a('              <button type="button" onClick="{{ pick%d }}" aria-label="%s" style="padding:0;cursor:pointer;background:#EDEDEB;border:1px solid {{ th%d }};border-radius:14px;overflow:hidden;aspect-ratio:1/1">\n'%(i,E(alt),i))
-            a('                <img src="%s" alt="" style="width:100%%;height:100%%;object-fit:cover">\n              </button>\n'%I[key])
+            a('                <img src="%s" alt="" loading="lazy" decoding="async" style="width:100%%;height:100%%;object-fit:cover">\n              </button>\n'%I[key])
         a('            </div>\n')
     a('          </div>\n')
     # buy panel
@@ -461,14 +462,14 @@ def build_shop():
     a('            <h1 style="%s">Every product, priced, without an account.</h1>\n'%H1)
     a('            <p style="%s">Eight categories covering what a treatment room and a bathroom cupboard both need. Every price on this site is visible to anyone, including search engines, which is not true of a single one of our competitors.</p>\n          </div>\n'%LEAD)
     a('          <div style="border-radius:28px;overflow:hidden;background:#EDEDEB;aspect-ratio:4/3">\n')
-    a('            <img src="%s" alt="A box of insulin syringes with three laid in front" style="width:100%%;height:100%%;object-fit:cover">\n          </div>\n        </div>\n      </div>\n    </section>\n\n'%I['syringe_box'])
+    a('            <img src="%s" alt="A box of insulin syringes with three laid in front" fetchpriority="high" decoding="async" style="width:100%%;height:100%%;object-fit:cover">\n          </div>\n        </div>\n      </div>\n    </section>\n\n'%I['syringe_box'])
     # category grid
     a('    <section style="border-bottom:1px solid #E3E3E1">\n      <div style="max-width:1440px;margin:0 auto;padding:clamp(28px,4vw,44px) clamp(20px,5vw,72px) clamp(48px,7vw,96px)">\n')
     a('        <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:14px">\n')
     for c in CATEGORIES:
         a('          <a href="/shop/%s" data-card style="border-radius:22px;overflow:hidden;display:block;background:#FAFAFA;border:1px solid #E3E3E1" style-hover="border-color:#0E0E0E">\n'%c['slug'])
         a('            <span style="display:block;background:#EDEDEB;aspect-ratio:4/3;overflow:hidden">\n')
-        a('              <img src="%s" alt="%s" style="width:100%%;height:100%%;object-fit:cover">\n            </span>\n'%(c['img'],E(c['alt'])))
+        a('              <img src="%s" alt="%s" loading="lazy" decoding="async" style="width:100%%;height:100%%;object-fit:cover">\n            </span>\n'%(c['img'],E(c['alt'])))
         a('            <span style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:16px 18px;min-height:62px">\n')
         a('              <span style="font-family:\'Archivo\',sans-serif;font-weight:600;font-size:16.5px;letter-spacing:-.02em">%s</span>\n'%E(c['name']))
         a('              <span style="%s;font-size:12px;color:#59595A">%d</span>\n            </span>\n          </a>\n'%(MONO,c['count']))

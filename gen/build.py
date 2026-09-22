@@ -56,7 +56,7 @@ def build_main(p):
     a('            </div>\n')
     a('          </div>\n')
     a('          <div style="border-radius:28px;overflow:hidden;background:#EDEDEB;aspect-ratio:4/3">\n')
-    a('            <img src="%s" alt="%s" style="width:100%%;height:100%%;object-fit:cover">\n'%(p['img'],E(p['alt'])))
+    a('            <img src="%s" alt="%s" fetchpriority="high" decoding="async" style="width:100%%;height:100%%;object-fit:cover">\n'%(p['img'],E(p['alt'])))
     a('          </div>\n        </div>\n      </div>\n    </section>\n\n')
     # what we supply / what we do not
     a('    <section style="background:#F2F2F1;border-bottom:1px solid #E3E3E1">\n      <div style="%s">\n'%WRAP)

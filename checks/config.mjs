@@ -38,6 +38,32 @@ for (const [i, rule] of (cfg.headers || []).entries())
     if (!h.key || typeof h.value !== 'string')
       fail(`headers[${i}].headers[${j}] needs a key and a string value`);
 
+// The images block, because an unknown key here fails the deploy before any
+// build log exists, which is how an unknown key in a headers rule already took
+// production down for two deploys. The widths also have to match gen/images.py:
+// a width Vercel does not list is refused, and the photograph does not load.
+{
+  const IMG_KEYS = new Set(['sizes', 'formats', 'minimumCacheTTL', 'remotePatterns',
+                            'domains', 'localPatterns', 'qualities', 'dangerouslyAllowSVG',
+                            'contentSecurityPolicy', 'contentDispositionType']);
+  const img = cfg.images;
+  if (img) {
+    for (const k of Object.keys(img))
+      if (!IMG_KEYS.has(k)) fail(`images has unknown key "${k}"`);
+    if (!Array.isArray(img.sizes) || !img.sizes.length)
+      fail('images.sizes must be a non-empty array');
+    const gen = readFileSync('gen/images.py', 'utf8');
+    const m = gen.match(/SIZES = \[([^\]]*)\]/);
+    if (m) {
+      const want = m[1].split(',').map(x => parseInt(x.trim(), 10)).filter(Number.isFinite);
+      const missing = want.filter(w => !(img.sizes || []).includes(w));
+      if (missing.length)
+        fail(`gen/images.py asks for widths vercel.json does not allow: ${missing.join(', ')}`);
+    }
+    console.log(`images: ${(img.sizes || []).length} widths, ${(img.remotePatterns || []).length} allowed hosts`);
+  }
+}
+
 // The header rules decide what search engines are told, so what they match is
 // worth testing rather than reading. A pattern that quietly stopped matching a
 // product page would publish fifty-seven invented prices to the index, and a
