@@ -24,6 +24,12 @@ by every page. A console error counts as a failure, not just an uncaught throw:
 the component runtime swallows a bad logic class and logs it instead, so a dead
 page looks fine until you read the console.
 
+`browser.mjs` resolves Chromium rather than assuming where it lives. The three
+browser checks each hardcoded an absolute path into one machine's global
+`node_modules`, so they ran on that machine and nowhere else. Nothing noticed
+until CI ran them on a GitHub runner and all three failed on the import. The
+same bug, found the same way, as the absolute path in `gen/footer.py`.
+
 Anything under `docs/internal/` is skipped. Those are working pages with no site
 header and nothing linking to them, which is deliberate.
 

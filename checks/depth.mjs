@@ -14,7 +14,8 @@
 //
 // Needs a static server on 8777:  cd docs && python3 -m http.server 8777
 //
-import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
+import { chromium as loadChromium } from './browser.mjs';
+const chromium = await loadChromium();
 import { readdirSync, statSync } from 'fs';
 
 const MAX_DEPTH = 3;
