@@ -26,6 +26,11 @@ on:
         description: 'Probability at or above which a rule counts as tripped.'
         required: false
         default: '0.7'
+      show_all:
+        description: 'Print every rule and its probability, not just the ones that trip. Leave on while calibrating.'
+        required: false
+        type: boolean
+        default: true
 
 jobs:
   compliance:
@@ -63,6 +68,7 @@ jobs:
             --only "${{ inputs.only }}" \
             --limit "${{ inputs.limit }}" \
             --threshold "${{ inputs.threshold }}" \
+            ${{ inputs.show_all && '--show-all' || '' }} \
             | tee result.txt
           echo "code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
 

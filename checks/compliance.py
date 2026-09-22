@@ -204,6 +204,11 @@ def main():
     ap.add_argument('--limit', type=int, default=0, help='check only the first N pages')
     ap.add_argument('--threshold', type=float, default=THRESHOLD)
     ap.add_argument('--only', default='', help='substring filter on the page path')
+    ap.add_argument('--show-all', action='store_true',
+                    help='print every rule and its probability, not just the ones that '
+                         'trip. Without this a clean page prints nothing, which tells '
+                         'you it passed but not whether it passed by a mile or by a '
+                         'whisker, and the margin is what the threshold is tuned on.')
     args = ap.parse_args()
 
     targets = [(rel, p) for rel, p in pages() if args.only in rel]
@@ -266,15 +271,22 @@ def main():
 
                 result = client.system_one(state=text, questions=questions)
 
-                tripped = [(name, answer.noul)
-                           for name, answer in sorted(result.nouls.items())
-                           if answer.noul >= args.threshold]
+                scored = sorted((name, answer.noul) for name, answer in result.nouls.items())
+                tripped = [(n, p) for n, p in scored if p >= args.threshold]
 
                 if tripped:
                     findings += 1
+
+                if args.show_all:
+                    print('%-4s %s' % ('FAIL' if tripped else 'ok', rel))
+                    for name, p in scored:
+                        mark = '  <-- trips' if p >= args.threshold else ''
+                        print('       %-32s %.3f%s' % (name, p, mark))
+                    print('       %-32s %.3f' % ('highest', max(p for _, p in scored)))
+                elif tripped:
                     print('FAIL %s' % rel)
                     for name, p in tripped:
-                        print('       %-32s %.2f' % (name, p))
+                        print('       %-32s %.3f' % (name, p))
     except TypeSafeAPIConnectionError as exc:
         print('Could not reach the TypeSafe API: %s' % exc, file=sys.stderr)
         return 3
@@ -282,8 +294,8 @@ def main():
         print('TypeSafe rejected the request: %s' % exc, file=sys.stderr)
         return 1
 
-    print('\nchecked %d pages against %d rules, %d with findings'
-          % (len(targets), len(questions), findings))
+    print('\nchecked %d page%s against %d rules, %d with findings'
+          % (len(targets), '' if len(targets) == 1 else 's', len(questions), findings))
     return 1 if findings else 0
 
 
