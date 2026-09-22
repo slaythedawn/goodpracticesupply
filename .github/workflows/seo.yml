@@ -16,9 +16,9 @@ on:
         required: false
         default: '0'
       threshold:
-        description: 'Probability at or above which a term counts as safe to target.'
+        description: 'Probability at or above which a judgement counts as yes.'
         required: false
-        default: '0.7'
+        default: '0.75'
 
 jobs:
   triage:

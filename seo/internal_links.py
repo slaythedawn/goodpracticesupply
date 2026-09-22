@@ -102,29 +102,48 @@ def inbound_counts(pages):
 # Anchor phrases are looked up, not judged. Finding whether a form of words
 # already appears in a page is exact string work, and a model asked to do it
 # would sometimes say yes about a phrase that is not there.
+# A phrase may not begin or end on any of these. Articles and prepositions
+# because they read as a stray word; verbs because a span can be contiguous and
+# still straddle a grammatical boundary. "What the numbers on a needle mean"
+# contains "needle mean" as two adjacent words, and the first live run suggested
+# wrapping it in two pages, which would have published nonsense.
 STOP = {'the', 'a', 'an', 'and', 'or', 'of', 'for', 'to', 'in', 'on', 'at',
-        'is', 'it', 'what', 'how', 'why', 'which', 'your', 'you', 'that',
-        'with', 'step', 'by', 'actually', 'means', 'explained'}
+        'is', 'it', 'what', 'how', 'why', 'which', 'who', 'when', 'where',
+        'your', 'you', 'that', 'with', 'step', 'by', 'actually',
+        'mean', 'means', 'meant', 'explained', 'do', 'does', 'go', 'goes',
+        'get', 'gets', 'need', 'needs', 'should', 'can', 'will', 'are', 'was'}
+
+
+def _spans(words):
+    """Contiguous runs of two or three words, never starting or ending on a stopword.
+
+    The first version filtered stopwords out and then took n-grams of what was
+    left, which joins words that were never next to each other. From "What the
+    numbers on a needle mean" it produced "needle mean", and the first live run
+    duly suggested wrapping that phrase in two pages. An anchor has to be a
+    thing someone actually wrote.
+    """
+    out = []
+    for n in (3, 2):
+        for i in range(len(words) - n + 1):
+            span = words[i:i + n]
+            if span[0] in STOP or span[-1] in STOP:
+                continue
+            if any(len(w) < 3 for w in span):
+                continue
+            out.append(' '.join(span))
+    return out
 
 
 def phrases_for(page):
     """Forms of words that would honestly introduce this page."""
-    out = []
-    slug_words = page['rel'].rsplit('/', 1)[-1][:-len('.html')].split('-')
-    slug_words = [w for w in slug_words if w not in STOP]
-    for n in (3, 2):
-        for i in range(len(slug_words) - n + 1):
-            out.append(' '.join(slug_words[i:i + n]))
+    slug = page['rel'].rsplit('/', 1)[-1][:-len('.html')].split('-')
     title = re.sub(r'[^a-z0-9 ]', ' ', page['title'].lower()).split()
-    title = [w for w in title if w not in STOP and len(w) > 2]
-    for n in (3, 2):
-        for i in range(len(title) - n + 1):
-            out.append(' '.join(title[i:i + n]))
     seen, uniq = set(), []
-    for p in out:
-        if p not in seen and len(p) > 6:
-            seen.add(p)
-            uniq.append(p)
+    for phrase in _spans(slug) + _spans(title):
+        if phrase not in seen and len(phrase) > 8:
+            seen.add(phrase)
+            uniq.append(phrase)
     return uniq
 
 
@@ -155,7 +174,11 @@ def candidates(pages, counts, source):
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument('--dry-run', action='store_true', help='offline, no key, no cost')
-    ap.add_argument('--threshold', type=float, default=0.7)
+    # 0.75, not 0.70. The first live run returned four suggestions pointing at
+    # /contact at exactly 0.70, which is the model saying it cannot tell rather
+    # than saying yes, and counting those as yes is how a useful list turns into
+    # a list nobody reads.
+    ap.add_argument('--threshold', type=float, default=0.75)
     ap.add_argument('--limit', type=int, default=0, help='only this many source pages')
     args = ap.parse_args()
 
