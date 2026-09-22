@@ -23,6 +23,7 @@ the fifty-eight pages come out of these scripts, so a change made by hand in
 | `shopify_export.py` | `export/shopify-products.csv`, `export/variant-map.json` | the catalogue in Shopify import format |
 | `guidecontent.py` | nothing | the copy for the ten guides under /learn |
 | `guides.py` | 10 `/learn/*` pages | builds them |
+| `learnindex.py` | the card grid in `docs/learn.html` | fenced, generated from `GUIDES` so it cannot drift |
 | `pagemeta.py` | nothing | title, description and structured data for every page that is not a shop page |
 | `headmeta.py` | rewrites the 7 hand-written pages | injects the head block, fenced so it is safe to re-run |
 | `photoreview.py` | `docs/internal/photo-review.html` | on demand only, not part of a build |
@@ -162,6 +163,7 @@ browser and fatal in a search console.
     python3 gen/build.py        # shop + /for/, imports shop.py
     python3 gen/tools.py        # calculator, gauge chart
     python3 gen/guides.py       # the ten /learn/ guides
+    python3 gen/learnindex.py   # the Learn index cards, from the same data
     python3 gen/headmeta.py     # head block on the 7 hand-written pages
     python3 gen/footer.py       # sitewide footer
     python3 gen/searchindex.py  # search-index.json

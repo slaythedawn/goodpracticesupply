@@ -8,12 +8,14 @@ nervous one.
     node checks/linkcheck.mjs      # no server needed
     node checks/seocheck.mjs
     node checks/sweep.mjs
+    node checks/depth.mjs
 
 | script | what it catches |
 | --- | --- |
 | `sweep.mjs` | horizontal overflow, unfilled `{{ }}` holes, JavaScript errors, links that go nowhere, and the header showing both the nav and the burger at once |
 | `seocheck.mjs` | title and description length, missing canonical or Open Graph, more or fewer than one `h1`, unparseable structured data, thin pages, duplicate titles |
 | `linkcheck.mjs` | internal links pointing at pages that do not exist, and orphans |
+| `depth.mjs` | pages more than three clicks from the home page, or with no path to it at all |
 
 `sweep.mjs` samples every sixth page, and checks every hand-written page on each
 run regardless, because four widths across ninety-one pages is slower than it is
