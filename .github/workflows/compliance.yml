@@ -26,6 +26,11 @@ on:
         description: 'Probability at or above which a rule counts as tripped.'
         required: false
         default: '0.7'
+      self_test:
+        description: 'Run the negative controls instead of the site. Checks that each rule fires on a passage written to breach it.'
+        required: false
+        type: boolean
+        default: false
       show_all:
         description: 'Print every rule and its probability, not just the ones that trip. Leave on while calibrating.'
         required: false
@@ -69,6 +74,7 @@ jobs:
             --limit "${{ inputs.limit }}" \
             --threshold "${{ inputs.threshold }}" \
             ${{ inputs.show_all && '--show-all' || '' }} \
+            ${{ inputs.self_test && '--self-test' || '' }} \
             | tee result.txt
           echo "code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
 

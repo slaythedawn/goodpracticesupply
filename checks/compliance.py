@@ -47,6 +47,42 @@ MAIN_ONLY = True
 THRESHOLD = 0.7
 
 
+# Negative controls.
+#
+# A clean site scoring low proves the rules do not false-positive. It proves
+# nothing about whether they ever fire, and identical numbers would appear if
+# every rule were broken and always returned near zero. These passages each
+# breach exactly one rule on purpose, so a run over them says whether the check
+# can detect anything at all.
+#
+# NOT SITE COPY. Invented, deliberately non-compliant, never rendered, never
+# imported by anything in gen/. They exist only to be failed.
+CONTROLS = [
+    ('states_a_dose',
+     'Once you have drawn up, start at 0.25mg and hold there for four weeks '
+     'before increasing to 0.5mg. Most people settle between 1mg and 2mg.'),
+    ('names_a_site_for_a_drug',
+     'Semaglutide goes into the abdomen, at least five centimetres away from '
+     'the navel. Rotate to the outer thigh if the abdomen is tender.'),
+    ('states_a_frequency',
+     'Take it once a week, on the same day each week. If you miss a day, take '
+     'it as soon as you remember and carry on weekly from there.'),
+    ('implies_supplies_medicine',
+     'We stock pharmaceutical grade semaglutide and tirzepatide alongside our '
+     'consumables, shipped from our Sydney warehouse with the syringes '
+     'included in the price.'),
+    ('therapeutic_outcome_claim',
+     'Our alcohol swabs cut infection rates and help injection sites heal '
+     'faster, so your treatment works better from the first week.'),
+    ('unbacked_regulatory_claim',
+     'Every product in our range is ARTG listed, see carton for details. '
+     'Country of origin: Malaysia.'),
+    ('claims_unavailable_capability',
+     'Order before 2pm and we dispatch the same day from our Sydney warehouse. '
+     'Our team is on 1300 555 123, Monday to Friday, 8.30am to 5pm AEST.'),
+]
+
+
 class MainText(HTMLParser):
     """Collect visible text, from <main> only when MAIN_ONLY is set.
 
@@ -197,6 +233,26 @@ def build_questions(Noul):
     }
 
 
+def self_test(TypeSafeClient, questions, threshold):
+    """Check that each rule fires on a passage written to breach it."""
+    print('%d controls, one per rule, threshold %.2f\n' % (len(CONTROLS), threshold))
+    passed = 0
+    with TypeSafeClient() as client:
+        for expected, passage in CONTROLS:
+            result = client.system_one(state=passage, questions=questions)
+            scored = {name: answer.noul for name, answer in result.nouls.items()}
+            hit = scored[expected]
+            others = sorted(((p, n) for n, p in scored.items() if n != expected),
+                            reverse=True)
+            fired = hit >= threshold
+            passed += fired
+            print('%-4s %-32s %.3f' % ('ok' if fired else 'MISS', expected, hit))
+            print('       loudest other rule: %s %.3f' % (others[0][1], others[0][0]))
+    print('\n%d of %d controls fired. A miss means that rule cannot detect its own '
+          'breach and needs rewording, not a lower threshold.' % (passed, len(CONTROLS)))
+    return 0 if passed == len(CONTROLS) else 1
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument('--dry-run', action='store_true',
@@ -204,6 +260,10 @@ def main():
     ap.add_argument('--limit', type=int, default=0, help='check only the first N pages')
     ap.add_argument('--threshold', type=float, default=THRESHOLD)
     ap.add_argument('--only', default='', help='substring filter on the page path')
+    ap.add_argument('--self-test', action='store_true',
+                    help='run the rules against passages written to breach one rule '
+                         'each, and report whether each one fires. This is the only '
+                         'evidence that the check detects anything at all.')
     ap.add_argument('--show-all', action='store_true',
                     help='print every rule and its probability, not just the ones that '
                          'trip. Without this a clean page prints nothing, which tells '
@@ -260,6 +320,9 @@ def main():
 
     questions = build_questions(Noul)
     findings = 0
+
+    if args.self_test:
+        return self_test(TypeSafeClient, questions, args.threshold)
 
     try:
         with TypeSafeClient() as client:
