@@ -9,3 +9,6 @@ __pycache__/
 .env.local
 .env.*.local
 .venv/
+
+# Keyword triage output, regenerated per run.
+seo/triage-result.json

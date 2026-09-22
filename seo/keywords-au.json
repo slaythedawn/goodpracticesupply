@@ -1,0 +1,725 @@
+{
+ "country": "au",
+ "pulled": "2026-09-22",
+ "source": "ahrefs keywords-explorer-matching-terms",
+ "seeds": [
+  "insulin syringe",
+  "pen needles",
+  "sharps container",
+  "bacteriostatic water",
+  "alcohol swabs",
+  "nitrile gloves",
+  "needle gauge",
+  "reconstitution"
+ ],
+ "keywords": [
+  {
+   "keyword": "bacteriostatic water",
+   "volume": 5700,
+   "difficulty": 52,
+   "cpc": 35,
+   "traffic_potential": 2200,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "nitrile gloves",
+   "volume": 4100,
+   "difficulty": 1,
+   "cpc": 80,
+   "traffic_potential": 70,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "bacteriostatic water chemist warehouse",
+   "volume": 3000,
+   "difficulty": 0,
+   "cpc": 30,
+   "traffic_potential": 1300,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional",
+    "branded",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps container",
+   "volume": 2300,
+   "difficulty": 0,
+   "cpc": 25,
+   "traffic_potential": 2100,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "insulin syringe",
+   "volume": 1800,
+   "difficulty": 3,
+   "cpc": 25,
+   "traffic_potential": 1100,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "alcohol swabs",
+   "volume": 1300,
+   "difficulty": 0,
+   "cpc": 9,
+   "traffic_potential": 450,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "black nitrile gloves",
+   "volume": 800,
+   "difficulty": 43,
+   "cpc": 110,
+   "traffic_potential": 200,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "bacteriostatic water priceline",
+   "volume": 500,
+   "difficulty": 0,
+   "cpc": 40,
+   "traffic_potential": 700,
+   "intents": [
+    "commercial",
+    "transactional",
+    "branded"
+   ]
+  },
+  {
+   "keyword": "1ml insulin syringe",
+   "volume": 500,
+   "difficulty": 36,
+   "cpc": 20,
+   "traffic_potential": 500,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "peptide reconstitution calculator",
+   "volume": 450,
+   "difficulty": 34,
+   "cpc": 6,
+   "traffic_potential": 2600,
+   "intents": [
+    "informational"
+   ]
+  },
+  {
+   "keyword": "bd ultra fine insulin syringe 1ml",
+   "volume": 450,
+   "difficulty": 0,
+   "cpc": null,
+   "traffic_potential": 250,
+   "intents": [
+    "commercial",
+    "transactional",
+    "branded"
+   ]
+  },
+  {
+   "keyword": "1ml insulin syringe chemist warehouse",
+   "volume": 450,
+   "difficulty": null,
+   "cpc": 7,
+   "traffic_potential": null,
+   "intents": [
+    "navigational",
+    "commercial",
+    "transactional",
+    "branded"
+   ]
+  },
+  {
+   "keyword": "bd ultra fine pen needles",
+   "volume": 400,
+   "difficulty": 0,
+   "cpc": 35,
+   "traffic_potential": 250,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional",
+    "branded"
+   ]
+  },
+  {
+   "keyword": "insulin syringe chemist warehouse",
+   "volume": 400,
+   "difficulty": 0,
+   "cpc": 9,
+   "traffic_potential": 100,
+   "intents": [
+    "commercial",
+    "transactional",
+    "branded",
+    "local"
+   ]
+  },
+  {
+   "keyword": "25 gauge needle",
+   "volume": 350,
+   "difficulty": 0,
+   "cpc": 35,
+   "traffic_potential": 300,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "disposable nitrile gloves",
+   "volume": 350,
+   "difficulty": 0,
+   "cpc": 60,
+   "traffic_potential": 700,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "what is bacteriostatic water",
+   "volume": 300,
+   "difficulty": 9,
+   "cpc": 25,
+   "traffic_potential": 30,
+   "intents": [
+    "informational"
+   ]
+  },
+  {
+   "keyword": "insulin pen needles",
+   "volume": 300,
+   "difficulty": 7,
+   "cpc": null,
+   "traffic_potential": 450,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "bacteriostatic water for injection",
+   "volume": 300,
+   "difficulty": 50,
+   "cpc": 40,
+   "traffic_potential": 450,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "alcohol swabs chemist warehouse",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc": 2,
+   "traffic_potential": 700,
+   "intents": [
+    "commercial",
+    "transactional",
+    "branded",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps container disposal",
+   "volume": 300,
+   "difficulty": 2,
+   "cpc": 130,
+   "traffic_potential": 2100,
+   "intents": [
+    "informational",
+    "local"
+   ]
+  },
+  {
+   "keyword": "23 gauge needle",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc": 50,
+   "traffic_potential": 300,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "bacteriostatic water australia",
+   "volume": 250,
+   "difficulty": 54,
+   "cpc": 50,
+   "traffic_potential": 2800,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "27 gauge needle",
+   "volume": 250,
+   "difficulty": 0,
+   "cpc": 30,
+   "traffic_potential": 90,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "where to dispose of sharps container",
+   "volume": 250,
+   "difficulty": 1,
+   "cpc": 50,
+   "traffic_potential": 2100,
+   "intents": [
+    "informational",
+    "local"
+   ]
+  },
+  {
+   "keyword": "needle gauge",
+   "volume": 250,
+   "difficulty": 10,
+   "cpc": 35,
+   "traffic_potential": 50,
+   "intents": [
+    "informational",
+    "commercial"
+   ]
+  },
+  {
+   "keyword": "18 gauge needle",
+   "volume": 250,
+   "difficulty": 0,
+   "cpc": 35,
+   "traffic_potential": 150,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "buy bacteriostatic water",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc": 50,
+   "traffic_potential": 700,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "nitrile gloves woolworths",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc": 30,
+   "traffic_potential": 800,
+   "intents": [
+    "commercial",
+    "transactional",
+    "branded"
+   ]
+  },
+  {
+   "keyword": "bodichek alcohol swabs",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc": 20,
+   "traffic_potential": 600,
+   "intents": [
+    "commercial",
+    "transactional",
+    "branded"
+   ]
+  },
+  {
+   "keyword": "22 gauge needle",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc": 30,
+   "traffic_potential": 30,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "blue nitrile gloves",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc": 90,
+   "traffic_potential": 50,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "bd ultra fine pen needles 5mm chemist warehouse",
+   "volume": 200,
+   "difficulty": null,
+   "cpc": null,
+   "traffic_potential": null,
+   "intents": [
+    "commercial",
+    "transactional",
+    "branded"
+   ]
+  },
+  {
+   "keyword": "29g insulin syringe",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc": 35,
+   "traffic_potential": 150,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "16 gauge needle",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc": 80,
+   "traffic_potential": 80,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "21 gauge needle",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc": 50,
+   "traffic_potential": 10,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "bacteriostatic water chemist near me",
+   "volume": 200,
+   "difficulty": null,
+   "cpc": 50,
+   "traffic_potential": null,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional",
+    "local"
+   ]
+  },
+  {
+   "keyword": ".5ml insulin syringe",
+   "volume": 150,
+   "difficulty": null,
+   "cpc": null,
+   "traffic_potential": null,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "hospira bacteriostatic water",
+   "volume": 150,
+   "difficulty": null,
+   "cpc": 40,
+   "traffic_potential": null,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional",
+    "branded"
+   ]
+  },
+  {
+   "keyword": "bd ultra fine pen needles 4mm chemist warehouse",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc": 25,
+   "traffic_potential": 4400,
+   "intents": [
+    "commercial",
+    "transactional",
+    "branded",
+    "local"
+   ]
+  },
+  {
+   "keyword": "29 gauge needle",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc": 110,
+   "traffic_potential": 400,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "chemist warehouse insulin syringe",
+   "volume": 150,
+   "difficulty": null,
+   "cpc": null,
+   "traffic_potential": null,
+   "intents": [
+    "commercial",
+    "transactional",
+    "branded",
+    "local"
+   ]
+  },
+  {
+   "keyword": "31 gauge needle",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc": 40,
+   "traffic_potential": 300,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "bacteriostatic water 10ml",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc": 40,
+   "traffic_potential": 50,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "14 gauge needle",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc": null,
+   "traffic_potential": 20,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "nitrile gloves black",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc": 80,
+   "traffic_potential": 150,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "needle gauge sizes",
+   "volume": 150,
+   "difficulty": 10,
+   "cpc": 35,
+   "traffic_potential": 200,
+   "intents": [
+    "informational"
+   ]
+  },
+  {
+   "keyword": "alcohol swabs coles",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc": null,
+   "traffic_potential": 800,
+   "intents": [
+    "commercial",
+    "transactional",
+    "branded",
+    "local"
+   ]
+  },
+  {
+   "keyword": "best peptide reconstitution calculator",
+   "volume": 150,
+   "difficulty": null,
+   "cpc": null,
+   "traffic_potential": null,
+   "intents": [
+    "informational",
+    "commercial"
+   ]
+  },
+  {
+   "keyword": "sharps container chemist warehouse",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc": 30,
+   "traffic_potential": 400,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional",
+    "branded",
+    "local"
+   ]
+  },
+  {
+   "keyword": "30 gauge needle",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc": 80,
+   "traffic_potential": 60,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "19 gauge needle",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc": 45,
+   "traffic_potential": 100,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "buy nitrile gloves",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc": 190,
+   "traffic_potential": 20,
+   "intents": [
+    "commercial",
+    "transactional",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps container disposal melbourne",
+   "volume": 150,
+   "difficulty": 1,
+   "cpc": 140,
+   "traffic_potential": 2200,
+   "intents": [
+    "informational",
+    "local"
+   ]
+  },
+  {
+   "keyword": "ultra fine pen needles",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc": 30,
+   "traffic_potential": 200,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional",
+    "branded"
+   ]
+  },
+  {
+   "keyword": "nitrile disposable gloves",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc": 80,
+   "traffic_potential": 400,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "heavy duty nitrile gloves",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc": 70,
+   "traffic_potential": 40,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "tgc nitrile gloves",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc": 60,
+   "traffic_potential": 50,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional",
+    "branded"
+   ]
+  },
+  {
+   "keyword": "how to dispose of sharps container",
+   "volume": 150,
+   "difficulty": 2,
+   "cpc": 35,
+   "traffic_potential": 2100,
+   "intents": [
+    "informational",
+    "local"
+   ]
+  },
+  {
+   "keyword": "wegovy pen needles chemist warehouse",
+   "volume": 150,
+   "difficulty": null,
+   "cpc": 35,
+   "traffic_potential": null,
+   "intents": [
+    "commercial",
+    "transactional",
+    "branded",
+    "local"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,67 @@
+# Keyword triage: Ahrefs data judged by TypeSafe, ranked by ordinary arithmetic.
+#
+# Manual trigger. The keyword data is committed, so a run costs only the
+# TypeSafe calls, two questions per keyword. Refresh seo/keywords-au.json from
+# Ahrefs when the range or the season changes, not on a schedule.
+#
+# Needs the same repository secret as the compliance check: TYPESAFE_API_KEY
+
+name: Keyword triage
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Maximum keywords to judge. Blank or 0 means all of them.'
+        required: false
+        default: '0'
+      threshold:
+        description: 'Probability at or above which a term counts as safe to target.'
+        required: false
+        default: '0.7'
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Rank without spending anything
+        run: python seo/triage.py --dry-run
+
+      - name: Judge each term
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: |
+          if [ -z "$TYPESAFE_API_KEY" ]; then
+            echo "::error::TYPESAFE_API_KEY is not set."
+            exit 1
+          fi
+          python seo/triage.py \
+            --limit "${{ inputs.limit }}" \
+            --threshold "${{ inputs.threshold }}" \
+            | tee result.txt
+
+      - name: Summarise
+        if: always()
+        run: |
+          {
+            echo "## Keyword triage"
+            echo
+            echo '```'
+            cat result.txt 2>/dev/null || echo "no output"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Keep the result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: triage-result
+          path: seo/triage-result.json
+          if-no-files-found: ignore
