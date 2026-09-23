@@ -384,7 +384,7 @@ def main():
     os.makedirs(DOCS+'/learn',exist_ok=True)
     mn,sc=reconstitution()
     io.open(DOCS+'/tools/reconstitution-calculator.html','w',encoding='utf-8').write(
-        page('Peptide reconstitution calculator, mg to units on a syringe',mn,sc,
+        page('Peptide reconstitution calculator, mg to units',mn,sc,
              head_extra=META.blocks('/tools/reconstitution-calculator',
                  META.FIXED['/tools/reconstitution-calculator']),
              path='/tools/reconstitution-calculator'))

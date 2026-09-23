@@ -16,6 +16,7 @@ the fifty-eight pages come out of these scripts, so a change made by hand in
 | `shop.py` | 43 shop pages | also exports the shared head, header and footer, which it reads out of `docs/about.html` |
 | `build.py` | 6 `for/*` pages | imports `shop.py`, so importing it rebuilds the shop too |
 | `tools.py` | calculator, gauge chart | imports `shop.py`, same |
+| `launchstate.py` | any page with a marked button | flips launch-state CTAs with `PURCHASABLE`, so launching is a switch rather than a copy edit |
 | `footer.py` | all 81 | applies the sitewide footer |
 | `optimise_images.py` | all 81 | points every photograph at Vercel's image optimiser, idempotent |
 | `searchindex.py` | `search-index.json` | what the header search matches against, including the synonym list |
@@ -166,6 +167,7 @@ browser and fatal in a search console.
     python3 gen/guides.py       # the ten /learn/ guides
     python3 gen/learnindex.py   # the Learn index cards, from the same data
     python3 gen/headmeta.py     # head block on the 7 hand-written pages
+    python3 gen/launchstate.py  # launch-state buttons
     python3 gen/footer.py       # sitewide footer
     python3 gen/optimise_images.py  # photographs through the image optimiser
     python3 gen/searchindex.py  # search-index.json

@@ -113,6 +113,7 @@ def clamp(text, n=158):
 def head_tags(*, path, title, description, image=None, kind='website'):
     """Canonical, description, Open Graph and Twitter, as one block."""
     url = ORIGIN + path
+    image = image or DEFAULT_OG
     o = []
     a = o.append
     a('<meta name="description" content="%s">' % esc(description))
@@ -198,6 +199,13 @@ def product_schema(*, path, name, description, image, sku, price_cents, category
 
 # ------------------------------------------------------- site-wide entities
 LOGO = ORIGIN + '/icon-512.png'
+
+# Shared links used to render as a grey box on eighteen pages: the ten guides,
+# the tools and the hand-written pages all called head_tags without an image.
+# A photograph of the range is a better default than nothing, and a page with
+# something more specific to say still passes its own.
+DEFAULT_OG = ('https://d8j0ntlcm91z4.cloudfront.net/user_302vtY04kC9nbtUjJJAhLoDVMFw/'
+              'hf_20260912_014655_c87ec5d7-96f6-4729-b6ef-fc062184ab3f.png')
 
 
 def organization():

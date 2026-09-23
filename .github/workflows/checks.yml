@@ -39,7 +39,7 @@ jobs:
 
       - name: Rebuild, and fail if the build is not idempotent
         run: |
-          for s in build tools guides learnindex headmeta footer optimise_images searchindex llms sitemap; do
+          for s in build tools guides learnindex headmeta launchstate footer optimise_images searchindex llms sitemap; do
             python3 "gen/$s.py" > /dev/null
           done
           if ! git diff --quiet; then

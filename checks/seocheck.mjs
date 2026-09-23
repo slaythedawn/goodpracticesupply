@@ -15,13 +15,16 @@ import { readdirSync, statSync } from 'fs';
 const SITE = p => !p.startsWith('/internal/');
 
 function walk(d, base=''){let o=[];for(const f of readdirSync(d)){const p=d+'/'+f;if(statSync(p).isDirectory())o=o.concat(walk(p,base+'/'+f));else if(f.endsWith('.html'))o.push(base+'/'+f);}return o;}
+// Every page, not a chosen few. It covered 83 of 91, and the eight it skipped
+// included the home page, which is where a crawl found a missing lang attribute
+// and no Open Graph image.
 const SECTION = p => p.startsWith('/shop') ? 'shop'
                    : p.startsWith('/learn/') ? 'learn'
-                   : p.startsWith('/for/') ? 'for' : null;
+                   : p.startsWith('/for/') ? 'for' : 'page';
 const all = walk('docs').filter(SITE).filter(p => SECTION(p));
 const b = await chromium.launch();
 const pg = await b.newPage({viewport:{width:1280,height:900}});
-let bad=0, titles=new Set(), descs=new Set(); const counts={shop:0,learn:0,for:0};
+let bad=0, titles=new Set(), descs=new Set(); const counts={shop:0,learn:0,for:0,page:0};
 for (const p of all) {
   const errs=[]; const h=e=>errs.push(String(e).slice(0,80)); pg.on('pageerror',h);
   await pg.goto('http://127.0.0.1:8777'+p,{waitUntil:'domcontentloaded',timeout:20000}).catch(()=>errs.push('nav'));
@@ -43,6 +46,9 @@ for (const p of all) {
       // visible brackets in the copy. Cheap to typo, invisible in a diff.
       rawlinks:(document.body.innerText.match(/\]\(\//g)||[]).length,
       links:new Set([...document.querySelectorAll('a[href^="/"]')].map(a=>a.getAttribute('href'))).size,
+      lang:document.documentElement.lang||'',
+      ogimg:!!g('meta[property="og:image"]'),
+      noalt:[...document.querySelectorAll('img')].filter(i=>i.getAttribute('alt')===null).length,
     };});
   pg.off('pageerror',h);
   const probs=[];
@@ -50,6 +56,9 @@ for (const p of all) {
   if(!r.desc||r.desc.length<70||r.desc.length>170) probs.push('desc '+r.desc.length);
   if(!r.canon) probs.push('no canonical');
   if(!r.og) probs.push('no og');
+  if(!r.ogimg) probs.push('no og:image');
+  if(r.lang!=='en-AU') probs.push('lang is '+JSON.stringify(r.lang));
+  if(r.noalt) probs.push('images with no alt '+r.noalt);
   if(r.h1!==1) probs.push('h1='+r.h1);
   if(r.ld.includes('PARSE_ERROR')) probs.push('bad json-ld');
   // Shop pages always carry three blocks. /learn/needle-gauge-chart carries
@@ -57,7 +66,14 @@ for (const p of all) {
   // flat floor of three would be demanding markup for questions nobody asked.
   const floor = SECTION(p)==='shop' ? 3 : 2;
   if(r.ld.length<floor) probs.push('ld='+r.ld.length);
-  if(r.words<400) probs.push('thin '+r.words);
+  // Thin means thin for what the page is for. A shop page competing on a head
+  // term needs substance; a contact page does not, and holding it to the same
+  // number produces a failure nobody can act on, which is how a check gets
+  // ignored. /about is the exception among the short ones: on a health-adjacent
+  // site with no domain authority it is a trust signal, and 353 words is light.
+  const UTILITY = ['/contact.html', '/clinic-portal.html'];
+  const floorWords = UTILITY.includes(p) ? 250 : 400;
+  if(r.words<floorWords) probs.push('thin '+r.words+' (floor '+floorWords+')');
   if(r.holes) probs.push('holes '+r.holes);
   if(r.rawlinks) probs.push('unconverted link syntax '+r.rawlinks);
   if(errs.length) probs.push('js '+errs[0]);
@@ -65,6 +81,6 @@ for (const p of all) {
   titles.add(r.title); descs.add(r.desc);
   if(probs.length){bad++;console.log('FAIL',p,probs.join(' | '));}
 }
-console.log(`\nchecked ${all.length} pages (${counts.shop} shop, ${counts.learn} learn, ${counts.for} for), ${bad} with problems`);
+console.log(`\nchecked ${all.length} pages (${counts.shop} shop, ${counts.learn} learn, ${counts.for} for, ${counts.page} other), ${bad} with problems`);
 console.log(`unique titles ${titles.size}/${all.length}, unique descriptions ${descs.size}/${all.length}`);
 await b.close();
