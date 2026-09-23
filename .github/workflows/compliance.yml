@@ -18,6 +18,10 @@ on:
         description: 'Path substring to limit the run, e.g. /learn/ or /shop/. Blank means every page.'
         required: false
         default: '/tools/reconstitution-calculator.html'
+      depth:
+        description: 'Slash count to match. 2 is the eight shop categories, 3 the products. Blank means any.'
+        required: false
+        default: ''
       limit:
         description: 'Maximum pages to check. Keep it small until the threshold is calibrated.'
         required: false
@@ -71,6 +75,7 @@ jobs:
           set +e
           python checks/compliance.py \
             --only "${{ inputs.only }}" \
+            ${{ inputs.depth && format('--depth {0}', inputs.depth) || '' }} \
             --limit "${{ inputs.limit }}" \
             --threshold "${{ inputs.threshold }}" \
             ${{ inputs.show_all && '--show-all' || '' }} \

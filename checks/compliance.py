@@ -260,6 +260,11 @@ def main():
     ap.add_argument('--limit', type=int, default=0, help='check only the first N pages')
     ap.add_argument('--threshold', type=float, default=THRESHOLD)
     ap.add_argument('--only', default='', help='substring filter on the page path')
+    ap.add_argument('--depth', type=int, default=0,
+                    help='only paths with this many slashes. 2 is the eight shop '
+                         'categories, 3 is the products beneath them. A substring '
+                         'filter cannot tell those apart, because /shop/ is inside '
+                         'every product path as well.')
     ap.add_argument('--self-test', action='store_true',
                     help='run the rules against passages written to breach one rule '
                          'each, and report whether each one fires. This is the only '
@@ -271,7 +276,9 @@ def main():
                          'whisker, and the margin is what the threshold is tuned on.')
     args = ap.parse_args()
 
-    targets = [(rel, p) for rel, p in pages() if args.only in rel]
+    targets = [(rel, p) for rel, p in pages()
+               if args.only in rel
+               and (not args.depth or rel.count('/') == args.depth)]
     if args.limit:
         targets = targets[:args.limit]
 
