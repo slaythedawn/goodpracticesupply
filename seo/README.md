@@ -36,6 +36,21 @@ age of the committed data is reported, and anything older than a fortnight print
 warning rather than stopping the run: a two week old volume figure is still better
 than publishing nothing.
 
+### Scheduling the connector route
+
+A connector needs a session, and a session on a schedule is a Routine, created from
+the Routines page on claude.ai. It has to be created there rather than from a
+session, because a Routine made programmatically cannot be given connector access
+and the session it fires would come up with no Ahrefs tools at all. The prompt for
+it is in `seo/routine-prompt.md`.
+
+The order is then: the Routine runs at 18:40 UTC, pulls Ahrefs and Search Console
+through the connectors, commits the data, and triggers this workflow. The workflow
+does the TypeSafe judging, the deciding and the language gate. That split is not
+arbitrary: `api.typesafe.ai` is not reachable from the session sandbox, and a
+connector is not reachable from CI, so each half runs where it can actually get to
+what it needs.
+
 ## Why two tools and not one
 
 **Ahrefs** knows what Australians search for, how hard each term is, and who is
