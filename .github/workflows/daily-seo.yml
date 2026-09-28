@@ -41,7 +41,13 @@ on:
     # saving. Early enough that a brief is waiting at the start of the day, and
     # off the hour because everything scheduled on the hour queues behind
     # everything else scheduled on the hour.
-    - cron: '12 19 * * *'
+    #
+    # Two entries rather than one. The SERP refresh is a call per term and a first
+    # page does not turn over overnight, so it runs once a week, and the only way
+    # a workflow can tell which schedule woke it is to compare against the cron
+    # string itself. Expressions have no modulus, which is how this was found.
+    - cron: '12 19 * * 1-6'
+    - cron: '27 19 * * 0'
   workflow_dispatch:
     inputs:
       threshold:
@@ -123,10 +129,9 @@ jobs:
           AHREFS_API_KEY: ${{ secrets.AHREFS_API_KEY }}
         run: python seo/refresh.py --keywords --discover | tee /tmp/research.txt
 
-      # Weekly, not daily. A first page does not turn over overnight and this is
-      # one API call per term. Mondays on the schedule, or on demand.
+      # Weekly, not daily. Only the Sunday cron carries it, or an explicit run.
       - name: Refresh who holds the top of the page
-        if: ${{ (github.event_name == 'schedule' && github.run_number % 7 == 1) || (github.event_name == 'workflow_dispatch' && inputs.skip_serps == false) }}
+        if: ${{ github.event.schedule == '27 19 * * 0' || (github.event_name == 'workflow_dispatch' && inputs.skip_serps == false) }}
         env:
           AHREFS_API_KEY: ${{ secrets.AHREFS_API_KEY }}
         run: python seo/refresh.py --serps --serp-top 12 | tee /tmp/serps.txt
