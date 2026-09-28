@@ -41,6 +41,12 @@ the whole of the self-improving part, and it is deliberately slow: one step of
 0.05 per run, bounded to between 0.5 and 2.0, with the reason written into the
 log. An unbounded feedback loop finds one lucky day and spends a month on it.
 
+`weights.json` also records which pull it last learned from, and a run over the
+same pull moves nothing and says so. Without that, the path where nobody would
+notice is the one that breaks: with no Search Console credentials the loop falls
+back to the committed snapshot every night, and the weights would walk to their
+bounds over a fortnight on one morning's evidence.
+
 Judging comes before deciding because `opportunities.py` refuses to queue a term
 that has never been judged. A new term arrives from the Ahrefs refresh unjudged,
 which holds it out of the publishing queue until the safety questions have been

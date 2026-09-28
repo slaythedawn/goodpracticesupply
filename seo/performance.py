@@ -203,9 +203,23 @@ def analyse(records):
 
 
 def blank_weights():
-    return {'updated': None, 'runs': 0,
+    return {'updated': None, 'runs': 0, 'learned_from': None,
             'intent': {k: 1.0 for k in INTENTS},
             'pages': {}, 'log': []}
+
+
+def fingerprint(snapshot, records):
+    """What this pull was, so the same evidence is not learned from twice.
+
+    Found by running the analysis twice over the committed snapshot and watching
+    the weights step again on identical data. That matters most on exactly the
+    path where nobody would notice: with no Search Console credentials the run
+    falls back to the committed snapshot every night, and without this the weights
+    would walk to their bounds over a fortnight on one morning's evidence.
+    """
+    return '%s..%s/%d rows/%d impressions' % (
+        snapshot.get('start') or '?', snapshot.get('end') or '?', len(records),
+        sum(r['impressions'] for r in records))
 
 
 def load_weights():
@@ -221,7 +235,7 @@ def clamp(v):
     return round(max(FLOOR, min(CEILING, v)), 3)
 
 
-def learn(weights, pages, keywords, today):
+def learn(weights, pages, keywords, today, mark=None):
     """Move the intent weights on measured evidence, and say why in the log.
 
     The mapping from a page to an intent runs through the keyword file: a query
@@ -230,6 +244,11 @@ def learn(weights, pages, keywords, today):
     kind of page works, they are a count of which kinds of search this site is
     actually being shown for.
     """
+    if mark is not None and weights.get('learned_from') == mark:
+        return ['this is the same Search Console pull the weights already learned '
+                'from, so nothing moved. Re-reading one morning every night would '
+                'walk them to their bounds on a single day of evidence.']
+
     earned = collections.Counter()
     for path, page in pages.items():
         for q in page['striking']:
@@ -283,6 +302,8 @@ def learn(weights, pages, keywords, today):
 
     weights['runs'] += 1
     weights['updated'] = today
+    if mark is not None:
+        weights['learned_from'] = mark
     weights['log'] = ([{'date': today, 'notes': notes}] + weights.get('log', []))[:60]
     return notes
 
@@ -358,7 +379,7 @@ def main():
                     print('      %s' % q)
 
     weights = load_weights()
-    notes = learn(weights, pages, keywords, today)
+    notes = learn(weights, pages, keywords, today, fingerprint(snapshot, records))
     print('\n== What this changes about tomorrow ==\n')
     for note in notes:
         print('  %s' % note)
