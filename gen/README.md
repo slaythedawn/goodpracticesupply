@@ -24,7 +24,9 @@ the fifty-eight pages come out of these scripts, so a change made by hand in
 | `llms.py` | `llms.txt` | plain-text site map for language models |
 | `shopify_export.py` | `export/shopify-products.csv`, `export/variant-map.json` | the catalogue in Shopify import format |
 | `guidecontent.py` | nothing | the copy for the ten guides under /learn |
-| `guides.py` | 10 `/learn/*` pages | builds them |
+| `guides.py` | 10 `/learn/*` pages | builds them, with a photograph, one featured product or tool, and an email sign-up on each |
+| `capture.py` | nothing | the email sign-up block. Self contained HTML and one script, so it works on a static page as well as a streaming component. Posts to `/api/subscribe` |
+| `feature.py` | nothing | the one product or tool a page points at. `FEATURED` is the table; a page asking for a key that is not in it fails the build |
 | `learnindex.py` | the card grid in `docs/learn.html` | fenced, generated from `GUIDES` so it cannot drift |
 | `pagemeta.py` | nothing | title, description and structured data for every page that is not a shop page |
 | `headmeta.py` | rewrites the 7 hand-written pages | injects the head block, fenced so it is safe to re-run |

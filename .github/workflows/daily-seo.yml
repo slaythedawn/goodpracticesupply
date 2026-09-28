@@ -1,0 +1,302 @@
+# The daily SEO loop.
+#
+# Six steps, in the only order that makes sense: find out what happened, refresh
+# the market, work out what is worth doing, write it, check it will not get
+# anybody in trouble, publish it.
+#
+#   measure    performance.py reads Search Console, sorts every page into
+#              optimise, expand, watch or silent, and nudges the intent weights
+#              on what the site is actually being shown for. This runs first on
+#              purpose: today's ranking uses yesterday's evidence.
+#   research   refresh.py re-reads every tracked term from Ahrefs and looks for
+#              new ones. Volume moves enough to change decisions.
+#   judge      triage.py and competitors.py ask TypeSafe the two things Ahrefs
+#              cannot answer: whether this business is allowed to target a term,
+#              and whether a rival's term is worth taking or is theirs by right.
+#   decide     opportunities.py merges all of it, clusters it so the site does
+#              not end up competing with itself, and writes one brief.
+#   write      the brief becomes a page. Autonomously when ANTHROPIC_API_KEY is
+#              set, otherwise as an issue for somebody to pick up.
+#   gate       compliance.py plus the whole checks suite. A compliance finding
+#              stops the run. It is not advisory.
+#
+# One job rather than six, because six jobs do not share a filesystem and passing
+# a working tree between them through artifacts is more moving parts than the
+# thing it would buy.
+#
+# Repository secrets:
+#   TYPESAFE_API_KEY           required. The safety judgements.
+#   AHREFS_API_KEY             required. The market data.
+#   GSC_SERVICE_ACCOUNT_JSON   optional. Without it the run falls back to the
+#                              committed Search Console snapshot, which means the
+#                              loop still works but stops learning anything new.
+#   ANTHROPIC_API_KEY          optional. Without it the loop researches, decides
+#                              and briefs, and a person writes the page.
+
+name: Daily SEO loop
+
+on:
+  schedule:
+    # 19:12 UTC is 05:12 in Sydney through winter and 06:12 through daylight
+    # saving. Early enough that a brief is waiting at the start of the day, and
+    # off the hour because everything scheduled on the hour queues behind
+    # everything else scheduled on the hour.
+    - cron: '12 19 * * *'
+  workflow_dispatch:
+    inputs:
+      threshold:
+        description: 'Probability at or above which a judgement counts as yes.'
+        required: false
+        default: '0.75'
+      skip_serps:
+        description: 'Skip the SERP refresh, which is the expensive part.'
+        type: boolean
+        required: false
+        default: true
+      research_only:
+        description: 'Measure, research and decide. Write nothing, publish nothing.'
+        type: boolean
+        required: false
+        default: false
+
+# Two runs editing the same JSON files and pushing to the same branch is a race
+# with a merge conflict at the end of it.
+concurrency:
+  group: daily-seo
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  loop:
+    runs-on: ubuntu-latest
+    # Lifted to the job so the write step can ask whether it exists. A step's own
+    # env block is not visible to that step's own `if`, which is the kind of thing
+    # that silently skips the most important step in the workflow forever.
+    env:
+      HAVE_WRITER: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/live-link-publishing-7zujix
+          # The push retry rebases, which needs more than one commit of history.
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install
+        run: |
+          pip install -r requirements.txt
+          npm i -D playwright@1 && npx playwright install --with-deps chromium
+
+      - name: Required secrets are present
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+          AHREFS_API_KEY: ${{ secrets.AHREFS_API_KEY }}
+        run: |
+          missing=
+          [ -z "$TYPESAFE_API_KEY" ] && missing="$missing TYPESAFE_API_KEY"
+          [ -z "$AHREFS_API_KEY" ] && missing="$missing AHREFS_API_KEY"
+          if [ -n "$missing" ]; then
+            echo "::error::Not set:$missing. The loop cannot judge or research without them."
+            exit 1
+          fi
+          echo "Both keys are set."
+
+      # 1. What happened. Falls back to the committed snapshot with no credentials,
+      #    which keeps the run honest instead of pretending it measured something.
+      - name: Measure what Search Console says
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: python seo/performance.py | tee /tmp/measure.txt
+
+      # 2. Today's market.
+      - name: Refresh the keyword data
+        env:
+          AHREFS_API_KEY: ${{ secrets.AHREFS_API_KEY }}
+        run: python seo/refresh.py --keywords --discover | tee /tmp/research.txt
+
+      # Weekly, not daily. A first page does not turn over overnight and this is
+      # one API call per term. Mondays on the schedule, or on demand.
+      - name: Refresh who holds the top of the page
+        if: ${{ (github.event_name == 'schedule' && github.run_number % 7 == 1) || (github.event_name == 'workflow_dispatch' && inputs.skip_serps == false) }}
+        env:
+          AHREFS_API_KEY: ${{ secrets.AHREFS_API_KEY }}
+        run: python seo/refresh.py --serps --serp-top 12 | tee /tmp/serps.txt
+
+      # 3. The judgements Ahrefs cannot make. Every new term discovered above has
+      #    to pass through here before it can reach the publishing queue.
+      - name: Judge which terms this business may target
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: |
+          python seo/triage.py --threshold "${{ inputs.threshold || '0.75' }}" \
+            | tee /tmp/triage.txt
+
+      - name: Judge which rival terms are worth taking
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: |
+          python seo/competitors.py --threshold "${{ inputs.threshold || '0.75' }}" \
+            | tee /tmp/rivals.txt
+
+      # 4. One decision, with the reason attached.
+      - name: Decide today's job
+        id: decide
+        run: |
+          python seo/opportunities.py --write | tee /tmp/decide.txt
+          brief=$(python -c "import json,pathlib; p=pathlib.Path('seo/queue.json'); d=json.loads(p.read_text()) if p.exists() else {}; print(d.get('brief',''))")
+          echo "brief=$brief" >> "$GITHUB_OUTPUT"
+          if [ -n "$brief" ]; then
+            echo "target=$(python -c "import json;print(json.load(open('seo/queue.json')).get('job',''))")" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Summarise the research
+        if: always()
+        run: |
+          {
+            echo "## Daily SEO loop"
+            echo
+            for section in measure research serps triage rivals decide; do
+              if [ -f "/tmp/$section.txt" ]; then
+                echo "<details><summary>$section</summary>"
+                echo
+                echo '```'
+                cat "/tmp/$section.txt"
+                echo '```'
+                echo
+                echo "</details>"
+                echo
+              fi
+            done
+            if [ -n "${{ steps.decide.outputs.brief }}" ]; then
+              echo "### Today's brief"
+              echo
+              cat "${{ steps.decide.outputs.brief }}"
+            else
+              echo "Nothing was ready to publish today. The research above says why."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # 5. The brief becomes a page. Autonomously if the key is there, otherwise
+      #    an issue, because a loop that silently stops at the writing step is a
+      #    loop that looks like it is working and is not.
+      - name: Write the page
+        if: ${{ steps.decide.outputs.brief != '' && inputs.research_only != true && env.HAVE_WRITER == 'true' }}
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Read ${{ steps.decide.outputs.brief }} and carry it out.
+
+            The brief is the specification. It names the page, the terms it has to
+            answer, the constraint on the subject, and the checks that have to pass.
+            Read .claude/skills/gps-guide/SKILL.md and
+            .claude/skills/gps-compliance/SKILL.md before writing a word, and
+            follow the house rules in gen/guidecontent.py.
+
+            Copy lives in gen/guidecontent.py, never in docs/*.html directly. Run
+            the build, then the checks the brief lists. Do not commit if the
+            compliance check reports a finding: fix the copy and run it again.
+
+            Australian spelling. No em dashes. No emoji.
+
+      - name: Open the brief as an issue instead
+        if: ${{ steps.decide.outputs.brief != '' && inputs.research_only != true && env.HAVE_WRITER != 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRIEF: ${{ steps.decide.outputs.brief }}
+        run: |
+          title="SEO brief: $(basename "$BRIEF" .md)"
+          if gh issue list --state open --search "$title in:title" --json number --jq 'length' | grep -qv '^0$'; then
+            echo "An issue for this brief is already open."
+            exit 0
+          fi
+          {
+            cat "$BRIEF"
+            echo
+            echo '---'
+            echo '_Generated by [Claude Code](https://claude.ai/code)_'
+          } > /tmp/issue.md
+          gh issue create --title "$title" --body-file /tmp/issue.md --label seo || \
+            gh issue create --title "$title" --body-file /tmp/issue.md
+
+      # 6. Nothing published without these. The compliance run is the TGA language
+      #    gate and a finding fails the job.
+      - name: Rebuild
+        run: |
+          python gen/build.py
+          python gen/tools.py
+          python gen/guides.py
+          python gen/learnindex.py
+          python gen/headmeta.py
+          python gen/launchstate.py
+          python gen/footer.py
+          python gen/optimise_images.py
+          python gen/searchindex.py
+          python gen/llms.py
+          python gen/sitemap.py
+
+      - name: The language gate
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: |
+          python checks/compliance.py --depth 2 \
+            --threshold "${{ inputs.threshold || '0.75' }}" | tee /tmp/compliance.txt
+
+      - name: The rest of the checks
+        run: |
+          node checks/config.mjs
+          node checks/linkcheck.mjs
+          cd docs && nohup python3 -m http.server 8777 > /dev/null 2>&1 &
+          for i in $(seq 1 20); do
+            curl -sf -o /dev/null http://127.0.0.1:8777/index.html && break
+            sleep 0.5
+          done
+          curl -sf -o /dev/null http://127.0.0.1:8777/index.html
+          node checks/seocheck.mjs
+          node checks/depth.mjs
+          node checks/sweep.mjs
+
+      - name: Commit what changed
+        if: ${{ inputs.research_only != true }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing changed today."
+            exit 0
+          fi
+          target='${{ steps.decide.outputs.target }}'
+          git commit -m "Daily SEO loop: ${target:-refresh the research}" \
+            -m "Ranked today's opportunities from refreshed Ahrefs data, the
+          competitor gaps, and what Search Console says the site is already being
+          shown for. The compliance gate passed before this was committed." \
+            -m "Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+          for delay in 2 4 8 16 0; do
+            git push origin HEAD:claude/live-link-publishing-7zujix && break
+            [ "$delay" = 0 ] && exit 1
+            echo "Push failed, retrying in ${delay}s."
+            sleep "$delay"
+            git pull --rebase origin claude/live-link-publishing-7zujix || true
+          done
+
+      - name: Keep the run
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-seo
+          path: |
+            seo/queue.json
+            seo/weights.json
+            seo/performance.json
+            seo/briefs/
+          if-no-files-found: ignore

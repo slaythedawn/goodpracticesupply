@@ -1,0 +1,101 @@
+{
+ "updated": "2026-09-28",
+ "runs": 1,
+ "intent": {
+  "informational": 1.05,
+  "commercial": 0.95,
+  "transactional": 0.95,
+  "local": 1.05
+ },
+ "pages": {
+  "/": {
+   "impressions": 3,
+   "clicks": 0,
+   "queries": 3,
+   "best_position": 69,
+   "action": "watch"
+  },
+  "/about": {
+   "impressions": 1,
+   "clicks": 0,
+   "queries": 1,
+   "best_position": 72,
+   "action": "watch"
+  },
+  "/for/diabetes-at-home": {
+   "impressions": 1,
+   "clicks": 0,
+   "queries": 1,
+   "best_position": 77,
+   "action": "watch"
+  },
+  "/for/trt-injections": {
+   "impressions": 1,
+   "clicks": 0,
+   "queries": 1,
+   "best_position": 49,
+   "action": "watch"
+  },
+  "/for/wound-care-at-home": {
+   "impressions": 1,
+   "clicks": 0,
+   "queries": 1,
+   "best_position": 95,
+   "action": "watch"
+  },
+  "/learn/artg-explained": {
+   "impressions": 7,
+   "clicks": 0,
+   "queries": 3,
+   "best_position": 10,
+   "action": "optimise"
+  },
+  "/learn/intramuscular-technique": {
+   "impressions": 1,
+   "clicks": 0,
+   "queries": 1,
+   "best_position": 42,
+   "action": "watch"
+  },
+  "/learn/needle-numbers-explained": {
+   "impressions": 4,
+   "clicks": 0,
+   "queries": 3,
+   "best_position": 68,
+   "action": "watch"
+  },
+  "/learn/reading-a-syringe": {
+   "impressions": 16,
+   "clicks": 0,
+   "queries": 15,
+   "best_position": 73,
+   "action": "expand"
+  },
+  "/learn/sharps-disposal-australia": {
+   "impressions": 20,
+   "clicks": 0,
+   "queries": 13,
+   "best_position": 46.5,
+   "action": "expand"
+  },
+  "/learn/subcutaneous-technique": {
+   "impressions": 6,
+   "clicks": 0,
+   "queries": 6,
+   "best_position": 62,
+   "action": "expand"
+  }
+ },
+ "log": [
+  {
+   "date": "2026-09-28",
+   "notes": [
+    "informational up 1.00 to 1.05 (5 of 13 signals)",
+    "commercial down 1.00 to 0.95 (2 of 13 signals)",
+    "transactional down 1.00 to 0.95 (2 of 13 signals)",
+    "local up 1.00 to 1.05 (4 of 13 signals)",
+    "strongest intent this run: informational"
+   ]
+  }
+ ]
+}

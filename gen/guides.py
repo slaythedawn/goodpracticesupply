@@ -11,13 +11,58 @@ from shop import (HEAD, FOOTER, LEARNCOLS, MENUCOLS, HEADER_VALS, REVEAL,
                   SCRIPT_OPEN, MONO, WRAP, H1, H2, LEAD, CARD, crumbs, page, E,
                   prose, faq_block)
 import seo as SEO
+import capture
+import feature
+import images
+from catalogue import I
 from guidecontent import GUIDES, BY_SLUG, A_NOTE
 
 DOCS = str(pathlib.Path(__file__).resolve().parent.parent / 'docs')
 
+# One photograph per guide. Presentation rather than copy, so it lives here
+# rather than in guidecontent.py, and a guide missing from the table fails the
+# build the way a guide missing from the Learn index does. The alt text is the
+# photograph, not the guide: somebody using a screen reader wants to know what
+# is in the picture.
+PHOTO = {
+ 'needle-numbers-explained': ('barrel', 'Syringes of three lengths laid side by side'),
+ 'gauge-comparison': ('needle_macro', 'A close view of a needle bevel'),
+ 'reading-a-syringe': ('syringes', 'Three insulin syringes out of the box'),
+ 'first-injection': ('vial_swabs', 'Foil swab sachets beside a small vial'),
+ 'subcutaneous-technique': ('blister', 'Pen needles blister wrapped in a tray'),
+ 'intramuscular-technique': ('lengths', 'Needles of several lengths side by side'),
+ 'reconstitution-basics': ('vial_swabs', 'A vial of sterile diluent beside foil sachets'),
+ 'sharps-disposal-australia': ('sharps', 'A yellow sharps container with the lid closed'),
+ 'artg-explained': ('carton', 'An opened carton of consumables'),
+ 'storing-supplies': ('tray', 'Consumables laid out flat in a tray'),
+}
+
 
 def path_of(g):
     return '/learn/' + g['slug']
+
+
+def hero(g):
+    """The photograph, full width, under the heading.
+
+    Eager rather than lazy, because on a guide this is the largest thing above
+    the fold and lazy loading the element that decides Largest Contentful Paint
+    is how a page gets slower by being careful.
+    """
+    key, alt = PHOTO[g['slug']]
+    url = I[key]
+    o = []
+    a = o.append
+    a('    <section style="border-bottom:1px solid #E3E3E1">\n')
+    a('      <div style="max-width:1440px;margin:0 auto;padding:0 clamp(20px,5vw,72px) '
+      'clamp(36px,5vw,60px)">\n')
+    a('        <div style="aspect-ratio:21/9;border-radius:22px;overflow:hidden;'
+      'background:#EDEDEB">\n')
+    a('          <img src="%s"%s alt="%s" fetchpriority="high" decoding="async" '
+      'style="width:100%%;height:100%%;object-fit:cover">\n'
+      % (images.optimised(url, 1440), images.srcset(url), E(alt)))
+    a('        </div>\n      </div>\n    </section>\n\n')
+    return ''.join(o)
 
 
 def build_main(g):
@@ -44,8 +89,15 @@ def build_main(g):
       % E(A_NOTE))
     a('        </div>\n      </div>\n    </section>\n\n')
 
+    a(hero(g))
     a(prose(g['body']))
+
+    # The one thing this reader reaches for next, then the ask. In that order:
+    # a sign-up box before the reader has been given anything useful is a
+    # sign-up box that gets scrolled past.
+    a(feature.block(path_of(g)))
     a(faq_block('Questions about this', g['faq']))
+    a(capture.block(path_of(g), feature.interest_for(path_of(g))))
 
     # Where to go next, which is also what stops these being ten orphans.
     rel = [BY_SLUG[s] for s in g['related']]
@@ -89,7 +141,8 @@ class Component extends DCLogic {
 def head_extra(g):
     path = path_of(g)
     return '\n'.join([
-        SEO.head_tags(path=path, title=g['title'], description=g['desc'], kind='article'),
+        SEO.head_tags(path=path, title=g['title'], description=g['desc'], kind='article',
+                      image=I[PHOTO[g['slug']][0]]),
         SEO.jsonld(SEO.article(path=path, headline=g['title'], description=g['desc'])),
         SEO.jsonld(SEO.breadcrumbs([('Home', '/'), ('Guides', '/learn'), (g['title'], path)])),
         SEO.jsonld(SEO.faq_schema(g['faq'])),
@@ -97,6 +150,11 @@ def head_extra(g):
 
 
 def main():
+    missing = [g['slug'] for g in GUIDES if g['slug'] not in PHOTO]
+    assert not missing, 'guides with no photograph: %s' % missing
+    unfeatured = [path_of(g) for g in GUIDES if feature.for_page(path_of(g)) is None]
+    assert not unfeatured, 'guides with no featured product or tool: %s' % unfeatured
+
     out = DOCS + '/learn'
     if not os.path.isdir(out):
         os.makedirs(out)

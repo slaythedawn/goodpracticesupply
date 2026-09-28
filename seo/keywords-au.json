@@ -1,6 +1,6 @@
 {
  "country": "au",
- "pulled": "2026-09-22",
+ "pulled": "2026-09-28",
  "source": "ahrefs keywords-explorer-matching-terms",
  "seeds": [
   "insulin syringe",
@@ -13,9 +13,37 @@
   "reconstitution",
   "sharps disposal",
   "sharps bin",
-  "needle disposal"
+  "needle disposal",
+  "insulin needles",
+  "syringe",
+  "sharps containers",
+  "alcohol swab"
  ],
  "keywords": [
+  {
+   "keyword": "insulin needles",
+   "volume": 8600,
+   "difficulty": 3,
+   "cpc": 20,
+   "traffic_potential": 700,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "syringe",
+   "volume": 7800,
+   "difficulty": 0,
+   "cpc": 35,
+   "traffic_potential": 4300,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
   {
    "keyword": "bacteriostatic water",
    "volume": 5700,
@@ -79,6 +107,18 @@
    ]
   },
   {
+   "keyword": "ear syringe",
+   "volume": 1600,
+   "difficulty": 0,
+   "cpc": 60,
+   "traffic_potential": 800,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
    "keyword": "alcohol swabs",
    "volume": 1300,
    "difficulty": 0,
@@ -91,6 +131,30 @@
    ]
   },
   {
+   "keyword": "1ml syringe",
+   "volume": 1300,
+   "difficulty": 1,
+   "cpc": 30,
+   "traffic_potential": 450,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "syringe chemist warehouse",
+   "volume": 1000,
+   "difficulty": 0,
+   "cpc": 4,
+   "traffic_potential": 10,
+   "intents": [
+    "commercial",
+    "transactional",
+    "branded",
+    "local"
+   ]
+  },
+  {
    "keyword": "black nitrile gloves",
    "volume": 800,
    "difficulty": 43,
@@ -99,6 +163,41 @@
    "intents": [
     "commercial",
     "transactional"
+   ]
+  },
+  {
+   "keyword": "syringe needle",
+   "volume": 800,
+   "difficulty": 0,
+   "cpc": 30,
+   "traffic_potential": 1300,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "sharps bin",
+   "volume": 700,
+   "difficulty": 0,
+   "cpc": 35,
+   "traffic_potential": 300,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "sharps disposal pharmacy near me",
+   "volume": 600,
+   "difficulty": 0,
+   "cpc": 130,
+   "traffic_potential": 700,
+   "intents": [
+    "informational",
+    "local"
    ]
   },
   {
@@ -160,6 +259,18 @@
    ]
   },
   {
+   "keyword": "sharps disposal near me",
+   "volume": 450,
+   "difficulty": 1,
+   "cpc": 130,
+   "traffic_potential": 2200,
+   "intents": [
+    "informational",
+    "transactional",
+    "local"
+   ]
+  },
+  {
    "keyword": "bd ultra fine pen needles",
    "volume": 400,
    "difficulty": 0,
@@ -186,6 +297,19 @@
    ]
   },
   {
+   "keyword": "insulin needles chemist warehouse",
+   "volume": 400,
+   "difficulty": 0,
+   "cpc": 6,
+   "traffic_potential": 300,
+   "intents": [
+    "commercial",
+    "transactional",
+    "branded",
+    "local"
+   ]
+  },
+  {
    "keyword": "25 gauge needle",
    "volume": 350,
    "difficulty": 0,
@@ -203,6 +327,64 @@
    "cpc": 60,
    "traffic_potential": 700,
    "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "needle syringe",
+   "volume": 350,
+   "difficulty": 0,
+   "cpc": 30,
+   "traffic_potential": 1100,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "10ml syringe",
+   "volume": 350,
+   "difficulty": 0,
+   "cpc": 30,
+   "traffic_potential": 350,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "plastic syringe",
+   "volume": 350,
+   "difficulty": 0,
+   "cpc": 30,
+   "traffic_potential": 450,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "alcohol swab",
+   "volume": 350,
+   "difficulty": 0,
+   "cpc": 9,
+   "traffic_potential": 700,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "oral syringe",
+   "volume": 350,
+   "difficulty": 0,
+   "cpc": 25,
+   "traffic_potential": 50,
+   "intents": [
+    "informational",
     "commercial",
     "transactional"
    ]
@@ -277,6 +459,102 @@
    ]
   },
   {
+   "keyword": "sharps disposal",
+   "volume": 300,
+   "difficulty": 1,
+   "cpc": 190,
+   "traffic_potential": 2200,
+   "intents": [
+    "informational",
+    "local"
+   ]
+  },
+  {
+   "keyword": "sharps containers",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc": 90,
+   "traffic_potential": 150,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "sharps",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc": 7,
+   "traffic_potential": 150,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "3ml syringe",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc": 30,
+   "traffic_potential": 90,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "monoject syringe",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc": 30,
+   "traffic_potential": 250,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional",
+    "branded"
+   ]
+  },
+  {
+   "keyword": "syringe bunnings",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc": 10,
+   "traffic_potential": 250,
+   "intents": [
+    "commercial",
+    "transactional",
+    "branded",
+    "local"
+   ]
+  },
+  {
+   "keyword": "dental syringe",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc": 30,
+   "traffic_potential": 300,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "syringe pump",
+   "volume": 300,
+   "difficulty": 1,
+   "cpc": 80,
+   "traffic_potential": 70,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
    "keyword": "bacteriostatic water australia",
    "volume": 250,
    "difficulty": 54,
@@ -331,6 +609,80 @@
     "informational",
     "commercial",
     "transactional"
+   ]
+  },
+  {
+   "keyword": "sharps kit",
+   "volume": 250,
+   "difficulty": 1,
+   "cpc": 25,
+   "traffic_potential": 30,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "5ml syringe",
+   "volume": 250,
+   "difficulty": 0,
+   "cpc": 35,
+   "traffic_potential": 450,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "large syringe",
+   "volume": 250,
+   "difficulty": 0,
+   "cpc": 20,
+   "traffic_potential": 200,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "chemist warehouse syringe",
+   "volume": 250,
+   "difficulty": 0,
+   "cpc": 2,
+   "traffic_potential": 3700,
+   "intents": [
+    "commercial",
+    "transactional",
+    "branded",
+    "local"
+   ]
+  },
+  {
+   "keyword": "syringe with needle chemist warehouse",
+   "volume": 250,
+   "difficulty": 0,
+   "cpc": 7,
+   "traffic_potential": 3500,
+   "intents": [
+    "commercial",
+    "transactional",
+    "branded",
+    "local"
+   ]
+  },
+  {
+   "keyword": "syringe woolworths",
+   "volume": 250,
+   "difficulty": 0,
+   "cpc": 35,
+   "traffic_potential": 150,
+   "intents": [
+    "commercial",
+    "transactional",
+    "branded",
+    "local"
    ]
   },
   {
@@ -447,6 +799,102 @@
     "commercial",
     "transactional",
     "local"
+   ]
+  },
+  {
+   "keyword": "disposal of sharps containers",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc": 110,
+   "traffic_potential": 2600,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional",
+    "local"
+   ]
+  },
+  {
+   "keyword": "2ml syringe",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc": 40,
+   "traffic_potential": 4300,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "20ml syringe",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc": 35,
+   "traffic_potential": 10,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "insulin needles australia",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc": 40,
+   "traffic_potential": 1400,
+   "intents": [
+    "commercial",
+    "transactional"
+   ]
+  },
+  {
+   "keyword": "free sharps containers australia",
+   "volume": 200,
+   "difficulty": 7,
+   "cpc": 100,
+   "traffic_potential": 2200,
+   "intents": [
+    "informational",
+    "local"
+   ]
+  },
+  {
+   "keyword": "terumo syringe",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc": 60,
+   "traffic_potential": 200,
+   "intents": [
+    "informational",
+    "commercial",
+    "transactional",
+    "branded"
+   ]
+  },
+  {
+   "keyword": "1ml syringe chemist warehouse",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc": 4,
+   "traffic_potential": 4300,
+   "intents": [
+    "commercial",
+    "transactional",
+    "branded",
+    "local"
+   ]
+  },
+  {
+   "keyword": "bunnings syringe",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc": 15,
+   "traffic_potential": 400,
+   "intents": [
+    "commercial",
+    "transactional",
+    "branded"
    ]
   },
   {
@@ -721,65 +1169,6 @@
     "commercial",
     "transactional",
     "branded",
-    "local"
-   ]
-  },
-  {
-   "keyword": "sharps bin",
-   "volume": 700,
-   "difficulty": 0,
-   "cpc": 35,
-   "traffic_potential": 300,
-   "intents": [
-    "informational",
-    "commercial",
-    "transactional"
-   ]
-  },
-  {
-   "keyword": "sharps disposal pharmacy near me",
-   "volume": 600,
-   "difficulty": 0,
-   "cpc": 130,
-   "traffic_potential": 700,
-   "intents": [
-    "informational",
-    "local"
-   ]
-  },
-  {
-   "keyword": "sharps disposal near me",
-   "volume": 450,
-   "difficulty": 1,
-   "cpc": 130,
-   "traffic_potential": 2200,
-   "intents": [
-    "informational",
-    "transactional",
-    "local"
-   ]
-  },
-  {
-   "keyword": "sharps disposal",
-   "volume": 300,
-   "difficulty": 1,
-   "cpc": 190,
-   "traffic_potential": 2200,
-   "intents": [
-    "informational",
-    "local"
-   ]
-  },
-  {
-   "keyword": "disposal of sharps containers",
-   "volume": 200,
-   "difficulty": 0,
-   "cpc": 110,
-   "traffic_potential": 2600,
-   "intents": [
-    "informational",
-    "commercial",
-    "transactional",
     "local"
    ]
   },

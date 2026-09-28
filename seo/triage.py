@@ -30,11 +30,18 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / 'seo' / 'keywords-au.json'
+RESULT = ROOT / 'seo' / 'triage-result.json'
 
-# The shop is noindex until the catalogue is real, so a transactional term has
-# nowhere to land today however easy it looks. Keeping that here rather than in
-# a judgement means it changes the day INDEX_SHOP flips, by editing one line.
-SHOP_IS_INDEXED = False
+# Whether a transactional term has anywhere to land depends on whether the shop
+# is open to search, which is decided in gen/seo.py and nowhere else. This used
+# to be a hardcoded False beside a comment promising it would be edited the day
+# that changed. The day came, the categories were opened, and this was still
+# False: the exact drift the Learn index cards were rewritten to prevent. It is
+# now read from the one place that knows.
+sys.path.insert(0, str(ROOT / 'gen'))
+import seo as SEO
+
+SHOP_IS_INDEXED = SEO.INDEX_SHOP_CATEGORIES
 
 
 def opportunity(row):
@@ -96,6 +103,9 @@ def main():
     ap.add_argument('--limit', type=int, default=0)
     ap.add_argument('--threshold', type=float, default=0.7,
                     help='probability at or above which safe_to_target counts as yes')
+    ap.add_argument('--all', action='store_true',
+                    help='re-judge every term, including ones already judged. Use '
+                         'after changing the questions, not on a schedule.')
     args = ap.parse_args()
 
     data = json.loads(DATA.read_text(encoding='utf-8'))
@@ -138,9 +148,30 @@ def main():
 
     questions = build_questions(Noul)
 
+    # A judgement about a search term does not go off. Carry forward what has
+    # already been answered and pay only for what is new, which on a daily run is
+    # the handful of terms the Ahrefs refresh turned up rather than all of them.
+    previous = {}
+    if RESULT.exists() and not args.all:
+        for old_row in json.loads(RESULT.read_text(encoding='utf-8')):
+            if old_row.get('safe_to_target') is not None:
+                previous[old_row['keyword'].lower()] = old_row
+
+    carried = 0
+    for row in rows:
+        old_row = previous.get(row['keyword'].lower())
+        if old_row:
+            row['safe_to_target'] = old_row['safe_to_target']
+            row['serves_a_buyer'] = old_row.get('serves_a_buyer')
+            carried += 1
+
+    fresh = [r for r in rows if r.get('safe_to_target') is None]
+    print('%d term%s already judged and carried forward, %d to judge now.'
+          % (carried, '' if carried == 1 else 's', len(fresh)))
+
     try:
         with TypeSafeClient() as client:
-            for row in rows:
+            for row in fresh:
                 state = {'search_term': row['keyword'],
                          'intents_reported_by_ahrefs': row.get('intents')}
                 result = client.system_one(state=state, questions=questions)
@@ -169,10 +200,9 @@ def main():
         for r in sorted(unsafe, key=lambda r: r['safe_to_target'])[:12]:
             print('  %-46s %.2f' % (r['keyword'][:46], r['safe_to_target']))
 
-    out = ROOT / 'seo' / 'triage-result.json'
-    out.write_text(json.dumps(rows, indent=1), encoding='utf-8')
-    print('\n%d of %d worth pursuing. Full result written to %s'
-          % (len(go), len(rows), out.relative_to(ROOT)))
+    RESULT.write_text(json.dumps(rows, indent=1) + '\n', encoding='utf-8')
+    print('\n%d of %d worth pursuing. %d judged this run. Full result written to %s'
+          % (len(go), len(rows), len(fresh), RESULT.relative_to(ROOT)))
     return 0
 
 

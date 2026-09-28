@@ -10,6 +10,10 @@ __pycache__/
 .env.*.local
 .venv/
 
-# Keyword triage output, regenerated per run.
-seo/triage-result.json
+# Advisory output, regenerated per run and never read by anything else.
 seo/internal-links-suggested.json
+
+# seo/triage-result.json is deliberately NOT ignored. The safety judgements are
+# the record of which terms this business was cleared to target and which it was
+# not, opportunities.py refuses to queue a term that has no judgement, and
+# re-asking the same 120 questions every morning costs money to learn nothing.

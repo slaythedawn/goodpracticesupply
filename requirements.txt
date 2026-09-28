@@ -5,3 +5,9 @@ python-dotenv==1.2.3
 
 # checks/compliance.py: the house copy rules as typed judgements.
 typesafe-sdk==0.7.1
+
+# seo/performance.py: reading Search Console in CI. Only needed for a live pull;
+# without credentials the script falls back to the committed snapshot and these
+# are never imported.
+google-api-python-client==2.184.0
+google-auth==2.42.1

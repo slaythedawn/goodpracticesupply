@@ -1,0 +1,246 @@
+{
+ "pulled": "2026-09-28",
+ "country": "au",
+ "source": "ahrefs serp-overview and site-explorer-organic-keywords",
+ "note": "Who actually appears in the SERPs this site wants, what each one holds, and which lane it occupies. Refreshed by the daily loop. lane decides how we treat a rival, not how good they are.",
+ "lanes": {
+  "retailer": "Sells the same consumables we do. Contest these directly, term by term.",
+  "authority": "Government, a health service, or a peak body. Do not contest the head term. A commercial page will not outrank a state health department on disposal advice and should not try. Serve the product term beside it instead.",
+  "marketplace": "Amazon, eBay, Etsy and the like. Beatable on specificity and on being Australian, never on domain strength.",
+  "adjacent": "Ranks in our SERPs selling something we do not and will not sell. Recorded so the gap analysis can see the whole SERP. Never a template to copy."
+ },
+ "competitors": [
+  {
+   "domain": "medshop.com.au",
+   "lane": "retailer",
+   "domain_rating": null,
+   "why": "The closest thing to a direct competitor. One collection page holds insulin needles at 11,000 a month and insulin syringes at 6,500, both at difficulty 3 or lower.",
+   "holds": [
+    {
+     "keyword": "insulin needles",
+     "volume": 8600,
+     "difficulty": 3,
+     "position": 1,
+     "url": "https://www.medshop.com.au/collections/insulin-syringes",
+     "traffic": 660
+    },
+    {
+     "keyword": "insulin syringes",
+     "volume": 5300,
+     "difficulty": 0,
+     "position": 1,
+     "url": "https://www.medshop.com.au/collections/insulin-syringes",
+     "traffic": 518
+    },
+    {
+     "keyword": "insulin syringe",
+     "volume": 2300,
+     "difficulty": 3,
+     "position": 5,
+     "url": "https://www.medshop.com.au/collections/insulin-syringes",
+     "traffic": 68
+    },
+    {
+     "keyword": "stethoscope",
+     "volume": 11000,
+     "difficulty": 29,
+     "position": 1,
+     "url": "https://www.medshop.com.au/collections/littmann-stethoscopes",
+     "traffic": 778
+    },
+    {
+     "keyword": "medical supplies australia",
+     "volume": 450,
+     "difficulty": 72,
+     "position": 3,
+     "url": "https://www.medshop.com.au/",
+     "traffic": 106
+    },
+    {
+     "keyword": "fob watch",
+     "volume": 2500,
+     "difficulty": 0,
+     "position": 1,
+     "url": "https://www.medshop.com.au/blogs/news/match-the-right-nurse-s-watch-to-your-personality",
+     "traffic": 103
+    }
+   ]
+  },
+  {
+   "domain": "livingstone.com.au",
+   "lane": "retailer",
+   "domain_rating": 42,
+   "why": "A generalist supplier whose catalogue is wide enough to rank for stopwatch and panadol. Relevant to us at exactly one point: a single product page holds bacteriostatic water at 7,100 a month, difficulty 0, from position 5.",
+   "holds": [
+    {
+     "keyword": "bacteriostatic water",
+     "volume": 7100,
+     "difficulty": 0,
+     "position": 5,
+     "url": "https://www.livingstone.com.au/products/bwc20ml-glass-vials-bacteriostatic-water-0-9pct-benzyl-alc-20-ml-ea",
+     "traffic": 438
+    },
+    {
+     "keyword": "speculum",
+     "volume": 3000,
+     "difficulty": 0,
+     "position": 2,
+     "url": "https://www.livingstone.com.au/products/wvsslrg-livingstone-vaginal-speculum-17-w-x290-l-mm-ss-large-each",
+     "traffic": 155
+    },
+    {
+     "keyword": "colostomy bag",
+     "volume": 3800,
+     "difficulty": 0,
+     "position": 4,
+     "url": "https://www.livingstone.com.au/products/colbag25-liv-colostomy-bag-240x140mm-stoma-diameter-25mm-10-pack",
+     "traffic": 92
+    },
+    {
+     "keyword": "bepanthen antiseptic cream",
+     "volume": 1600,
+     "difficulty": 0,
+     "position": 6,
+     "url": "https://www.livingstone.com.au/blog/first-aid/wound-care/2024/08/benefits-and-uses-of-bepanthen-antiseptic-cream/",
+     "traffic": 33
+    }
+   ]
+  },
+  {
+   "domain": "allmedicalwaste.com.au",
+   "lane": "retailer",
+   "domain_rating": 3,
+   "why": "The most useful data point in this file. Domain rating 3, ranking seventh for sharps container. A page selling the thing can reach page one of a product SERP without any domain strength at all, which is the entire bet this site is making.",
+   "holds": [
+    {
+     "keyword": "sharps container",
+     "volume": 2300,
+     "difficulty": 0,
+     "position": 7,
+     "url": "https://www.allmedicalwaste.com.au/product-category/sharps-containers/",
+     "traffic": 304
+    }
+   ]
+  },
+  {
+   "domain": "diabetesaustralia.com.au",
+   "lane": "authority",
+   "domain_rating": 77,
+   "why": "Holds position 2 for sharps disposal and 3 for sharps container with one resource page taking 1,678 visits a month. Not contestable on the disposal head term and not worth the attempt.",
+   "holds": [
+    {
+     "keyword": "sharps disposal",
+     "volume": 300,
+     "difficulty": 1,
+     "position": 2,
+     "url": "https://www.diabetesaustralia.com.au/resources/safe-sharps/",
+     "traffic": 1678
+    },
+    {
+     "keyword": "sharps container",
+     "volume": 2300,
+     "difficulty": 0,
+     "position": 3,
+     "url": "https://www.diabetesaustralia.com.au/resources/safe-sharps/",
+     "traffic": 1678
+    }
+   ]
+  },
+  {
+   "domain": "health.nsw.gov.au",
+   "lane": "authority",
+   "domain_rating": 92,
+   "why": "Community sharps management, position 3 and 6. A state health department. The correct response is to link to it, not to compete with it.",
+   "holds": [
+    {
+     "keyword": "sharps disposal",
+     "volume": 300,
+     "difficulty": 1,
+     "position": 3,
+     "url": "https://www.health.nsw.gov.au/community-sharps/Pages/default.aspx",
+     "traffic": 729
+    }
+   ]
+  },
+  {
+   "domain": "chemistwarehouse.com.au",
+   "lane": "retailer",
+   "domain_rating": 77,
+   "why": "Position 4 for sharps container, and the brand that a long tail of our keywords is actually searching for. Around 4,000 monthly searches in the keyword file are somebody looking for a syringe at Chemist Warehouse. That is demand for a product with a shop attached to it, not demand for us, and a page that pretends otherwise is a page that bounces.",
+   "holds": [
+    {
+     "keyword": "sharps container",
+     "volume": 2300,
+     "difficulty": 0,
+     "position": 4,
+     "url": "https://www.chemistwarehouse.com.au/shop-online/70057/sharps-containers",
+     "traffic": 350
+    }
+   ]
+  },
+  {
+   "domain": "bunnings.com.au",
+   "lane": "retailer",
+   "domain_rating": 81,
+   "why": "Position 8 for sharps container on a single product listing. Worth knowing because it explains the syringe bunnings long tail.",
+   "holds": [
+    {
+     "keyword": "sharps container",
+     "volume": 2300,
+     "difficulty": 0,
+     "position": 8,
+     "url": "https://www.bunnings.com.au/fastaid-sharps-container-plastic-1-4l-yellow_p0670124",
+     "traffic": 118
+    }
+   ]
+  },
+  {
+   "domain": "amazon.com.au",
+   "lane": "marketplace",
+   "domain_rating": 91,
+   "why": "Position 6 for bacteriostatic water. Present in most product SERPs in this space.",
+   "holds": [
+    {
+     "keyword": "bacteriostatic water",
+     "volume": 7100,
+     "difficulty": 0,
+     "position": 6,
+     "url": "https://www.amazon.com.au/Water-Bacterostatic-Plastic-Vial-10ml/dp/B0H74MJVX2",
+     "traffic": 467
+    }
+   ]
+  },
+  {
+   "domain": "aussiepeptidehub.com.au",
+   "lane": "adjacent",
+   "domain_rating": 0,
+   "why": "Domain rating 0, position 2 for bacteriostatic water, 2,258 visits a month. Two facts sit in that one line. A brand new domain can take second place in this SERP, which is encouraging. And it does so as a peptide retailer, which is the one thing this business is not and will not become. We sell the same vial of sterile diluent and describe it as a diluent. Recorded as intelligence. Never as a model.",
+   "holds": [
+    {
+     "keyword": "bacteriostatic water",
+     "volume": 7100,
+     "difficulty": 0,
+     "position": 2,
+     "url": "https://aussiepeptidehub.com.au/collections/bacteriostatic-water-australia",
+     "traffic": 2258
+    }
+   ]
+  },
+  {
+   "domain": "hamiltoncompany.com",
+   "lane": "adjacent",
+   "domain_rating": 70,
+   "why": "A lab instrument maker in the United States holding position 2 for needle gauge chart, on a first page that also contains a microfluidics blog, a UK reseller at domain rating 11, and a Pinterest pin about knitting needles. It looked like a vacancy until the volume came back: twenty searches a month in Australia. The page is empty because nobody local is knocking. Kept in the file as the worked example of a SERP that is weak and worthless at the same time.",
+   "holds": [
+    {
+     "keyword": "needle gauge chart",
+     "volume": 20,
+     "difficulty": 10,
+     "position": 2,
+     "url": "https://www.hamiltoncompany.com/laboratory-products/needles-knowledge/needle-gauge-chart",
+     "traffic": null
+    }
+   ]
+  }
+ ]
+}
