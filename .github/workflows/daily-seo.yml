@@ -25,8 +25,13 @@
 # thing it would buy.
 #
 # Repository secrets:
-#   TYPESAFE_API_KEY           required. The safety judgements.
-#   AHREFS_API_KEY             required. The market data.
+#   TYPESAFE_API_KEY           required. The safety judgements, and the language
+#                              gate that decides whether anything may be published.
+#   AHREFS_API_KEY             optional. Only needed to refresh the market data from
+#                              inside CI. When it is absent the refresh is skipped
+#                              and the committed keyword data is used, which is the
+#                              arrangement when the pull runs through the Ahrefs MCP
+#                              connector from a session instead.
 #   GSC_SERVICE_ACCOUNT_JSON   optional. Without it the run falls back to the
 #                              committed Search Console snapshot, which means the
 #                              loop still works but stops learning anything new.
@@ -83,6 +88,7 @@ jobs:
     # that silently skips the most important step in the workflow forever.
     env:
       HAVE_WRITER: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+      HAVE_AHREFS: ${{ secrets.AHREFS_API_KEY != '' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -102,19 +108,23 @@ jobs:
           pip install -r requirements.txt
           npm i -D playwright@1 && npx playwright install --with-deps chromium
 
+      # Checked before anything is spent, and the message has to be readable in an
+      # email, because that is where it is actually read.
       - name: Required secrets are present
         env:
           TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
           AHREFS_API_KEY: ${{ secrets.AHREFS_API_KEY }}
         run: |
-          missing=
-          [ -z "$TYPESAFE_API_KEY" ] && missing="$missing TYPESAFE_API_KEY"
-          [ -z "$AHREFS_API_KEY" ] && missing="$missing AHREFS_API_KEY"
-          if [ -n "$missing" ]; then
-            echo "::error::Not set:$missing. The loop cannot judge or research without them."
+          if [ -z "$TYPESAFE_API_KEY" ]; then
+            echo "::error::TYPESAFE_API_KEY is not set, so nothing can be judged and nothing can be published. Add it under Settings, Secrets and variables, Actions on this repository."
             exit 1
           fi
-          echo "Both keys are set."
+          echo "TYPESAFE_API_KEY is set."
+          if [ -z "$AHREFS_API_KEY" ]; then
+            echo "AHREFS_API_KEY is not set. The keyword refresh will be skipped and the"
+            echo "committed data used instead, which is the intended arrangement when the"
+            echo "refresh runs through the Ahrefs MCP connector from a session."
+          fi
 
       # 1. What happened. Falls back to the committed snapshot with no credentials,
       #    which keeps the run honest instead of pretending it measured something.
@@ -124,14 +134,26 @@ jobs:
         run: python seo/performance.py | tee /tmp/measure.txt
 
       # 2. Today's market.
+      #
+      # Ahrefs reaches this repository one of two ways. With AHREFS_API_KEY set the
+      # refresh runs here. Without it, a scheduled Claude Code session pulls the
+      # same figures through the Ahrefs MCP connector and commits them, because a
+      # GitHub runner cannot reach a connector authorised against a claude.ai
+      # account. Either way the committed JSON is what the rest of the loop reads,
+      # so only the step that fills it changes.
       - name: Refresh the keyword data
+        if: ${{ env.HAVE_AHREFS == 'true' }}
         env:
           AHREFS_API_KEY: ${{ secrets.AHREFS_API_KEY }}
         run: python seo/refresh.py --keywords --discover | tee /tmp/research.txt
 
+      - name: Or report how old the committed data is
+        if: ${{ env.HAVE_AHREFS != 'true' }}
+        run: python seo/refresh.py --age | tee /tmp/research.txt
+
       # Weekly, not daily. Only the Sunday cron carries it, or an explicit run.
       - name: Refresh who holds the top of the page
-        if: ${{ github.event.schedule == '27 19 * * 0' || (github.event_name == 'workflow_dispatch' && inputs.skip_serps == false) }}
+        if: ${{ env.HAVE_AHREFS == 'true' && (github.event.schedule == '27 19 * * 0' || (github.event_name == 'workflow_dispatch' && inputs.skip_serps == false)) }}
         env:
           AHREFS_API_KEY: ${{ secrets.AHREFS_API_KEY }}
         run: python seo/refresh.py --serps --serp-top 12 | tee /tmp/serps.txt

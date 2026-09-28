@@ -7,6 +7,19 @@ difficulty 3, which was the largest single opportunity on the site and was not i
 the file at all. A keyword file that is refreshed by hand is a keyword file that
 is six weeks stale the moment anybody stops thinking about it.
 
+Two ways the numbers get in here, because Ahrefs is reachable by two different
+routes and only one of them works from a GitHub runner.
+
+  With AHREFS_API_KEY set, this calls the API directly. Simple, unattended, and
+  it needs a key on the repository.
+
+  Without one, the same figures come through the Ahrefs MCP connector from a
+  Claude Code session, which is authorised against a claude.ai account and cannot
+  be reached from CI at all. The session saves what the connector returned and
+  runs --apply, so the merging, the sorting and the what-moved report stay in this
+  file rather than being done by hand in a chat window. Same code path, same
+  output, different way in.
+
 Three things it can do, and the daily run does the first two:
 
   --keywords   Re-read volume, difficulty, cost per click, traffic potential and
@@ -22,6 +35,8 @@ Everything is written back into the committed JSON, so a run is a diff somebody
 can read, and a bad refresh is one revert away.
 
     python seo/refresh.py --keywords --discover     # needs AHREFS_API_KEY
+    python seo/refresh.py --apply pulled.json       # from the MCP, no key
+    python seo/refresh.py --age                     # how stale is the file
     python seo/refresh.py --plan                    # offline, prints the calls
 
 Credentials come from AHREFS_API_KEY, out of the environment or .env.local. The
@@ -241,6 +256,86 @@ def refresh_serps(rivals, data, key, top, plan=False):
     return changes
 
 
+# Days after which committed keyword data is old enough to say so loudly. Not a
+# failure: a fortnight old volume is still better than no volume, and stopping the
+# whole loop over it would trade a small inaccuracy for publishing nothing.
+STALE_AFTER = 14
+
+
+def age(data):
+    pulled = data.get('pulled')
+    if not pulled:
+        print('The keyword file does not say when it was pulled.')
+        return 1
+    days = (datetime.date.today() - datetime.date.fromisoformat(pulled)).days
+    total = sum(r.get('volume') or 0 for r in data['keywords'])
+    print('%d keywords, %d total monthly volume, pulled %s, %d day%s ago.'
+          % (len(data['keywords']), total, pulled, days, '' if days == 1 else 's'))
+    if days > STALE_AFTER:
+        print('::warning::The keyword data is %d days old. Refresh it through the '
+              'Ahrefs MCP connector and commit the result, or set AHREFS_API_KEY so '
+              'CI can do it.' % days)
+    else:
+        print('Fresh enough to rank against.')
+    return 0
+
+
+def apply_pulled(data, path):
+    """Merge a response fetched elsewhere, such as through the MCP connector.
+
+    Accepts what the Ahrefs endpoints actually return, so a session can save the
+    tool result verbatim rather than reshaping it: an object with a "keywords"
+    array, or a bare array. Rows missing a keyword are skipped rather than
+    guessed at.
+
+    This exists so that the one machine that can reach the connector does not also
+    have to do the merging by hand. Hand-editing a 120 row keyword file in a chat
+    window is how a keyword file quietly acquires a term with no volume and a
+    difficulty somebody remembered.
+    """
+    raw = json.loads(pathlib.Path(path).read_text(encoding='utf-8'))
+    rows = raw.get('keywords', []) if isinstance(raw, dict) else raw
+    if not isinstance(rows, list):
+        raise ValueError('%s does not contain a keywords array' % path)
+
+    have = {r['keyword'].lower(): r for r in data['keywords']}
+    moves, added, skipped = [], [], 0
+    for row in rows:
+        term = (row.get('keyword') or '').strip()
+        if not term or ',' in term:
+            skipped += 1
+            continue
+        volume = row.get('volume')
+        existing = have.get(term.lower())
+        if existing is None:
+            data['keywords'].append({
+                'keyword': term, 'volume': volume,
+                'difficulty': row.get('difficulty'), 'cpc': row.get('cpc'),
+                'traffic_potential': row.get('traffic_potential'),
+                'intents': intents_list(row.get('intents')),
+            })
+            have[term.lower()] = data['keywords'][-1]
+            added.append(term)
+            continue
+        before = existing.get('volume') or 0
+        after = volume or 0
+        if before and after and abs(after - before) / before >= MOVED:
+            moves.append((term, before, after))
+        elif not before and after:
+            moves.append((term, before, after))
+        existing['volume'] = after
+        for field in ('difficulty', 'cpc', 'traffic_potential'):
+            if row.get(field) is not None:
+                existing[field] = row[field]
+        intents = intents_list(row.get('intents'))
+        if intents:
+            existing['intents'] = intents
+    if skipped:
+        print('%d row%s had no usable keyword and were skipped.'
+              % (skipped, '' if skipped == 1 else 's'))
+    return moves, added
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument('--keywords', action='store_true', help='refresh the tracked terms')
@@ -248,19 +343,32 @@ def main():
     ap.add_argument('--serps', action='store_true', help='refresh who holds the top')
     ap.add_argument('--serp-top', type=int, default=12,
                     help='how many terms to re-check the SERP for')
+    ap.add_argument('--apply', default='',
+                    help='merge a response already fetched elsewhere, such as '
+                         'through the Ahrefs MCP connector. Needs no key.')
+    ap.add_argument('--age', action='store_true',
+                    help='say how old the committed data is and stop. Free.')
     ap.add_argument('--plan', action='store_true',
                     help='print the calls that would be made and stop. Free.')
     args = ap.parse_args()
 
-    if not (args.keywords or args.discover or args.serps):
+    if not (args.keywords or args.discover or args.serps or args.apply or args.age):
         args.keywords = args.discover = True
 
     data = json.loads(KEYWORDS.read_text(encoding='utf-8'))
     rivals = json.loads(RIVALS.read_text(encoding='utf-8'))
     today = datetime.date.today().isoformat()
-    key = None if args.plan else key_or_die()
+
+    if args.age:
+        return age(data)
 
     moves, added, changes = [], [], []
+    if args.apply:
+        moves, added = apply_pulled(data, args.apply)
+    # A key is only needed for the paths that call the API themselves.
+    key = None if (args.plan or not (args.keywords or args.discover or args.serps)) \
+        else key_or_die()
+
     if args.keywords:
         moves = refresh_keywords(data, key, args.plan)
     if args.discover:

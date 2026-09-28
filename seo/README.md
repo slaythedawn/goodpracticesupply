@@ -3,7 +3,7 @@
 Six files that each do one thing, wired into one scheduled workflow so the site
 gets a little better at ranking every day without anybody sitting down to do it.
 
-    refresh.py        today's numbers from Ahrefs
+    refresh.py        today's numbers from Ahrefs, by API key or by connector
     performance.py    what Search Console says happened, and what that changes
     competitors.py    which rival terms are worth taking, and which are theirs
     triage.py         which terms this business is allowed to target at all
@@ -12,6 +12,29 @@ gets a little better at ranking every day without anybody sitting down to do it.
 
 `.github/workflows/daily-seo.yml` runs them in that order at 19:12 UTC, which is
 just after five in the morning in Sydney.
+
+## Two routes into Ahrefs, and why
+
+Ahrefs is reachable two ways and only one of them works unattended from CI.
+
+**With `AHREFS_API_KEY` on the repository** the nightly workflow calls the API
+itself and the whole loop runs in one place.
+
+**Through the Ahrefs MCP connector** the pull happens in a Claude Code session
+instead. A connector is authorised against a claude.ai account, so a GitHub runner
+cannot reach it at all, and no amount of configuration will change that. The
+session saves whatever the connector returned and runs:
+
+    python seo/refresh.py --apply pulled.json
+
+which merges it, reports what moved, and sorts the file. The merging stays in
+Python on purpose. Hand-editing a 120 row keyword file in a chat window is how a
+keyword file quietly acquires a term with a difficulty somebody remembered.
+
+The workflow does not require the key. Without it the refresh step is skipped, the
+age of the committed data is reported, and anything older than a fortnight prints a
+warning rather than stopping the run: a two week old volume figure is still better
+than publishing nothing.
 
 ## Why two tools and not one
 
@@ -97,8 +120,13 @@ Worth keeping, because it is the argument for the whole thing.
 
 - `insulin needles`, 8,600 searches a month at difficulty 3, held at position one
   by a single Medshop collection page. It was not in the keyword file at all.
-- `bacteriostatic water` moved from 5,700 to 7,100 searches in six days. A
-  keyword file maintained by hand is stale the moment anybody looks away.
+- The same term reads differently depending on which Ahrefs report you ask.
+  `bacteriostatic water` is 5,700 searches a month in Keywords Explorer and 7,100
+  in Site Explorer, because the two use a different volume basis. An earlier draft
+  of this file read that pair as a rise over six days, which it was not. Compare a
+  figure only against the same endpoint that produced it, which is why `refresh.py`
+  pulls every tracked term from one report rather than gathering them from
+  wherever they turn up.
 - Search Console showed `/learn/reading-a-syringe` surfacing for sixteen distinct
   queries about where a given millilitre mark sits on a 1mL barrel, every one
   between position 73 and 89. Google had already decided the page was on the
@@ -133,8 +161,8 @@ Settings, Secrets and variables, Actions.
 
 | secret | needed for | without it |
 | --- | --- | --- |
-| `TYPESAFE_API_KEY` | every safety judgement | the loop fails, by design |
-| `AHREFS_API_KEY` | the market data | the loop fails, by design |
+| `TYPESAFE_API_KEY` | every safety judgement and the language gate | the loop fails, by design. Nothing publishes unjudged |
+| `AHREFS_API_KEY` | refreshing the market data inside CI | the refresh is skipped and the committed data is used, which is correct when the pull comes through the MCP connector instead |
 | `GSC_SERVICE_ACCOUNT_JSON` | reading Search Console | falls back to the committed snapshot, so the loop runs and stops learning |
 | `ANTHROPIC_API_KEY` | writing the page without a person | the brief is opened as an issue instead |
 

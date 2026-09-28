@@ -27,8 +27,8 @@
    "cpc": 20,
    "traffic_potential": 700,
    "intents": [
-    "informational",
     "commercial",
+    "informational",
     "transactional"
    ]
   },
@@ -39,20 +39,20 @@
    "cpc": 35,
    "traffic_potential": 4300,
    "intents": [
-    "informational",
     "commercial",
+    "informational",
     "transactional"
    ]
   },
   {
    "keyword": "bacteriostatic water",
    "volume": 5700,
-   "difficulty": 52,
+   "difficulty": 0,
    "cpc": 35,
    "traffic_potential": 2200,
    "intents": [
-    "informational",
     "commercial",
+    "informational",
     "transactional"
    ]
   },
@@ -63,8 +63,8 @@
    "cpc": 80,
    "traffic_potential": 70,
    "intents": [
-    "informational",
     "commercial",
+    "informational",
     "transactional"
    ]
   },
@@ -89,8 +89,8 @@
    "cpc": 25,
    "traffic_potential": 2100,
    "intents": [
-    "informational",
     "commercial",
+    "informational",
     "transactional"
    ]
   },
@@ -101,8 +101,8 @@
    "cpc": 25,
    "traffic_potential": 1100,
    "intents": [
-    "informational",
     "commercial",
+    "informational",
     "transactional"
    ]
   },
@@ -125,8 +125,8 @@
    "cpc": 9,
    "traffic_potential": 450,
    "intents": [
-    "informational",
     "commercial",
+    "informational",
     "transactional"
    ]
   },
@@ -184,8 +184,8 @@
    "cpc": 35,
    "traffic_potential": 300,
    "intents": [
-    "informational",
     "commercial",
+    "informational",
     "transactional"
    ]
   },
@@ -1353,6 +1353,18 @@
    "intents": [
     "informational",
     "local"
+   ]
+  },
+  {
+   "keyword": "pen needles",
+   "volume": 70,
+   "difficulty": 0,
+   "cpc": 45,
+   "traffic_potential": 10,
+   "intents": [
+    "commercial",
+    "informational",
+    "transactional"
    ]
   },
   {
