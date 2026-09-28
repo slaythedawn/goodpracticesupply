@@ -44,11 +44,33 @@ TRIAGE = ROOT / 'seo' / 'triage-result.json'
 WEIGHTS = ROOT / 'seo' / 'weights.json'
 SNAPSHOT = ROOT / 'seo' / 'gsc-snapshot.json'
 QUEUE = ROOT / 'seo' / 'queue.json'
+LEDGER = ROOT / 'seo' / 'ledger.json'
 BRIEFS = ROOT / 'seo' / 'briefs'
+
+# Days before the same cluster can be briefed again.
+#
+# Without this the loop is broken in a way that looks like it is working. The
+# highest scoring cluster stays the highest scoring cluster until the page
+# actually improves, and a page does not improve the morning after it is
+# rewritten: Search Console takes weeks to move. So the first run would brief
+# reading-a-syringe, and so would the second, and the thirtieth, while everything
+# behind it in the queue was never reached.
+COOLDOWN = 14
 
 # A term a rival already holds is worth more than an empty SERP of the same size:
 # somebody has proved there is money in it, and the page doing it is a page.
 RIVAL_BONUS = 1.3
+
+# What a term is worth when the searcher was looking for a named shop. Around
+# 4,000 searches a month in this keyword file are somebody trying to find a
+# syringe at Chemist Warehouse, and on volume alone those terms rank near the top.
+#
+# Not blocked, because a page can honestly say what a chain stocks and what we
+# stock instead, and that is a real answer. Scored down, because the person asked
+# for a different shop and a page that pretends otherwise is a page they bounce
+# off. The judgement comes from triage.py so the decision is visible rather than
+# buried in a keyword blocklist.
+BRAND_PENALTY = 0.25
 
 # A page of ours inside the top 20 for a term has it. Queuing the term again buys
 # a second page that splits the same clicks.
@@ -87,6 +109,19 @@ DULL = {'a', 'an', 'the', 'and', 'or', 'of', 'for', 'to', 'in', 'on', 'at', 'is'
         'my', 'your', 'you', 'buy', 'best', 'cheap', 'near', 'me', 'australia',
         'online', 'free', 'with', 'from', 'can', 'be', 'much', 'many', 'look',
         'like', 'size', 'sizes'}
+
+
+def ledger():
+    data = read(LEDGER, None) or {'entries': []}
+    return data
+
+
+def on_cooldown(led, today):
+    """Clusters briefed recently enough that briefing them again is wasted."""
+    cutoff = (datetime.date.fromisoformat(today)
+              - datetime.timedelta(days=COOLDOWN)).isoformat()
+    return {e['cluster']: e['date'] for e in led.get('entries', [])
+            if e.get('date', '') >= cutoff}
 
 
 def read(path, default=None):
@@ -249,6 +284,7 @@ def score_rows(keywords, gaps, weights, seen, pages):
             'best_home': as_path(home) if home else None,
             'home_fit': fit,
             'safe_to_target': None,
+            'brand_term_is_theirs': None,
             'constraint': constraint_for(term),
             'score': round(base * weight * rival, 1),
         }
@@ -287,6 +323,11 @@ def apply_triage(rows, triage):
             continue
         row['safe_to_target'] = j.get('safe_to_target')
         row['serves_a_buyer'] = j.get('serves_a_buyer')
+        row['brand_term_is_theirs'] = j.get('brand_term_is_theirs')
+        if (row['brand_term_is_theirs'] or 0) >= SAFE_ENOUGH:
+            row['score'] = round(row['score'] * BRAND_PENALTY, 1)
+            row['why'] = ('%s. The searcher wanted a named shop, so this is scored '
+                          'down rather than chased' % row['why'])
 
 
 def cluster(rows):
@@ -334,8 +375,12 @@ def cluster(rows):
     return out
 
 
-def ready(c):
+def ready(c, recent=None):
     """A cluster is only publishable when every term in it has been cleared."""
+    recent = recent or {}
+    if c['key'] in recent:
+        return False, ('briefed on %s, and %d days have to pass before it is worth '
+                       'briefing again' % (recent[c['key']], COOLDOWN))
     if c['held']:
         return False, 'the safety triage rejected %s' % ', '.join(c['held'][:3])
     if c['unjudged']:
@@ -474,7 +519,7 @@ def main():
 
     seen = measured(snapshot)
     rows = score_rows(keywords, gaps, weights, seen, pages)
-    apply_triage(rows, triage)
+    apply_triage(rows, triage)   # may rescore, so cluster afterwards
     clusters = cluster(rows)
     today = datetime.date.today().isoformat()
 
@@ -485,18 +530,24 @@ def main():
                                       ('search console', snapshot)] if v) or 'none'))
 
     print('%-9s %8s %7s %-34s %s' % ('action', 'score', 'volume', 'target', 'cluster'))
+    led = ledger()
+    recent = on_cooldown(led, today)
     for c in clusters[:args.top]:
-        ok, _ = ready(c)
+        ok, _ = ready(c, recent)
         print('%-9s %8.1f %7d %-34s %s%s'
               % (c['action'], c['score'], c['volume'], c['target'][:34],
                  c['key'], '' if ok else '  (held)'))
 
-    actionable = [c for c in clusters if ready(c)[0]]
-    blocked = [(c, ready(c)[1]) for c in clusters if not ready(c)[0]]
+    actionable = [c for c in clusters if ready(c, recent)[0]]
+    blocked = [(c, ready(c, recent)[1]) for c in clusters if not ready(c, recent)[0]]
 
     if blocked:
-        print('\n%d cluster%s held back:' % (len(blocked), '' if len(blocked) == 1 else 's'))
-        for c, reason in blocked[:6]:
+        resting = [b for b in blocked if b[0]['key'] in recent]
+        print('\n%d cluster%s held back%s:'
+              % (len(blocked), '' if len(blocked) == 1 else 's',
+                 (', %d of them resting after a recent brief' % len(resting))
+                 if resting else ''))
+        for c, reason in blocked[:8]:
             print('  %-34s %s' % (c['target'][:34], reason))
 
     if not actionable:
@@ -526,8 +577,17 @@ def main():
                                      'clusters': clusters,
                                      'actionable': [c['key'] for c in actionable]},
                                     indent=1) + '\n', encoding='utf-8')
+        led['entries'] = ([{'date': today, 'cluster': job['key'],
+                            'target': job['target'], 'action': job['action'],
+                            'page': job['page'],
+                            'brief': str(out.relative_to(ROOT)),
+                            'score_when_chosen': job['score']}]
+                          + led.get('entries', []))[:400]
+        LEDGER.write_text(json.dumps(led, indent=1) + '\n', encoding='utf-8')
         print('\nBrief written to %s' % out.relative_to(ROOT))
         print('Queue written to %s' % QUEUE.relative_to(ROOT))
+        print('Logged in %s, so it will not be briefed again for %d days'
+              % (LEDGER.relative_to(ROOT), COOLDOWN))
     return 0
 
 

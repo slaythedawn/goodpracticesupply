@@ -58,6 +58,21 @@ not need a rival page, it needs those fifteen questions answered.
 `opportunities.py` clusters by the page that should serve a term, so a cluster
 produces one brief that says expand, not five that say write.
 
+**Brief the same page twice in a fortnight.** Without a cooldown the loop is
+broken in a way that looks like it is working: the highest scoring cluster stays
+the highest scoring cluster until the page actually improves, and a page does not
+improve the morning after it is rewritten, because Search Console takes weeks to
+move. `ledger.json` records what was briefed and `COOLDOWN` in
+`opportunities.py` rests it for fourteen days, so the queue gets worked instead of
+the top of it being rewritten every day.
+
+**Chase somebody else's shop.** Around 4,000 searches a month in the keyword file
+are a person trying to find a syringe at Chemist Warehouse, and on volume alone
+those terms sit near the top. `triage.py` asks whether a term belongs to a named
+brand and `opportunities.py` scores it to a quarter. Not blocked: a page can
+honestly say what a chain stocks and what we stock instead. Scored down, because
+the person asked for a different shop.
+
 **Chase an authority.** `competitors.json` records a lane per rival. Against a
 state health department on sharps disposal advice, the correct move is to link to
 them and take the product term sitting next to it. Contesting it is a month spent
@@ -134,4 +149,5 @@ under Settings, Users and permissions. Read-only access is enough.
 | `performance.json` | yes | ninety days of snapshots, for trends |
 | `weights.json` | yes | the learned weights and the log of every change |
 | `queue.json` | yes | today's ranked clusters and which one was chosen |
+| `ledger.json` | yes | what was briefed and when, which is what stops the loop briefing the same page every morning |
 | `briefs/` | yes | one brief per published day |

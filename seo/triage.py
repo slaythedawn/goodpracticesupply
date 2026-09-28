@@ -84,6 +84,19 @@ def build_questions(Noul):
                          'read as an offer to supply that drug or as advice about '
                          'taking it.',
             }),
+        'brand_term_is_theirs': Noul(
+            instructions='Is this search term a person looking for one specific named '
+                         'shop, chain or manufacturer, rather than looking for the '
+                         'product itself?',
+            criteria={
+                'true': 'The term names a retailer, chain or brand and the person wants '
+                        'that one. A different supplier appearing in the results is not '
+                        'the answer they asked for.',
+                'false': 'The term is about the product, the category or the task. Any '
+                         'supplier with the right page can answer it. A brand name used '
+                         'generically for the product, the way people say a brand when '
+                         'they mean the item, counts as false.',
+            }),
         'serves_a_buyer': Noul(
             instructions='Is the person searching this term trying to obtain a '
                          'physical consumable product?',
@@ -163,9 +176,11 @@ def main():
         if old_row:
             row['safe_to_target'] = old_row['safe_to_target']
             row['serves_a_buyer'] = old_row.get('serves_a_buyer')
+            row['brand_term_is_theirs'] = old_row.get('brand_term_is_theirs')
             carried += 1
 
-    fresh = [r for r in rows if r.get('safe_to_target') is None]
+    fresh = [r for r in rows if r.get('safe_to_target') is None
+             or r.get('brand_term_is_theirs') is None]
     print('%d term%s already judged and carried forward, %d to judge now.'
           % (carried, '' if carried == 1 else 's', len(fresh)))
 
@@ -177,6 +192,8 @@ def main():
                 result = client.system_one(state=state, questions=questions)
                 row['safe_to_target'] = round(result.nouls['safe_to_target'].noul, 3)
                 row['serves_a_buyer'] = round(result.nouls['serves_a_buyer'].noul, 3)
+                row['brand_term_is_theirs'] = round(
+                    result.nouls['brand_term_is_theirs'].noul, 3)
     except TypeSafeAPIConnectionError as exc:
         print('Could not reach the TypeSafe API: %s' % exc, file=sys.stderr)
         return 3
@@ -194,6 +211,17 @@ def main():
         print('%-46s %7.1f %5s %5s %6.2f'
               % (r['keyword'][:46], r['opportunity'], r.get('volume'),
                  r.get('difficulty'), r['safe_to_target']))
+
+    theirs = [r for r in rows
+              if (r.get('brand_term_is_theirs') or 0) >= args.threshold]
+    if theirs:
+        print('\n== Somebody else\'s brand, %d of them ==\n' % len(theirs))
+        print('Not blocked. A page can honestly answer what a chain stocks and what we')
+        print('stock instead. But the searcher wanted that shop, so these are scored')
+        print('down rather than chased, and the reason is on the record.\n')
+        for r in sorted(theirs, key=lambda r: -(r.get('volume') or 0))[:12]:
+            print('  %-46s %5s searches  %.2f'
+                  % (r['keyword'][:46], r.get('volume'), r['brand_term_is_theirs']))
 
     if unsafe:
         print('\n== Judged unsafe to target, lowest first ==\n')
