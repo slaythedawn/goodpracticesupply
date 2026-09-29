@@ -23,7 +23,7 @@
    "in_keyword_file": true,
    "in_our_catalogue": true,
    "we_can_answer_better": 0.44,
-   "brand_term_is_theirs": 0.04,
+   "brand_term_is_theirs": 0.03,
    "worth_contesting": false
   },
   {
@@ -40,7 +40,7 @@
    "contest_score": 7090.7,
    "in_keyword_file": true,
    "in_our_catalogue": true,
-   "we_can_answer_better": 0.61,
+   "we_can_answer_better": 0.62,
    "brand_term_is_theirs": 0.03,
    "worth_contesting": false
   },
@@ -87,7 +87,7 @@
    "contest_score": 2550.0,
    "in_keyword_file": false,
    "in_our_catalogue": true,
-   "we_can_answer_better": 0.47,
+   "we_can_answer_better": 0.45,
    "brand_term_is_theirs": 0.03,
    "worth_contesting": false
   },
@@ -119,7 +119,7 @@
    "contest_score": 2530.0,
    "in_keyword_file": true,
    "in_our_catalogue": true,
-   "we_can_answer_better": 0.46,
+   "we_can_answer_better": 0.43,
    "brand_term_is_theirs": 0.03,
    "worth_contesting": false
   },
@@ -146,7 +146,7 @@
    "contest_score": 2231.0,
    "in_keyword_file": true,
    "in_our_catalogue": true,
-   "we_can_answer_better": 0.46,
+   "we_can_answer_better": 0.48,
    "brand_term_is_theirs": 0.03,
    "worth_contesting": false
   },
@@ -164,7 +164,7 @@
    "contest_score": 331.9,
    "in_keyword_file": false,
    "in_our_catalogue": false,
-   "we_can_answer_better": 0.3,
+   "we_can_answer_better": 0.31,
    "brand_term_is_theirs": 0.04,
    "worth_contesting": false
   },
@@ -200,8 +200,8 @@
    "contest_score": 106.2,
    "in_keyword_file": false,
    "in_our_catalogue": false,
-   "we_can_answer_better": 0.64,
-   "brand_term_is_theirs": 0.04,
+   "we_can_answer_better": 0.66,
+   "brand_term_is_theirs": 0.03,
    "worth_contesting": false
   },
   {
@@ -218,7 +218,7 @@
    "contest_score": 80.0,
    "in_keyword_file": false,
    "in_our_catalogue": false,
-   "we_can_answer_better": 0.52,
+   "we_can_answer_better": 0.49,
    "brand_term_is_theirs": 0.09,
    "worth_contesting": false
   },
@@ -249,7 +249,7 @@
    "contest_score": 37.9,
    "in_keyword_file": true,
    "in_our_catalogue": true,
-   "we_can_answer_better": 0.23,
+   "we_can_answer_better": 0.22,
    "brand_term_is_theirs": 0.03,
    "worth_contesting": false
   },
@@ -275,7 +275,7 @@
    "contest_score": 9.2,
    "in_keyword_file": false,
    "in_our_catalogue": false,
-   "we_can_answer_better": 0.59,
+   "we_can_answer_better": 0.61,
    "brand_term_is_theirs": 0.04,
    "worth_contesting": false
   },

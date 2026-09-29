@@ -1,7 +1,7 @@
 {
- "date": "2026-09-28",
- "job": "page:/learn/reading-a-syringe",
- "brief": "seo/briefs/2026-09-28-syringe.md",
+ "date": "2026-09-29",
+ "job": "page:/shop/syringes-needles",
+ "brief": "seo/briefs/2026-09-29-insulin-needles.md",
  "clusters": [
   {
    "key": "page:/learn/reading-a-syringe",
@@ -3464,7 +3464,6 @@
   }
  ],
  "actionable": [
-  "page:/learn/reading-a-syringe",
   "page:/shop/syringes-needles",
   "page:/learn/sharps-disposal-australia",
   "page:/learn/reconstitution-basics",
