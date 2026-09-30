@@ -1,6 +1,15 @@
 {
  "entries": [
   {
+   "date": "2026-09-30",
+   "cluster": "page:/learn/sharps-disposal-australia",
+   "target": "sharps container",
+   "action": "expand",
+   "page": "/learn/sharps-disposal-australia",
+   "brief": "seo/briefs/2026-09-30-sharps-container.md",
+   "score_when_chosen": 11141.4
+  },
+  {
    "date": "2026-09-29",
    "cluster": "page:/shop/syringes-needles",
    "target": "insulin needles",
