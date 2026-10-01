@@ -1,7 +1,7 @@
 {
- "date": "2026-09-30",
- "job": "page:/learn/sharps-disposal-australia",
- "brief": "seo/briefs/2026-09-30-sharps-container.md",
+ "date": "2026-10-01",
+ "job": "page:/learn/reconstitution-basics",
+ "brief": "seo/briefs/2026-10-01-bacteriostatic-water.md",
  "clusters": [
   {
    "key": "page:/learn/reading-a-syringe",
@@ -3464,7 +3464,6 @@
   }
  ],
  "actionable": [
-  "page:/learn/sharps-disposal-australia",
   "page:/learn/reconstitution-basics",
   "page:/shop/gloves-ppe",
   "topic:bacteriostatic",
