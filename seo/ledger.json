@@ -1,6 +1,15 @@
 {
  "entries": [
   {
+   "date": "2026-10-02",
+   "cluster": "page:/shop/gloves-ppe",
+   "target": "nitrile gloves",
+   "action": "expand",
+   "page": "/shop/gloves-ppe",
+   "brief": "seo/briefs/2026-10-02-nitrile-gloves.md",
+   "score_when_chosen": 4911.3
+  },
+  {
    "date": "2026-10-01",
    "cluster": "page:/learn/reconstitution-basics",
    "target": "bacteriostatic water",
