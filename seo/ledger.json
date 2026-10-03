@@ -1,6 +1,15 @@
 {
  "entries": [
   {
+   "date": "2026-10-03",
+   "cluster": "topic:bacteriostatic",
+   "target": "bacteriostatic water chemist warehouse",
+   "action": "new",
+   "page": null,
+   "brief": "seo/briefs/2026-10-03-bacteriostatic-water-chemist-warehouse.md",
+   "score_when_chosen": 3575.0
+  },
+  {
    "date": "2026-10-02",
    "cluster": "page:/shop/gloves-ppe",
    "target": "nitrile gloves",

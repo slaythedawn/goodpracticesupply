@@ -1,7 +1,7 @@
 {
- "date": "2026-10-02",
- "job": "page:/shop/gloves-ppe",
- "brief": "seo/briefs/2026-10-02-nitrile-gloves.md",
+ "date": "2026-10-03",
+ "job": "topic:bacteriostatic",
+ "brief": "seo/briefs/2026-10-03-bacteriostatic-water-chemist-warehouse.md",
  "clusters": [
   {
    "key": "page:/learn/reading-a-syringe",
@@ -3464,7 +3464,6 @@
   }
  ],
  "actionable": [
-  "page:/shop/gloves-ppe",
   "topic:bacteriostatic",
   "topic:bd",
   "topic:sharps",
