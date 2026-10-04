@@ -1,7 +1,7 @@
 {
- "date": "2026-10-03",
- "job": "topic:bacteriostatic",
- "brief": "seo/briefs/2026-10-03-bacteriostatic-water-chemist-warehouse.md",
+ "date": "2026-10-04",
+ "job": "topic:bd",
+ "brief": "seo/briefs/2026-10-04-bd-ultra-fine-pen-needles-4mm-chemist-warehouse.md",
  "clusters": [
   {
    "key": "page:/learn/reading-a-syringe",
@@ -3464,7 +3464,6 @@
   }
  ],
  "actionable": [
-  "topic:bacteriostatic",
   "topic:bd",
   "topic:sharps",
   "topic:1ml",
