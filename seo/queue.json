@@ -1,7 +1,7 @@
 {
  "date": "2026-10-06",
- "job": "topic:sharps",
- "brief": "seo/briefs/2026-10-06-sharps-container-disposal-brisbane.md",
+ "job": "topic:1ml",
+ "brief": "seo/briefs/2026-10-06-1ml-syringe-chemist-warehouse.md",
  "clusters": [
   {
    "key": "page:/learn/reading-a-syringe",
@@ -3464,7 +3464,6 @@
   }
  ],
  "actionable": [
-  "topic:sharps",
   "topic:1ml",
   "topic:dispose",
   "topic:chemist",
