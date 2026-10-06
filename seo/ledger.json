@@ -1,6 +1,15 @@
 {
  "entries": [
   {
+   "date": "2026-10-06",
+   "cluster": "topic:sharps",
+   "target": "sharps container disposal brisbane",
+   "action": "new",
+   "page": null,
+   "brief": "seo/briefs/2026-10-06-sharps-container-disposal-brisbane.md",
+   "score_when_chosen": 2414.7
+  },
+  {
    "date": "2026-10-04",
    "cluster": "topic:bd",
    "target": "bd ultra fine pen needles 4mm chemist warehouse",
