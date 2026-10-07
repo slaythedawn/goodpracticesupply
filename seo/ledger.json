@@ -1,6 +1,15 @@
 {
  "entries": [
   {
+   "date": "2026-10-07",
+   "cluster": "topic:dispose",
+   "target": "where to dispose of sharps container",
+   "action": "new",
+   "page": null,
+   "brief": "seo/briefs/2026-10-07-where-to-dispose-of-sharps-container.md",
+   "score_when_chosen": 2172.0
+  },
+  {
    "date": "2026-10-06",
    "cluster": "topic:1ml",
    "target": "1ml syringe chemist warehouse",
