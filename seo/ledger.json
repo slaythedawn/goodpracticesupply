@@ -1,6 +1,15 @@
 {
  "entries": [
   {
+   "date": "2026-10-08",
+   "cluster": "topic:chemist",
+   "target": "chemist warehouse syringe",
+   "action": "new",
+   "page": null,
+   "brief": "seo/briefs/2026-10-08-chemist-warehouse-syringe.md",
+   "score_when_chosen": 1949.2
+  },
+  {
    "date": "2026-10-07",
    "cluster": "topic:dispose",
    "target": "where to dispose of sharps container",

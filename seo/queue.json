@@ -1,7 +1,7 @@
 {
- "date": "2026-10-07",
- "job": "topic:dispose",
- "brief": "seo/briefs/2026-10-07-where-to-dispose-of-sharps-container.md",
+ "date": "2026-10-08",
+ "job": "topic:chemist",
+ "brief": "seo/briefs/2026-10-08-chemist-warehouse-syringe.md",
  "clusters": [
   {
    "key": "page:/learn/reading-a-syringe",
@@ -3464,7 +3464,6 @@
   }
  ],
  "actionable": [
-  "topic:dispose",
   "topic:chemist",
   "page:/learn/needle-gauge-chart",
   "page:/shop/diluents-swabs",
