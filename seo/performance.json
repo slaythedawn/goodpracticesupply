@@ -1,6 +1,187 @@
 {
  "snapshots": [
   {
+   "date": "2026-10-10",
+   "start": "2026-08-29",
+   "end": "2026-09-26",
+   "queries": 48,
+   "impressions": 61,
+   "clicks": 0,
+   "pages": {
+    "/": {
+     "impressions": 3,
+     "clicks": 0,
+     "queries": 3,
+     "best_position": 69,
+     "striking": [],
+     "cluster": null,
+     "action": "watch",
+     "because": "3 impressions, nothing within reach yet"
+    },
+    "/about": {
+     "impressions": 1,
+     "clicks": 0,
+     "queries": 1,
+     "best_position": 72,
+     "striking": [],
+     "cluster": null,
+     "action": "watch",
+     "because": "1 impressions, nothing within reach yet"
+    },
+    "/for/diabetes-at-home": {
+     "impressions": 1,
+     "clicks": 0,
+     "queries": 1,
+     "best_position": 77,
+     "striking": [],
+     "cluster": null,
+     "action": "watch",
+     "because": "1 impressions, nothing within reach yet"
+    },
+    "/for/trt-injections": {
+     "impressions": 1,
+     "clicks": 0,
+     "queries": 1,
+     "best_position": 49,
+     "striking": [],
+     "cluster": null,
+     "action": "watch",
+     "because": "1 impressions, nothing within reach yet"
+    },
+    "/for/wound-care-at-home": {
+     "impressions": 1,
+     "clicks": 0,
+     "queries": 1,
+     "best_position": 95,
+     "striking": [],
+     "cluster": null,
+     "action": "watch",
+     "because": "1 impressions, nothing within reach yet"
+    },
+    "/learn/artg-explained": {
+     "impressions": 7,
+     "clicks": 0,
+     "queries": 3,
+     "best_position": 10,
+     "striking": [
+      "artg listing"
+     ],
+     "cluster": null,
+     "action": "optimise",
+     "because": "1 query already between 4 and 20, best at 10"
+    },
+    "/learn/intramuscular-technique": {
+     "impressions": 1,
+     "clicks": 0,
+     "queries": 1,
+     "best_position": 42,
+     "striking": [],
+     "cluster": null,
+     "action": "watch",
+     "because": "1 impressions, nothing within reach yet"
+    },
+    "/learn/needle-numbers-explained": {
+     "impressions": 4,
+     "clicks": 0,
+     "queries": 3,
+     "best_position": 68,
+     "striking": [],
+     "cluster": null,
+     "action": "watch",
+     "because": "4 impressions, nothing within reach yet"
+    },
+    "/learn/reading-a-syringe": {
+     "impressions": 16,
+     "clicks": 0,
+     "queries": 15,
+     "best_position": 73,
+     "striking": [],
+     "cluster": {
+      "words": [
+       "syringe",
+       "ml",
+       "1ml",
+       "plunger"
+      ],
+      "queries": [
+       "0.5 ml on a 1ml syringe",
+       "what is 0.4 ml on a syringe",
+       "how much is 6 ml on a syringe",
+       "how to read syringe plunger",
+       "syringe units",
+       "what does 1.5 ml look like on a syringe",
+       "how to read a 1 ml syringe",
+       "measurement on a syringe",
+       "reading a 1ml syringe",
+       "syringe number"
+      ],
+      "count": 15,
+      "median_position": 83
+     },
+     "action": "expand",
+     "because": "15 deep queries circling syringe, ml, 1ml, median position 83"
+    },
+    "/learn/sharps-disposal-australia": {
+     "impressions": 20,
+     "clicks": 0,
+     "queries": 13,
+     "best_position": 46.5,
+     "striking": [],
+     "cluster": {
+      "words": [
+       "sharps",
+       "disposal",
+       "container",
+       "dispose",
+       "bin",
+       "waste"
+      ],
+      "queries": [
+       "sharps container disposal nsw",
+       "sharps",
+       "dispose of sharps bin",
+       "sharps disposal",
+       "sharps container disposal",
+       "sharps bin disposal",
+       "sharps waste disposal",
+       "sharps container disposal qld",
+       "where to dispose of sharps containers brisbane",
+       "disposal of sharps"
+      ],
+      "count": 13,
+      "median_position": 71
+     },
+     "action": "expand",
+     "because": "13 deep queries circling sharps, disposal, container, median position 71"
+    },
+    "/learn/subcutaneous-technique": {
+     "impressions": 6,
+     "clicks": 0,
+     "queries": 6,
+     "best_position": 62,
+     "striking": [],
+     "cluster": {
+      "words": [
+       "subcutaneous",
+       "injection"
+      ],
+      "queries": [
+       "how to do subcutaneous injection",
+       "subcutaneous injection",
+       "subcutaneous injections",
+       "subcatenous",
+       "medication subcutaneous injection",
+       "subqutaneous"
+      ],
+      "count": 6,
+      "median_position": 85
+     },
+     "action": "expand",
+     "because": "6 deep queries circling subcutaneous, injection, median position 85"
+    }
+   }
+  },
+  {
    "date": "2026-10-09",
    "start": "2026-08-29",
    "end": "2026-09-26",

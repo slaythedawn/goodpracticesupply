@@ -1,6 +1,15 @@
 {
  "entries": [
   {
+   "date": "2026-10-10",
+   "cluster": "page:/shop/diluents-swabs",
+   "target": "alcohol swabs",
+   "action": "expand",
+   "page": "/shop/diluents-swabs",
+   "brief": "seo/briefs/2026-10-10-alcohol-swabs.md",
+   "score_when_chosen": 1770.0
+  },
+  {
    "date": "2026-10-09",
    "cluster": "page:/learn/needle-gauge-chart",
    "target": "25 gauge needle",
