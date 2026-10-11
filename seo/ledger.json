@@ -1,6 +1,15 @@
 {
  "entries": [
   {
+   "date": "2026-10-11",
+   "cluster": "topic:ear",
+   "target": "ear syringe",
+   "action": "new",
+   "page": null,
+   "brief": "seo/briefs/2026-10-11-ear-syringe.md",
+   "score_when_chosen": 1573.3
+  },
+  {
    "date": "2026-10-10",
    "cluster": "page:/shop/diluents-swabs",
    "target": "alcohol swabs",

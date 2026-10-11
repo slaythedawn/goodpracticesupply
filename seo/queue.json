@@ -1,7 +1,7 @@
 {
- "date": "2026-10-10",
- "job": "page:/shop/diluents-swabs",
- "brief": "seo/briefs/2026-10-10-alcohol-swabs.md",
+ "date": "2026-10-11",
+ "job": "topic:ear",
+ "brief": "seo/briefs/2026-10-11-ear-syringe.md",
  "clusters": [
   {
    "key": "page:/learn/reading-a-syringe",
@@ -3464,7 +3464,6 @@
   }
  ],
  "actionable": [
-  "page:/shop/diluents-swabs",
   "topic:ear",
   "page:/shop/clinic-disposal",
   "topic:insulin",
