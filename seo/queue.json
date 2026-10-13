@@ -1,7 +1,7 @@
 {
  "date": "2026-10-13",
- "job": "page:/learn/reading-a-syringe",
- "brief": "seo/briefs/2026-10-13-syringe.md",
+ "job": "page:/shop/clinic-disposal",
+ "brief": "seo/briefs/2026-10-13-sharps-box-disposal.md",
  "clusters": [
   {
    "key": "page:/learn/reading-a-syringe",
@@ -3464,7 +3464,6 @@
   }
  ],
  "actionable": [
-  "page:/learn/reading-a-syringe",
   "page:/shop/clinic-disposal",
   "topic:insulin",
   "topic:alcohol",

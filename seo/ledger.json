@@ -2,6 +2,15 @@
  "entries": [
   {
    "date": "2026-10-13",
+   "cluster": "page:/shop/clinic-disposal",
+   "target": "sharps box disposal",
+   "action": "expand",
+   "page": "/shop/clinic-disposal",
+   "brief": "seo/briefs/2026-10-13-sharps-box-disposal.md",
+   "score_when_chosen": 1300.0
+  },
+  {
+   "date": "2026-10-13",
    "cluster": "page:/learn/reading-a-syringe",
    "target": "syringe",
    "action": "expand",
