@@ -1,7 +1,7 @@
 {
- "date": "2026-10-13",
- "job": "page:/shop/clinic-disposal",
- "brief": "seo/briefs/2026-10-13-sharps-box-disposal.md",
+ "date": "2026-10-14",
+ "job": "page:/shop/syringes-needles",
+ "brief": "seo/briefs/2026-10-14-insulin-needles.md",
  "clusters": [
   {
    "key": "page:/learn/reading-a-syringe",
@@ -3464,7 +3464,7 @@
   }
  ],
  "actionable": [
-  "page:/shop/clinic-disposal",
+  "page:/shop/syringes-needles",
   "topic:insulin",
   "topic:alcohol",
   "topic:nitrile",

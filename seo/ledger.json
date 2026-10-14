@@ -1,6 +1,15 @@
 {
  "entries": [
   {
+   "date": "2026-10-14",
+   "cluster": "page:/shop/syringes-needles",
+   "target": "insulin needles",
+   "action": "expand",
+   "page": "/shop/syringes-needles",
+   "brief": "seo/briefs/2026-10-14-insulin-needles.md",
+   "score_when_chosen": 12990.3
+  },
+  {
    "date": "2026-10-13",
    "cluster": "page:/shop/clinic-disposal",
    "target": "sharps box disposal",
