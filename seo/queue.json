@@ -1,7 +1,7 @@
 {
- "date": "2026-10-14",
- "job": "page:/shop/syringes-needles",
- "brief": "seo/briefs/2026-10-14-insulin-needles.md",
+ "date": "2026-10-15",
+ "job": "page:/learn/sharps-disposal-australia",
+ "brief": "seo/briefs/2026-10-15-sharps-container.md",
  "clusters": [
   {
    "key": "page:/learn/reading-a-syringe",
@@ -3464,7 +3464,7 @@
   }
  ],
  "actionable": [
-  "page:/shop/syringes-needles",
+  "page:/learn/sharps-disposal-australia",
   "topic:insulin",
   "topic:alcohol",
   "topic:nitrile",
