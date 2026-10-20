@@ -1,6 +1,15 @@
 {
  "entries": [
   {
+   "date": "2026-10-20",
+   "cluster": "topic:insulin",
+   "target": "insulin syringe chemist warehouse",
+   "action": "new",
+   "page": null,
+   "brief": "seo/briefs/2026-10-20-insulin-syringe-chemist-warehouse.md",
+   "score_when_chosen": 786.6
+  },
+  {
    "date": "2026-10-19",
    "cluster": "topic:bd",
    "target": "bd ultra fine pen needles 4mm chemist warehouse",

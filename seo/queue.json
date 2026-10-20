@@ -1,7 +1,7 @@
 {
- "date": "2026-10-19",
- "job": "topic:bd",
- "brief": "seo/briefs/2026-10-19-bd-ultra-fine-pen-needles-4mm-chemist-warehouse.md",
+ "date": "2026-10-20",
+ "job": "topic:insulin",
+ "brief": "seo/briefs/2026-10-20-insulin-syringe-chemist-warehouse.md",
  "clusters": [
   {
    "key": "page:/learn/reading-a-syringe",
@@ -3464,7 +3464,6 @@
   }
  ],
  "actionable": [
-  "topic:bd",
   "topic:insulin",
   "topic:alcohol",
   "topic:nitrile",
