@@ -1,6 +1,15 @@
 {
  "entries": [
   {
+   "date": "2026-10-22",
+   "cluster": "topic:1ml",
+   "target": "1ml syringe chemist warehouse",
+   "action": "new",
+   "page": null,
+   "brief": "seo/briefs/2026-10-22-1ml-syringe-chemist-warehouse.md",
+   "score_when_chosen": 2328.0
+  },
+  {
    "date": "2026-10-21",
    "cluster": "topic:sharps",
    "target": "sharps container disposal brisbane",
