@@ -1,7 +1,7 @@
 {
- "date": "2026-10-22",
- "job": "topic:1ml",
- "brief": "seo/briefs/2026-10-22-1ml-syringe-chemist-warehouse.md",
+ "date": "2026-10-23",
+ "job": "topic:dispose",
+ "brief": "seo/briefs/2026-10-23-where-to-dispose-of-sharps-container.md",
  "clusters": [
   {
    "key": "page:/learn/reading-a-syringe",
@@ -3464,8 +3464,8 @@
   }
  ],
  "actionable": [
-  "topic:1ml",
   "topic:dispose",
+  "topic:chemist",
   "topic:alcohol",
   "topic:nitrile",
   "topic:oral",
