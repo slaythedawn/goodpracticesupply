@@ -1,7 +1,7 @@
 {
- "date": "2026-10-24",
- "job": "topic:chemist",
- "brief": "seo/briefs/2026-10-24-chemist-warehouse-syringe.md",
+ "date": "2026-10-25",
+ "job": "page:/learn/needle-gauge-chart",
+ "brief": "seo/briefs/2026-10-25-25-gauge-needle.md",
  "clusters": [
   {
    "key": "page:/learn/reading-a-syringe",
@@ -3464,8 +3464,8 @@
   }
  ],
  "actionable": [
-  "topic:chemist",
   "page:/learn/needle-gauge-chart",
+  "page:/shop/diluents-swabs",
   "topic:alcohol",
   "topic:nitrile",
   "topic:oral",
