@@ -1,7 +1,7 @@
 {
- "date": "2026-10-27",
- "job": "topic:ear",
- "brief": "seo/briefs/2026-10-27-ear-syringe.md",
+ "date": "2026-10-28",
+ "job": "page:/learn/reading-a-syringe",
+ "brief": "seo/briefs/2026-10-28-syringe.md",
  "clusters": [
   {
    "key": "page:/learn/reading-a-syringe",
@@ -3464,7 +3464,8 @@
   }
  ],
  "actionable": [
-  "topic:ear",
+  "page:/learn/reading-a-syringe",
+  "page:/shop/clinic-disposal",
   "topic:alcohol",
   "topic:nitrile",
   "topic:oral",
