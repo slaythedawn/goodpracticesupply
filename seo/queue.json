@@ -1,7 +1,7 @@
 {
- "date": "2026-10-28",
- "job": "page:/learn/reading-a-syringe",
- "brief": "seo/briefs/2026-10-28-syringe.md",
+ "date": "2026-10-29",
+ "job": "page:/shop/syringes-needles",
+ "brief": "seo/briefs/2026-10-29-insulin-needles.md",
  "clusters": [
   {
    "key": "page:/learn/reading-a-syringe",
@@ -3464,7 +3464,7 @@
   }
  ],
  "actionable": [
-  "page:/learn/reading-a-syringe",
+  "page:/shop/syringes-needles",
   "page:/shop/clinic-disposal",
   "topic:alcohol",
   "topic:nitrile",
