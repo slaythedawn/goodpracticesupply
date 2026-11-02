@@ -1,7 +1,7 @@
 {
  "date": "2026-11-02",
- "job": "page:/shop/diluents-swabs/bacteriostatic-water",
- "brief": "seo/briefs/2026-11-02-bacteriostatic-water.md",
+ "job": "page:/shop/clinic-disposal/sharps-container-bench",
+ "brief": "seo/briefs/2026-11-02-sharps-container.md",
  "clusters": [
   {
    "key": "page:/shop/syringes-needles",
@@ -3727,7 +3727,6 @@
   }
  ],
  "actionable": [
-  "page:/shop/diluents-swabs/bacteriostatic-water",
   "page:/shop/clinic-disposal/sharps-container-bench",
   "page:/shop/gloves-ppe/nitrile-examination-gloves",
   "page:/shop/syringes-needles/u-100-insulin-syringes",

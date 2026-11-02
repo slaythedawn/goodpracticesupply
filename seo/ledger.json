@@ -2,6 +2,16 @@
  "entries": [
   {
    "date": "2026-11-02",
+   "cluster": "page:/shop/clinic-disposal/sharps-container-bench",
+   "target": "sharps container",
+   "action": "expand",
+   "page": "/shop/clinic-disposal/sharps-container-bench",
+   "brief": "seo/briefs/2026-11-02-sharps-container.md",
+   "page_hash": "3703ac28676476aa",
+   "score_when_chosen": 6481.3
+  },
+  {
+   "date": "2026-11-02",
    "cluster": "page:/shop/diluents-swabs/bacteriostatic-water",
    "target": "bacteriostatic water",
    "action": "expand",
