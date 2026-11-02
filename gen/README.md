@@ -18,6 +18,7 @@ the fifty-eight pages come out of these scripts, so a change made by hand in
 | `tools.py` | calculator, gauge chart | imports `shop.py`, same |
 | `launchstate.py` | any page with a marked button | flips launch-state CTAs with `PURCHASABLE`, so launching is a switch rather than a copy edit |
 | `footer.py` | all 81 | applies the sitewide footer |
+| `autolink.py` | any page with an approved suggestion | applies the internal links `seo/internal_links.py` suggested, into built HTML rather than into source strings, idempotent |
 | `optimise_images.py` | all 81 | points every photograph at Vercel's image optimiser, idempotent |
 | `searchindex.py` | `search-index.json` | what the header search matches against, including the synonym list |
 | `sitemap.py` | `sitemap.xml`, `robots.txt`, `gen/lastmod.json` | run it last, after every page is written |

@@ -65,6 +65,46 @@ def hero(g):
     return ''.join(o)
 
 
+def table(spec):
+    """An optional reference table on a guide. (caption, [headings], [[cells]]).
+
+    Static HTML rather than a streaming component, because a table of numbers has
+    no state and the guides are built as plain pages. It is also the shape Google
+    lifts into a result, which is the point of putting one here: several of the
+    searches this page is already shown for are asking where a single mark falls
+    on a barrel, and a sentence answers that worse than a row does.
+    """
+    caption, headings, rows = spec
+    o = []
+    a = o.append
+    a('    <section style="background:#F2F2F1;border-bottom:1px solid #E3E3E1">\n')
+    a('      <div style="%s">\n' % WRAP)
+    a('        <div style="max-width:74ch">\n')
+    a('          <h2 style="%s">%s</h2>\n' % (H2, E(caption)))
+    a('          <div style="overflow-x:auto;margin-top:clamp(20px,3vw,32px)">\n')
+    a('            <table style="width:100%;border-collapse:collapse;font-size:16px">\n')
+    a('              <thead><tr>\n')
+    for h in headings:
+        a('                <th scope="col" style="%s;font-size:11.5px;letter-spacing:.14em;'
+          'text-transform:uppercase;color:#1C4034;text-align:left;padding:0 16px 12px 0;'
+          'border-bottom:1px solid #C4C4C2;white-space:nowrap">%s</th>\n' % (MONO, E(h)))
+    a('              </tr></thead>\n              <tbody>\n')
+    for row in rows:
+        a('                <tr>\n')
+        for i, cell in enumerate(row):
+            style = ('padding:13px 16px 13px 0;border-bottom:1px solid #E3E3E1;'
+                     'line-height:1.5;color:%s' % ('#0E0E0E' if i == 0 else '#3A3A38'))
+            if i == 0:
+                a('                  <th scope="row" style="%s;%s;font-weight:500;'
+                  'text-align:left;white-space:nowrap">%s</th>\n' % (MONO, style, E(cell)))
+            else:
+                a('                  <td style="%s">%s</td>\n' % (style, E(cell)))
+        a('                </tr>\n')
+    a('              </tbody>\n            </table>\n          </div>\n')
+    a('        </div>\n      </div>\n    </section>\n\n')
+    return ''.join(o)
+
+
 def build_main(g):
     m = ['<main>\n']
     a = m.append
@@ -91,6 +131,8 @@ def build_main(g):
 
     a(hero(g))
     a(prose(g['body']))
+    if g.get('table'):
+        a(table(g['table']))
 
     # The one thing this reader reaches for next, then the ask. In that order:
     # a sign-up box before the reader has been given anything useful is a

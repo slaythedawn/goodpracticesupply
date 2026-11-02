@@ -10,8 +10,9 @@ __pycache__/
 .env.*.local
 .venv/
 
-# Advisory output, regenerated per run and never read by anything else.
-seo/internal-links-suggested.json
+# seo/internal-links-suggested.json is NOT ignored. It stopped being advisory
+# the moment gen/autolink.py started reading it: it is now a build input, and a
+# build input that is not committed is a build that differs per machine.
 
 # seo/triage-result.json is deliberately NOT ignored. The safety judgements are
 # the record of which terms this business was cleared to target and which it was

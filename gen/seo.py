@@ -744,13 +744,47 @@ CATEGORY_SEO = {
    'An insulin syringe has the needle fixed to the barrel, which removes the dead space a luer fitting leaves behind. On a dose measured in units that dead space is a meaningful share of what you drew, so a fixed needle is the standard choice at that scale.',
    'Anything you need to draw with one needle and inject with another wants a luer fitting. Lock where there is pressure, because a slip fitting can separate under it.',
   ]),
-  ('Draw with one, inject with another', [
+  ('Insulin needles, and the two different things people mean by it', [
+   'Searching for insulin needles turns up two products that are not '
+   'interchangeable, and which one you want depends on what you are injecting '
+   'with rather than on what you are injecting.',
+   'If you draw up from a vial, you want an '
+   '[insulin syringe](/shop/syringes-needles/u-100-insulin-syringes): one piece, '
+   'with the needle fixed to the barrel and the barrel marked in units. If you '
+   'use a pen, you want [pen needles](/shop/syringes-needles/pen-needles), which '
+   'screw onto the pen and have no barrel at all because the pen does the '
+   'measuring.',
+   'Asking for insulin needles and being sent the wrong one of those is the most '
+   'common mix-up in this category, and it is why both are listed separately here '
+   'rather than under one heading.',
+  ]),
+ ('The sizes these actually come in', [
+   'Insulin syringes are commonly 29G, 30G or 31G, with 8mm the usual length, and '
+   'barrels of 0.3mL, 0.5mL or 1mL depending on how much you draw. The smaller '
+   'barrel is not a smaller dose, it is a finer scale: 0.3mL of barrel spread over '
+   'thirty units is easier to read than the same thirty units at the bottom of a '
+   '1mL one. [Reading a syringe](/learn/reading-a-syringe) covers which mark is '
+   'which.',
+   'Pen needles run 4mm, 5mm, 6mm and 8mm, at 31G or 32G. The length is the '
+   'decision and it belongs to whoever prescribed the medicine, not to a '
+   'preference for the shortest one.',
+   'The [Gauge Finder](/gauge-finder) asks three questions and narrows it, and '
+   'nothing you answer leaves your browser.',
+  ]),
+ ('Draw with one, inject with another', [
    'Pushing a needle through a rubber stopper blunts it. Draw up with an 18G, swap to the injecting needle, and the injection is noticeably more comfortable. If you are entering the same vial repeatedly, a vial access device does the job better than either.',
   ]),
  ],
  faq=[
   ('Can I buy syringes and needles without a prescription in Australia?',
    'Yes. Syringes, needles, swabs and sharps containers are consumables. You can buy them here without an account and without a script.'),
+  ('Are insulin needles and pen needles the same thing?',
+   'No. An insulin syringe is one piece with the needle fixed to a barrel marked in '
+   'units, for drawing up from a vial. A pen needle screws onto an injector pen and '
+   'has no barrel, because the pen measures the amount.'),
+  ('Do I need a prescription for insulin needles in Australia?',
+   'No. Syringes and needles are consumables and are sold without one. The medicine '
+   'that goes in them is a separate matter and is not something we supply.'),
   ('Which needle gauge is finest?',
    'The highest number. 31G is finer than 29G, which is finer than 25G. The scale runs backwards.'),
   ('What is the difference between an insulin syringe and a luer-lock syringe?',

@@ -156,53 +156,108 @@ GUIDES = [
 {
  'slug': 'reading-a-syringe',
  'title': 'Reading a syringe',
- 'meta': 'Guide · 4 min',
- 'blurb': 'Units, millilitres, and making sure the two are not confused.',
- 'desc': ('How to read the scale on an insulin syringe and a luer-lock syringe, '
-          'what U-100 means, and why units and millilitres are not '
-          'interchangeable.'),
- 'answer': ('Insulin syringes are marked in units and luer-lock syringes in '
-            'millilitres. On a U-100 syringe, 100 units is 1mL, so one unit mark is '
-            '0.01mL. Read the vial first and match the syringe to it.'),
+ 'meta': 'Guide · 8 min',
+ 'blurb': 'Units, millilitres, where each mark falls, and making sure the two are not confused.',
+ 'desc': ('Where each mark falls on a syringe barrel. What 0.4mL and 0.5mL look like '
+          'on a 1mL syringe, what U-100 means, and how to read the plunger rather '
+          'than the tip.'),
+ 'answer': ('On a 1mL syringe the barrel is usually marked every 0.01mL, with a numbered '
+            'line every 0.1mL, so 0.5mL is the halfway mark and 0.4mL is the one below '
+            'it. On a U-100 insulin syringe the same barrel is marked in units instead, '
+            'where 100 units is 1mL, so 0.4mL reads as 40 units. Read at the flat top of '
+            'the rubber stopper, not its pointed tip.'),
  'body': [
   ('Find out which scale you are holding', [
-   'Look at the barrel. If the numbers run 10, 20, 30 up to 50 or 100 and the '
-   'word units appears, it is an insulin syringe. If they run 0.2, 0.4, 0.6 and '
-   'so on, or 1, 2, 3, it is graduated in millilitres.',
-   'The two are not interchangeable and there is no conversion you can do in '
-   'your head reliably, because it depends on the concentration of what is in '
-   'the vial. Match the syringe to what the label says.',
+   'Look at the barrel. If the numbers run 10, 20, 30 up to 50 or 100 and the word '
+   'units appears, it is an insulin syringe. If they run 0.2, 0.4, 0.6 and so on, or '
+   '1, 2, 3, it is marked in millilitres.',
+   'The two are not interchangeable and there is no conversion you can do in your head '
+   'reliably, because it depends on the concentration of what is in the vial. Read the '
+   'vial first, then match the syringe to what it says.',
   ]),
-  ('What U-100 means', [
+  ('Where the marks fall on a 1mL barrel', [
+   'A 1mL syringe is the one most of these questions are about, and on almost every '
+   'one the smallest line is 0.01mL. The lines are grouped in tens, with a longer '
+   'numbered line every 0.1mL, which gives you ten numbered steps from empty to full.',
+   'So the halfway mark is 0.5mL. The one below it is 0.4mL, four numbered lines up '
+   'from the tip. Anything ending in five, like 0.25mL or 0.45mL, sits on the fifth '
+   'small line past a numbered one, which is the slightly longer line midway between '
+   'two numbers on most barrels.',
+   'Count the lines on the syringe in your hand before you rely on any of that. Most '
+   'makers follow the same pattern and not all of them do, and the barrel is the thing '
+   'telling the truth, not a web page.',
+  ]),
+  ('The same barrel in units, on a U-100 syringe', [
    'U-100 describes the concentration the scale assumes: one hundred units per '
-   'millilitre. On a 1mL U-100 syringe, the 100 mark and the 1mL mark are the '
-   'same place on the barrel, and a single unit is one hundredth of a '
-   'millilitre.',
-   'U-40 syringes exist for products at forty units per millilitre, which in '
-   'Australia is mostly veterinary. Using one scale for the other concentration '
-   'gives you the wrong amount of liquid. This is the single most important '
-   'thing on this page.',
+   'millilitre. On a 1mL U-100 syringe the 100 mark and the 1mL mark are the same '
+   'place, which makes the arithmetic easy. One unit is 0.01mL, ten units is 0.1mL, '
+   'and fifty units is half the barrel.',
+   'That is why an insulin syringe exists as a separate thing. At these volumes a '
+   'millilitre scale is hard to read and a unit scale is not.',
+   'U-40 syringes exist for products at forty units per millilitre, which in Australia '
+   'is mostly veterinary. The same mark on a U-40 barrel is a different amount of '
+   'liquid, so the two are not interchangeable either. Read the vial before you choose '
+   'the syringe.',
   ]),
-  ('Reading the line, not the tip', [
-   'The measurement is taken at the flat top of the rubber stopper inside the '
-   'barrel, not at the pointed tip of it. On a small dose that difference is a '
-   'meaningful share of what you drew.',
-   'Hold the syringe at eye level rather than looking down at it. Reading a '
-   'scale from an angle shifts where the line appears to sit, which matters more '
-   'the smaller the dose is.',
-   'Half unit syringes exist if you need finer resolution than a whole unit. '
-   'Whether you need one is a question for your prescriber, not a preference.',
+  ('Reading the plunger, not the tip', [
+   'The measurement is taken at the flat top of the rubber stopper inside the barrel, '
+   'the face nearest the needle, not at the pointed tip in front of it. The stopper is '
+   'a cone and the two ends can be two or three small lines apart, which at these '
+   'volumes is a real difference rather than a rounding one.',
+   'Hold the syringe upright at eye level rather than looking down at it. Reading a '
+   'scale from above shifts where the line appears to sit, and on a 0.01mL graduation '
+   'that shift is larger than the amount you are trying to measure.',
+   'Half unit syringes exist if you need finer resolution than a whole unit. Whether '
+   'you need one is a question for your prescriber, not a preference.',
+  ]),
+  ('Bigger barrels, and why 6mL is a question about the wrong syringe', [
+   'Past 1mL the barrels get coarser, because they have to. A 3mL syringe is usually '
+   'marked every 0.1mL, a 5mL every 0.2mL, and a 10mL every 0.2mL with numbers every '
+   'millilitre or two. The [needle gauge chart](/learn/needle-gauge-chart) covers the '
+   'needle end of the same decision.',
+   'This is why looking for 6mL on a syringe and not finding it usually means the '
+   'barrel is wrong rather than the number. Six millilitres does not exist on a 1mL or '
+   'a 3mL syringe at all. It is a little over halfway up a 10mL barrel.',
+   'Choose the smallest barrel that holds what you need. Measuring 0.4mL in a 10mL '
+   'syringe means reading a volume smaller than two of its smallest lines, and the same '
+   '0.4mL in a 1mL syringe sits on a numbered mark. The barrel decides how precisely '
+   'you can read it, which is the whole reason there is more than one size.',
   ]),
  ],
+ 'table': ('A 1mL barrel, both ways',
+           ['Millilitres', 'Units on a U-100 syringe', 'Where it sits on the barrel'],
+           [['0.05mL', '5 units', 'halfway to the first numbered line'],
+            ['0.1mL', '10 units', 'the first numbered line'],
+            ['0.2mL', '20 units', 'the second numbered line'],
+            ['0.25mL', '25 units', 'midway between the second and third'],
+            ['0.3mL', '30 units', 'the third numbered line'],
+            ['0.4mL', '40 units', 'the fourth numbered line'],
+            ['0.5mL', '50 units', 'halfway up the barrel'],
+            ['0.6mL', '60 units', 'the sixth numbered line'],
+            ['0.75mL', '75 units', 'midway between the seventh and eighth'],
+            ['0.8mL', '80 units', 'the eighth numbered line'],
+            ['1mL', '100 units', 'the last line, a full barrel']]),
  'faq': [
   ('How many units are in a millilitre?',
-   'On a U-100 scale, one hundred. On a U-40 scale, forty. The scale has to '
-   'match the concentration of what is in the vial.'),
+   'On a U-100 syringe, one hundred. That is what the U-100 means. On a U-40 syringe it '
+   'is forty, so the same mark is a different amount of liquid.'),
+  ('What is 0.4mL on a syringe?',
+   'On a 1mL barrel it is the fourth numbered line up from the tip, a little under half '
+   'the barrel. On a U-100 insulin syringe the same place reads 40 units.'),
+  ('Where is 0.5mL on a 1mL syringe?',
+   'Exactly halfway. It is the easiest mark on the barrel to find, which is why it is '
+   'worth using as the landmark you count from.'),
+  ('Why can I not find 6mL on my syringe?',
+   'Because the barrel is almost certainly too small for it. Six millilitres is not a '
+   'mark on a 1mL or a 3mL syringe. You want a 10mL barrel, where it sits a little over '
+   'halfway.'),
   ('Why do insulin syringes have a fixed needle?',
-   'It removes the dead space where a luer fitting would be. On a small dose '
-   'that space holds a meaningful share of what you drew up.'),
+   'Because a detachable needle holds a small amount of liquid in its hub, and at unit '
+   'volumes that dead space is a meaningful share of what you drew up. A fixed needle '
+   'has almost none.'),
   ('Where exactly do I read the measurement?',
-   'At the flat top of the rubber stopper, at eye level.'),
+   'At the flat top of the rubber stopper, the face closest to the needle. Not the '
+   'pointed tip in front of it, and not from an angle.'),
  ],
  'related': ['needle-numbers-explained', 'reconstitution-basics', 'gauge-comparison'],
 },
@@ -595,6 +650,34 @@ GUIDES = [
    'treat used sharps as regulated waste with rules about carrying them.',
   ]),
  ],
+ # A table rather than another paragraph, because the searches this page is
+ # already being shown for are state and city variants: sharps container
+ # disposal nsw, sharps container disposal qld, where to dispose of sharps
+ # containers brisbane. A row answers that shape better than a sentence does,
+ # and it is the shape Google lifts into a result.
+ #
+ # No addresses and no opening hours, which is the standing rule on this
+ # subject. What goes in the table is who runs the scheme and who to ask, both
+ # of which are stable. A list of drop-off points is not, and a stale one sends
+ # somebody carrying used needles to a locked door.
+ 'table': ('Who to ask, by state',
+           ['State or territory', 'How it is run', 'Where to start'],
+           [['NSW', 'Community sharps programme through NSW Health',
+             'NSW Health community sharps pages, or your pharmacy'],
+            ['QLD', 'Public hospitals, participating pharmacies, some medical centres',
+             'Queensland Health, or your pharmacy'],
+            ['VIC', 'Devolved almost entirely to councils',
+             'Your council waste guide. Melbourne has more than thirty councils'],
+            ['WA', 'Varies by local government',
+             'Your council, or your healthcare provider'],
+            ['SA', 'State guidance, councils run the collection points',
+             'SA Health, then your council'],
+            ['TAS', 'State guidance, councils run the collection points',
+             'Your council waste guide'],
+            ['ACT', 'Territory guidance, city services run the collection',
+             'ACT city services waste pages'],
+            ['NT', 'Territory guidance, councils run the collection points',
+             'Your council, or your pharmacy']]),
  'faq': [
   ('Can I put a sharps container in the wheelie bin?',
    'No, in every state and territory. A sealed container still ends up on a sorting '
@@ -609,6 +692,13 @@ GUIDES = [
    'Many do and many do not, because participation is voluntary rather than required. '
    'Ring first. A pharmacy that does not accept them can usually tell you which '
    'nearby one does.'),
+  ('Where do I dispose of a full sharps container?',
+   'Back to a participating pharmacy, a council collection point, or a community '
+   'health service, depending on which state you are in. Never the household bin and '
+   'never the recycling. The table above says who to ask where you are.'),
+  ('Can I take a full container back to you?',
+   'No. We supply containers that meet the Australian Standard and we are not a '
+   'collection service, so the routes above are the ones that apply.'),
   ('Is sharps disposal free?',
    'Collection is usually free where a council or health service provides it. The '
    'empty container is often not, though a number of councils run an exchange where '

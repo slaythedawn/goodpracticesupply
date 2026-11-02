@@ -39,14 +39,60 @@ Do these in order. Do not skip the verification at the end.
 
 4. On Sundays only, also refresh the competitor positions. For the twelve highest volume tracked terms, call serp-overview with country au, top_positions 10, type organic, selecting position,url,domain_rating,traffic,title. Update the matching entries in seo/competitors.json carefully, keeping each rival's existing lane and why text unchanged. A lane is a judgement about how to treat a rival and is not something a position change should overwrite.
 
-5. Verify before committing. Run:
+5. Write today's page. This is the step that has never run: the loop produced
+   thirty-six briefs in five weeks and not one became a page, because the writing
+   was left to a CI step that needs ANTHROPIC_API_KEY and the key was never set.
+   A session can do it, so do it here.
+
+   Run `python3 seo/opportunities.py --write`, read the brief it names, and carry
+   it out. Read `.claude/skills/gps-guide/SKILL.md` and
+   `.claude/skills/gps-compliance/SKILL.md` first. Copy goes in
+   `gen/guidecontent.py` for a guide or the `CATEGORY_SEO` table in `gen/seo.py`
+   for a shop category, never into `docs/*.html`, which is generated and thrown
+   away on the next build.
+
+   The brief leads with a table of what Google already shows that page for and
+   does not answer. Those are real searches. Answer them plainly, in the page, and
+   do not pad to hit a word count.
+
+   Three things every page carries, and the build fails without the second:
+   an image, one featured product or tool in `FEATURED` in `gen/feature.py`, and
+   the email sign-up, which `gen/guides.py` adds for you.
+
+   For a brand new page, generate the image rather than reusing a catalogue
+   photograph: use Higgsfield, upload it, add the key to `I` in
+   `gen/catalogue.py` and to `PHOTO` in `gen/guides.py`. It has to pass the OCR
+   gate in `brand/PHOTOGRAPHY.md`, which rejects generated lettering, so no text
+   in the image.
+
+   Link out to the product pages. They are indexable now, so a link from a guide
+   passes authority to something that can be pre-ordered, which is the point of
+   writing the guide.
+
+6. Verify before committing. Run:
 
        python3 seo/refresh.py --age
        python3 seo/opportunities.py
 
    The queue should read sensibly: real page expansions near the top, not somebody else's brand name. If it does not, say so in your reply and do not commit.
 
-6. Commit and push to claude/live-link-publishing-7zujix. The commit message says what moved and what was added, in plain words. End it with:
+   Then rebuild and check, which is what the gps-preflight skill does:
+
+       python3 gen/build.py && python3 gen/tools.py && python3 gen/guides.py
+       # then learnindex, headmeta, launchstate, footer, autolink,
+       # optimise_images, searchindex, llms, sitemap, in that order
+       node checks/config.mjs && node checks/linkcheck.mjs
+       node checks/seocheck.mjs && node checks/depth.mjs
+
+   `gen/autolink.py` applies the internal links the suggester was confident
+   about, so a page written today is linked to today rather than left an orphan.
+
+   The TGA language gate needs TYPESAFE_API_KEY, which is not reachable from this
+   sandbox. Push, then trigger the workflow: it runs
+   `checks/compliance.py` and a finding fails the run. Do not call the page done
+   until that has passed.
+
+7. Commit and push to claude/live-link-publishing-7zujix. The commit message says what moved and what was added, in plain words. End it with:
 
        Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
 
@@ -54,4 +100,10 @@ Do these in order. Do not skip the verification at the end.
 
 House rules, which apply to anything you write: consumables only, never imply this business supplies a peptide, a hormone or any prescription medicine. Australian spelling. No em dashes. No emoji.
 
-If nothing moved and nothing new turned up, commit nothing, trigger nothing, and say so in one line. A quiet day is a real result and does not need a commit to prove it happened.
+If `opportunities.py` says every cluster is held back, do not invent work. Read
+why. "Still outstanding" means a brief was written and never carried out, and the
+right response is to write that one rather than to produce another brief.
+
+If nothing moved, nothing new turned up and there is no page to write, commit
+nothing, trigger nothing, and say so in one line. A quiet day is a real result and
+does not need a commit to prove it happened.
