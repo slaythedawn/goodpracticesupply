@@ -43,10 +43,34 @@ stays that way is sign-ups lost from pages that are live and indexed.
    nothing changes until you redeploy. Deployments, the most recent one, the
    menu on the right, Redeploy.
 
+### Add `ENQUIRIES_TO` in the same visit, or enquiries vanish
+
+This one matters and it is easy to miss. `api/_lib.js` sends every contact
+enquiry and clinic application to `ENQUIRIES_TO`, and that variable defaults to
+`hello@gpsupply.com.au`. There is no mailbox on that address yet. So setting
+`RESEND_API_KEY` alone turns the forms on and posts every enquiry to an address
+that cannot receive, where it bounces and is lost. The form would tell the
+customer their message was received, and it would not be.
+
+So add a second variable in the same visit:
+
+    ENQUIRIES_TO = an inbox you actually read
+
+Your own address is fine for now. Swap it for `hello@gpsupply.com.au` once the
+forwarding in step 6 exists. Leave `ENQUIRIES_FROM` alone: it defaults to
+`hello@gpsupply.com.au`, which needs the domain verified, and until then Resend
+will reject the send rather than deliver it from an unverified sender.
+
 You do not need `RESEND_SEGMENT_ID`. The code now defaults to the segment
 "Good Practice Supply, website sign-ups", which I created because the account
 is shared with Online Model Academy and the old default filed everything into
 the shared "General" list.
+
+Note that the sign-up box and the enquiry forms fail differently. A sign-up
+writes a contact, which needs no verified domain and works the moment the key
+is set. An enquiry sends an email, which needs both a verified sending domain
+and a destination that receives. That is why step 6 is not optional if you want
+the contact form to function.
 
 **To check it worked:** submit the sign-up box on any page of the live site with
 your own address, then tell me. I can read the Resend contacts and confirm it
@@ -195,8 +219,56 @@ gpsupply.com.au.
     Value: send.forge.rmta.net
     TTL:   Auto
 
-Then in Resend, Domains, gpsupply.com.au, press Verify. Propagation is usually
-minutes but can be hours.
+### How to enter them in GoDaddy without breaking them
+
+Domain portfolio, gpsupply.com.au, DNS, DNS Records, Add New Record.
+
+**GoDaddy appends the domain to the Name field for you.** Enter
+`resend._domainkey`, not `resend._domainkey.gpsupply.com.au`. Typing the full
+name produces `resend._domainkey.gpsupply.com.au.gpsupply.com.au`, and that is
+the single most common reason DKIM verification fails. Same for `send` and
+`rsend`.
+
+Two of the four records are both named `send`, one MX and one TXT. That is
+correct and not a conflict, because they are different record types. Add both.
+
+Paste the DKIM value as one unbroken line. Do not add quotes around it and do
+not let an editor insert a line break. It is about 216 characters, which fits
+inside a single TXT string, so it does not need splitting.
+
+None of these touch the root of the domain, so they cannot clash with an
+existing SPF record at the root if there is one. They also have nothing to do
+with goodpracticesupply.com.au, which is the website domain and is served by
+Vercel. If both domains are in the same GoDaddy account, leave that one alone.
+
+TTL can stay at GoDaddy's default. A shorter TTL only helps while you are
+iterating.
+
+Then in Resend, Domains, gpsupply.com.au, press Verify. The status should move
+from failed to pending to verified. Propagation is usually minutes but can be
+hours.
+
+### Receiving at hello@gpsupply.com.au is a separate job
+
+The four records above let mail go **out** from that address. They do not give
+you an inbox. The MX on `send` is for bounce feedback to Resend, not for
+receiving mail at the root of the domain.
+
+That matters because hello@gpsupply.com.au is the only address printed on the
+site, and the design is that replies come back to it. Right now a customer who
+replies to a contact-form email gets a bounce.
+
+Two ways to fix it, both in GoDaddy or via its DNS:
+
+- **Forwarding**, if your GoDaddy plan includes email forwarding: point
+  hello@gpsupply.com.au at an inbox you already read. This adds root MX records
+  pointing at GoDaddy's forwarding servers, which does not conflict with the
+  `send` records above.
+- **A real mailbox**, via Google Workspace or Microsoft 365, which replaces the
+  root MX records with that provider's. More to set up, and the better answer
+  once the business is trading.
+
+Until either exists, keep `ENQUIRIES_TO` pointed at your own inbox.
 
 What it gets you: mail can go out from hello@gpsupply.com.au. The contact form
 and the apply form both send from that address, and so would any restock notice
