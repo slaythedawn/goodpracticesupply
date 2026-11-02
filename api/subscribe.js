@@ -7,8 +7,8 @@
 //
 // Configuration, on the Vercel project:
 //   RESEND_API_KEY      required. Server side, never shipped to the browser.
-//   RESEND_SEGMENT_ID   optional. Defaults to the General segment on the
-//                       account. Set it to file sign-ups somewhere else.
+//   RESEND_SEGMENT_ID   optional. Defaults to this business's own segment.
+//                       Only set it to move sign-ups somewhere else.
 //
 // Creating a contact does not need gpsupply.com.au verified in Resend. Sending
 // to one does. So this works the moment the key is set, and the list quietly
@@ -19,7 +19,16 @@
 
 const { clean, validEmail, guard } = require('./_lib.js');
 
-const SEGMENT_DEFAULT = 'bcf7acc8-2da5-411a-9d66-497eca350dee'; // "General"
+// This account is shared with another brand, and it had two segments: that
+// brand's promo list and "General". The default here used to be "General",
+// which meant every sign-up from all 91 pages of this site would have been
+// filed into a list another business also writes to. The sign-up box promises
+// "we do not sell or share the address", and a shared general list is not
+// obviously consistent with that promise.
+//
+// So this business has its own segment and that is the default. The env var is
+// still read first, for moving the list later without a deploy.
+const SEGMENT_DEFAULT = '4e04c0de-f82c-4ecb-a196-cc51c58700b3'; // "Good Practice Supply, website sign-ups"
 
 // Both of these are written to the contact, so both are bounded. A source is a
 // path on this site and nothing else: whatever the browser sends, only the path
