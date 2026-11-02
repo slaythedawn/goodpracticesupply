@@ -1,7 +1,7 @@
 {
  "date": "2026-11-02",
- "job": "page:/shop/gloves-ppe/nitrile-examination-gloves",
- "brief": "seo/briefs/2026-11-02-nitrile-gloves.md",
+ "job": "page:/shop/syringes-needles/u-100-insulin-syringes",
+ "brief": "seo/briefs/2026-11-02-insulin-syringe.md",
  "clusters": [
   {
    "key": "page:/shop/syringes-needles",
@@ -3727,7 +3727,6 @@
   }
  ],
  "actionable": [
-  "page:/shop/gloves-ppe/nitrile-examination-gloves",
   "page:/shop/syringes-needles/u-100-insulin-syringes",
   "page:/shop/diluents-swabs/alcohol-swabs",
   "page:/shop/clinic-disposal",

@@ -2,6 +2,16 @@
  "entries": [
   {
    "date": "2026-11-02",
+   "cluster": "page:/shop/syringes-needles/u-100-insulin-syringes",
+   "target": "insulin syringe",
+   "action": "expand",
+   "page": "/shop/syringes-needles/u-100-insulin-syringes",
+   "brief": "seo/briefs/2026-11-02-insulin-syringe.md",
+   "page_hash": "ba61858ef0adfacc",
+   "score_when_chosen": 2726.0
+  },
+  {
+   "date": "2026-11-02",
    "cluster": "page:/shop/gloves-ppe/nitrile-examination-gloves",
    "target": "nitrile gloves",
    "action": "expand",
