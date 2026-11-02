@@ -21,7 +21,7 @@ PAGES = [
  "eyebrow": "For GLP-1",
  "h1": "Everything you need to inject a GLP-1 at home.",
  "lead": [
-   "Your prescriber has started you on a weekly injection and handed you a script. What nobody tells you is what else you need to actually do it.",
+   "Your prescriber has started you on an injection and handed you a script. What nobody tells you is what else you need to actually do it.",
    "This is the list. Three things, about the price of a coffee a week, listed at a price you can see without an account. If the packaging numbers are new to you, [what the numbers on a needle mean](/learn/needle-numbers-explained) covers gauge and length, and [injecting under the skin](/learn/subcutaneous-technique) explains the angle and the skin pinch."
  ],
  "img": IMG + "hf_20260912_023904_ac99bf9d-40bb-4cb3-b197-e10d78b28291.png",
@@ -47,7 +47,7 @@ PAGES = [
     "No. Syringes, needles, swabs and sharps containers are consumables and listed here at a price you can see without an account or a script. The medicine you are injecting is a different matter and comes from your pharmacy."),
    ("Is 4mm really long enough?",
     "For a pen injection into the fat layer, yes. Australian and international diabetes guidance has moved to the shortest needle available for exactly this reason: a short needle is very unlikely to reach muscle, whatever your body size."),
-   ("What if I miss a week?",
+   ("What if I miss a dose?",
     "That is a question for your prescriber, not for us. We can only tell you what to inject with."),
    ("Will the box say what is inside?",
     "No. Everything ships in a plain unmarked box. Nothing on the outside indicates what it contains or who sent it."),
