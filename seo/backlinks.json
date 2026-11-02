@@ -1,0 +1,52 @@
+{
+ "pulled": "2026-11-02",
+ "note": "Where the competitors' links come from, which of those are reachable, and the correction that prompted this file. Domain ratings are Ahrefs, at the date above.",
+ "our_position": {"referring_domains": 0, "backlinks": 0, "all_time": 0},
+ "the_correction": "This site's strategy had been resting on two examples of low authority domains outranking better ones, and both were misread. allmedicalwaste.com.au ranks seventh for sharps container at domain rating 3, and has 752 referring domains. aussiepeptidehub.com.au sits second for bacteriostatic water at domain rating 0, and has 270. A low domain rating does not stop either of them, which is the part that was right. Neither is a site with no links, which is the part that was wrong, and we have none at all. The gap between us and them is not that they are better regarded, it is that they exist in a few hundred places and we exist in zero.",
+ "channels": [
+  {
+   "channel": "Australian business directories",
+   "effort": "low, no permission needed",
+   "why": "This is plainly the volume both rivals used. truelocal alone links to medshop 759 times. These are listings a supplier fills in, not favours anybody grants, and they are the cheapest way to stop being a domain with nothing pointing at it.",
+   "targets": [
+    {"domain": "truelocal.com.au", "domain_rating": 78, "evidence": "759 links to medshop.com.au"},
+    {"domain": "kompass.com", "domain_rating": 77, "evidence": "4 links to medshop.com.au"},
+    {"domain": "wordofmouth.com.au", "domain_rating": 76, "evidence": "2 links to medshop.com.au"},
+    {"domain": "yellowpages.com.au", "domain_rating": null, "evidence": "not in the rival profile, but the standard Australian listing"},
+    {"domain": "google business profile", "domain_rating": null, "evidence": "not a link, but it is how a local pack entry starts and it is free"}
+   ]
+  },
+  {
+   "channel": "University health program supplier lists",
+   "effort": "medium, one email each",
+   "why": "The best links in medshop's profile and nobody would guess it. Nursing, paramedicine and dentistry programs publish the kit a student has to buy and who sells it. High domain rating, exactly on topic, and the lists are maintained by people whose job includes keeping them current. A supplier who prices clearly and ships without an account is genuinely useful to a first year student, which is the whole pitch.",
+   "targets": [
+    {"domain": "jcu.edu.au", "domain_rating": 80, "evidence": "1 link to medshop.com.au, first seen 2026-10-25"},
+    {"domain": "csu.edu.au", "domain_rating": 79, "evidence": "8 links to medshop.com.au since 2017"},
+    {"domain": "vu.edu.au", "domain_rating": 79, "evidence": "2 links to medshop.com.au"},
+    {"domain": "canberra.edu.au", "domain_rating": 77, "evidence": "8 links to medshop.com.au since 2014"}
+   ]
+  },
+  {
+   "channel": "Store and commerce aggregators",
+   "effort": "low, mostly automatic once there is a live store",
+   "why": "These crawl Shopify and similar and list what they find. Not high quality individually and not nothing in aggregate, which is most of what the 752 behind allmedicalwaste looks like.",
+   "targets": [
+    {"domain": "storeleads.app", "domain_rating": 76, "evidence": "41 links to medshop.com.au"},
+    {"domain": "accio.com", "domain_rating": 76, "evidence": "7 links to medshop.com.au"}
+   ]
+  },
+  {
+   "channel": "Trade and profession publications",
+   "effort": "high, needs something worth covering",
+   "why": "Worth knowing about and not worth starting with. These link when there is a story, and a consumables supplier with no products shipping yet does not have one.",
+   "targets": [
+    {"domain": "ohsonline.com", "domain_rating": 77, "evidence": "3 links to medshop.com.au"},
+    {"domain": "finder.com.au", "domain_rating": 78, "evidence": "2 links to medshop.com.au"}
+   ]
+  }
+ ],
+ "not_worth_it": {
+  "why": "Present in the rival profile and deliberately not listed as targets. Forum signatures, expired-domain junk and scraped mirrors: gamedev.place, webd.pl, prv.pl, tinhte.vn, mybluemix.net, itxoft.com. They are in medshop's profile because anybody's profile accumulates them, not because they were pursued. Chasing them is the thing that gets a domain rating of 3 on 752 links."
+ }
+}

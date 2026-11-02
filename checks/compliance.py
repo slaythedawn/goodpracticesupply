@@ -361,7 +361,7 @@ def main():
             text = chrome_text(path)
             key = hash(text)
             if key in seen:
-                seen[key][1] += 1
+                seen[key][0] += 1      # the count is index 0, the text is index 1
                 continue
             entry = [1, text, rel]
             seen[key] = entry

@@ -9,6 +9,7 @@ gets a little better at ranking every day without anybody sitting down to do it.
     triage.py         which terms this business is allowed to target at all
     opportunities.py  the one decision, with the reason attached
     internal_links.py the links that stop a new page being an orphan
+    backlinks.py      whether anything out there links here yet
 
 `.github/workflows/daily-seo.yml` runs them in that order at 19:12 UTC, which is
 just after five in the morning in Sydney.
@@ -153,8 +154,15 @@ Worth keeping, because it is the argument for the whole thing.
   `competitors.json` as the worked example of a SERP that is weak and worthless
   at once.
 - `allmedicalwaste.com.au` ranks seventh for `sharps container` at domain rating
-  three. A page selling the thing can reach the first page of a product SERP with
-  no domain strength at all, which is the bet this site is making.
+  three, and this said that proved a page could reach the first page with no
+  domain strength at all. It has **752 referring domains**. The peptide retailer
+  sitting second for `bacteriostatic water` at domain rating zero has **270**.
+  This site has **none**, all time. A low domain rating does not stop either of
+  them, which was the right half of the reading. Neither has an empty link
+  profile, which is the half that was wrong, and it was load bearing: the gap is
+  not that they are better regarded, it is that they exist in a few hundred
+  places and this site exists in zero. `seo/backlinks.json` has the targets and
+  `seo/backlinks.py` counts whether it is moving.
 
 ## Running any of it by hand
 
@@ -200,3 +208,4 @@ under Settings, Users and permissions. Read-only access is enough.
 | `queue.json` | yes | today's ranked clusters and which one was chosen |
 | `ledger.json` | yes | what was briefed and when, which is what stops the loop briefing the same page every morning |
 | `briefs/` | yes | one brief per published day |
+| `backlinks.json` | yes | where the rivals' links come from, which are reachable, and the count this site is on |

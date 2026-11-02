@@ -167,6 +167,15 @@ jobs:
           AHREFS_API_KEY: ${{ secrets.AHREFS_API_KEY }}
         run: python seo/refresh.py --serps --serp-top 12 | tee /tmp/serps.txt
 
+      # Whether anything links here yet. One call, and it is the number that
+      # explains the crawl rate: a domain with nothing pointing at it was fetched
+      # once in six weeks, and fifty-seven pages opened to search in that window
+      # have not been looked at.
+      - name: Count the referring domains
+        env:
+          AHREFS_API_KEY: ${{ secrets.AHREFS_API_KEY }}
+        run: python seo/backlinks.py --check | tee /tmp/links_in.txt
+
       # 3. The judgements Ahrefs cannot make. Every new term discovered above has
       #    to pass through here before it can reach the publishing queue.
       - name: Judge which terms this business may target
@@ -208,7 +217,7 @@ jobs:
           {
             echo "## Daily SEO loop"
             echo
-            for section in measure research serps triage rivals links decide compliance chrome; do
+            for section in measure research serps links_in triage rivals links decide compliance chrome; do
               if [ -f "/tmp/$section.txt" ]; then
                 echo "<details><summary>$section</summary>"
                 echo
