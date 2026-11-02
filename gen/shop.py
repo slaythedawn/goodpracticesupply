@@ -516,7 +516,7 @@ def build_shop():
     a('          <p style="%s">If you know the protocol but not the part numbers, these pages list what you need and why, with the whole kit priced.</p>\n        </div>\n'%LEAD)
     a('        <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:14px">\n')
     for slug,name,blurb in [
-        ('glp-1-injections','GLP-1 and weight loss','What you need to inject a weekly medicine at home.'),
+        ('glp-1-injections','GLP-1 and weight loss','What you need to inject a GLP-1 at home.'),
         ('trt-injections','TRT and hormone therapy','Two needles per injection, and why.'),
         ('peptide-reconstitution','Peptide reconstitution','Bacteriostatic water and the part that goes wrong.'),
         ('diabetes-at-home','Diabetes at home','Syringes, lancets and what the NDSS covers.'),
@@ -532,19 +532,21 @@ def build_shop():
        'Every price on this page and every page under it is visible without an account, including to search engines. That is not true of a single one of the incumbents, and it is the main thing we are trying to change about buying consumables in Australia.',
       ]),
       ('Pack sizes and what they are for', [
-       'Most lines come in three sizes: a box for a household, a larger box for someone injecting regularly, and a carton for a treatment room. The carton is always cheaper per unit and the difference is on the page, so you can see whether it is worth the shelf space.',
-       'There is no minimum order. One box of gloves is a normal thing to buy here, and it costs what the page says it costs.',
+       'Most lines come in three sizes: a box for a household, a larger box for regular use, and a carton for a treatment room. The carton is always cheaper per unit and the difference is on the page, so you can see whether it is worth the shelf space.',
+       'There is no minimum order. One box of gloves is a normal thing to want, and the price on the page is the price for one box.',
       ]),
     ], bg='background:#F2F2F1;'))
     SHOP_FAQ=[
-      ('Do I need an account to buy?',
-       'No. Every price is on the page and you can order without one. A Clinic Portal account adds trade pricing and standing orders on top, but it is not a gate.'),
-      ('Is there a minimum order?',
+      ('Do I need an account to see a price?',
+       'No. Every price is on the page without one, including to search engines, which is '
+       'not true of a single one of our competitors. A Clinic Portal account is for trade '
+       'pricing and standing orders once ordering opens, and it will never be a gate on prices.'),
+      ('Will there be a minimum order?',
        'No. One box is fine.'),
       ('Do I need a prescription for any of this?',
        'No. Everything here is a consumable. We do not stock peptides, hormones or any prescription medicine, and anything that needs a script comes from your pharmacy.'),
-      ('Where do orders ship from?',
-       'Sydney, Australia wide, in a plain unmarked box. Delivery is free over $99.'),
+      ('Where will orders ship from?',
+       '%s It goes in a plain unmarked box.' % SEO.FULFILMENT_LINE),
     ]
     a(faq_block('Questions about ordering', SHOP_FAQ, bg=''))
     a(capture.block('/shop', 'general'))

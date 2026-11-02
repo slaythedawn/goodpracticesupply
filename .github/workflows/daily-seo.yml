@@ -349,6 +349,42 @@ jobs:
           python checks/compliance.py --chrome --since-change \
             --threshold "${{ inputs.threshold || '0.75' }}" | tee /tmp/chrome.txt
 
+      # A failing gate skips the commit below, which threw away the verdict cache
+      # and made every retry pay for all 91 pages again. The first widened run
+      # cost 91 requests, found two real findings, and the retry would have cost
+      # 91 more to re-confirm the 89 that were already clean.
+      #
+      # So on a failure, and only on a failure, the cache alone is committed. It
+      # records which copy passed, which is true whether or not other copy
+      # failed, and committing that one path cannot publish anything the gate
+      # rejected.
+      - name: Keep the verdict cache even though the gate failed
+        if: failure()
+        run: |
+          if [ ! -f checks/judged.json ]; then
+            echo "No cache was written, so there is nothing to keep."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add checks/judged.json
+          if git diff --cached --quiet; then
+            echo "Cache unchanged."
+            exit 0
+          fi
+          git commit -m "Keep the verdicts the failing run already paid for" \
+            -m "The language gate found something, which skips the commit step, which
+          used to discard checks/judged.json and make the retry re-judge every page
+          that had just passed. Only the cache is committed here, so nothing the gate
+          rejected can reach the site through this step." \
+            -m "Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+          for delay in 2 4 8 0; do
+            git push origin HEAD:claude/live-link-publishing-7zujix && break
+            [ "$delay" = 0 ] && exit 1
+            sleep "$delay"
+            git pull --rebase origin claude/live-link-publishing-7zujix || true
+          done
+
       - name: The rest of the checks
         run: |
           node checks/config.mjs
