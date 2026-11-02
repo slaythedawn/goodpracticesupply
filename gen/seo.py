@@ -401,7 +401,7 @@ PRODUCT_SEO = {
  body=[
   ('What bacteriostatic water is', [
    'Sterile water with 0.9% benzyl alcohol added as a preservative. The preservative is what makes the vial multi-dose: it suppresses bacterial growth after the stopper has been punctured, so the vial can be entered more than once within the period its instructions allow.',
-   'That is the entire difference between this and sterile water for injection, which has no preservative and is single use. Both are diluents. Neither is a medicine.',
+   'That is the entire difference between this and sterile water for injection, which has no preservative and is single use. Both are diluents, which is to say a vehicle rather than the active ingredient in anything. What may be supplied to whom, and on what conditions, is a question for a pharmacist rather than something this page should answer.',
   ]),
   ('10mL or 30mL', [
    'Pick on how much you will use before the vial expires after first entry rather than on price per millilitre. A 30mL vial that gets discarded half used is more expensive than two 10mL vials that get finished.',

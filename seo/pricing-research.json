@@ -303,7 +303,8 @@
      "Pack of 5",
      6800
     ]
-   ]
+   ],
+   "flag": "Supply status could not be established and this is now a question for the owner, not a pricing question. The Australian ARTG could not be searched from this session and no source placed the product in a schedule. Australian sources directly contradict each other on whether a pharmacy stocks it, whether a prescription is needed, and whether it can be sold without one. The US label for the same product reads \"Rx only\". The product page had asserted \"Neither is a medicine\", which is a regulatory characterisation with no value behind it, and that sentence has been removed. Nothing further should be written to capture this term until the status is settled, because the demand behind it is overwhelmingly peptide reconstitution, which is the one positioning this business has ruled out."
   },
   "sterile-water-for-injection": {
    "repriced": true,
