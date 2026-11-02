@@ -1,6 +1,25 @@
 import io, json, os, sys, html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import seo as SEO
+
+# What the kit panel is allowed to say, which depends on what the site can
+# actually do. It used to say "Order total" and "Shop the whole kit" in every
+# state, and with no checkout that is a cart being promised and not delivered.
+# The compliance rule reported it as claiming an unavailable capability on four
+# pages and the rule was right.
+#
+# Pre-order is a real thing the site now does, one product at a time, so the
+# panel says that rather than implying a basket.
+if SEO.PURCHASABLE:
+    KIT_HEADING, KIT_TOTAL, KIT_CTA = 'What to order', 'Order total', 'Shop the whole kit'
+    FINDER_LINE = 'Three questions and we will tell you what to buy.'
+elif SEO.PREORDER:
+    KIT_HEADING, KIT_TOTAL, KIT_CTA = 'What is in the kit', 'Kit total', 'See the whole kit'
+    FINDER_LINE = 'Three questions and we will tell you which size to pre-order.'
+else:
+    KIT_HEADING, KIT_TOTAL, KIT_CTA = 'What is in the kit', 'Kit total', 'See the whole kit'
+    FINDER_LINE = 'Three questions and we will tell you which size you need.'
+
 import pagemeta as META
 from content import PAGES
 from prodmap import PROD
@@ -83,7 +102,7 @@ def build_main(p):
     # forest kit panel
     a('          <div style="background:#143026;color:#FAFAFA;border-radius:22px;overflow:hidden">\n')
     a('            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:20px 24px;border-bottom:1px solid #2A5245">\n')
-    a('              <span style="%s;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8FBFA6">What to order</span>\n'%MONO)
+    a('              <span style="%s;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8FBFA6">%s</span>\n'%(MONO,KIT_HEADING))
     a('              <span style="%s;font-size:11px;color:#B7CFC3">{{ itemCount }}</span>\n            </div>\n'%MONO)
     a('            <div style="padding:8px 24px 4px">\n')
     a('              <sc-for list="{{ rows }}" as="r" hint-placeholder-count="%d">\n'%len(p['kit']))
@@ -98,10 +117,10 @@ def build_main(p):
     a('                </a>\n              </sc-for>\n            </div>\n')
     a('            <div style="padding:20px 24px 26px">\n')
     a('              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-bottom:20px">\n')
-    a('                <span style="font-size:16px;color:#DCE5E1">Order total</span>\n')
+    a('                <span style="font-size:16px;color:#DCE5E1">%s</span>\n'%KIT_TOTAL)
     a('                <span style="%s;font-size:22px;color:#FAFAFA">{{ total }}</span>\n              </div>\n'%MONO)
     a('              <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">\n')
-    a('                <a href="/shop/%s" data-cta style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:14px 26px;font-size:15.5px;font-weight:600">Shop the whole kit</a>\n'%KIT_CAT[p['slug']])
+    a('                <a href="/shop/%s" data-cta style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:14px 26px;font-size:15.5px;font-weight:600">%s</a>\n'%(KIT_CAT[p['slug']],KIT_CTA))
     a('                <a href="/always-stocked" style="%s;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#B7CFC3;border-bottom:1px solid #2A5245;padding-bottom:3px">Or set it to repeat</a>\n'%MONO)
     a('              </div>\n            </div>\n          </div>\n        </div>\n')
     a('        <div style="%s;font-size:11.5px;color:#59595A;margin-top:28px;line-height:1.7;max-width:78ch">Quantities are a starting point, not a prescription. Your prescriber sets your dose, your route and your schedule. Where those differ from anything here, follow them.</div>\n'%MONO)
@@ -149,7 +168,7 @@ def build_main(p):
     a('    <section style="background:#1C4034;color:#FAFAFA">\n      <div style="%s">\n'%WRAP)
     a('        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:clamp(28px,4vw,64px);align-items:center">\n')
     a('          <div>\n            %s\n'%eyebrow('Not sure yet', dark=True))
-    a('            <h2 style="%s;color:#FAFAFA">Three questions and we will tell you what to buy.</h2>\n'%H2)
+    a('            <h2 style="%s;color:#FAFAFA">%s</h2>\n'%(H2,FINDER_LINE))
     a('            <p style="margin:0;font-size:17px;line-height:1.55;color:#DCE5E1;max-width:44ch">The Gauge Finder asks what you are injecting, where, and how often. Nothing you answer is stored, and we never ask what it is for.</p>\n          </div>\n')
     a('          <div style="display:flex;gap:12px;flex-wrap:wrap">\n')
     a('            <a href="/gauge-finder" data-cta style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600">Open the Gauge Finder</a>\n')

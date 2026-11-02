@@ -231,7 +231,7 @@ PAGES = [
    ("Non-adherent, always", "A plain gauze pad dries into the wound bed and takes the new tissue off when you pull it. A non-adherent contact layer is the single biggest upgrade over a chemist plaster."),
    ("Saline, not antiseptic", "Routine cleaning is saline. Antiseptics are cytotoxic to the cells doing the healing, which is why clinics reach for them far less than people expect."),
    ("Single use sachets", "A big bottle of saline is contaminated the moment it is opened and then used over a fortnight. Sachets cost slightly more and remove that entirely."),
-   ("Change it less than you think", "A wound left undisturbed under a good dressing heals faster than one inspected daily. Follow what your practitioner told you rather than instinct."),
+   ("Change it less than you think", "Clinics change a dressing less often than most people expect, and the pack or the practitioner will say how often. Follow that rather than instinct."),
  ],
  "faq": [
    ("How do I know if it is infected?",

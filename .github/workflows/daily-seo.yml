@@ -80,6 +80,15 @@ permissions:
   contents: write
   issues: write
 
+# Every step here pipes through tee so its output lands in the summary, and
+# bash returns the last command's status in a pipeline, which is tee, which
+# always succeeds. So a failing step reported success. The compliance gate,
+# the one described in this file as not advisory, printed six findings and
+# the run went green. pipefail is the whole fix and it applies to every step.
+defaults:
+  run:
+    shell: bash -eo pipefail {0}
+
 jobs:
   loop:
     runs-on: ubuntu-latest
