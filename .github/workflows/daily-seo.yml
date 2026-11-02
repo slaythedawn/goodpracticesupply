@@ -208,7 +208,7 @@ jobs:
           {
             echo "## Daily SEO loop"
             echo
-            for section in measure research serps triage rivals links decide; do
+            for section in measure research serps triage rivals links decide compliance chrome; do
               if [ -f "/tmp/$section.txt" ]; then
                 echo "<details><summary>$section</summary>"
                 echo
@@ -295,6 +295,19 @@ jobs:
         run: |
           python checks/compliance.py --depth 2 \
             --threshold "${{ inputs.threshold || '0.75' }}" | tee /tmp/compliance.txt
+
+      # The other two thirds of the page. The gate above reads <main> only so the
+      # standing footer disclosure does not false-positive all 91 pages, and the
+      # cost of that was a strip across the top of every page promising free
+      # delivery and dispatch from Sydney on a site with no checkout, while the
+      # gate reported clean. The chrome is identical sitewide, so it is one
+      # request, plus one per title and description.
+      - name: The language gate, outside main
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: |
+          python checks/compliance.py --chrome \
+            --threshold "${{ inputs.threshold || '0.75' }}" | tee /tmp/chrome.txt
 
       - name: The rest of the checks
         run: |

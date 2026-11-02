@@ -25,6 +25,7 @@ Credentials come from TYPESAFE_API_KEY, read out of the environment or
 """
 
 import argparse
+import html
 import os
 import pathlib
 import re
@@ -99,9 +100,10 @@ class MainText(HTMLParser):
         self.skip = 0
         self.in_main = False
         self.main_done = False
+        self.want_main = True
 
     def handle_starttag(self, tag, attrs):
-        if tag in ('script', 'style', 'svg'):
+        if tag in ('script', 'style', 'svg', 'head'):
             self.skip += 1
         elif tag == 'main' and not self.main_done:
             self.in_main = True
@@ -110,7 +112,7 @@ class MainText(HTMLParser):
         pass  # self-closing tags carry no text and must not touch skip
 
     def handle_endtag(self, tag):
-        if tag in ('script', 'style', 'svg') and self.skip:
+        if tag in ('script', 'style', 'svg', 'head') and self.skip:
             self.skip -= 1
         elif tag == 'main' and self.in_main:
             self.in_main = False
@@ -119,7 +121,9 @@ class MainText(HTMLParser):
     def handle_data(self, data):
         if self.skip:
             return
-        if MAIN_ONLY and not self.in_main:
+        if self.want_main and not self.in_main:
+            return
+        if not self.want_main and self.in_main:
             return
         text = data.strip()
         if text:
@@ -137,6 +141,63 @@ def page_text(path):
     parser = MainText()
     parser.feed(path.read_text(encoding='utf-8'))
     return parser.text()
+
+
+# The standing disclosure, which appears in the footer of all ninety-one pages.
+#
+# It has to come out before the chrome is judged. It says in terms that this
+# business does not supply peptides, hormones or any prescription medicine, which
+# is exactly the sentence a rule asking "does this page imply it supplies a
+# medicine" is built to notice. Leaving it in would trip every page and the
+# check would be ignored within a week, which is how a gate dies.
+#
+# Matched exactly. A fuzzy match here would quietly swallow a real claim that
+# happened to resemble the disclosure.
+ALLOW = (
+    'We do not supply peptides, hormones or any prescription medicine.',
+    'Australian approval status is shown per product where it applies.',
+    'Nothing here is medical advice, so follow the directions of your prescriber '
+    'or treating practitioner.',
+)
+
+
+def chrome_text(path):
+    """Everything outside <main>: the top strip, the header, the nav, the footer.
+
+    This existed as a blind spot rather than a decision. The gate read <main>
+    only, so that the disclosure above would not false-positive every page, and
+    the cost of that was never written down: a strip across the top of all
+    ninety-one pages promised free delivery and dispatch from Sydney on a site
+    with no checkout, and the gate reported clean twice with it there.
+    """
+    parser = MainText()
+    parser.want_main = False
+    parser.feed(path.read_text(encoding='utf-8'))
+    text = parser.text()
+    for allowed in ALLOW:
+        text = text.replace(allowed, ' ')
+    return re.sub(r'\s+', ' ', text).strip()
+
+
+_DESC = re.compile(r'<meta name="description" content="([^"]*)"')
+_TITLE = re.compile(r'<title>(.*?)</title>', re.S)
+
+
+def title(path):
+    """The title tag, which is the link text in a result."""
+    m = _TITLE.search(path.read_text(encoding='utf-8'))
+    return html.unescape(m.group(1)).strip() if m else ''
+
+
+def description(path):
+    """The meta description, which is what Google prints under the link.
+
+    Read more often than the page is, and until now checked for length and
+    uniqueness but never for whether it was true. "Dispatched from Sydney" sat in
+    five of them.
+    """
+    m = _DESC.search(path.read_text(encoding='utf-8'))
+    return html.unescape(m.group(1)) if m else ''
 
 
 def pages():
@@ -269,6 +330,10 @@ def main():
                     help='run the rules against passages written to breach one rule '
                          'each, and report whether each one fires. This is the only '
                          'evidence that the check detects anything at all.')
+    ap.add_argument('--chrome', action='store_true',
+                    help='judge everything outside <main> and every meta '
+                         'description instead of the page bodies. The blind spot '
+                         'that hid a delivery promise on all 91 pages.')
     ap.add_argument('--show-all', action='store_true',
                     help='print every rule and its probability, not just the ones that '
                          'trip. Without this a clean page prints nothing, which tells '
@@ -279,8 +344,45 @@ def main():
     targets = [(rel, p) for rel, p in pages()
                if args.only in rel
                and (not args.depth or rel.count('/') == args.depth)]
+
+    # In chrome mode what gets judged is not one body of copy per page.
+    #
+    # The chrome is the same on almost every page, so checking it per page would
+    # be ninety-one identical requests for one answer. It is deduplicated by
+    # content and one representative of each distinct block is checked, with the
+    # count of pages carrying it reported, because a finding on shared chrome is
+    # a finding on all of them.
+    #
+    # Descriptions are the opposite: every one is unique by design, and the SEO
+    # check already enforces that, so each is its own target.
+    if args.chrome:
+        groups, seen = [], {}
+        for rel, path in targets:
+            text = chrome_text(path)
+            key = hash(text)
+            if key in seen:
+                seen[key][1] += 1
+                continue
+            entry = [1, text, rel]
+            seen[key] = entry
+            groups.append(entry)
+        # One label per distinct block, saying how many pages carry it, because a
+        # finding on shared chrome is a finding on every one of them.
+        chrome_targets = [
+            ('chrome, on all %d pages' % e[0] if e[0] == len(targets)
+             else 'chrome, on %d pages including %s' % (e[0], e[2]), e[1])
+            for e in groups]
+        desc_targets = [('description of %s' % rel, description(path))
+                        for rel, path in targets if description(path)]
+        title_targets = [('title of %s' % rel, title(path))
+                         for rel, path in targets if title(path)]
+        text_targets = chrome_targets + title_targets + desc_targets
+    else:
+        text_targets = [(rel, page_text(path)) for rel, path in targets]
+
     if args.limit:
         targets = targets[:args.limit]
+        text_targets = text_targets[:args.limit]
 
     if not targets:
         print('no pages matched', file=sys.stderr)
@@ -307,8 +409,10 @@ def main():
         print('  instructions: %s' % q.instructions)
         print('  true : %s' % q.criteria['true'])
         print('  false: %s' % q.criteria['false'])
-        print('\nshortest page: %s' % min(
-            ((len(page_text(p)), r) for r, p in targets))[1])
+        print('\n%d block%s would be judged' % (len(text_targets),
+                                                 '' if len(text_targets) == 1 else 's'))
+        for rel, text in text_targets[:4]:
+            print('  %-46s %d chars' % (rel[:46], len(text)))
         return 0
 
     try:
@@ -333,8 +437,7 @@ def main():
 
     try:
         with TypeSafeClient() as client:
-            for rel, path in targets:
-                text = page_text(path)
+            for rel, text in text_targets:
                 if not text:
                     print('SKIP %s (no text in <main>)' % rel)
                     continue
@@ -364,8 +467,10 @@ def main():
         print('TypeSafe rejected the request: %s' % exc, file=sys.stderr)
         return 1
 
-    print('\nchecked %d page%s against %d rules, %d with findings'
-          % (len(targets), '' if len(targets) == 1 else 's', len(questions), findings))
+    noun = 'block' if args.chrome else 'page'
+    print('\nchecked %d %s%s against %d rules, %d with findings'
+          % (len(text_targets), noun, '' if len(text_targets) == 1 else 's',
+             len(questions), findings))
     return 1 if findings else 0
 
 
