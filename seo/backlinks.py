@@ -73,6 +73,18 @@ def main():
                      t['evidence']))
         print()
 
+    # The sequencing, printed every time, because the four channels above all
+    # ask a third party to list this business as a supplier and none of them is
+    # honest to pursue until there is something to supply. A constraint recorded
+    # in a file nobody prints is not recorded.
+    blocked = data.get('blocked_on')
+    if blocked:
+        print('Blocked on: %s' % blocked['what'])
+        print('  %s\n' % blocked['why'])
+        for i, step in enumerate(blocked['so_the_order_is'], 1):
+            print('  %d. %s' % (i, step))
+        print('\n  Before then: %s\n' % blocked['what_is_available_before_then'])
+
     if not args.check:
         print('%s\n' % data['the_correction'])
         return 0

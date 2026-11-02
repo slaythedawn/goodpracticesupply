@@ -307,6 +307,7 @@ jobs:
           python gen/tools.py
           python gen/guides.py
           python gen/learnindex.py
+          python gen/signup.py
           python gen/headmeta.py
           python gen/launchstate.py
           python gen/footer.py
@@ -320,11 +321,19 @@ jobs:
       - name: The gate can see what it is judging
         run: python checks/compliance.py --extraction-only
 
+      # Every page, not 26 of them. This ran with --depth 2 until 2 November,
+      # which judged the guides, the shop categories, the /for/ pages and the
+      # calculator, and never judged the home page, the shop index or any of the
+      # 57 product pages. The filter was there to control cost and it was written
+      # while the product pages were noindex; they are indexed now, so it had
+      # stopped matching the risk. --since-change controls the cost properly
+      # instead: unchanged copy keeps its recorded verdict and a day costs
+      # whatever actually changed.
       - name: The language gate
         env:
           TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
         run: |
-          python checks/compliance.py --depth 2 \
+          python checks/compliance.py --since-change \
             --threshold "${{ inputs.threshold || '0.75' }}" | tee /tmp/compliance.txt
 
       # The other two thirds of the page. The gate above reads <main> only so the
@@ -337,7 +346,7 @@ jobs:
         env:
           TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
         run: |
-          python checks/compliance.py --chrome \
+          python checks/compliance.py --chrome --since-change \
             --threshold "${{ inputs.threshold || '0.75' }}" | tee /tmp/chrome.txt
 
       - name: The rest of the checks

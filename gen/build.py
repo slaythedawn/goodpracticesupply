@@ -1,6 +1,8 @@
 import io, json, os, sys, html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import seo as SEO
+import capture
+import feature
 
 # What the kit panel is allowed to say, which depends on what the site can
 # actually do. It used to say "Order total" and "Shop the whole kit" in every
@@ -189,7 +191,12 @@ def build_main(p):
     a('          <div style="display:flex;gap:12px;flex-wrap:wrap">\n')
     a('            <a href="/gauge-finder" data-cta style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600">Open the Gauge Finder</a>\n')
     a('            <a href="/shop" data-cta style="border:1px solid rgba(143,191,166,.55);color:#FAFAFA;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600">Browse the range</a>\n')
-    a('          </div>\n        </div>\n      </div>\n    </section>\n\n  </main>')
+    a('          </div>\n        </div>\n      </div>\n    </section>\n\n')
+    # These six are the highest intent pages on the site and had no sign-up at
+    # all. The interest tag is the page's own slug, so the list can later be read
+    # as what each reader came for rather than as one undifferentiated pile.
+    a(capture.block('/for/' + p['slug'], feature.interest_for('/for/' + p['slug'])))
+    a('  </main>')
     return ''.join(o)
 
 SCRIPT_HEAD = '<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:880}}">'

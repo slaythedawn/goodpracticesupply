@@ -27,3 +27,9 @@ __pycache__/
 # ignored: it is the record of what has already been submitted, and without it
 # every run re-sends 91 unchanged URLs, which is the documented way to have
 # your submissions discounted.
+
+# checks/judged.json is deliberately NOT ignored. It is the record of which page
+# bodies have a clean verdict for their current text, and it is what makes
+# judging all 91 pages affordable instead of 26 of them. Ignoring it means every
+# run re-judges every page, which is the cost the --depth 2 filter was there to
+# avoid, and that filter is gone.

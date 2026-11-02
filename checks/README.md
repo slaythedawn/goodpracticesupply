@@ -47,3 +47,40 @@ an overlay, and the `href` is only there so it behaves like one.
 
 It was red on `/learn` until the nine guides were written. It is green now, and
 it stays green as long as every card on a page points at something that exists.
+
+## The language gate, and what it covers
+
+`compliance.py` asks seven rules of each block of copy through TypeSafe. Two
+modes, both run in `daily-seo.yml` and both blocking:
+
+    python checks/compliance.py --since-change        # the body of every page
+    python checks/compliance.py --chrome --since-change   # chrome, titles, descriptions
+    python checks/compliance.py --extraction-only     # offline, no key, no cost
+
+Until 2 November the body gate ran with `--depth 2`, which is 26 of 91 pages:
+the guides, the eight shop categories, the six `/for/` pages and the calculator.
+Everything at depth 1 and depth 3 went unjudged, and that is the home page, the
+shop index and all 57 product pages. The filter was written while the product
+pages carried `noindex`. They are indexed now, so it had stopped matching the
+risk, and the shop index still says you can order without an account on a site
+with no checkout, which is the wording this gate reported on four `/for/` pages
+in October.
+
+The filter was there to control cost, so it is replaced by something that
+controls cost rather than removed. `--since-change` judges a block only when its
+text has changed since the last clean verdict, recorded in `checks/judged.json`.
+The first run pays for all 91; a day after that costs whatever actually changed.
+A block with a finding is never recorded, so it is re-judged every run until it
+is fixed, and `RULES_VERSION` in the file retires every entry when a rule is
+reworded.
+
+One thing to know before running it by hand: the module default threshold is
+0.7 and the workflow passes 0.75. A recorded pass is only reused at a threshold
+no stricter than the one it passed at, so a hand run at the default re-judges
+everything CI has cached. That is the safe direction, and it is not free. Pass
+`--threshold 0.75` to reuse what CI recorded.
+
+`--extraction-only` is the offline half and needs no key. It proves the text
+reaches the rules, because a gate that reports nothing looks exactly like a gate
+that sees nothing, and it proves the verdict cache skips and re-judges when it
+should, because a bug there is a page silently never judged.

@@ -1,6 +1,7 @@
 import io, json, os, sys, html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import pagemeta as META
+import capture
 from shop import HEAD, FOOTER, LEARNCOLS, MENUCOLS, HEADER_VALS, REVEAL, SCRIPT_OPEN, MONO, WRAP, H1, H2, LEAD, CARD, crumbs, page, E, prose, faq_block
 import pathlib
 DOCS=str(pathlib.Path(__file__).resolve().parent.parent / 'docs')
@@ -191,7 +192,9 @@ def reconstitution():
     a('        <div>\n          <h2 style="%s;color:#FAFAFA">Not sure which syringe reads your dose best?</h2>\n'%H2)
     a('          <p style="margin:0;font-size:16.5px;line-height:1.5;color:#B7CFC3;max-width:46ch">The Gauge Finder covers thickness and length. This one covers what goes in the barrel.</p>\n        </div>\n')
     a('        <a href="/gauge-finder" data-cta style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600;white-space:nowrap">Open the Gauge Finder</a>\n')
-    a('      </div>\n    </section>\n\n  </main>')
+    a('      </div>\n    </section>\n\n')
+    a(capture.block('/tools/reconstitution-calculator', 'reconstitution calculator'))
+    a('  </main>')
 
     script="""%s
 class Component extends DCLogic {
@@ -400,6 +403,7 @@ def gauge_chart():
     a('      </div>\n    </section>\n\n')
     a(prose(GAUGE_NOTES, bg='background:#F2F2F1;'))
     a(faq_block('Questions about gauges', GAUGE_FAQ, bg=''))
+    a(capture.block('/learn/needle-gauge-chart', 'gauge chart'))
     a('  </main>')
     script="""%s
 class Component extends DCLogic {

@@ -25,7 +25,10 @@ Credentials come from TYPESAFE_API_KEY, read out of the environment or
 """
 
 import argparse
+import hashlib
 import html
+import io
+import json
 import os
 import pathlib
 import re
@@ -200,6 +203,65 @@ def description(path):
     return html.unescape(m.group(1)) if m else ''
 
 
+# What has already been judged clean, so full coverage is a one-off cost.
+#
+# The main-body gate ran with --depth 2, which is 26 of 91 pages: the guides, the
+# shop categories, the /for/ pages and the calculator. Everything at depth 1 and
+# depth 3 was never judged, and that is the home page, the shop index and all 57
+# product pages. The product pages were noindex when the filter was written and
+# are indexed now, so the filter had quietly stopped matching the risk, and the
+# shop index says "you can order without one" on a site with no checkout, which
+# is the exact wording this gate reported on four /for/ pages in October.
+#
+# The filter existed to control cost, so removing it needs the cost controlled
+# another way rather than just removed. A block is judged when its text has
+# changed since the last clean verdict. Unchanged text cannot have a new finding,
+# because the rules are versioned with this file and a rule change invalidates
+# every entry below.
+#
+# Only clean verdicts are recorded. A block with a finding is never cached, so it
+# is re-judged every run until it is actually fixed.
+JUDGED = ROOT / 'checks' / 'judged.json'
+
+# Bump when a rule's wording changes, which retires every cached verdict. The
+# alternative is a cache that silently answers for a question nobody asked.
+RULES_VERSION = 1
+
+
+def judged():
+    try:
+        d = json.load(io.open(str(JUDGED), encoding='utf-8'))
+    except (IOError, ValueError):
+        return {}
+    return d.get('blocks', {}) if d.get('rules_version') == RULES_VERSION else {}
+
+
+def block_hash(text):
+    return hashlib.sha256(text.encode('utf-8')).hexdigest()[:16]
+
+
+def reusable(entry, text, threshold):
+    """Is a recorded clean verdict still an answer for this text?
+
+    Same text, same rules, and a threshold no stricter than the one it passed
+    at. A pass at 0.75 means every probability was below 0.75, which is also a
+    pass at 0.8; it says nothing about 0.6, so that case is re-judged.
+    """
+    if not entry or entry.get('hash') != block_hash(text):
+        return False
+    return entry.get('threshold', 1.0) <= threshold
+
+
+def record(path_state, label, text, threshold):
+    path_state[label] = {'hash': block_hash(text), 'threshold': threshold}
+
+
+def save_judged(blocks):
+    io.open(str(JUDGED), 'w', encoding='utf-8').write(
+        json.dumps({'rules_version': RULES_VERSION, 'blocks': blocks},
+                   indent=1, sort_keys=True) + '\n')
+
+
 def pages():
     out = []
     for path in sorted(DOCS.rglob('*.html')):
@@ -335,6 +397,43 @@ def extraction_check():
         checks.append(('the title is read separately',
                        title(path) == 'Should not be judged'))
 
+    # The verdict cache decides what is not judged, so a bug in it is a page
+    # silently skipped. These run offline on every push for that reason.
+    text = 'some page copy'
+    entry = {}
+    record(entry, '/a.html', text, 0.75)
+    checks.append(('a clean verdict is reusable for the same text',
+                   reusable(entry['/a.html'], text, 0.75)))
+    checks.append(('changed text is re-judged',
+                   not reusable(entry['/a.html'], text + ' and more', 0.75)))
+    checks.append(('a looser threshold reuses a stricter pass',
+                   reusable(entry['/a.html'], text, 0.80)))
+    checks.append(('a stricter threshold re-judges',
+                   not reusable(entry['/a.html'], text, 0.60)))
+    checks.append(('an unknown block is re-judged',
+                   not reusable(entry.get('/never-seen.html'), text, 0.75)))
+    # Written to a real file and read back through judged(), because the version
+    # check is the thing that stops a cached pass answering for a question that
+    # has since been reworded.
+    global JUDGED
+    real = JUDGED
+    try:
+        with tempfile.TemporaryDirectory() as tmp:
+            JUDGED = pathlib.Path(tmp) / 'judged.json'
+            save_judged({'/a.html': {'hash': block_hash(text), 'threshold': 0.75}})
+            checks.append(('a saved cache reads back',
+                           '/a.html' in judged()))
+            stale = json.loads(JUDGED.read_text(encoding='utf-8'))
+            stale['rules_version'] = RULES_VERSION + 1
+            JUDGED.write_text(json.dumps(stale), encoding='utf-8')
+            checks.append(('a rule change retires the whole cache',
+                           judged() == {}))
+            JUDGED.write_text('not json at all', encoding='utf-8')
+            checks.append(('a corrupt cache re-judges rather than crashing',
+                           judged() == {}))
+    finally:
+        JUDGED = real
+
     for label, ok in checks:
         print('%-4s %s' % ('ok' if ok else 'FAIL', label))
     bad = [l for l, ok in checks if not ok]
@@ -391,6 +490,13 @@ def main():
                     help='judge everything outside <main> and every meta '
                          'description instead of the page bodies. The blind spot '
                          'that hid a delivery promise on all 91 pages.')
+    ap.add_argument('--since-change', action='store_true',
+                    help='judge only blocks whose text has changed since the last '
+                         'clean verdict, recorded in checks/judged.json. This is '
+                         'what makes judging all 91 pages affordable: the first '
+                         'run pays for everything, and after that a day costs '
+                         'whatever actually changed. A block with a finding is '
+                         'never recorded, so it is re-judged until it is fixed.')
     ap.add_argument('--show-all', action='store_true',
                     help='print every rule and its probability, not just the ones that '
                          'trip. Without this a clean page prints nothing, which tells '
@@ -437,6 +543,18 @@ def main():
     else:
         text_targets = [(rel, page_text(path)) for rel, path in targets]
 
+    # Skipped before anything is spent, not after, which is the whole point.
+    cache = judged() if args.since_change else {}
+    skipped = 0
+    if args.since_change:
+        kept = []
+        for label, text in text_targets:
+            if reusable(cache.get(label), text, args.threshold):
+                skipped += 1
+            else:
+                kept.append((label, text))
+        text_targets = kept
+
     if args.limit:
         targets = targets[:args.limit]
         text_targets = text_targets[:args.limit]
@@ -444,6 +562,14 @@ def main():
     if not targets:
         print('no pages matched', file=sys.stderr)
         return 2
+
+    # Everything already has a clean verdict for its current text. That is a
+    # pass, not an empty run, and it is the normal state of a day on which no
+    # copy changed.
+    if args.since_change and not text_targets:
+        print('nothing to judge: all %d blocks already have a clean verdict for '
+              'their current text' % skipped)
+        return 0
 
     if args.dry_run:
         # Import lazily so a dry run works with the SDK absent.
@@ -509,6 +635,11 @@ def main():
 
                 if tripped:
                     findings += 1
+                else:
+                    # Only a clean verdict is recorded. A finding is deliberately
+                    # not cached, so the next run asks again rather than
+                    # inheriting a pass this block never earned.
+                    record(cache, rel, text, args.threshold)
 
                 if args.show_all:
                     print('%-4s %s' % ('FAIL' if tripped else 'ok', rel))
@@ -521,16 +652,26 @@ def main():
                     for name, p in tripped:
                         print('       %-32s %.3f' % (name, p))
     except TypeSafeAPIConnectionError as exc:
+        # Whatever was judged clean before the connection dropped is still a
+        # clean verdict, so it is saved and the retry does not pay for it twice.
+        if args.since_change:
+            save_judged(cache)
         print('Could not reach the TypeSafe API: %s' % exc, file=sys.stderr)
         return 3
     except TypeSafeError as exc:
+        if args.since_change:
+            save_judged(cache)
         print('TypeSafe rejected the request: %s' % exc, file=sys.stderr)
         return 1
 
+    if args.since_change:
+        save_judged(cache)
+
     noun = 'block' if args.chrome else 'page'
-    print('\nchecked %d %s%s against %d rules, %d with findings'
+    print('\nchecked %d %s%s against %d rules, %d with findings%s'
           % (len(text_targets), noun, '' if len(text_targets) == 1 else 's',
-             len(questions), findings))
+             len(questions), findings,
+             ', %d unchanged and skipped' % skipped if skipped else ''))
     return 1 if findings else 0
 
 

@@ -25,6 +25,7 @@ FOOTER=SRC[SRC.find('<footer'):SRC.find('</footer>')+9]
 E=html.escape
 from inline import EL, LINKSTYLE
 import capture
+import feature
 
 def grab(marker, src=SRC):
     i=src.find('      %s: ['%marker); j=src.find('\n      ],',i)+len('\n      ],')
@@ -217,6 +218,11 @@ def build_category(cat):
     a(prose(cs['guide'], bg='background:#F2F2F1;'))
     a(use_with(cat['slug'], 'Work out what you need'))
     a(faq_block('Questions about %s'%SEO.lower_name(cat['name']), cs['faq'], bg=''))
+    # The sign-up went on the guides and nowhere else, which left it off the
+    # eight category pages and the six /for/ pages: the pages that are actually
+    # indexed and the highest intent on the site. Same copy as the guides, so
+    # there is no new wording to judge, and the interest tag is the category.
+    a(capture.block('/shop/'+cat['slug'], feature.interest_for('/shop/'+cat['slug'])))
     a('  </main>')
     tags=[t for t,_ in cat['filters']]
     prods=[{'tag':p['tag']} for p in cat['products']]
@@ -541,6 +547,7 @@ def build_shop():
        'Sydney, Australia wide, in a plain unmarked box. Delivery is free over $99.'),
     ]
     a(faq_block('Questions about ordering', SHOP_FAQ, bg=''))
+    a(capture.block('/shop', 'general'))
     a('  </main>')
     script="""%s
 class Component extends DCLogic {

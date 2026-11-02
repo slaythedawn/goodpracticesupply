@@ -29,6 +29,7 @@ the fifty-eight pages come out of these scripts, so a change made by hand in
 | `capture.py` | nothing | the email sign-up block. Self contained HTML and one script, so it works on a static page as well as a streaming component. Posts to `/api/subscribe` |
 | `feature.py` | nothing | the one product or tool a page points at. `FEATURED` is the table; a page asking for a key that is not in it fails the build |
 | `learnindex.py` | the card grid in `docs/learn.html` | fenced, generated from `GUIDES` so it cannot drift |
+| `signup.py` | the sign-up on the 5 hand-written pages | fenced and idempotent, for the pages no generator owns. The generated pages carry it from their own generator, and `contact.html` and `clinic-portal.html` are left out on purpose: both already ask for an email, for something else |
 | `pagemeta.py` | nothing | title, description and structured data for every page that is not a shop page |
 | `headmeta.py` | rewrites the 7 hand-written pages | injects the head block, fenced so it is safe to re-run |
 | `photoreview.py` | `docs/internal/photo-review.html` | on demand only, not part of a build |
@@ -169,9 +170,11 @@ browser and fatal in a search console.
     python3 gen/tools.py        # calculator, gauge chart
     python3 gen/guides.py       # the ten /learn/ guides
     python3 gen/learnindex.py   # the Learn index cards, from the same data
+    python3 gen/signup.py       # the sign-up on the 5 hand-written pages
     python3 gen/headmeta.py     # head block on the 7 hand-written pages
     python3 gen/launchstate.py  # launch-state buttons
     python3 gen/footer.py       # sitewide footer
+    python3 gen/autolink.py     # suggested internal links, applied to built HTML
     python3 gen/optimise_images.py  # photographs through the image optimiser
     python3 gen/searchindex.py  # search-index.json
     python3 gen/llms.py         # llms.txt

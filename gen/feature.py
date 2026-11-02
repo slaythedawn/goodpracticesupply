@@ -147,6 +147,16 @@ def interest_for(path):
     """
     key = for_page(path)
     if key is None:
+        # FEATURED only covers the guides, because a shop category is already a
+        # grid of its own products and a /for/ page already lists its kit, so
+        # neither needs a card telling it what to feature. They still need a
+        # segment tag, though, or every address from the highest intent pages on
+        # the site lands in the list as "general" and the list cannot be read.
+        # The path is the honest answer for those: /shop/gloves-ppe is a reader
+        # looking at gloves, /for/trt-injections is a reader looking at that.
+        parts = [seg for seg in path.split('/') if seg]
+        if len(parts) == 2 and parts[0] in ('shop', 'for'):
+            return parts[1].replace('-', ' ')
         return 'general'
     kind, _, name = key.partition(':')
     if kind == 'tool':
