@@ -20,6 +20,17 @@ else:
     KIT_HEADING, KIT_TOTAL, KIT_CTA = 'What is in the kit', 'Kit total', 'See the whole kit'
     FINDER_LINE = 'Three questions and we will tell you which size you need.'
 
+# Said under the kit total, for the same reason the category grids carry a line
+# above the product grid: a total with no checkout beside it reads as a basket,
+# and the rule reported exactly that on all six of these pages.
+KIT_STATE = (
+    'These are indicative prices while the range is being finalised, and there is '
+    'no checkout yet. Each product page takes a pre-order, which is an email '
+    'address and no payment.'
+    if SEO.PREORDER else
+    'These are indicative prices while the range is being finalised, and ordering '
+    'is not open yet.')
+
 import pagemeta as META
 from content import PAGES
 from prodmap import PROD
@@ -121,6 +132,11 @@ def build_main(p):
     a('                <span style="%s;font-size:22px;color:#FAFAFA">{{ total }}</span>\n              </div>\n'%MONO)
     a('              <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">\n')
     a('                <a href="/shop/%s" data-cta style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:14px 26px;font-size:15.5px;font-weight:600">%s</a>\n'%(KIT_CAT[p['slug']],KIT_CTA))
+    if not SEO.PURCHASABLE:
+        # Same reason the category grids carry this. A total with no checkout
+        # beside it reads as a basket, and the rule said so on all six of these.
+        a('              </div>\n              <p style="margin:14px 0 0;font-size:13.5px;line-height:1.6;color:#B7CFC3;max-width:62ch">%s</p>\n              <div style="display:none">\n'
+          % E(KIT_STATE))
     a('                <a href="/always-stocked" style="%s;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#B7CFC3;border-bottom:1px solid #2A5245;padding-bottom:3px">Or set it to repeat</a>\n'%MONO)
     a('              </div>\n            </div>\n          </div>\n        </div>\n')
     a('        <div style="%s;font-size:11.5px;color:#59595A;margin-top:28px;line-height:1.7;max-width:78ch">Quantities are a starting point, not a prescription. Your prescriber sets your dose, your route and your schedule. Where those differ from anything here, follow them.</div>\n'%MONO)
