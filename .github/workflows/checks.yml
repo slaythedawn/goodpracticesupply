@@ -49,6 +49,13 @@ jobs:
           fi
           echo "generated output matches the repository"
 
+      # Free and offline. It proves the compliance gate's text extraction reaches
+      # the rules, which is the difference between a gate reporting nothing and a
+      # gate seeing nothing. The judgements themselves need a key and run in the
+      # daily loop.
+      - name: The compliance gate can see what it is judging
+        run: python3 checks/compliance.py --extraction-only
+
       - name: Internal links resolve, and nothing is orphaned
         run: node checks/linkcheck.mjs
 

@@ -294,8 +294,62 @@ def build_questions(Noul):
     }
 
 
+# A page with the exact shape that got through: a claim in the chrome, and the
+# standing disclosure in the footer. Synthetic, never rendered, never imported.
+EXTRACTION_FIXTURE = """<html><head><title>Should not be judged</title>
+<meta name="description" content="Should be its own target"></head><body>
+<div><span>Free delivery over $99</span><span>Dispatched from Sydney</span></div>
+<main><p>Body copy, which chrome mode must not read.</p></main>
+<footer><p>We do not supply peptides, hormones or any prescription medicine.</p>
+<p>Nothing here is medical advice, so follow the directions of your prescriber
+or treating practitioner.</p></footer></body></html>"""
+
+
+def extraction_check():
+    """Prove chrome mode reads the chrome, offline and without a key.
+
+    A gate that reports nothing is indistinguishable from a gate that sees
+    nothing, and this one reported clean on its first real run. The rules have
+    controls proving they can fire. Nothing proved the text was reaching them,
+    and if chrome_text returned an empty string every page would pass.
+
+    So: a fixture carrying the claim that got through for weeks, and four
+    assertions about what comes out.
+    """
+    import tempfile
+    checks = []
+    with tempfile.TemporaryDirectory() as tmp:
+        path = pathlib.Path(tmp) / 'fixture.html'
+        path.write_text(EXTRACTION_FIXTURE, encoding='utf-8')
+        chrome = chrome_text(path)
+        checks.append(('the chrome claim survives extraction',
+                       'Dispatched from Sydney' in chrome))
+        checks.append(('the main body is excluded',
+                       'must not read' not in chrome))
+        checks.append(('the standing disclosure is stripped',
+                       'do not supply peptides' not in chrome))
+        checks.append(('the title is not in the chrome',
+                       'Should not be judged' not in chrome))
+        checks.append(('the description is read separately',
+                       description(path) == 'Should be its own target'))
+        checks.append(('the title is read separately',
+                       title(path) == 'Should not be judged'))
+
+    for label, ok in checks:
+        print('%-4s %s' % ('ok' if ok else 'FAIL', label))
+    bad = [l for l, ok in checks if not ok]
+    if bad:
+        print('\n%d extraction check%s failed. The rules cannot judge text that '
+              'never reaches them.' % (len(bad), '' if len(bad) == 1 else 's'))
+    return not bad
+
+
 def self_test(TypeSafeClient, questions, threshold):
-    """Check that each rule fires on a passage written to breach it."""
+    """Check that the text reaches the rules, and that each rule fires on it."""
+    print('== Does the text reach the rules ==\n')
+    if not extraction_check():
+        return 1
+    print('\n== Does each rule fire on its own breach ==\n')
     print('%d controls, one per rule, threshold %.2f\n' % (len(CONTROLS), threshold))
     passed = 0
     with TypeSafeClient() as client:
@@ -330,6 +384,9 @@ def main():
                     help='run the rules against passages written to breach one rule '
                          'each, and report whether each one fires. This is the only '
                          'evidence that the check detects anything at all.')
+    ap.add_argument('--extraction-only', action='store_true',
+                    help='prove the text reaches the rules and stop. Offline, '
+                         'no key, no cost. Runs as the first half of --self-test.')
     ap.add_argument('--chrome', action='store_true',
                     help='judge everything outside <main> and every meta '
                          'description instead of the page bodies. The blind spot '
@@ -414,6 +471,9 @@ def main():
         for rel, text in text_targets[:4]:
             print('  %-46s %d chars' % (rel[:46], len(text)))
         return 0
+
+    if args.extraction_only:
+        return 0 if extraction_check() else 1
 
     try:
         from dotenv import load_dotenv

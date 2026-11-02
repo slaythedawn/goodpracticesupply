@@ -298,6 +298,10 @@ jobs:
           python gen/llms.py
           python gen/sitemap.py
 
+      # Before either gate spends anything: does the text reach the rules at all.
+      - name: The gate can see what it is judging
+        run: python checks/compliance.py --extraction-only
+
       - name: The language gate
         env:
           TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
