@@ -1,0 +1,1101 @@
+{
+ "blocks": {
+  "/about.html": {
+   "hash": "ab3fb1238907a504",
+   "threshold": 0.75
+  },
+  "/always-stocked.html": {
+   "hash": "16c50c4f903a95ff",
+   "threshold": 0.75
+  },
+  "/clinic-portal.html": {
+   "hash": "ec6a8105185e0066",
+   "threshold": 0.75
+  },
+  "/contact.html": {
+   "hash": "d5d6753f0e18db3f",
+   "threshold": 0.75
+  },
+  "/for/clinic-fit-out.html": {
+   "hash": "43a773642bb933a3",
+   "threshold": 0.75
+  },
+  "/for/diabetes-at-home.html": {
+   "hash": "bbf1e69579a7b4f2",
+   "threshold": 0.75
+  },
+  "/for/glp-1-injections.html": {
+   "hash": "21d4c1882f9915b2",
+   "threshold": 0.75
+  },
+  "/for/peptide-reconstitution.html": {
+   "hash": "cd0bb835e5a268ec",
+   "threshold": 0.75
+  },
+  "/for/trt-injections.html": {
+   "hash": "395f47d20526bf3d",
+   "threshold": 0.75
+  },
+  "/for/wound-care-at-home.html": {
+   "hash": "237d7d7f4face95d",
+   "threshold": 0.75
+  },
+  "/gauge-finder.html": {
+   "hash": "83edb8471a690948",
+   "threshold": 0.75
+  },
+  "/index.html": {
+   "hash": "f2aff79aed2b47b5",
+   "threshold": 0.75
+  },
+  "/learn.html": {
+   "hash": "cc709efee8d949a5",
+   "threshold": 0.75
+  },
+  "/learn/artg-explained.html": {
+   "hash": "1ddea824932a635e",
+   "threshold": 0.75
+  },
+  "/learn/first-injection.html": {
+   "hash": "89ccee5570a887a4",
+   "threshold": 0.75
+  },
+  "/learn/gauge-comparison.html": {
+   "hash": "9b88a36467fad336",
+   "threshold": 0.75
+  },
+  "/learn/intramuscular-technique.html": {
+   "hash": "eb1c105ef64df0c1",
+   "threshold": 0.75
+  },
+  "/learn/needle-gauge-chart.html": {
+   "hash": "ef909b744070b42b",
+   "threshold": 0.75
+  },
+  "/learn/needle-numbers-explained.html": {
+   "hash": "5734b022d3972b5f",
+   "threshold": 0.75
+  },
+  "/learn/reading-a-syringe.html": {
+   "hash": "434403cfdd52cff8",
+   "threshold": 0.75
+  },
+  "/learn/reconstitution-basics.html": {
+   "hash": "879852f4ae2917ad",
+   "threshold": 0.75
+  },
+  "/learn/sharps-disposal-australia.html": {
+   "hash": "235a29417c0c32f0",
+   "threshold": 0.75
+  },
+  "/learn/storing-supplies.html": {
+   "hash": "94b8bdf149ab63b2",
+   "threshold": 0.75
+  },
+  "/learn/subcutaneous-technique.html": {
+   "hash": "b2729c62e6b94eb2",
+   "threshold": 0.75
+  },
+  "/shop.html": {
+   "hash": "1877ad17873ed41e",
+   "threshold": 0.75
+  },
+  "/shop/clinic-disposal.html": {
+   "hash": "000541a9e884a5b7",
+   "threshold": 0.75
+  },
+  "/shop/clinic-disposal/blueys-underpads.html": {
+   "hash": "36d6104ac5d77bce",
+   "threshold": 0.75
+  },
+  "/shop/clinic-disposal/clinical-waste-bags.html": {
+   "hash": "033edbbeafa5804e",
+   "threshold": 0.75
+  },
+  "/shop/clinic-disposal/couch-roll.html": {
+   "hash": "eb7e91651408656b",
+   "threshold": 0.75
+  },
+  "/shop/clinic-disposal/incontinence-pads.html": {
+   "hash": "cb3c07c6cd90a0ef",
+   "threshold": 0.75
+  },
+  "/shop/clinic-disposal/sharps-container-bench.html": {
+   "hash": "3278ed89fc42eb2b",
+   "threshold": 0.75
+  },
+  "/shop/clinic-disposal/sharps-container-wall-mount.html": {
+   "hash": "f3c0a3b2e2f888a9",
+   "threshold": 0.75
+  },
+  "/shop/clinic-disposal/surface-wipes-clinical.html": {
+   "hash": "dc89d0a7113aeee3",
+   "threshold": 0.75
+  },
+  "/shop/diagnostics.html": {
+   "hash": "8b9021a27e0c7d3f",
+   "threshold": 0.75
+  },
+  "/shop/diagnostics/blood-glucose-meter.html": {
+   "hash": "3be1a9f865c767f1",
+   "threshold": 0.75
+  },
+  "/shop/diagnostics/blood-glucose-test-strips.html": {
+   "hash": "3a2d169898585d70",
+   "threshold": 0.75
+  },
+  "/shop/diagnostics/ecg-electrodes.html": {
+   "hash": "45849307b581d1bc",
+   "threshold": 0.75
+  },
+  "/shop/diagnostics/otoscope-ear-specula.html": {
+   "hash": "70f29636028be926",
+   "threshold": 0.75
+  },
+  "/shop/diagnostics/safety-lancets.html": {
+   "hash": "0cb2fadf25b4abaa",
+   "threshold": 0.75
+  },
+  "/shop/diagnostics/thermometer-probe-covers.html": {
+   "hash": "4c069709813bb760",
+   "threshold": 0.75
+  },
+  "/shop/diagnostics/tongue-depressors.html": {
+   "hash": "aac6ad3b3ed3eec6",
+   "threshold": 0.75
+  },
+  "/shop/diagnostics/ultrasound-gel.html": {
+   "hash": "9396a3543022a964",
+   "threshold": 0.75
+  },
+  "/shop/diagnostics/urinalysis-strips.html": {
+   "hash": "ebed4172f6f97401",
+   "threshold": 0.75
+  },
+  "/shop/diagnostics/vaginal-speculum-disposable.html": {
+   "hash": "78387c2e8b308bdf",
+   "threshold": 0.75
+  },
+  "/shop/diluents-swabs.html": {
+   "hash": "f1bd4e613ae0a1be",
+   "threshold": 0.75
+  },
+  "/shop/diluents-swabs/alcohol-swabs.html": {
+   "hash": "377684a7f5945988",
+   "threshold": 0.75
+  },
+  "/shop/diluents-swabs/bacteriostatic-water.html": {
+   "hash": "b51bc914290cce3a",
+   "threshold": 0.75
+  },
+  "/shop/diluents-swabs/chlorhexidine-skin-prep.html": {
+   "hash": "ea358f0e35de2857",
+   "threshold": 0.75
+  },
+  "/shop/diluents-swabs/cotton-wool-balls.html": {
+   "hash": "f18256d552fd319c",
+   "threshold": 0.75
+  },
+  "/shop/diluents-swabs/povidone-iodine-swabsticks.html": {
+   "hash": "37cf3de8238bc7d3",
+   "threshold": 0.75
+  },
+  "/shop/diluents-swabs/sodium-chloride-sachets.html": {
+   "hash": "be43b80f31b8134c",
+   "threshold": 0.75
+  },
+  "/shop/diluents-swabs/sterile-water-for-injection.html": {
+   "hash": "8c698e9abe9245f2",
+   "threshold": 0.75
+  },
+  "/shop/gloves-ppe.html": {
+   "hash": "f5f638046135f898",
+   "threshold": 0.75
+  },
+  "/shop/gloves-ppe/alcohol-hand-rub.html": {
+   "hash": "8ac1262ad0a6b15d",
+   "threshold": 0.75
+  },
+  "/shop/gloves-ppe/aprons-on-a-roll.html": {
+   "hash": "592a37b3e57cfa3c",
+   "threshold": 0.75
+  },
+  "/shop/gloves-ppe/isolation-gowns.html": {
+   "hash": "df47d379beb59ba2",
+   "threshold": 0.75
+  },
+  "/shop/gloves-ppe/latex-examination-gloves.html": {
+   "hash": "ff1c237ed74f2345",
+   "threshold": 0.75
+  },
+  "/shop/gloves-ppe/nitrile-examination-gloves.html": {
+   "hash": "34e184dba160510c",
+   "threshold": 0.75
+  },
+  "/shop/gloves-ppe/surgical-masks-level-2.html": {
+   "hash": "9d388bf8424e75b1",
+   "threshold": 0.75
+  },
+  "/shop/hygiene-cleaning.html": {
+   "hash": "997973aeb1f95366",
+   "threshold": 0.75
+  },
+  "/shop/hygiene-cleaning/cotton-wool-rolls.html": {
+   "hash": "873c35f972f1d20c",
+   "threshold": 0.75
+  },
+  "/shop/hygiene-cleaning/facial-tissues.html": {
+   "hash": "37ef518b6b5b05fb",
+   "threshold": 0.75
+  },
+  "/shop/hygiene-cleaning/hand-soap.html": {
+   "hash": "f9bfb3b7108dfc1f",
+   "threshold": 0.75
+  },
+  "/shop/hygiene-cleaning/hand-towels.html": {
+   "hash": "0810fb8d6eded259",
+   "threshold": 0.75
+  },
+  "/shop/syringes-needles.html": {
+   "hash": "f58f4919cebab559",
+   "threshold": 0.75
+  },
+  "/shop/syringes-needles/drawing-up-needles.html": {
+   "hash": "a1ac7cd8d87b2613",
+   "threshold": 0.75
+  },
+  "/shop/syringes-needles/hypodermic-needles.html": {
+   "hash": "f440b27095a998b5",
+   "threshold": 0.75
+  },
+  "/shop/syringes-needles/luer-lock-syringes.html": {
+   "hash": "118239a4bbbc8e9c",
+   "threshold": 0.75
+  },
+  "/shop/syringes-needles/luer-slip-syringes.html": {
+   "hash": "55cca32d8033b1c2",
+   "threshold": 0.75
+  },
+  "/shop/syringes-needles/pen-needles.html": {
+   "hash": "e183ca3fcc150613",
+   "threshold": 0.75
+  },
+  "/shop/syringes-needles/u-100-insulin-syringes.html": {
+   "hash": "9f4540ecf34cc1e0",
+   "threshold": 0.75
+  },
+  "/shop/syringes-needles/vial-access-devices.html": {
+   "hash": "b206cfe34af79101",
+   "threshold": 0.75
+  },
+  "/shop/taping-supports.html": {
+   "hash": "f7d21bdc40e238e9",
+   "threshold": 0.75
+  },
+  "/shop/taping-supports/compression-stockings.html": {
+   "hash": "7bfec1ae48cf69e6",
+   "threshold": 0.75
+  },
+  "/shop/taping-supports/elastic-adhesive-bandage.html": {
+   "hash": "6e55e924c63338e0",
+   "threshold": 0.75
+  },
+  "/shop/taping-supports/kinesiology-tape.html": {
+   "hash": "bd431fa7f30b908c",
+   "threshold": 0.75
+  },
+  "/shop/taping-supports/rigid-strapping-tape.html": {
+   "hash": "74b4057bf589923e",
+   "threshold": 0.75
+  },
+  "/shop/wound-care.html": {
+   "hash": "5c226101586c6d1f",
+   "threshold": 0.75
+  },
+  "/shop/wound-care/adhesive-plasters.html": {
+   "hash": "e9a430b1916d91c5",
+   "threshold": 0.75
+  },
+  "/shop/wound-care/cohesive-bandage.html": {
+   "hash": "0e0fae5db1808b48",
+   "threshold": 0.75
+  },
+  "/shop/wound-care/conforming-bandages.html": {
+   "hash": "fefd0eb541b814cf",
+   "threshold": 0.75
+  },
+  "/shop/wound-care/crepe-bandages.html": {
+   "hash": "32f8a6da6257edf7",
+   "threshold": 0.75
+  },
+  "/shop/wound-care/first-aid-kit-workplace.html": {
+   "hash": "06e37fec39ebc74c",
+   "threshold": 0.75
+  },
+  "/shop/wound-care/fixation-tape.html": {
+   "hash": "d11e3e84cc15f08c",
+   "threshold": 0.75
+  },
+  "/shop/wound-care/hydrocolloid-foam-dressings.html": {
+   "hash": "d692db4294fc147d",
+   "threshold": 0.75
+  },
+  "/shop/wound-care/island-dressings.html": {
+   "hash": "e2366f0e584ad3d5",
+   "threshold": 0.75
+  },
+  "/shop/wound-care/non-adherent-dressings.html": {
+   "hash": "57cdaf723d7ff592",
+   "threshold": 0.75
+  },
+  "/shop/wound-care/silicone-scar-gel.html": {
+   "hash": "defd58d32855d8f4",
+   "threshold": 0.75
+  },
+  "/shop/wound-care/sterile-gauze-swabs.html": {
+   "hash": "283a641a9b824967",
+   "threshold": 0.75
+  },
+  "/shop/wound-care/sutures.html": {
+   "hash": "35a2f04371abea34",
+   "threshold": 0.75
+  },
+  "/tools/reconstitution-calculator.html": {
+   "hash": "b47750e17b0b5f20",
+   "threshold": 0.75
+  },
+  "chrome, on all 91 pages": {
+   "hash": "ff78cc192cef9b8d",
+   "threshold": 0.75
+  },
+  "description of /about.html": {
+   "hash": "ec98679f30a0b0b4",
+   "threshold": 0.75
+  },
+  "description of /always-stocked.html": {
+   "hash": "bfec53e20d4bbc72",
+   "threshold": 0.75
+  },
+  "description of /clinic-portal.html": {
+   "hash": "070560393974aa3c",
+   "threshold": 0.75
+  },
+  "description of /contact.html": {
+   "hash": "a42bbc21c9031f8d",
+   "threshold": 0.75
+  },
+  "description of /for/clinic-fit-out.html": {
+   "hash": "489c51b2fce6d598",
+   "threshold": 0.75
+  },
+  "description of /for/diabetes-at-home.html": {
+   "hash": "3ec83652130d37e7",
+   "threshold": 0.75
+  },
+  "description of /for/glp-1-injections.html": {
+   "hash": "811bfa5f4d2bebb7",
+   "threshold": 0.75
+  },
+  "description of /for/peptide-reconstitution.html": {
+   "hash": "a391dd477e401edf",
+   "threshold": 0.75
+  },
+  "description of /for/trt-injections.html": {
+   "hash": "b02c4e9ba1935555",
+   "threshold": 0.75
+  },
+  "description of /for/wound-care-at-home.html": {
+   "hash": "a571dbe70e18150b",
+   "threshold": 0.75
+  },
+  "description of /gauge-finder.html": {
+   "hash": "94c8676fd84142b5",
+   "threshold": 0.75
+  },
+  "description of /index.html": {
+   "hash": "04b9885db5463828",
+   "threshold": 0.75
+  },
+  "description of /learn.html": {
+   "hash": "67453d17897d741e",
+   "threshold": 0.75
+  },
+  "description of /learn/artg-explained.html": {
+   "hash": "b580cbb5aa76db3f",
+   "threshold": 0.75
+  },
+  "description of /learn/first-injection.html": {
+   "hash": "9616603a0682e302",
+   "threshold": 0.75
+  },
+  "description of /learn/gauge-comparison.html": {
+   "hash": "18a5eb8e5edc3919",
+   "threshold": 0.75
+  },
+  "description of /learn/intramuscular-technique.html": {
+   "hash": "53bd8c77a1f7a12f",
+   "threshold": 0.75
+  },
+  "description of /learn/needle-gauge-chart.html": {
+   "hash": "04f414c09a84030d",
+   "threshold": 0.75
+  },
+  "description of /learn/needle-numbers-explained.html": {
+   "hash": "c2305b5496d16627",
+   "threshold": 0.75
+  },
+  "description of /learn/reading-a-syringe.html": {
+   "hash": "bd3c36ec52dbdf58",
+   "threshold": 0.75
+  },
+  "description of /learn/reconstitution-basics.html": {
+   "hash": "9611c355a3fc7cf0",
+   "threshold": 0.75
+  },
+  "description of /learn/sharps-disposal-australia.html": {
+   "hash": "106e797594cb73f0",
+   "threshold": 0.75
+  },
+  "description of /learn/storing-supplies.html": {
+   "hash": "a7de0c57e5e814bc",
+   "threshold": 0.75
+  },
+  "description of /learn/subcutaneous-technique.html": {
+   "hash": "d76ec2e4de218b02",
+   "threshold": 0.75
+  },
+  "description of /shop.html": {
+   "hash": "bec8b20f2a904bf0",
+   "threshold": 0.75
+  },
+  "description of /shop/clinic-disposal.html": {
+   "hash": "332ce294abf02b59",
+   "threshold": 0.75
+  },
+  "description of /shop/clinic-disposal/blueys-underpads.html": {
+   "hash": "98470b3b08b8f8cd",
+   "threshold": 0.75
+  },
+  "description of /shop/clinic-disposal/clinical-waste-bags.html": {
+   "hash": "b291b736e60f1945",
+   "threshold": 0.75
+  },
+  "description of /shop/clinic-disposal/couch-roll.html": {
+   "hash": "f6dbfa41337ef923",
+   "threshold": 0.75
+  },
+  "description of /shop/clinic-disposal/incontinence-pads.html": {
+   "hash": "3cebcda7d4554058",
+   "threshold": 0.75
+  },
+  "description of /shop/clinic-disposal/sharps-container-bench.html": {
+   "hash": "ba704ca2ef41c926",
+   "threshold": 0.75
+  },
+  "description of /shop/clinic-disposal/sharps-container-wall-mount.html": {
+   "hash": "4c7b62780b9f5873",
+   "threshold": 0.75
+  },
+  "description of /shop/clinic-disposal/surface-wipes-clinical.html": {
+   "hash": "05ff9b383658dcdd",
+   "threshold": 0.75
+  },
+  "description of /shop/diagnostics.html": {
+   "hash": "069661751358f6b4",
+   "threshold": 0.75
+  },
+  "description of /shop/diagnostics/blood-glucose-meter.html": {
+   "hash": "648633528c275fba",
+   "threshold": 0.75
+  },
+  "description of /shop/diagnostics/blood-glucose-test-strips.html": {
+   "hash": "308fd8307d59c2f0",
+   "threshold": 0.75
+  },
+  "description of /shop/diagnostics/ecg-electrodes.html": {
+   "hash": "d278f9c1eaae8933",
+   "threshold": 0.75
+  },
+  "description of /shop/diagnostics/otoscope-ear-specula.html": {
+   "hash": "43b4077662f2718d",
+   "threshold": 0.75
+  },
+  "description of /shop/diagnostics/safety-lancets.html": {
+   "hash": "7be8d60a124c86a7",
+   "threshold": 0.75
+  },
+  "description of /shop/diagnostics/thermometer-probe-covers.html": {
+   "hash": "4d2239846d173495",
+   "threshold": 0.75
+  },
+  "description of /shop/diagnostics/tongue-depressors.html": {
+   "hash": "98038e622e0c9670",
+   "threshold": 0.75
+  },
+  "description of /shop/diagnostics/ultrasound-gel.html": {
+   "hash": "b1dbfce448d198ae",
+   "threshold": 0.75
+  },
+  "description of /shop/diagnostics/urinalysis-strips.html": {
+   "hash": "062a89a52fe64772",
+   "threshold": 0.75
+  },
+  "description of /shop/diagnostics/vaginal-speculum-disposable.html": {
+   "hash": "5becb832e3af26d8",
+   "threshold": 0.75
+  },
+  "description of /shop/diluents-swabs.html": {
+   "hash": "d2d1597d5b02cd48",
+   "threshold": 0.75
+  },
+  "description of /shop/diluents-swabs/alcohol-swabs.html": {
+   "hash": "0c53b01a3d271d1c",
+   "threshold": 0.75
+  },
+  "description of /shop/diluents-swabs/bacteriostatic-water.html": {
+   "hash": "e3a2d6bf4fcf9131",
+   "threshold": 0.75
+  },
+  "description of /shop/diluents-swabs/chlorhexidine-skin-prep.html": {
+   "hash": "c86dd64364de1d40",
+   "threshold": 0.75
+  },
+  "description of /shop/diluents-swabs/cotton-wool-balls.html": {
+   "hash": "9d8b3d86db6803ea",
+   "threshold": 0.75
+  },
+  "description of /shop/diluents-swabs/povidone-iodine-swabsticks.html": {
+   "hash": "3e7a34a3e1a90aba",
+   "threshold": 0.75
+  },
+  "description of /shop/diluents-swabs/sodium-chloride-sachets.html": {
+   "hash": "1ff3dbcd1298ff72",
+   "threshold": 0.75
+  },
+  "description of /shop/diluents-swabs/sterile-water-for-injection.html": {
+   "hash": "2d29440e1755be26",
+   "threshold": 0.75
+  },
+  "description of /shop/gloves-ppe.html": {
+   "hash": "07a72562e84afec5",
+   "threshold": 0.75
+  },
+  "description of /shop/gloves-ppe/alcohol-hand-rub.html": {
+   "hash": "bb76b7986e7dd138",
+   "threshold": 0.75
+  },
+  "description of /shop/gloves-ppe/aprons-on-a-roll.html": {
+   "hash": "cd51f05258c5306c",
+   "threshold": 0.75
+  },
+  "description of /shop/gloves-ppe/isolation-gowns.html": {
+   "hash": "c365753b9cc217db",
+   "threshold": 0.75
+  },
+  "description of /shop/gloves-ppe/latex-examination-gloves.html": {
+   "hash": "93cd2e271516724e",
+   "threshold": 0.75
+  },
+  "description of /shop/gloves-ppe/nitrile-examination-gloves.html": {
+   "hash": "0ac23271f8f91487",
+   "threshold": 0.75
+  },
+  "description of /shop/gloves-ppe/surgical-masks-level-2.html": {
+   "hash": "e69141793d5070db",
+   "threshold": 0.75
+  },
+  "description of /shop/hygiene-cleaning.html": {
+   "hash": "529292978f363d3f",
+   "threshold": 0.75
+  },
+  "description of /shop/hygiene-cleaning/cotton-wool-rolls.html": {
+   "hash": "f771fef19da396dc",
+   "threshold": 0.75
+  },
+  "description of /shop/hygiene-cleaning/facial-tissues.html": {
+   "hash": "4e9383ce48761f4b",
+   "threshold": 0.75
+  },
+  "description of /shop/hygiene-cleaning/hand-soap.html": {
+   "hash": "3818191345f8bcb9",
+   "threshold": 0.75
+  },
+  "description of /shop/hygiene-cleaning/hand-towels.html": {
+   "hash": "d3fbd5e90256c33d",
+   "threshold": 0.75
+  },
+  "description of /shop/syringes-needles.html": {
+   "hash": "eb9abe948b8f3c48",
+   "threshold": 0.75
+  },
+  "description of /shop/syringes-needles/drawing-up-needles.html": {
+   "hash": "6c8f92180c20be04",
+   "threshold": 0.75
+  },
+  "description of /shop/syringes-needles/hypodermic-needles.html": {
+   "hash": "423df5993e197656",
+   "threshold": 0.75
+  },
+  "description of /shop/syringes-needles/luer-lock-syringes.html": {
+   "hash": "88598ff3045a2953",
+   "threshold": 0.75
+  },
+  "description of /shop/syringes-needles/luer-slip-syringes.html": {
+   "hash": "98c23b26e797d8a6",
+   "threshold": 0.75
+  },
+  "description of /shop/syringes-needles/pen-needles.html": {
+   "hash": "a719d5d66029c7f4",
+   "threshold": 0.75
+  },
+  "description of /shop/syringes-needles/u-100-insulin-syringes.html": {
+   "hash": "068f82196dca8bd5",
+   "threshold": 0.75
+  },
+  "description of /shop/syringes-needles/vial-access-devices.html": {
+   "hash": "ec449b3349b058ef",
+   "threshold": 0.75
+  },
+  "description of /shop/taping-supports.html": {
+   "hash": "bcc27c264a861618",
+   "threshold": 0.75
+  },
+  "description of /shop/taping-supports/compression-stockings.html": {
+   "hash": "51f93ca1f2682283",
+   "threshold": 0.75
+  },
+  "description of /shop/taping-supports/elastic-adhesive-bandage.html": {
+   "hash": "787dc3774efa1040",
+   "threshold": 0.75
+  },
+  "description of /shop/taping-supports/kinesiology-tape.html": {
+   "hash": "0f735555c701f6f9",
+   "threshold": 0.75
+  },
+  "description of /shop/taping-supports/rigid-strapping-tape.html": {
+   "hash": "048b69fb2196a6a9",
+   "threshold": 0.75
+  },
+  "description of /shop/wound-care.html": {
+   "hash": "50180d5855b07e0d",
+   "threshold": 0.75
+  },
+  "description of /shop/wound-care/adhesive-plasters.html": {
+   "hash": "a3d1c7342c683979",
+   "threshold": 0.75
+  },
+  "description of /shop/wound-care/cohesive-bandage.html": {
+   "hash": "da197dbed6b03b99",
+   "threshold": 0.75
+  },
+  "description of /shop/wound-care/conforming-bandages.html": {
+   "hash": "5920b42dde1a1418",
+   "threshold": 0.75
+  },
+  "description of /shop/wound-care/crepe-bandages.html": {
+   "hash": "0b644995d453445e",
+   "threshold": 0.75
+  },
+  "description of /shop/wound-care/first-aid-kit-workplace.html": {
+   "hash": "f6a8258d3ef8ccd6",
+   "threshold": 0.75
+  },
+  "description of /shop/wound-care/fixation-tape.html": {
+   "hash": "497cc871f7aa1dac",
+   "threshold": 0.75
+  },
+  "description of /shop/wound-care/hydrocolloid-foam-dressings.html": {
+   "hash": "da4434aa1dd8068d",
+   "threshold": 0.75
+  },
+  "description of /shop/wound-care/island-dressings.html": {
+   "hash": "e374765b2a9cb5a2",
+   "threshold": 0.75
+  },
+  "description of /shop/wound-care/non-adherent-dressings.html": {
+   "hash": "2717c2b5b10add7a",
+   "threshold": 0.75
+  },
+  "description of /shop/wound-care/silicone-scar-gel.html": {
+   "hash": "ff088aa26ee3aec4",
+   "threshold": 0.75
+  },
+  "description of /shop/wound-care/sterile-gauze-swabs.html": {
+   "hash": "ad7222315133535b",
+   "threshold": 0.75
+  },
+  "description of /shop/wound-care/sutures.html": {
+   "hash": "1dbaa7406f1522ed",
+   "threshold": 0.75
+  },
+  "description of /tools/reconstitution-calculator.html": {
+   "hash": "27adf866660bbafb",
+   "threshold": 0.75
+  },
+  "title of /about.html": {
+   "hash": "8594e850575988cf",
+   "threshold": 0.75
+  },
+  "title of /always-stocked.html": {
+   "hash": "f83e4251d27e3958",
+   "threshold": 0.75
+  },
+  "title of /clinic-portal.html": {
+   "hash": "dd908934440615ff",
+   "threshold": 0.75
+  },
+  "title of /contact.html": {
+   "hash": "8ef1fcbc95d9a27d",
+   "threshold": 0.75
+  },
+  "title of /for/clinic-fit-out.html": {
+   "hash": "cd3de1675971f49a",
+   "threshold": 0.75
+  },
+  "title of /for/diabetes-at-home.html": {
+   "hash": "7950cf166d1b9b19",
+   "threshold": 0.75
+  },
+  "title of /for/glp-1-injections.html": {
+   "hash": "7618a9a2c6be466c",
+   "threshold": 0.75
+  },
+  "title of /for/peptide-reconstitution.html": {
+   "hash": "c771dd68d30d3d9c",
+   "threshold": 0.75
+  },
+  "title of /for/trt-injections.html": {
+   "hash": "3e51def74239cb10",
+   "threshold": 0.75
+  },
+  "title of /for/wound-care-at-home.html": {
+   "hash": "397bb8c6f037bad2",
+   "threshold": 0.75
+  },
+  "title of /gauge-finder.html": {
+   "hash": "7203fddee9932cf9",
+   "threshold": 0.75
+  },
+  "title of /index.html": {
+   "hash": "1e2cf96092c0d2cd",
+   "threshold": 0.75
+  },
+  "title of /learn.html": {
+   "hash": "31185f01f5953a72",
+   "threshold": 0.75
+  },
+  "title of /learn/artg-explained.html": {
+   "hash": "5835d932091333b3",
+   "threshold": 0.75
+  },
+  "title of /learn/first-injection.html": {
+   "hash": "0bf3714d68c84144",
+   "threshold": 0.75
+  },
+  "title of /learn/gauge-comparison.html": {
+   "hash": "b5f6b4241bcc2c63",
+   "threshold": 0.75
+  },
+  "title of /learn/intramuscular-technique.html": {
+   "hash": "f8d9e8410539ebc7",
+   "threshold": 0.75
+  },
+  "title of /learn/needle-gauge-chart.html": {
+   "hash": "06575941e06edb34",
+   "threshold": 0.75
+  },
+  "title of /learn/needle-numbers-explained.html": {
+   "hash": "68bb926e063b6af6",
+   "threshold": 0.75
+  },
+  "title of /learn/reading-a-syringe.html": {
+   "hash": "6d803c5220b2957b",
+   "threshold": 0.75
+  },
+  "title of /learn/reconstitution-basics.html": {
+   "hash": "7e1ecd7b07f00e6e",
+   "threshold": 0.75
+  },
+  "title of /learn/sharps-disposal-australia.html": {
+   "hash": "514ac1d3f49c3925",
+   "threshold": 0.75
+  },
+  "title of /learn/storing-supplies.html": {
+   "hash": "d4ed04235436fdb2",
+   "threshold": 0.75
+  },
+  "title of /learn/subcutaneous-technique.html": {
+   "hash": "83e0c7447787d58c",
+   "threshold": 0.75
+  },
+  "title of /shop.html": {
+   "hash": "efd8a6ce1cbbe146",
+   "threshold": 0.75
+  },
+  "title of /shop/clinic-disposal.html": {
+   "hash": "9b6bde7dc849d511",
+   "threshold": 0.75
+  },
+  "title of /shop/clinic-disposal/blueys-underpads.html": {
+   "hash": "245c1c4c54e03348",
+   "threshold": 0.75
+  },
+  "title of /shop/clinic-disposal/clinical-waste-bags.html": {
+   "hash": "7f7ba06c1ae6c9a3",
+   "threshold": 0.75
+  },
+  "title of /shop/clinic-disposal/couch-roll.html": {
+   "hash": "78ac4f133bcdd73d",
+   "threshold": 0.75
+  },
+  "title of /shop/clinic-disposal/incontinence-pads.html": {
+   "hash": "4db213dbe0428726",
+   "threshold": 0.75
+  },
+  "title of /shop/clinic-disposal/sharps-container-bench.html": {
+   "hash": "34fa369dee479f2d",
+   "threshold": 0.75
+  },
+  "title of /shop/clinic-disposal/sharps-container-wall-mount.html": {
+   "hash": "71e5b779a27926c8",
+   "threshold": 0.75
+  },
+  "title of /shop/clinic-disposal/surface-wipes-clinical.html": {
+   "hash": "84409ef2eef2fb37",
+   "threshold": 0.75
+  },
+  "title of /shop/diagnostics.html": {
+   "hash": "2b22d6f5f2ea2ba6",
+   "threshold": 0.75
+  },
+  "title of /shop/diagnostics/blood-glucose-meter.html": {
+   "hash": "9f6a044c0a74820b",
+   "threshold": 0.75
+  },
+  "title of /shop/diagnostics/blood-glucose-test-strips.html": {
+   "hash": "38b42679644102c9",
+   "threshold": 0.75
+  },
+  "title of /shop/diagnostics/ecg-electrodes.html": {
+   "hash": "fdcb0af43609fb0e",
+   "threshold": 0.75
+  },
+  "title of /shop/diagnostics/otoscope-ear-specula.html": {
+   "hash": "1c9c2331d41b8a99",
+   "threshold": 0.75
+  },
+  "title of /shop/diagnostics/safety-lancets.html": {
+   "hash": "a373841270e2531d",
+   "threshold": 0.75
+  },
+  "title of /shop/diagnostics/thermometer-probe-covers.html": {
+   "hash": "6c9a110827522d11",
+   "threshold": 0.75
+  },
+  "title of /shop/diagnostics/tongue-depressors.html": {
+   "hash": "b8ff43bfbcc98719",
+   "threshold": 0.75
+  },
+  "title of /shop/diagnostics/ultrasound-gel.html": {
+   "hash": "dfa0a6a4f445aa9a",
+   "threshold": 0.75
+  },
+  "title of /shop/diagnostics/urinalysis-strips.html": {
+   "hash": "b24a28c524822636",
+   "threshold": 0.75
+  },
+  "title of /shop/diagnostics/vaginal-speculum-disposable.html": {
+   "hash": "f240e5d108eea917",
+   "threshold": 0.75
+  },
+  "title of /shop/diluents-swabs.html": {
+   "hash": "0177a9f9f3e26ecf",
+   "threshold": 0.75
+  },
+  "title of /shop/diluents-swabs/alcohol-swabs.html": {
+   "hash": "2063d289652074ef",
+   "threshold": 0.75
+  },
+  "title of /shop/diluents-swabs/bacteriostatic-water.html": {
+   "hash": "fe9650b64586ca12",
+   "threshold": 0.75
+  },
+  "title of /shop/diluents-swabs/chlorhexidine-skin-prep.html": {
+   "hash": "a09097b37933cd69",
+   "threshold": 0.75
+  },
+  "title of /shop/diluents-swabs/cotton-wool-balls.html": {
+   "hash": "e05193dcf7ad585a",
+   "threshold": 0.75
+  },
+  "title of /shop/diluents-swabs/povidone-iodine-swabsticks.html": {
+   "hash": "474986028a6a314a",
+   "threshold": 0.75
+  },
+  "title of /shop/diluents-swabs/sodium-chloride-sachets.html": {
+   "hash": "56066f89e2cd88f1",
+   "threshold": 0.75
+  },
+  "title of /shop/diluents-swabs/sterile-water-for-injection.html": {
+   "hash": "9001c27d4152b8b2",
+   "threshold": 0.75
+  },
+  "title of /shop/gloves-ppe.html": {
+   "hash": "1a55d9c89444744f",
+   "threshold": 0.75
+  },
+  "title of /shop/gloves-ppe/alcohol-hand-rub.html": {
+   "hash": "982237e6240c81a0",
+   "threshold": 0.75
+  },
+  "title of /shop/gloves-ppe/aprons-on-a-roll.html": {
+   "hash": "0f7e8f236c4081ff",
+   "threshold": 0.75
+  },
+  "title of /shop/gloves-ppe/isolation-gowns.html": {
+   "hash": "52d20572a6a984b6",
+   "threshold": 0.75
+  },
+  "title of /shop/gloves-ppe/latex-examination-gloves.html": {
+   "hash": "721f2fdf489fd173",
+   "threshold": 0.75
+  },
+  "title of /shop/gloves-ppe/nitrile-examination-gloves.html": {
+   "hash": "12fa0bbd862ab1d3",
+   "threshold": 0.75
+  },
+  "title of /shop/gloves-ppe/surgical-masks-level-2.html": {
+   "hash": "32b744719f8ce91e",
+   "threshold": 0.75
+  },
+  "title of /shop/hygiene-cleaning.html": {
+   "hash": "a746041d85a99ebf",
+   "threshold": 0.75
+  },
+  "title of /shop/hygiene-cleaning/cotton-wool-rolls.html": {
+   "hash": "4b812ec5f93f79a4",
+   "threshold": 0.75
+  },
+  "title of /shop/hygiene-cleaning/facial-tissues.html": {
+   "hash": "f155fa6ebd68d923",
+   "threshold": 0.75
+  },
+  "title of /shop/hygiene-cleaning/hand-soap.html": {
+   "hash": "dea4be179fd1891d",
+   "threshold": 0.75
+  },
+  "title of /shop/hygiene-cleaning/hand-towels.html": {
+   "hash": "3b252a39df9fe53f",
+   "threshold": 0.75
+  },
+  "title of /shop/syringes-needles.html": {
+   "hash": "6be866611a6031b7",
+   "threshold": 0.75
+  },
+  "title of /shop/syringes-needles/drawing-up-needles.html": {
+   "hash": "5826bb2820286680",
+   "threshold": 0.75
+  },
+  "title of /shop/syringes-needles/hypodermic-needles.html": {
+   "hash": "e2de3e82e35fea36",
+   "threshold": 0.75
+  },
+  "title of /shop/syringes-needles/luer-lock-syringes.html": {
+   "hash": "946516dca4590f8d",
+   "threshold": 0.75
+  },
+  "title of /shop/syringes-needles/luer-slip-syringes.html": {
+   "hash": "a0abe344f71d13cf",
+   "threshold": 0.75
+  },
+  "title of /shop/syringes-needles/pen-needles.html": {
+   "hash": "46bf60f978d0de84",
+   "threshold": 0.75
+  },
+  "title of /shop/syringes-needles/u-100-insulin-syringes.html": {
+   "hash": "c181216902ffa2e6",
+   "threshold": 0.75
+  },
+  "title of /shop/syringes-needles/vial-access-devices.html": {
+   "hash": "b32b514aa2b022bc",
+   "threshold": 0.75
+  },
+  "title of /shop/taping-supports.html": {
+   "hash": "fe411c771d2132c2",
+   "threshold": 0.75
+  },
+  "title of /shop/taping-supports/compression-stockings.html": {
+   "hash": "5444e991d54bb0ca",
+   "threshold": 0.75
+  },
+  "title of /shop/taping-supports/elastic-adhesive-bandage.html": {
+   "hash": "9bfa055366ce470c",
+   "threshold": 0.75
+  },
+  "title of /shop/taping-supports/kinesiology-tape.html": {
+   "hash": "39247dea0d524bf0",
+   "threshold": 0.75
+  },
+  "title of /shop/taping-supports/rigid-strapping-tape.html": {
+   "hash": "80522a2fd37b2e10",
+   "threshold": 0.75
+  },
+  "title of /shop/wound-care.html": {
+   "hash": "9fb8ee48bd860f60",
+   "threshold": 0.75
+  },
+  "title of /shop/wound-care/adhesive-plasters.html": {
+   "hash": "5b1eedfa8f7a4a7d",
+   "threshold": 0.75
+  },
+  "title of /shop/wound-care/cohesive-bandage.html": {
+   "hash": "0c9770837d39f41d",
+   "threshold": 0.75
+  },
+  "title of /shop/wound-care/conforming-bandages.html": {
+   "hash": "1045363c8b85b207",
+   "threshold": 0.75
+  },
+  "title of /shop/wound-care/crepe-bandages.html": {
+   "hash": "e53b0da8fc7e2948",
+   "threshold": 0.75
+  },
+  "title of /shop/wound-care/first-aid-kit-workplace.html": {
+   "hash": "c4ee3efe2e402c6d",
+   "threshold": 0.75
+  },
+  "title of /shop/wound-care/fixation-tape.html": {
+   "hash": "a3b89e748c936b2b",
+   "threshold": 0.75
+  },
+  "title of /shop/wound-care/hydrocolloid-foam-dressings.html": {
+   "hash": "913828012155c49a",
+   "threshold": 0.75
+  },
+  "title of /shop/wound-care/island-dressings.html": {
+   "hash": "cfc7a6d01409ee9b",
+   "threshold": 0.75
+  },
+  "title of /shop/wound-care/non-adherent-dressings.html": {
+   "hash": "26608bc21467db51",
+   "threshold": 0.75
+  },
+  "title of /shop/wound-care/silicone-scar-gel.html": {
+   "hash": "46fc0b6d37b12a95",
+   "threshold": 0.75
+  },
+  "title of /shop/wound-care/sterile-gauze-swabs.html": {
+   "hash": "c5c3bdabfbed19d4",
+   "threshold": 0.75
+  },
+  "title of /shop/wound-care/sutures.html": {
+   "hash": "f16493dd61b66653",
+   "threshold": 0.75
+  },
+  "title of /tools/reconstitution-calculator.html": {
+   "hash": "2cb667747ce12bae",
+   "threshold": 0.75
+  }
+ },
+ "rules_version": 1
+}

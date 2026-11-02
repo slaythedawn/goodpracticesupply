@@ -2,6 +2,16 @@
  "entries": [
   {
    "date": "2026-11-02",
+   "cluster": "page:/shop/gloves-ppe/nitrile-examination-gloves",
+   "target": "nitrile gloves",
+   "action": "expand",
+   "page": "/shop/gloves-ppe/nitrile-examination-gloves",
+   "brief": "seo/briefs/2026-11-02-nitrile-gloves.md",
+   "page_hash": "6f0a07e59d7630f6",
+   "score_when_chosen": 4335.6
+  },
+  {
+   "date": "2026-11-02",
    "cluster": "page:/shop/clinic-disposal/sharps-container-bench",
    "target": "sharps container",
    "action": "expand",
