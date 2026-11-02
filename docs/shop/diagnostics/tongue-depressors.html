@@ -558,7 +558,7 @@ class Component extends DCLogic {
   renderVals() {
     const s = this.state;
     const VARIANTS = [{"label": "Adult", "hint": "150mm"}, {"label": "Paediatric", "hint": "140mm"}];
-    const PACKS = [{"label": "Box of 100", "price": 690}, {"label": "Carton of 1000", "price": 5400}, {"label": "Carton of 5000", "price": 24500}];
+    const PACKS = [{"label": "Box of 100", "price": 300}, {"label": "Carton of 1000", "price": 2350}, {"label": "Carton of 5000", "price": 10650}];
     const money = c => '$' + (c / 100).toFixed(2);
     const sel = on => ({
       bg: on ? '#0E0E0E' : '#FAFAFA',

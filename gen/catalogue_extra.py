@@ -102,7 +102,7 @@ EXTRA_PRODUCTS = {
    'Plain birch, smooth edges, adult length. Bought by the hundred because they are single use and there is no reason to buy them any other way.',
    'depressor',
    [('Adult','150mm'),('Paediatric','140mm')],
-   [('Box of 100',690),('Carton of 1000',5400),('Carton of 5000',24500)],
+   [('Box of 100',300),('Carton of 1000',2350),('Carton of 5000',10650)],
    extra=[('Material','Birch, smooth edged'),('Sterility','Non-sterile'),('Length','150mm adult')]),
 ],
 

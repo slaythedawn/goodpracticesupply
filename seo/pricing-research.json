@@ -430,17 +430,24 @@
    ]
   },
   "fixation-tape": {
-   "repriced": false,
-   "reason": "No Australian price with a pack size found.",
-   "current": [
-    [
-     "Roll",
-     690
-    ],
-    [
-     "Box of 12 rolls",
-     7200
-    ]
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Roll",
+     "benchmark_inc_gst": 789,
+     "confidence": "medium",
+     "source": "Elastoplast Sensitive fixation tape 2.5cm x 9m single roll, Blooms the Chemist A$7.89; Fix-A-Roll 2.5cm x 10m, Chemist Warehouse A$10.99; Mefix 10cm x 10m A$11.35. Our roll width is not specified so the cheapest comparable was used.",
+     "was": 690,
+     "now": 710
+    },
+    {
+     "pack": "Box of 12 rolls",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "Scaled from the roll benchmark, keeping the existing bulk discount.",
+     "was": 7200,
+     "now": 7410
+    }
    ]
   },
   "conforming-bandages": {
@@ -771,21 +778,32 @@
    ]
   },
   "tongue-depressors": {
-   "repriced": false,
-   "reason": "No Australian price found. The only result was a UK supplier.",
-   "current": [
-    [
-     "Box of 100",
-     690
-    ],
-    [
-     "Carton of 1000",
-     5400
-    ],
-    [
-     "Carton of 5000",
-     24500
-    ]
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Box of 100",
+     "benchmark_inc_gst": 338,
+     "confidence": "high",
+     "source": "Livingstone wooden tongue depressors non sterile 100/box, A$3.38 inc GST at 1+; Chemist Warehouse A$3.49. The sterile version is A$26.77 at Yesmed, which is a different product and was not used.",
+     "was": 690,
+     "now": 300
+    },
+    {
+     "pack": "Carton of 1000",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "Scaled from the box of 100 benchmark, keeping the existing bulk discount.",
+     "was": 5400,
+     "now": 2350
+    },
+    {
+     "pack": "Carton of 5000",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "Scaled from the box of 100 benchmark, keeping the existing bulk discount.",
+     "was": 24500,
+     "now": 10650
+    }
    ]
   },
   "sharps-container-bench": {
@@ -1084,8 +1102,14 @@
  "limitation": "Every benchmark here comes from web search results, not from a live product page. This session cannot reach retail hosts directly: a fetch of www.livingstone.com.au and www.medshop.com.au both failed to resolve, so the figures are search snapshots and several carried a January 2025 date. They are good enough to set a provisional price and not good enough to defend to the cent. To verify against live pages, the environment network policy needs those hosts allowed.",
  "coverage": {
   "products_total": 57,
-  "repriced": 24,
-  "left_alone": 33,
+  "repriced": 26,
+  "left_alone": 31,
   "why_left_alone": "No credible like for like Australian comparable was found, so the existing figure stands rather than being replaced by a second invented one. Each has its reason recorded below."
+ },
+ "the_tail": {
+  "finding": "The 31 products without a benchmark are not unresearched. They are not publicly priced in Australia.",
+  "evidence": "Two rounds of searching, with very different results. The first round covered the high turnover commodity lines and found a usable Australian retail price for 24 of the 26 products it looked at. The second round covered the tail and found 2 usable prices from 16 products. The pattern in the misses is consistent: \"price on application\", \"log in to view pricing\", a trade account gate, or only an aggregator average with a ten to one spread.",
+  "so_the_next_input_is_not_more_searching": "It is the supplier price list. For a line nobody publishes a retail price for, a price set from the real cost plus a margin is better than one reverse engineered from a competitor who will not show theirs. That arrives with sourcing, not before it, so these 31 are waiting on the same thing the backlinks and the ARTG rows are.",
+  "what_would_change_it": "Direct page access would help at the margin. Three hosts failed to resolve from this session, www.livingstone.com.au, www.medshop.com.au and www.tga.gov.au, so every figure here is a search snapshot. Allowing those under Network access would let the live pages be read, and the trade gated ones still would not show a price without an account."
  }
 }

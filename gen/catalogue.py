@@ -205,7 +205,7 @@ CATEGORIES = [
     [('Ply','8'),('Sterility','EN 556')]),
   P('Fixation tape','fixation-tape','tape','Hypoallergenic, tears by hand','Holds a dressing without taking skin off on removal, and tears cleanly across so you are not hunting for scissors.','wound',
     [('2.5cm',''),('5cm',''),('7.5cm','')],
-    [('Roll',690),('Box of 12 rolls',7200)],
+    [('Roll',710),('Box of 12 rolls',7410)],
     [('Backing','Non woven'),('Adhesive','Hypoallergenic')]),
   P('Conforming bandages','conforming-bandages','tape','Stretch, self adherent','Follows a limb rather than fighting it. Self adherent, so it holds without clips.','wound',
     [('5cm',''),('7.5cm',''),('10cm','')],

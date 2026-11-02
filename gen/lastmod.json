@@ -133,7 +133,7 @@
  },
  "/shop/diagnostics": {
   "date": "2026-11-02",
-  "hash": "5ebc94df3ad14916"
+  "hash": "c2f732537b6df07e"
  },
  "/shop/diagnostics/blood-glucose-meter": {
   "date": "2026-11-02",
@@ -161,7 +161,7 @@
  },
  "/shop/diagnostics/tongue-depressors": {
   "date": "2026-11-02",
-  "hash": "9227e996b4366b5d"
+  "hash": "b96b1380f158a9cd"
  },
  "/shop/diagnostics/ultrasound-gel": {
   "date": "2026-11-02",
@@ -309,55 +309,55 @@
  },
  "/shop/wound-care": {
   "date": "2026-11-02",
-  "hash": "b0691ff4a15399e4"
+  "hash": "7b35a2153f4a533c"
  },
  "/shop/wound-care/adhesive-plasters": {
   "date": "2026-11-02",
-  "hash": "e8cf0d747c1a4aa6"
+  "hash": "5ebcae2a2446ac98"
  },
  "/shop/wound-care/cohesive-bandage": {
   "date": "2026-11-02",
-  "hash": "cb59e49e9228003d"
+  "hash": "029bfeb423366418"
  },
  "/shop/wound-care/conforming-bandages": {
   "date": "2026-11-02",
-  "hash": "07dc36dd515f3c84"
+  "hash": "909ddb6423315cd1"
  },
  "/shop/wound-care/crepe-bandages": {
   "date": "2026-11-02",
-  "hash": "4b6cb7392eed1879"
+  "hash": "9488c3826f4badfb"
  },
  "/shop/wound-care/first-aid-kit-workplace": {
   "date": "2026-11-02",
-  "hash": "3f4ef920e7bf7314"
+  "hash": "6df2bf6622029d9e"
  },
  "/shop/wound-care/fixation-tape": {
   "date": "2026-11-02",
-  "hash": "d409f578823717cd"
+  "hash": "1e8d674e0f639240"
  },
  "/shop/wound-care/hydrocolloid-foam-dressings": {
   "date": "2026-11-02",
-  "hash": "e46f40566e705b2e"
+  "hash": "b96752ff4f1f8455"
  },
  "/shop/wound-care/island-dressings": {
   "date": "2026-11-02",
-  "hash": "df94de3f67525c08"
+  "hash": "c029f57df1a38856"
  },
  "/shop/wound-care/non-adherent-dressings": {
   "date": "2026-11-02",
-  "hash": "9e9f9f90ad891664"
+  "hash": "ccecbb29921b7195"
  },
  "/shop/wound-care/silicone-scar-gel": {
   "date": "2026-11-02",
-  "hash": "f46f6ee54daa60d0"
+  "hash": "68810df3f8d9015b"
  },
  "/shop/wound-care/sterile-gauze-swabs": {
   "date": "2026-11-02",
-  "hash": "7fa1d817b4853b7a"
+  "hash": "6f2cfa239cecca05"
  },
  "/shop/wound-care/sutures": {
   "date": "2026-11-02",
-  "hash": "252d6c606ff03ed9"
+  "hash": "dd7fba760c8e2e0a"
  },
  "/tools/reconstitution-calculator": {
   "date": "2026-11-02",
