@@ -521,6 +521,31 @@ GUIDES = [
    'Our reconstitution calculator does the arithmetic if you have the strength '
    'and the volume. It does not tell you what either of them should be.',
   ]),
+  ('What the benzyl alcohol is actually doing', [
+   'Bacteriostatic water is sterile water with roughly 0.9 per cent benzyl '
+   'alcohol in it, and bacteriostatic is the precise word: it inhibits bacterial '
+   'growth rather than killing what is already there. It is a preservative, not a '
+   'steriliser, and it is the entire difference between the two products.',
+   'That preservative is why a vial can be entered more than once. Sterile water '
+   'for injection has nothing in it to stop something growing, so the moment the '
+   'stopper is punctured the clock is short and the vial is a single use item in '
+   'practice whatever its volume.',
+   'Nothing in either of them treats anything. They are diluents, which is to say '
+   'they are the liquid and not the point.',
+  ]),
+  ('Vial sizes, and how long an opened one is good for', [
+   'Bacteriostatic water is commonly sold in 10mL, 20mL and 30mL glass vials. The '
+   'size to buy is the one you will finish, because the useful life of an opened '
+   'vial is set by the date on it and by how many times it has been entered, not '
+   'by how much is left in it.',
+   'Read the vial for that figure rather than a general rule, and it is usually '
+   'shorter than people assume. Write the date you first punctured it on the '
+   'label, because that is the number you will want later and will not remember.',
+   'Store it as the carton says, which for these is room temperature and out of '
+   'light. [Storing supplies](/learn/storing-supplies) covers the rest of the '
+   'drawer, and a vial that has spent an afternoon in a hot car is not the vial '
+   'you think it is.',
+  ]),
   ('Keeping the vial clean', [
    'Swab the stopper before every entry and let it dry. Every time, not just the '
    'first.',
@@ -540,10 +565,37 @@ GUIDES = [
    '[bacteriostatic water and swabs](/shop/diluents-swabs) that go with them.',
   ]),
  ],
+ # A comparison of the three diluents rather than a dilution table. The searches
+ # behind this page are "what is bacteriostatic water" and "bacteriostatic water
+ # vs sterile water", which are questions about the liquid, and the liquid is the
+ # part this business actually sells. What it gets mixed with is not on this page
+ # by design.
+ 'table': ('The three of them side by side',
+           ['', 'Bacteriostatic water', 'Sterile water for injection',
+            'Sodium chloride 0.9%'],
+           [['What is in it', 'Sterile water plus about 0.9% benzyl alcohol',
+             'Sterile water, nothing else', 'Sterile water plus 0.9% salt'],
+            ['Preservative', 'Yes, benzyl alcohol', 'None', 'None'],
+            ['Entries per vial', 'More than one, within the date on the label',
+             'One in practice', 'One in practice'],
+            ['Common sizes', '10mL, 20mL, 30mL glass', '10mL, 20mL',
+             '10mL ampoule, 30mL sachet'],
+            ['Usual job', 'A diluent you come back to',
+             'A diluent used once', 'Cleaning and irrigation'],
+            ['What it is not', 'Not a medicine', 'Not a medicine',
+             'Not a medicine']]),
+
  'faq': [
   ('How much water should I add?',
    'The volume your prescriber specified. It sets the concentration, so it '
    'changes what every mark on the syringe means.'),
+  ('What is bacteriostatic water?',
+   'Sterile water with about 0.9 per cent benzyl alcohol added as a preservative. '
+   'The preservative inhibits bacterial growth, which is what lets a vial be '
+   'entered more than once. It is a diluent and nothing in it treats anything.'),
+  ('How long does an opened vial last?',
+   'The date on the label governs it, and it is usually shorter than people '
+   'expect. Write the date you first punctured it on the vial.'),
   ('Can I use tap water or saline?',
    'No to tap water, ever. Sodium chloride for injection is a diluent for some '
    'products and not others. Use what the directions specify.'),

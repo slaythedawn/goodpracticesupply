@@ -800,7 +800,40 @@ CATEGORY_SEO = {
    'Bacteriostatic water contains 0.9% benzyl alcohol as a preservative, which is what makes a vial multi-dose: it can be entered more than once within the in-use period its instructions give. Sterile water for injection has no preservative and is single use.',
    'That is the whole difference. Both are diluents, neither is a medicine, and which one you need is a question for your prescriber rather than for us.',
   ]),
-  ('Skin prep, in order of how long it keeps working', [
+  ('What an alcohol swab is, and what size to get', [
+   'An alcohol swab is a small pad saturated with seventy per cent isopropyl, '
+   'sealed in a foil sachet so it is still wet when you open it. The sachet is the '
+   'product as much as the pad is: an open tub dries from the top down and the '
+   'swab at the top is not the swab you think it is.',
+   'Sizes are quoted folded or unfolded and the unfolded figure is the one that '
+   'matters, because that is the area you can actually wipe. A standard swab '
+   'opens to around 6cm square, which covers a vial top several times over and a '
+   'patch of skin once.',
+   '[Alcohol swabs](/shop/diluents-swabs/alcohol-swabs) are listed by sachet '
+   'count. The thing that runs out first in any room is always the swabs, which '
+   'is why they come in 100 and 200.',
+  ]),
+ ('Seventy per cent, and why stronger is worse', [
+   'Seventy per cent isopropyl in water kills more effectively than ninety or a '
+   'hundred, which sounds wrong and is not. Alcohol works by denaturing protein '
+   'and it needs water present to do it. Pure alcohol dries the outside of a cell '
+   'and stops there.',
+   'The other half of it is evaporation time. Ninety-nine per cent flashes off in '
+   'a couple of seconds, and the contact time is the thing doing the work. '
+   'Seventy per cent stays wet long enough to matter.',
+   'Let it dry rather than wiping it off. A wiped surface has had a few seconds of '
+   'contact and a dry one has had the full thirty.',
+  ]),
+ ('Saline, and when a sachet beats a bottle', [
+   'Sodium chloride at 0.9 per cent is the routine choice for cleaning, and it '
+   'comes as single use sachets or as a bottle. A sachet is opened for the job and '
+   'finished with, which is the point: once a bottle is open its contents are no '
+   'longer sterile, whatever the label says about the date.',
+   '[Saline sachets](/shop/diluents-swabs/sodium-chloride-sachets) are listed in '
+   '30mL, which is about one dressing change. A bottle makes sense for irrigation '
+   'volumes and nothing smaller.',
+  ]),
+ ('Skin prep, in order of how long it keeps working', [
    'An alcohol swab acts fast and stops working as soon as it has evaporated, which is fine for an injection site. Chlorhexidine in alcohol keeps working after it dries. Povidone iodine is the one to reach for where chlorhexidine is contraindicated.',
    'All three have to dry before the needle goes in. Wet prep stings and has not finished working.',
   ]),
@@ -810,6 +843,12 @@ CATEGORY_SEO = {
    'Bacteriostatic water has 0.9% benzyl alcohol added as a preservative, so the vial can be entered more than once. Sterile water for injection has no preservative and is single use.'),
   ('Do you sell peptides or hormones?',
    'No. Good Practice Supply supplies consumables only, and that includes diluents. We do not stock peptides, hormones or any prescription medicine.'),
+  ('What size is an alcohol swab?',
+   'A standard swab opens to roughly 6cm square. Sizes are quoted folded and '
+   'unfolded, and unfolded is the figure that tells you the area you can wipe.'),
+  ('Should I wipe the alcohol off or let it dry?',
+   'Let it dry. The contact time is what does the work, so wiping it off shortens '
+   'the only part that matters.'),
   ('Why 70% isopropyl and not stronger?',
    'Alcohol needs water present to break down a bacterial cell wall. Above about 80% it evaporates before it has done that.'),
  ],
@@ -823,7 +862,41 @@ CATEGORY_SEO = {
    'Nitrile is synthetic and contains no latex protein, which removes the allergy question for wearer and patient both. It is the sensible default. Latex has better tactile feel and more stretch, and is worth stocking alongside rather than instead.',
    'Most people take a smaller size in nitrile than they expect, because it has less give. A glove that is too big snags and one that is too small splits at the web of the thumb.',
   ]),
-  ('Mask levels are about fluid, not fit', [
+  ('Thickness, and what heavy duty actually means', [
+   'Glove thickness is quoted in mils, a thousandth of an inch, measured at the '
+   'fingertip where it matters. An examination glove is usually around 3 to 4 '
+   'mil. Anything sold as heavy duty is 6 mil or more, and the difference you '
+   'feel is not strength so much as the loss of fine touch.',
+   'Thicker is not better, it is a trade. For handling a vial or a dressing you '
+   'want to feel what you are doing, and 3 to 4 mil is where almost all clinical '
+   'work sits. Heavy duty earns its keep on cleaning, decanting and anything with '
+   'a sharp edge, where a tear costs more than a little dexterity.',
+   '[Nitrile examination gloves](/shop/gloves-ppe/nitrile-examination-gloves) are '
+   'the standard weight. Sizing runs small through extra large and the fit is '
+   'worth getting right: a glove too big bunches at the fingertip and a glove too '
+   'tight tires your hand and splits at the thumb web.',
+  ]),
+ ('Why they come in blue and black', [
+   'Blue is the clinical default, and the reason is visibility. Against blue, a '
+   'puncture or a split shows up immediately, and so does anything on the glove '
+   'that should not be there.',
+   'Black came from tattooing and from automotive work, where the point is the '
+   'opposite: it does not show marks. It has carried across into clinics that '
+   'prefer how it looks. There is no difference in the material and no difference '
+   'in protection. Nitrile is nitrile and the colour is a pigment.',
+   'If you are choosing for a treatment room, choose blue and choose it for the '
+   'reason above rather than habit.',
+  ]),
+ ('Powder free, and why powdered went away', [
+   'Every nitrile glove listed here is powder free. Cornstarch powder used to be '
+   'standard as a donning aid, and it stopped being standard because the powder '
+   'carries glove protein into the air and onto whatever the glove touches.',
+   'Powdered surgical gloves were banned outright in the United States in 2017 '
+   'and the rest of the world has largely followed. If anybody is still offering '
+   'you powdered examination gloves, that is the question to ask about, not the '
+   'price.',
+  ]),
+ ('Mask levels are about fluid, not fit', [
    'Level 1 for short procedures with little fluid, Level 2 (Type IIR) as the general purpose clinical mask with a fluid resistant outer, Level 3 for heavy exposure. None of them seal to the face, so none of them do the job of a fitted P2 or N95.',
   ]),
  ],
@@ -832,6 +905,18 @@ CATEGORY_SEO = {
    'Yes. Nitrile is a synthetic rubber with no natural rubber latex protein in it.'),
   ('What does Level 2 mean on a surgical mask?',
    'Fluid resistance and filtration, equivalent to Type IIR. It is the general purpose clinical mask.'),
+  ('What thickness of nitrile glove do I need?',
+   'Three to four mil for almost anything clinical, which is what an examination '
+   'glove is. Six mil or more is sold as heavy duty and is worth it for cleaning '
+   'and decanting, where you care more about a tear than about fine touch.'),
+  ('Is there any difference between black and blue nitrile gloves?',
+   'Only the pigment. Blue is the clinical default because a split or a puncture '
+   'shows against it. Black came from tattooing and automotive work, where not '
+   'showing marks is the point.'),
+  ('Are these the same as the ones in a supermarket?',
+   'The material is the same. What differs is that the grade, the thickness and '
+   'the pack size are printed here, and a supermarket box usually tells you none '
+   'of the three.'),
   ('Do you sell gloves by the carton?',
    'Yes, and the carton price is on the page. No account needed to see it.'),
  ],
