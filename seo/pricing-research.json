@@ -1,0 +1,1090 @@
+{
+ "pulled": "2026-11-02",
+ "method": {
+  "rule": "Our price is 10% below the benchmark, rounded to the nearest 10 cents.",
+  "benchmark": "The lowest credible like-for-like Australian retail price for the same pack size, GST inclusive. Lowest rather than median, because that is the number a customer comparing actually finds, and undercutting the cheapest is the positioning the site already claims in print.",
+  "gst": "Every benchmark is normalised to GST inclusive before the 10% comes off. This matters more than it looks. Livingstone and the other trade suppliers quote ex GST, Chemist Warehouse and Amazon quote inc GST, and an Australian site showing a consumer price has to show it GST inclusive. Taking 10% off an ex GST trade price would have put us about 1% ABOVE that supplier once GST was added, which is the opposite of the instruction.",
+  "excluded": "Grey import and overseas listings, because 10% under a parallel import is not a price this business can hold. US, UK, India, Singapore and NZ results were discarded wherever they appeared.",
+  "pack_sizes": "Compared per pack, never per unit. A box of 100 and a box of 200 are different products to a buyer.",
+  "larger_packs": "Where only the base pack has a findable comparable, the larger packs keep the bulk discount curve the catalogue already had, applied to the new base price, so the per unit saving stays coherent instead of being invented twice."
+ },
+ "products": {
+  "u-100-insulin-syringes": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Box of 100",
+     "benchmark_inc_gst": 3195,
+     "confidence": "high",
+     "source": "Terumo 1mL 29G 100/box, Livingstone product feed, A$31.95",
+     "was": 4776,
+     "now": 2880
+    },
+    {
+     "pack": "Box of 200",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the box of 100 benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 8990,
+     "now": 5420
+    },
+    {
+     "pack": "Carton of 500",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the box of 100 benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 20450,
+     "now": 12330
+    }
+   ]
+  },
+  "luer-lock-syringes": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Box of 100",
+     "benchmark_inc_gst": 1800,
+     "confidence": "high",
+     "source": "Terumo SS+03L 3mL 100/box, AU retailer item 19048-TE, A$18.00; Vet Shed A$18.36, Yesmed A$19.64",
+     "was": 3240,
+     "now": 1620
+    },
+    {
+     "pack": "Box of 200",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the box of 100 benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 6100,
+     "now": 3050
+    }
+   ]
+  },
+  "hypodermic-needles": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Box of 100",
+     "benchmark_inc_gst": 490,
+     "confidence": "high",
+     "source": "Terumo Neolus 25G 100/box, Livingstone A$4.45 ex GST = A$4.90 inc; Yesmed Agani A$5.89 inc",
+     "was": 1290,
+     "now": 440
+    },
+    {
+     "pack": "Box of 500",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the box of 100 benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 5450,
+     "now": 1860
+    }
+   ]
+  },
+  "drawing-up-needles": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Box of 100",
+     "benchmark_inc_gst": 990,
+     "confidence": "high",
+     "source": "BD blunt fill 18G x 38mm 100/box, Vet Shed A$9.90",
+     "was": 1420,
+     "now": 890
+    },
+    {
+     "pack": "Box of 500",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the box of 100 benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 6200,
+     "now": 3890
+    }
+   ]
+  },
+  "vial-access-devices": {
+   "repriced": false,
+   "reason": "No Australian retail price found. Every result was a US supplier or an IV access valve, which is a different device.",
+   "current": [
+    [
+     "Box of 50",
+     2650
+    ],
+    [
+     "Box of 100",
+     4900
+    ]
+   ]
+  },
+  "pen-needles": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Box of 100",
+     "benchmark_inc_gst": 4183,
+     "confidence": "medium",
+     "source": "Easy Flow 32G 4mm 100/box, Yesmed A$41.83. Single source and the GST basis is not stated on the listing",
+     "was": 1890,
+     "now": 3760
+    },
+    {
+     "pack": "Box of 200",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the box of 100 benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 3490,
+     "now": 6940
+    }
+   ]
+  },
+  "luer-slip-syringes": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Box of 100",
+     "benchmark_inc_gst": 1746,
+     "confidence": "derived",
+     "source": "No direct comparable found. Derived at 97% of the luer lock benchmark, because the only difference is the lock collar and the product copy already says slip is cheaper per unit",
+     "was": 3180,
+     "now": 1570
+    },
+    {
+     "pack": "Carton of 500",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the box of 100 benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 14200,
+     "now": 7010
+    },
+    {
+     "pack": "Carton of 1000",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the box of 100 benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 26900,
+     "now": 13280
+    }
+   ]
+  },
+  "nitrile-examination-gloves": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Box of 100",
+     "benchmark_inc_gst": 980,
+     "confidence": "high",
+     "source": "Universal nitrile PF large 100/box, Livingstone A$9.80 inc GST at 1+; Chemist Warehouse A$10.99, Amazon AU A$10.99",
+     "was": 1990,
+     "now": 880
+    },
+    {
+     "pack": "Carton of 10 boxes",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the box of 100 benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 17900,
+     "now": 7920
+    }
+   ]
+  },
+  "latex-examination-gloves": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Box of 100",
+     "benchmark_inc_gst": 949,
+     "confidence": "high",
+     "source": "Geltek latex PF 100/box, Chemist Warehouse A$9.49",
+     "was": 1650,
+     "now": 850
+    },
+    {
+     "pack": "Carton of 10 boxes",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the box of 100 benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 14800,
+     "now": 7620
+    }
+   ]
+  },
+  "surgical-masks-level-2": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Box of 50",
+     "benchmark_inc_gst": 924,
+     "confidence": "high",
+     "source": "Level 2 surgical mask 50/box, SSS Australia A$9.24 inc GST; Bare Medical A$9.95",
+     "was": 1290,
+     "now": 830
+    },
+    {
+     "pack": "Carton of 40 boxes",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the box of 50 benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 44900,
+     "now": 28890
+    }
+   ]
+  },
+  "isolation-gowns": {
+   "repriced": false,
+   "reason": "Only aggregator averages, which ranged A$5 to A$400. Not a benchmark.",
+   "current": [
+    [
+     "Pack of 10",
+     3450
+    ],
+    [
+     "Carton of 50",
+     15900
+    ]
+   ]
+  },
+  "aprons-on-a-roll": {
+   "repriced": false,
+   "reason": "No comparable Australian listing found.",
+   "current": [
+    [
+     "Roll of 200",
+     2290
+    ],
+    [
+     "Carton of 6 rolls",
+     12400
+    ]
+   ]
+  },
+  "alcohol-hand-rub": {
+   "repriced": false,
+   "reason": "No comparable Australian listing found.",
+   "current": [
+    [
+     "Each",
+     1290
+    ],
+    [
+     "Carton of 6",
+     6900
+    ]
+   ]
+  },
+  "alcohol-swabs": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Box of 200",
+     "benchmark_inc_gst": 870,
+     "confidence": "high",
+     "source": "Mediswabs 70% isopropyl 2 ply 200/box, Brightsky A$8.70; NSI A$9.95",
+     "was": 890,
+     "now": 780
+    },
+    {
+     "pack": "Carton of 20 boxes",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the box of 200 benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 15900,
+     "now": 13930
+    }
+   ]
+  },
+  "bacteriostatic-water": {
+   "repriced": false,
+   "reason": "No credible Australian retail price. The only Australian listing was a Livingstone 20mL pack with no price shown, and the rest were research chemical sites or overseas pharmacies. Worth noting because this is the term the loop picks most often.",
+   "current": [
+    [
+     "Each",
+     1450
+    ],
+    [
+     "Pack of 5",
+     6800
+    ]
+   ]
+  },
+  "sterile-water-for-injection": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Box of 50",
+     "benchmark_inc_gst": 6179,
+     "confidence": "medium",
+     "source": "Fresenius Kabi water for injection 10mL x 50, Medshop A$61.79. Listing was marked sold out and the GST basis is not stated",
+     "was": 3900,
+     "now": 5560
+    },
+    {
+     "pack": "Box of 100",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the box of 50 benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 7200,
+     "now": 10260
+    }
+   ]
+  },
+  "chlorhexidine-skin-prep": {
+   "repriced": false,
+   "reason": "No comparable Australian listing found.",
+   "current": [
+    [
+     "Box of 25",
+     4900
+    ],
+    [
+     "Each",
+     1690
+    ]
+   ]
+  },
+  "povidone-iodine-swabsticks": {
+   "repriced": false,
+   "reason": "No comparable Australian listing found.",
+   "current": [
+    [
+     "Box of 50",
+     2450
+    ],
+    [
+     "Box of 200",
+     8200
+    ]
+   ]
+  },
+  "sodium-chloride-sachets": {
+   "repriced": false,
+   "reason": "The Australian prices found were for 10mL injection ampoules. Our product is a 30mL single use irrigation sachet, which is not the same thing, so the ampoule price was not used.",
+   "current": [
+    [
+     "Box of 50",
+     1890
+    ],
+    [
+     "Carton of 10 boxes",
+     16500
+    ]
+   ]
+  },
+  "cotton-wool-balls": {
+   "repriced": false,
+   "reason": "No comparable Australian listing found.",
+   "current": [
+    [
+     "Bag of 500",
+     890
+    ],
+    [
+     "Bag of 1000",
+     1540
+    ],
+    [
+     "Carton of 5000",
+     6900
+    ]
+   ]
+  },
+  "non-adherent-dressings": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Box of 50",
+     "benchmark_inc_gst": 3750,
+     "confidence": "medium",
+     "source": "Aero non adherent 10 x 10cm 50/box, First Aid Distributions A$37.50. Single source",
+     "was": 2650,
+     "now": 3380
+    },
+    {
+     "pack": "Box of 100",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the box of 50 benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 4900,
+     "now": 6250
+    }
+   ]
+  },
+  "sterile-gauze-swabs": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Box of 100",
+     "benchmark_inc_gst": 1999,
+     "confidence": "high",
+     "source": "Livingstone gauze swab 8 ply cotton sterile 7.5 x 7.5cm 100/box, Chemist Warehouse A$19.99",
+     "was": 1450,
+     "now": 1800
+    },
+    {
+     "pack": "Carton of 10 boxes",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the box of 100 benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 12900,
+     "now": 16010
+    }
+   ]
+  },
+  "fixation-tape": {
+   "repriced": false,
+   "reason": "No Australian price with a pack size found.",
+   "current": [
+    [
+     "Roll",
+     690
+    ],
+    [
+     "Box of 12 rolls",
+     7200
+    ]
+   ]
+  },
+  "conforming-bandages": {
+   "repriced": false,
+   "reason": "No Australian price found.",
+   "current": [
+    [
+     "Pack of 12",
+     2190
+    ],
+    [
+     "Carton of 6 packs",
+     11400
+    ]
+   ]
+  },
+  "island-dressings": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Box of 50",
+     "benchmark_inc_gst": 1021,
+     "confidence": "high",
+     "source": "AsGUARD Flex non woven island dressing 7.5 x 5cm 50/box, APE Medical A$9.28 ex GST = A$10.21 inc; Livingstone Nema A$12.10 inc",
+     "was": 3290,
+     "now": 920
+    },
+    {
+     "pack": "Box of 100",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the box of 50 benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 6100,
+     "now": 1710
+    }
+   ]
+  },
+  "first-aid-kit-workplace": {
+   "repriced": false,
+   "reason": "Kit contents vary so much that no like for like comparable exists.",
+   "current": [
+    [
+     "Each",
+     8900
+    ],
+    [
+     "Refill pack",
+     3400
+    ]
+   ]
+  },
+  "adhesive-plasters": {
+   "repriced": false,
+   "reason": "No Australian box of 100 price found. The results were Chemist Warehouse New Zealand.",
+   "current": [
+    [
+     "Box of 100",
+     1290
+    ],
+    [
+     "Box of 250",
+     2840
+    ],
+    [
+     "Carton of 1000",
+     9900
+    ]
+   ]
+  },
+  "crepe-bandages": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Each",
+     "benchmark_inc_gst": 650,
+     "confidence": "high",
+     "source": "Elastoplast medium crepe 5cm single roll, Amazon AU A$6.50",
+     "was": 340,
+     "now": 580
+    },
+    {
+     "pack": "Box of 12",
+     "benchmark_inc_gst": 1956,
+     "confidence": "high",
+     "source": "Multicrepe medium weight 7.5cm x 4m sterile 100/box, Livingstone A$162.80 inc = A$1.628 each, x12",
+     "was": 3660,
+     "now": 1760
+    },
+    {
+     "pack": "Carton of 72",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the box of 12 benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 19800,
+     "now": 9520
+    }
+   ]
+  },
+  "cohesive-bandage": {
+   "repriced": false,
+   "reason": "Only a New Zealand price was found.",
+   "current": [
+    [
+     "Box of 12",
+     2280
+    ],
+    [
+     "Box of 24",
+     4180
+    ],
+    [
+     "Carton of 96",
+     15600
+    ]
+   ]
+  },
+  "hydrocolloid-foam-dressings": {
+   "repriced": false,
+   "reason": "The only prices found were consumer Band-Aid hydrocolloid plasters in packs of 3 to 10, which are not a clinical foam dressing.",
+   "current": [
+    [
+     "Box of 5",
+     2450
+    ],
+    [
+     "Box of 10",
+     4590
+    ],
+    [
+     "Carton of 50",
+     20900
+    ]
+   ]
+  },
+  "silicone-scar-gel": {
+   "repriced": false,
+   "reason": "Cica Care at A$23.99 for 5g and A$47.99 for 15g is a premium brand and our pack size is not stated, so the comparison is not like for like.",
+   "current": [
+    [
+     "Each",
+     2990
+    ],
+    [
+     "Box of 6",
+     16400
+    ],
+    [
+     "Box of 12",
+     30800
+    ]
+   ]
+  },
+  "sutures": {
+   "repriced": false,
+   "reason": "No Australian price found.",
+   "current": [
+    [
+     "Box of 12",
+     4290
+    ],
+    [
+     "Box of 24",
+     7980
+    ],
+    [
+     "Carton of 72",
+     22400
+    ]
+   ]
+  },
+  "safety-lancets": {
+   "repriced": false,
+   "reason": "No Australian price found. The only result was South African.",
+   "current": [
+    [
+     "Box of 100",
+     2290
+    ],
+    [
+     "Box of 200",
+     4200
+    ]
+   ]
+  },
+  "blood-glucose-test-strips": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Box of 2 vials",
+     "benchmark_inc_gst": 2199,
+     "confidence": "medium",
+     "source": "CareSens N 100 strips, SuperPharmacyPlus A$21.99. Our pack is 2 vials, read as 100 strips",
+     "was": 3900,
+     "now": 1980
+    },
+    {
+     "pack": "Carton of 10",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the box of 2 vials benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 17900,
+     "now": 9090
+    }
+   ]
+  },
+  "thermometer-probe-covers": {
+   "repriced": false,
+   "reason": "Only 20 pack retail prices were found, A$5.45 to A$11.17, which do not scale honestly to a box of 100.",
+   "current": [
+    [
+     "Box of 100",
+     890
+    ],
+    [
+     "Carton of 20 boxes",
+     15400
+    ]
+   ]
+  },
+  "vaginal-speculum-disposable": {
+   "repriced": false,
+   "reason": "No Australian price found.",
+   "current": [
+    [
+     "Box of 25",
+     4900
+    ],
+    [
+     "Carton of 100",
+     17900
+    ]
+   ]
+  },
+  "ecg-electrodes": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Bag of 50",
+     "benchmark_inc_gst": 1421,
+     "confidence": "high",
+     "source": "Skintact FS-TC1 ECG electrode 50/pack, Yesmed A$14.21 inc GST",
+     "was": 1890,
+     "now": 1280
+    },
+    {
+     "pack": "Carton of 600",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the bag of 50 benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 19900,
+     "now": 13480
+    }
+   ]
+  },
+  "ultrasound-gel": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Each",
+     "benchmark_inc_gst": 369,
+     "confidence": "high",
+     "source": "Conductive ultrasound and ECG gel 250mL squeeze bottle, Livingstone A$3.69; Medshop Chattanooga A$4.24",
+     "was": 890,
+     "now": 330
+    },
+    {
+     "pack": "Carton of 6",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the each benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 4600,
+     "now": 1710
+    }
+   ]
+  },
+  "urinalysis-strips": {
+   "repriced": false,
+   "reason": "The only Australian price was Siemens Multistix 10 SG at A$68.95 per 100, a premium ten parameter strip. Our product does not state a parameter count, so taking 10% off that would have tripled the price on a comparison that is not like for like.",
+   "current": [
+    [
+     "Tube of 100",
+     2190
+    ],
+    [
+     "Box of 5 tubes",
+     9900
+    ],
+    [
+     "Carton of 20 tubes",
+     36800
+    ]
+   ]
+  },
+  "otoscope-ear-specula": {
+   "repriced": false,
+   "reason": "No Australian price found.",
+   "current": [
+    [
+     "Bag of 100",
+     1690
+    ],
+    [
+     "Box of 500",
+     7400
+    ],
+    [
+     "Carton of 1000",
+     13800
+    ]
+   ]
+  },
+  "blood-glucose-meter": {
+   "repriced": false,
+   "reason": "No comparable found. Meter pricing is bundled with strip lock in and is not a straight consumable comparison.",
+   "current": [
+    [
+     "Each",
+     3490
+    ],
+    [
+     "Box of 5",
+     15900
+    ],
+    [
+     "Carton of 20",
+     58000
+    ]
+   ]
+  },
+  "tongue-depressors": {
+   "repriced": false,
+   "reason": "No Australian price found. The only result was a UK supplier.",
+   "current": [
+    [
+     "Box of 100",
+     690
+    ],
+    [
+     "Carton of 1000",
+     5400
+    ],
+    [
+     "Carton of 5000",
+     24500
+    ]
+   ]
+  },
+  "sharps-container-bench": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Each",
+     "benchmark_inc_gst": 1174,
+     "confidence": "high",
+     "source": "FastAid plastic sharps container 1.4L, Medshop A$10.67 ex GST = A$11.74 inc; Trafalgar A$16.40",
+     "was": 1250,
+     "now": 1060
+    },
+    {
+     "pack": "Carton of 12",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the each benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 12900,
+     "now": 10940
+    }
+   ]
+  },
+  "sharps-container-wall-mount": {
+   "repriced": false,
+   "reason": "No Australian price found for a wall mounted unit.",
+   "current": [
+    [
+     "Each",
+     2450
+    ],
+    [
+     "Carton of 6",
+     12900
+    ]
+   ]
+  },
+  "couch-roll": {
+   "repriced": false,
+   "reason": "No Australian carton price found.",
+   "current": [
+    [
+     "Carton of 6",
+     4250
+    ],
+    [
+     "Pallet of 48",
+     31900
+    ]
+   ]
+  },
+  "blueys-underpads": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Box of 50",
+     "benchmark_inc_gst": 990,
+     "confidence": "medium",
+     "source": "Bluey underpad 8 ply 28 x 40cm 250/carton, Livingstone A$45.00 ex GST = A$49.50 inc = A$0.198 each, x50. Our pad size is not specified so ply and size may differ",
+     "was": 3890,
+     "now": 890
+    },
+    {
+     "pack": "Carton of 4 boxes",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the box of 50 benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 13900,
+     "now": 3180
+    }
+   ]
+  },
+  "clinical-waste-bags": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Roll of 50",
+     "benchmark_inc_gst": 932,
+     "confidence": "high",
+     "source": "Livingstone premium clinical waste bag 27L 50/roll, A$9.32 inc GST at 1+",
+     "was": 1890,
+     "now": 840
+    },
+    {
+     "pack": "Carton of 10 rolls",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the roll of 50 benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 16400,
+     "now": 7290
+    }
+   ]
+  },
+  "surface-wipes-clinical": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Tub of 200",
+     "benchmark_inc_gst": 3625,
+     "confidence": "medium",
+     "source": "Clinell Universal Wipes 200 pack, Topcat Healthcare A$36.25",
+     "was": 1590,
+     "now": 3260
+    },
+    {
+     "pack": "Carton of 6 tubs",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the tub of 200 benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 8400,
+     "now": 17220
+    }
+   ]
+  },
+  "incontinence-pads": {
+   "repriced": false,
+   "reason": "No comparable Australian pack of 14 price found.",
+   "current": [
+    [
+     "Pack of 14",
+     1890
+    ],
+    [
+     "Carton of 4 packs",
+     6900
+    ],
+    [
+     "Carton of 8 packs",
+     12900
+    ]
+   ]
+  },
+  "hand-soap": {
+   "repriced": false,
+   "reason": "No comparable Australian 5L price found.",
+   "current": [
+    [
+     "500mL pump",
+     790
+    ],
+    [
+     "5L refill",
+     3290
+    ],
+    [
+     "Carton of 2 x 5L",
+     6200
+    ]
+   ]
+  },
+  "hand-towels": {
+   "repriced": false,
+   "reason": "The only carton price found was Kleenex Optimum at about 9 cents a sheet, a premium line, against our 1.8 cents. Not like for like.",
+   "current": [
+    [
+     "Carton of 2400",
+     4290
+    ],
+    [
+     "Carton of 4000",
+     6890
+    ]
+   ]
+  },
+  "facial-tissues": {
+   "repriced": false,
+   "reason": "No comparable Australian listing found.",
+   "current": [
+    [
+     "Box of 100",
+     190
+    ],
+    [
+     "Carton of 24 boxes",
+     3890
+    ],
+    [
+     "Carton of 48 boxes",
+     7200
+    ]
+   ]
+  },
+  "cotton-wool-rolls": {
+   "repriced": false,
+   "reason": "No comparable Australian listing found.",
+   "current": [
+    [
+     "Each",
+     1090
+    ],
+    [
+     "Box of 6",
+     5900
+    ],
+    [
+     "Carton of 12",
+     10900
+    ]
+   ]
+  },
+  "rigid-strapping-tape": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Each",
+     "benchmark_inc_gst": 783,
+     "confidence": "high",
+     "source": "Chattanooga rigid strapping tape 38mm x 13.7m, Medshop A$7.12 ex GST = A$7.83 inc; Vet and Pet Direct MPS A$8.25; Livingstone A$9.85",
+     "was": 690,
+     "now": 700
+    },
+    {
+     "pack": "Box of 8",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the each benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 4990,
+     "now": 5060
+    },
+    {
+     "pack": "Carton of 48",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the each benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 27900,
+     "now": 28300
+    }
+   ]
+  },
+  "elastic-adhesive-bandage": {
+   "repriced": false,
+   "reason": "No Australian price found.",
+   "current": [
+    [
+     "Each",
+     1090
+    ],
+    [
+     "Box of 6",
+     5900
+    ],
+    [
+     "Carton of 36",
+     32400
+    ]
+   ]
+  },
+  "kinesiology-tape": {
+   "repriced": true,
+   "packs": [
+    {
+     "pack": "Roll",
+     "benchmark_inc_gst": 1760,
+     "confidence": "medium",
+     "source": "Livingstone Ares elastic kinesiology tape 5cm x 5m, A$17.60",
+     "was": 1490,
+     "now": 1580
+    },
+    {
+     "pack": "Box of 6 rolls",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the roll benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 7900,
+     "now": 8380
+    },
+    {
+     "pack": "Bulk roll, 31.5m",
+     "benchmark_inc_gst": null,
+     "confidence": "scaled",
+     "source": "No comparable for this pack size. Scaled from the roll benchmark, keeping the bulk discount the catalogue already had between the two.",
+     "was": 6900,
+     "now": 7320
+    }
+   ]
+  },
+  "compression-stockings": {
+   "repriced": false,
+   "reason": "No comparable found. Compression class and sizing drive the price.",
+   "current": [
+    [
+     "Pair",
+     2490
+    ],
+    [
+     "Box of 5 pairs",
+     10900
+    ],
+    [
+     "Carton of 20 pairs",
+     39900
+    ]
+   ]
+  }
+ },
+ "limitation": "Every benchmark here comes from web search results, not from a live product page. This session cannot reach retail hosts directly: a fetch of www.livingstone.com.au and www.medshop.com.au both failed to resolve, so the figures are search snapshots and several carried a January 2025 date. They are good enough to set a provisional price and not good enough to defend to the cent. To verify against live pages, the environment network policy needs those hosts allowed.",
+ "coverage": {
+  "products_total": 57,
+  "repriced": 24,
+  "left_alone": 33,
+  "why_left_alone": "No credible like for like Australian comparable was found, so the existing figure stands rather than being replaced by a second invented one. Each has its reason recorded below."
+ }
+}

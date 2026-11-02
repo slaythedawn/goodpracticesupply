@@ -19,7 +19,7 @@ EXTRA_PRODUCTS = {
    'The same barrel as a luer-lock without the thread, for when the needle pushes on rather than screws on. Cheaper per unit and quicker to change, but it will not hold against pressure, so anything you are pushing hard belongs on a lock.',
    'syringe',
    [('1mL','Small doses'),('3mL','The common one'),('5mL','Draw and transfer'),('10mL','Irrigation and fill')],
-   [('Box of 100',3180),('Carton of 500',14200),('Carton of 1000',26900)],
+   [('Box of 100',1570),('Carton of 500',7010),('Carton of 1000',13280)],
    extra=[('Tip','Luer slip'),('Construction','Three part, siliconised'),('Sterilisation','Ethylene oxide'),('Single use','Yes')]),
 ],
 
@@ -44,7 +44,7 @@ EXTRA_PRODUCTS = {
    'Light support and holding a dressing down. Cotton crepe stretches in one direction and relaxes as it warms, which is why it needs checking rather than pulling tight once.',
    'bandage',
    [('5cm','Fingers and wrists'),('7.5cm','Forearm and ankle'),('10cm','Knee and calf'),('15cm','Thigh and torso')],
-   [('Each',340),('Box of 12',3660),('Carton of 72',19800)],
+   [('Each',580),('Box of 12',1760),('Carton of 72',9520)],
    extra=[('Material','Cotton crepe'),('Stretch','Single direction'),('Sterility','Non-sterile')]),
 
  P('Cohesive bandage','cohesive-bandage','bandages','Self adherent, 5cm x 4.5m, latex free',
@@ -166,7 +166,7 @@ EXTRA_CATEGORIES = [
     'The rigid zinc oxide roll that does the anchoring. It does not stretch, which is the whole point, and it tears straight across by hand.',
     'rigid',
     [('25mm','Fingers and thumbs'),('38mm','The common one'),('50mm','Larger joints')],
-    [('Each',690),('Box of 8',4990),('Carton of 48',27900)],
+    [('Each',700),('Box of 8',5060),('Carton of 48',28300)],
     extra=[('Adhesive','Zinc oxide'),('Stretch','Rigid, none'),('Length','13.7m')]),
 
   P('Elastic adhesive bandage','elastic-adhesive-bandage','elastic','EAB, 75mm x 4.5m stretched',
@@ -180,7 +180,7 @@ EXTRA_CATEGORIES = [
     'Cotton elastic with a wave pattern adhesive, in a roll you cut to shape. A different job to strapping: it stays on for days and it does not restrict a joint.',
     'kinesio',
     [('Beige','The default'),('Black','Most asked for'),('Blue','Colour coded'),('Pre-cut strips','No scissors')],
-    [('Roll',1490),('Box of 6 rolls',7900),('Bulk roll, 31.5m',6900)],
+    [('Roll',1580),('Box of 6 rolls',8380),('Bulk roll, 31.5m',7320)],
     extra=[('Material','Cotton elastic'),('Adhesive','Acrylic, wave pattern'),('Wear time','Up to 5 days')]),
 
   P('Compression stockings','compression-stockings','compression','Class 1 knee high',
