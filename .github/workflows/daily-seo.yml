@@ -268,8 +268,23 @@ jobs:
           BRIEF: ${{ steps.decide.outputs.brief }}
         run: |
           title="SEO brief: $(basename "$BRIEF" .md)"
-          if gh issue list --state open --search "$title in:title" --json number --jq 'length' | grep -qv '^0$'; then
-            echo "An issue for this brief is already open."
+          # Dedupe on the target, not on the dated brief name. A brief stays open
+          # until somebody writes the page, so the same job is re-selected every
+          # cooldown, and the old guard compared "2026-11-02-bacteriostatic-water"
+          # against "2026-10-31-bacteriostatic-water", which never matched. It
+          # opened a fresh issue each time instead: 35 open issues covering 16
+          # distinct jobs by the time anybody counted.
+          #
+          # Anchored regex rather than a substring, because "syringe" is a suffix
+          # of "ear-syringe" and a suffix match would suppress the wrong job. REST
+          # rather than `gh issue list --search`, which goes through GraphQL.
+          slug="$(basename "$BRIEF" .md | sed -E 's/^[0-9]{4}-[0-9]{2}-[0-9]{2}-//')"
+          open_for_slug="$(gh api \
+            "repos/$GITHUB_REPOSITORY/issues?state=open&per_page=100" \
+            --jq ".[] | select(.title | test(\"^SEO brief: [0-9]{4}-[0-9]{2}-[0-9]{2}-${slug}$\")) | .number" \
+            | head -1)"
+          if [ -n "$open_for_slug" ]; then
+            echo "Issue #${open_for_slug} is already open for ${slug}. Not opening a duplicate."
             exit 0
           fi
           {
@@ -335,6 +350,25 @@ jobs:
           node checks/seocheck.mjs
           node checks/depth.mjs
           node checks/sweep.mjs
+
+      # Before the commit, not after, so that the state file this writes is
+      # picked up by the same `git add -A`. The cost of being a minute ahead of
+      # the Vercel deploy is that a crawler may fetch the previous version of a
+      # page, which it would have done anyway; the cost of being after the
+      # commit is a second commit every day just to record the submission.
+      #
+      # Google does not take part in IndexNow, so this is Bing and Yandex only.
+      # Bing is worth the step because its index is what ChatGPT search reads.
+      #
+      # continue-on-error on purpose, and this one is not a blocking gate. The
+      # step sits before the commit, so without it a bad key file would stop the
+      # day's content from being committed at all, which is the wrong trade for
+      # a secondary notification channel. A failure still shows as a failed step
+      # on the run rather than disappearing.
+      - name: Tell Bing and Yandex what changed
+        if: ${{ inputs.research_only != true }}
+        continue-on-error: true
+        run: python seo/indexnow.py
 
       - name: Commit what changed
         if: ${{ inputs.research_only != true }}

@@ -176,6 +176,43 @@ spending anything.
     python seo/opportunities.py                         # ranks, writes nothing
     python seo/opportunities.py --write                 # queue and today's brief
     python seo/internal_links.py --dry-run
+    python seo/indexnow.py --dry-run
+
+## Telling search engines a page changed
+
+Two mechanisms, and only one of them reaches Google.
+
+The sitemap carries a real `lastmod` per page, taken from a content hash rather
+than from the clock, which is the only version of that field Google will trust.
+Resubmitting the sitemap is a manual step and rarely worth repeating, because
+Google refetches it on its own schedule.
+
+`seo/indexnow.py` pushes changed URLs to IndexNow, which is Bing and Yandex.
+Google has said it does not participate, so this does nothing for the ranking
+that matters most. It is in the loop for a narrower reason: Bing's index is what
+ChatGPT search reads, and on a domain with no authority a citation in an
+assistant answer is more reachable than a position in Google. It runs before the
+daily commit so that the state file it writes is committed with everything else,
+and it is `continue-on-error` so that a problem with it cannot stop the day's
+content from being published.
+
+The key is not a secret. IndexNow works by making you publish it at the site
+root, at `docs/ff96f1785ed213b9701cc8c01e681cb1.txt`, so that anyone submitting
+URLs for this host has demonstrably written to it. It is in the repository on
+purpose and `.gitignore` says so. Moving it into a secret breaks the submission.
+
+`seo/indexnow-state.json` records the content hash last submitted per URL, so a
+page is sent once per actual change. IndexNow asks for changed URLs only, and a
+daily ping of 91 unchanged pages is the documented way to have your submissions
+discounted.
+
+What neither of these does is make Google crawl faster. As of 2 November 2026
+`/shop/syringes-needles` had not been refetched since 22 September, so Google
+still held the `noindex` verdict that came off the page in between, and
+`/learn/needle-gauge-chart` read "Discovered, currently not indexed", never
+fetched at all. The cause is zero referring domains, so the fix is in
+`seo/backlinks.json` rather than in anything here. There is no API for "Request
+indexing"; it is a button in the Search Console interface.
 
 ## Keys
 
@@ -209,3 +246,4 @@ under Settings, Users and permissions. Read-only access is enough.
 | `ledger.json` | yes | what was briefed and when, which is what stops the loop briefing the same page every morning |
 | `briefs/` | yes | one brief per published day |
 | `backlinks.json` | yes | where the rivals' links come from, which are reachable, and the count this site is on |
+| `indexnow-state.json` | yes | the content hash last submitted per URL, so a page is sent to Bing and Yandex once per real change rather than every morning |
