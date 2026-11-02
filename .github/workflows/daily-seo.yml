@@ -279,10 +279,13 @@ jobs:
           # of "ear-syringe" and a suffix match would suppress the wrong job. REST
           # rather than `gh issue list --search`, which goes through GraphQL.
           slug="$(basename "$BRIEF" .md | sed -E 's/^[0-9]{4}-[0-9]{2}-[0-9]{2}-//')"
+          # The first match is taken inside jq rather than with `| head -1`.
+          # head exits after one line, the JSON for a hundred issues does not fit
+          # in the pipe buffer, so gh died of SIGPIPE and the step exited 141
+          # under `pipefail`. One command, no second pipe stage, nothing to break.
           open_for_slug="$(gh api \
             "repos/$GITHUB_REPOSITORY/issues?state=open&per_page=100" \
-            --jq ".[] | select(.title | test(\"^SEO brief: [0-9]{4}-[0-9]{2}-[0-9]{2}-${slug}$\")) | .number" \
-            | head -1)"
+            --jq "[.[] | select(.title | test(\"^SEO brief: [0-9]{4}-[0-9]{2}-[0-9]{2}-${slug}$\")) | .number] | first // empty")"
           if [ -n "$open_for_slug" ]; then
             echo "Issue #${open_for_slug} is already open for ${slug}. Not opening a duplicate."
             exit 0
