@@ -231,6 +231,45 @@ Console API, download the JSON key, paste the whole file into the secret, then a
 the service account's email address as a user on the property in Search Console
 under Settings, Users and permissions. Read-only access is enough.
 
+### The three places a key can live, and which one you want
+
+A key in the wrong one of these looks exactly like a key that does not work.
+
+**A repository secret** is what CI reads. Everything in the table above belongs
+here, and nothing else does. GitHub, this repository, Settings, Secrets and
+variables, Actions.
+
+**A cloud environment variable** is what a Claude Code cloud session reads. Put a
+key here only if a session needs to call the API directly, for instance to run
+`checks/compliance.py` by hand against live judgements. The cloud environment
+menu in the session title bar, then Edit, then Network secrets, or an environment
+variable where that section is not offered. A new session picks it up; the one
+already running does not.
+
+**`.env.local`** is what a script on your own machine reads. It is gitignored,
+`main.py` and `checks/compliance.py` both load it, and it is the only place the
+Higgsfield key is ever needed.
+
+| variable | lives in | read by |
+| --- | --- | --- |
+| `TYPESAFE_API_KEY` | repository secret, and `.env.local` for local runs | the workflows, and `checks/compliance.py` |
+| `HF_KEY`, as `key-id:key-secret` | `.env.local` only | `main.py`. Nothing in CI reads it |
+
+`HF_API_KEY` plus `HF_API_SECRET` works as an alternative pair to `HF_KEY`, and
+`main.py` accepts either.
+
+### Rotating
+
+Rotate rather than re-enter if a key has ever been pasted into a chat window, a
+terminal that scrolls to a log, a commit, or an issue. Revoke the old one at the
+provider first, so a leaked key stops working whether or not the new one is
+installed correctly. Replacing the value in the three places above without
+revoking leaves the leaked key live.
+
+Nothing in this repository reads, prints or logs a key value. The workflows check
+only that the variable is non-empty, and `main.py` says the same about `HF_KEY`.
+Keep it that way.
+
 ## The files this writes
 
 | file | committed | what it is |
