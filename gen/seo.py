@@ -990,11 +990,42 @@ CATEGORY_SEO = {
    'Rigid polypropylene, yellow, puncture resistant, with a temporary closure you can work one handed and a final closure that cannot be reopened. Fill to the line and not past it, because an overfull container cannot be closed safely.',
    'What happens to a full container depends on your state or territory. Our guide to sharps disposal sets out the arrangements in each.',
   ]),
-  ('The things that stop a room working', [
+  ('Getting rid of a full one', [
+   'A sharps container is the one consumable here with an exit problem: it is '
+   'easy to buy and the question nobody answers is where it goes afterwards. We '
+   'supply containers and we are not a collection service, so the route out is '
+   'somebody else\'s.',
+   'That route is a participating pharmacy, a council collection point or a '
+   'community health service, and which of those applies depends entirely on '
+   'which state you are in. [Sharps disposal, state by state]'
+   '(/learn/sharps-disposal-australia) has a table of who to ask where, and it '
+   'deliberately has no addresses: those lists go stale, and a stale one sends '
+   'somebody carrying used needles to a locked door.',
+   'Buy the size you will fill in a reasonable time rather than the biggest one. '
+   'A container is sealed and surrendered once, so a 5L box that takes three '
+   'years to fill is three years of a sharps container in a cupboard.',
+  ]),
+ ('The fill line is not advice', [
+   'Every compliant container has a line at about three quarters. It is there '
+   'because a container filled past it cannot be closed properly and because '
+   'somebody has to handle it afterwards, which is the part that matters and the '
+   'part nobody filling it is thinking about.',
+   'Once it is at the line, close it and start another. A container is designed '
+   'to be sealed once and not reopened, which is also why a sealed one cannot be '
+   'checked, topped up or tidied.',
+  ]),
+ ('The things that stop a room working', [
    'Couch roll, blueys, waste bags and wipes are nobody’s job to order and everybody’s problem when they run out. This is exactly the category that belongs on a standing order rather than on someone’s memory.',
   ]),
  ],
  faq=[
+   ('Where do I dispose of a full sharps box?',
+    'A participating pharmacy, a council collection point or a community health '
+    'service, depending on the state. We supply the containers and do not collect '
+    'them, so the guide has a table of who to ask where you are.'),
+   ('Can I reopen a sealed container to fit more in?',
+    'No. They are built to be closed once, and the closure is not meant to be '
+    'reversible. Start another one.'),
   ('Can used needles go in the household bin?',
    'No, nowhere in Australia. They go in a sharps container, and recapping before disposal is itself a common cause of needlestick injury.'),
   ('What size sharps container do I need?',

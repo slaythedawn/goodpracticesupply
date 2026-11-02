@@ -1,7 +1,7 @@
 import io, json, os, sys, html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import pagemeta as META
-from shop import HEAD, FOOTER, LEARNCOLS, MENUCOLS, HEADER_VALS, REVEAL, SCRIPT_OPEN, MONO, WRAP, H1, H2, LEAD, CARD, crumbs, page, E
+from shop import HEAD, FOOTER, LEARNCOLS, MENUCOLS, HEADER_VALS, REVEAL, SCRIPT_OPEN, MONO, WRAP, H1, H2, LEAD, CARD, crumbs, page, E, prose, faq_block
 import pathlib
 DOCS=str(pathlib.Path(__file__).resolve().parent.parent / 'docs')
 
@@ -284,6 +284,69 @@ GAUGES = [
  ('33G','0.21','Blue','Speciality pen needles.','insulin'),
  ('34G','0.18','Ochre','The finest made. Speciality use only.','insulin'),
 ]
+# What each gauge is actually for, in words.
+#
+# The chart has stated every diameter since September and has never ranked for a
+# single "25 gauge needle" style query, of which there are thirteen in the
+# keyword file at difficulty 0 and about 2,350 searches between them. A table row
+# gives a number and answers no question. Somebody typing "25 gauge needle" wants
+# to know what it is used for.
+#
+# Equipment only. No doses, no named medicines, and the choice of gauge for a
+# given injection stays where it belongs, with whoever prescribed it.
+GAUGE_NOTES = [
+ ('The gauges people actually search for', [
+  'The scale runs backwards, so a higher number is a thinner needle. That is the '
+  'single most useful thing to know about it and the reason 31G sounds bigger '
+  'than 18G and is not.',
+  '18G and 21G are drawing-up sizes. Wide enough to pull liquid through '
+  'quickly and far too wide to inject with comfortably. 18G is usually a blunt '
+  'fill needle, which is blunt on purpose: it cannot core a rubber stopper the '
+  'way a sharp tip can, and it is not meant to go anywhere near skin.',
+  '23G, 25G and 27G are the general injecting range, and this is where most '
+  'of the searching happens. 23G is the thickest of the three and the fastest to '
+  'draw through. 25G is the middle, and the one most people land on. 27G is finer '
+  'and more comfortable and slower to fill. All three are ISO colour coded at the '
+  'hub, which is why a box of 23G needles has the same blue hub whoever made it.',
+  '29G, 30G and 31G are the fine end, almost always on an insulin syringe '
+  'with the needle fixed to the barrel. The difference between them is comfort '
+  'against draw time and nothing else. [29G, 30G or 31G: which should I buy?]'
+  '(/learn/gauge-comparison) goes through that trade properly.',
+  '32G is pen needle territory, 4mm to 8mm, screwed onto an injector pen '
+  'rather than a syringe.',
+ ]),
+ ('Length is the other number, and it is a separate decision', [
+  'Gauge is how thick. Length is how far in, and the two are chosen '
+  'independently. A 25G needle comes in 16mm, 25mm and 38mm, and those are three '
+  'different jobs with the same hole.',
+  'Which length reaches which layer depends on the medicine and on the person, '
+  'so it is a question for whoever prescribed it rather than a rule to take off a '
+  'chart. What the chart can tell you is which lengths exist.',
+ ]),
+]
+
+GAUGE_FAQ = [
+ ('What is a 25 gauge needle used for?',
+  'General injecting. It sits in the middle of the common range, thinner than 23G '
+  'and thicker than 27G, and it is the one most people settle on when they are '
+  'not drawing up and not using an insulin syringe.'),
+ ('What is an 18 gauge needle used for?',
+  'Drawing liquid out of a vial, not injecting. It is wide, usually blunt, and a '
+  'blunt fill needle is blunt deliberately so it does not core the stopper.'),
+ ('Is a 23 gauge needle bigger than a 25 gauge?',
+  'Yes. The scale runs backwards, so the lower number is the thicker needle. 23G '
+  'is wider than 25G, which is wider than 27G.'),
+ ('What do the hub colours mean?',
+  'They are ISO 6009 and they encode the gauge, so the same gauge is the same '
+  'colour whoever made it. It is a convenience for reading a tray at a glance, '
+  'not a rating of anything.'),
+ ('Which gauge should I use?',
+  'That depends on the medicine and on you, so it is a question for whoever '
+  'prescribed it. What this page can tell you is what each gauge is physically '
+  'for and which lengths it comes in.'),
+]
+
+
 def gauge_chart():
     m=['<main>\n']; a=m.append
     a('    <section style="border-bottom:1px solid #E3E3E1">\n')
@@ -334,7 +397,10 @@ def gauge_chart():
     a('        <div>\n          <h2 style="%s;color:#FAFAFA">Still not sure which one you want?</h2>\n'%H2)
     a('          <p style="margin:0;font-size:16.5px;line-height:1.5;color:#B7CFC3;max-width:46ch">Three plain questions, no medical words, and the Gauge Finder picks the gauge and the length for you.</p>\n        </div>\n')
     a('        <a href="/gauge-finder" data-cta style="background:#8FBFA6;color:#143026;border-radius:1000px;padding:16px 30px;font-size:16px;font-weight:600;white-space:nowrap">Open the Gauge Finder</a>\n')
-    a('      </div>\n    </section>\n\n  </main>')
+    a('      </div>\n    </section>\n\n')
+    a(prose(GAUGE_NOTES, bg='background:#F2F2F1;'))
+    a(faq_block('Questions about gauges', GAUGE_FAQ, bg=''))
+    a('  </main>')
     script="""%s
 class Component extends DCLogic {
   state = { menu: null, filter: 'all' };
