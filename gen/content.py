@@ -239,7 +239,7 @@ PAGES = [
    ("Is this suitable after surgery?",
     "Follow the instructions you were discharged with. They are specific to your wound and they override any general list, including this one."),
    ("Do you sell antiseptics?",
-    "We stock chlorhexidine and alcohol preparations as consumables. Anything prescription only comes from a pharmacy."),
+    "Chlorhexidine and alcohol preparations are listed as consumables. Anything prescription only comes from a pharmacy."),
    ("Can I buy just one box?",
     "Yes. No minimum order and no account. Buy a single box or a pallet, the price per unit is on the page either way."),
  ],

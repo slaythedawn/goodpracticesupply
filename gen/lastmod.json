@@ -41,7 +41,7 @@
  },
  "/for/wound-care-at-home": {
   "date": "2026-11-02",
-  "hash": "b72a9ef1b0578c3c"
+  "hash": "d3447037ffc230a1"
  },
  "/gauge-finder": {
   "date": "2026-09-23",
@@ -60,12 +60,12 @@
   "hash": "b8ed21684d6345d4"
  },
  "/learn/gauge-comparison": {
-  "date": "2026-09-28",
-  "hash": "f0c3223df279b9bf"
+  "date": "2026-11-02",
+  "hash": "c15d9a96ad0bb2cc"
  },
  "/learn/intramuscular-technique": {
-  "date": "2026-09-28",
-  "hash": "bc17a6d45992d304"
+  "date": "2026-11-02",
+  "hash": "ec786575a470e503"
  },
  "/learn/needle-gauge-chart": {
   "date": "2026-09-23",
@@ -100,8 +100,8 @@
   "hash": "98231a000a6ed955"
  },
  "/shop/clinic-disposal": {
-  "date": "2026-09-23",
-  "hash": "0d4f90d52b2c7986"
+  "date": "2026-11-02",
+  "hash": "1e61401a2467bc84"
  },
  "/shop/clinic-disposal/blueys-underpads": {
   "date": "2026-11-02",
@@ -132,8 +132,8 @@
   "hash": "54d74d49193461d8"
  },
  "/shop/diagnostics": {
-  "date": "2026-09-23",
-  "hash": "472c93ac7661f1c6"
+  "date": "2026-11-02",
+  "hash": "d792f3cd4b0de45e"
  },
  "/shop/diagnostics/blood-glucose-meter": {
   "date": "2026-11-02",
@@ -176,8 +176,8 @@
   "hash": "7035ee9367d66cfd"
  },
  "/shop/diluents-swabs": {
-  "date": "2026-09-23",
-  "hash": "0379bfbcd7ff0b3b"
+  "date": "2026-11-02",
+  "hash": "f6e70049c42f2171"
  },
  "/shop/diluents-swabs/alcohol-swabs": {
   "date": "2026-11-02",
@@ -208,8 +208,8 @@
   "hash": "ac5e2805e2f7627e"
  },
  "/shop/gloves-ppe": {
-  "date": "2026-09-23",
-  "hash": "848a3879c4f6b3b2"
+  "date": "2026-11-02",
+  "hash": "634d7988a582f5f1"
  },
  "/shop/gloves-ppe/alcohol-hand-rub": {
   "date": "2026-11-02",
@@ -236,8 +236,8 @@
   "hash": "e652e31987e7cad4"
  },
  "/shop/hygiene-cleaning": {
-  "date": "2026-09-23",
-  "hash": "ec76683795142800"
+  "date": "2026-11-02",
+  "hash": "a6169ec4b5b6d38a"
  },
  "/shop/hygiene-cleaning/cotton-wool-rolls": {
   "date": "2026-11-02",
@@ -257,7 +257,7 @@
  },
  "/shop/syringes-needles": {
   "date": "2026-11-02",
-  "hash": "231d15d3fa3c3ffb"
+  "hash": "b820ec7a9cf199e4"
  },
  "/shop/syringes-needles/drawing-up-needles": {
   "date": "2026-11-02",
@@ -288,8 +288,8 @@
   "hash": "7def64d9b23f0978"
  },
  "/shop/taping-supports": {
-  "date": "2026-09-23",
-  "hash": "d83041d68dd25ad4"
+  "date": "2026-11-02",
+  "hash": "a638f79776e33db6"
  },
  "/shop/taping-supports/compression-stockings": {
   "date": "2026-11-02",
@@ -308,8 +308,8 @@
   "hash": "8f593a76441c809e"
  },
  "/shop/wound-care": {
-  "date": "2026-09-23",
-  "hash": "f7cacb1bf676169a"
+  "date": "2026-11-02",
+  "hash": "b92258ee906e6500"
  },
  "/shop/wound-care/adhesive-plasters": {
   "date": "2026-11-02",

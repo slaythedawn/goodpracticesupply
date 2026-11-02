@@ -3,6 +3,19 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from catalogue import CATEGORIES, SHOTS, I, REGULATORY
 import seo as SEO
 
+# Said once above a product grid, because a page of prices with no way to act
+# on them reads as a shop you can order from. The honest fix is to say what the
+# prices are, which also answers the question a reader was about to ask.
+GRID_STATE = (
+    'Prices are indicative while the range is being finalised, and you cannot '
+    'check out yet. Open any product to pre-order it, which takes an email '
+    'address and no payment, and the price and the pack size are confirmed '
+    'before anything is charged.'
+    if SEO.PREORDER else
+    'Prices are indicative while the range is being finalised, and ordering is '
+    'not open yet.')
+
+
 import pathlib
 DOCS=str(pathlib.Path(__file__).resolve().parent.parent / 'docs')
 SRC=SEO.strip_headmeta(io.open(DOCS+'/about.html',encoding='utf-8').read())
@@ -183,6 +196,13 @@ def build_category(cat):
     a('              <button type="button" onClick="{{ fl.pick }}" aria-pressed="{{ fl.on }}" data-chip style="cursor:pointer;font-family:\'Archivo\',sans-serif;font-size:15px;font-weight:500;border:1px solid {{ fl.border }};background:{{ fl.bg }};color:{{ fl.fg }};border-radius:1000px;padding:10px 18px">{{ fl.label }}</button>\n')
     a('            </sc-for>\n          </div>\n')
     a('          <div style="%s;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#59595A">{{ resultLabel }}</div>\n        </div>\n'%MONO)
+    # What a reader can actually do with these prices, said once above the grid
+    # rather than repeated on thirty-four cards. A page of prices with no cart,
+    # no pill and no checkout reads as a shop that works, and the compliance rule
+    # reported exactly that on the category pages.
+    if not SEO.PURCHASABLE:
+        a('        <p style="margin:0 0 22px;font-size:14.5px;line-height:1.6;color:#59595A;max-width:70ch">%s</p>\n'
+          % E(GRID_STATE))
     a('        <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:14px">\n')
     for p in cat['products']:
         a(product_card(cat,p))

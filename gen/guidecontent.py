@@ -135,7 +135,7 @@ GUIDES = [
    'are now standard. Which length suits you is a question for your prescriber.',
    'Once you know the pair you want, the '
    '[syringes and needles](/shop/syringes-needles) range lists every gauge and '
-   'length we carry.',
+   'length in the range.',
   ]),
  ],
  'faq': [
@@ -459,7 +459,7 @@ GUIDES = [
    'If the gauge and length numbers are not yet second nature, '
    '[what the numbers on a needle mean](/learn/needle-numbers-explained) covers '
    'them, and the [syringes and needles](/shop/syringes-needles) range lists '
-   'what we carry in each.',
+   'what each one lists.',
   ]),
  ],
  'faq': [
