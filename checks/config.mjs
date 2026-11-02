@@ -82,10 +82,26 @@ function toRegex(source) {
   return new RegExp('^' + body.replace(/\\\\\//g, '\\/') + '$');
 }
 
+// Whether a product page is meant to be hidden is decided in gen/seo.py and
+// nowhere else, so it is read from there rather than written twice. This check
+// used to assert that products are noindex, full stop. When the switch was
+// flipped it failed, correctly, and the temptation was to edit the expectation
+// to match. Reading the switch means the next change to it cannot leave a header
+// rule behind that silently hides fifty-seven pages.
+const seoPy = readFileSync(new URL('../gen/seo.py', import.meta.url), 'utf8');
+function pySwitch(name) {
+  const m = seoPy.match(new RegExp('^' + name + '\\s*=\\s*(True|False)\\s*$', 'm'));
+  if (!m) throw new Error('could not find ' + name + ' in gen/seo.py');
+  return m[1] === 'True';
+}
+const productsHidden = !pySwitch('INDEX_SHOP_PRODUCTS');
+
 const EXPECT = [
   ['/shop', false, 'the shop index is indexed'],
   ['/shop/syringes-needles', false, 'a category is indexed'],
-  ['/shop/syringes-needles/u-100-insulin-syringes', true, 'a product is noindex'],
+  ['/shop/syringes-needles/u-100-insulin-syringes', productsHidden,
+   productsHidden ? 'a product is noindex, per INDEX_SHOP_PRODUCTS'
+                  : 'a product is indexed, per INDEX_SHOP_PRODUCTS'],
   ['/internal/photo-review', true, 'internal pages stay noindex'],
   ['/learn/sharps-disposal-australia', false, 'a guide is indexed'],
   ['/', false, 'the home page is indexed'],

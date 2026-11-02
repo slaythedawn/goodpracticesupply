@@ -40,12 +40,31 @@ INDEX_CONTENT = True
 # the day products land than a fresh one.
 INDEX_SHOP_CATEGORIES = True
 
-# The fifty-seven product pages are the opposite. Every price is invented, and
-# every product is a placeholder that will be replaced, which means these slugs
-# will not survive. Indexing them teaches Google to crawl URLs that are going to
-# die, and publishes prices nobody can honour. Flip this the day the catalogue is
-# real, together with PURCHASABLE.
-INDEX_SHOP_PRODUCTS = False
+# The fifty-seven product pages were held back on the reasoning that their slugs
+# will not survive a real catalogue and their prices are invented, so indexing
+# them teaches Google to crawl URLs that are going to die.
+#
+# Opened anyway, and the argument for it is better than the argument against.
+# Search Console settled it: this domain was crawled once, on 22 September, and
+# had not been crawled again six weeks later, because it has zero referring
+# domains. On a site that gets looked at that rarely, the cost of waiting is not
+# a few days, it is the whole quarter. An aged, crawled URL on the day products
+# land is worth more than a perfect URL nobody has fetched. A price is a number
+# in a paragraph and businesses change those. A slug that changes costs one
+# redirect.
+INDEX_SHOP_PRODUCTS = True
+
+# Between "cannot be bought" and "can be bought" there is a third state, and
+# collapsing it into either one tells a lie.
+#
+# PREORDER means the page shows the product, shows the price it is expected to
+# be, and takes an email address against that specific item. It does not take
+# money and does not promise a date, because neither would be true. The button
+# is real, it does something, and what it does is what it says.
+#
+# Deliberately not folded into PURCHASABLE. A pre-order button on a page with no
+# checkout is honest. An add-to-cart button on the same page is not.
+PREORDER = True
 
 
 def indexable(path):
@@ -180,6 +199,12 @@ def product_schema(*, path, name, description, image, sku, price_cents, category
     if not PURCHASABLE:
         # Everything above is a true description of the product. An offers block
         # would be a price we are not yet in a position to honour.
+        #
+        # PREORDER does not change this and is not an oversight. A price printed
+        # in a paragraph is a figure a reader can see is indicative. The same
+        # price in structured data is a machine-readable offer to sell at it, read
+        # by Google and quoted in results with none of the surrounding sentence.
+        # The page indexes perfectly well without one.
         return d
     d['offers'] = {
             '@type': 'Offer',

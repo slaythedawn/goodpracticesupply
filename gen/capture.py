@@ -146,3 +146,51 @@ def block(source, interest='general', heading='Know when it lands',
     a(SCRIPT)
     a('\n')
     return ''.join(o)
+
+
+PRE_FIELD = ('width:100%;padding:13px 15px;border:1px solid #C4C4C2;border-radius:1000px;'
+             "font-family:'Archivo',sans-serif;font-size:16px;background:#FFF;color:#0E0E0E")
+
+PRE_BUTTON = ('border:0;border-radius:1000px;background:#0E0E0E;color:#FAFAFA;'
+              "font-family:'Archivo',sans-serif;font-size:16px;font-weight:600;"
+              'padding:17px 30px;cursor:pointer;white-space:nowrap')
+
+
+def preorder(product, path):
+    """The pre-order control on a product page.
+
+    This replaces a disabled button that said "Coming soon", which was honest and
+    did nothing. A pre-order that took payment would not be honest, because the
+    price is indicative and no date has been promised. So the control takes an
+    email address against this one product and says exactly that.
+
+    The form is the button. An enabled button that reveals a form underneath is
+    two states and a transition to get wrong, and this needs no cleverness: one
+    field, one submit, the product name travelling with it so the list can be
+    read later as demand per item rather than as a pile of addresses.
+    """
+    o = []
+    a = o.append
+    a('            <form data-gp-subscribe data-gp-source="%s" data-gp-interest="%s" '
+      'novalidate style="display:flex;flex-wrap:wrap;gap:10px">\n'
+      % (E(path), E(product.lower())))
+    a('              <label for="gp-pre-email" style="position:absolute;width:1px;height:1px;'
+      'overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap">'
+      'Email address for pre-order</label>\n')
+    a('              <input id="gp-pre-email" name="email" type="email" inputmode="email" '
+      'autocomplete="email" placeholder="you@example.com.au" '
+      'style="%s;flex:1 1 220px">\n' % PRE_FIELD)
+    a('              <input name="website" type="text" tabindex="-1" autocomplete="off" '
+      'aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">\n')
+    a('              <button type="submit" style="%s">Pre-order</button>\n' % PRE_BUTTON)
+    a('              <p data-gp-status role="status" aria-live="polite" '
+      'style="flex:1 1 100%;margin:2px 0 0;font-size:14.5px;line-height:1.5;'
+      'min-height:1.4em;color:#1C4034"></p>\n')
+    a('            </form>\n')
+    a('            <div style="%s;font-size:11.5px;color:#59595A;margin-top:14px;'
+      'line-height:1.7">No payment now and no date promised. We take the address, '
+      'and when this one is in we confirm the price and the pack size before '
+      'anything is charged. The price above is what we expect it to be.</div>\n' % MONO)
+    a(SCRIPT)
+    a('\n')
+    return ''.join(o)

@@ -45,6 +45,7 @@ WEIGHTS = ROOT / 'seo' / 'weights.json'
 SNAPSHOT = ROOT / 'seo' / 'gsc-snapshot.json'
 QUEUE = ROOT / 'seo' / 'queue.json'
 LEDGER = ROOT / 'seo' / 'ledger.json'
+LASTMOD = ROOT / 'gen' / 'lastmod.json'
 BRIEFS = ROOT / 'seo' / 'briefs'
 
 # Days before the same cluster can be briefed again.
@@ -72,6 +73,109 @@ RIVAL_BONUS = 1.3
 # buried in a keyword blocklist.
 BRAND_PENALTY = 0.25
 
+# Whether a search term names a rival shop is a fact about the string, not a
+# judgement, and it was being paid for as a judgement. The model was asked and it
+# hedged: "chemist warehouse syringe" came back at 0.70 and the threshold was
+# 0.75, so the penalty never fired, and nine of the first thirty-six briefs were
+# pages aimed at somebody else's shop.
+#
+# So the name is matched here and the penalty is certain. What the model is still
+# good for is the harder half, whether a brand name is being used generically,
+# and that judgement is kept for terms naming a shop that is not on this list.
+#
+# Only shops a buyer would go to instead of us. Not manufacturers: somebody
+# searching "bd ultra fine pen needles" or "terumo syringe" wants that make of
+# the thing we sell, which is a product term with a brand in it and ours to
+# answer.
+RIVAL_SHOPS = (
+    'chemist warehouse', 'chemistwarehouse', 'bunnings', 'woolworths', 'coles',
+    'priceline', 'amazon', 'ebay', 'etsy', 'kmart', 'big w', 'officeworks',
+    'medshop', 'livingstone', 'aliexpress', 'temu',
+)
+
+
+# A term for something we do not sell is not an opportunity. This check exists in
+# competitors.py and was never carried across to here, which is how the loop came
+# to brief a page for "ear syringe" twice. An ear syringe is a rubber bulb for
+# ear wax. It shares one word with the catalogue and nothing else.
+#
+# Only applied to a term that would need a new page. An existing page picking up
+# a stray term is a different situation and is handled by the page it landed on.
+CATALOGUE_NOISE = {
+    'the', 'and', 'for', 'near', 'best', 'buy', 'cheap', 'australia', 'online',
+    'free', 'chart', 'size', 'sizes', 'medical', 'supplies', 'supply', 'shop',
+    'store', 'kit', 'pack', 'how', 'what', 'where', 'much', 'many', 'use',
+    'used', 'using', 'disposal', 'dispose', 'disposing', 'safe', 'safely',
+    # Where somebody is does not change what we stock. Without these,
+    # "sharps container disposal brisbane" failed the catalogue check because
+    # "brisbane" is not a product word, which is true and not the point. Whether
+    # a local page is a good idea is decided by the constraint on the subject,
+    # not by pretending we do not sell sharps containers in Queensland.
+    'sydney', 'melbourne', 'brisbane', 'perth', 'adelaide', 'canberra', 'hobart',
+    'darwin', 'nsw', 'vic', 'qld', 'wa', 'sa', 'tas', 'act', 'nt',
+    'australian', 'aus',
+}
+
+_STOCKED = None
+
+
+def words_in(name):
+    out = set()
+    for w in re.split(r'[^a-z0-9]+', name.lower()):
+        if len(w) > 2 and w not in CATALOGUE_NOISE:
+            out.add(w)
+            out.add(w.rstrip('s'))
+    return out
+
+
+def stocked_words():
+    """The meaningful words of each category, pooled per category, cached.
+
+    Per category rather than across the whole catalogue, and that distinction is
+    the whole check. Pooled sitewide, "ear syringe" passes: "ear" is a real
+    catalogue word, from "Otoscope ear specula" in diagnostics, and "syringe" is
+    a real catalogue word from the syringes category. Two words from two
+    different shelves is not a product, and the first version of this check said
+    it was.
+
+    A category is the right unit because a category page is what would serve the
+    term. If no single category has the vocabulary for it, nothing does.
+    """
+    global _STOCKED
+    if _STOCKED is None:
+        from catalogue import CATEGORIES
+        # The header search already carries a synonym list, maintained because
+        # real people type "sharps bin" and the catalogue says "container". That
+        # list is the site's record of what customers call these things, so it is
+        # read here rather than written out a second time to drift against.
+        from searchindex import SYNONYMS
+        pools = []
+        for cat in CATEGORIES:
+            pool = words_in(cat['name'])
+            for pr in cat['products']:
+                pool |= words_in(pr['name'])
+                pool |= words_in(SYNONYMS.get(pr['slug'], ''))
+            pools.append((cat['slug'], pool))
+        _STOCKED = pools
+    return _STOCKED
+
+
+def in_our_catalogue(term):
+    """True when one category has the vocabulary for every word of the term."""
+    parts = [w for w in re.split(r'[^a-z0-9]+', term.lower())
+             if len(w) > 2 and w not in CATALOGUE_NOISE]
+    if not parts:
+        return False
+    for _slug, pool in stocked_words():
+        if all(w in pool or w.rstrip('s') in pool for w in parts):
+            return True
+    return False
+
+
+def names_a_rival_shop(term):
+    low = ' %s ' % term.lower().replace('-', ' ')
+    return any((' %s ' % shop) in low for shop in RIVAL_SHOPS)
+
 # A page of ours inside the top 20 for a term has it. Queuing the term again buys
 # a second page that splits the same clicks.
 ALREADY_OURS = 20
@@ -79,6 +183,11 @@ ALREADY_OURS = 20
 # Below this, a term is held rather than queued, and the brief says why. Matches
 # the threshold the triage and compliance runs default to.
 SAFE_ENOUGH = 0.75
+
+# A lower bar, for a different question. Asked whether a term belongs to a brand,
+# the model answers around 0.65 on terms that name a chain outright, so the
+# safety threshold is not the right number to reuse here.
+BRAND_IS_THEIRS = 0.6
 
 # Subjects where the obvious expansion is the wrong one. The sharps guide keeps
 # getting shown for state and city variants, and the temptation is a list of
@@ -114,6 +223,50 @@ DULL = {'a', 'an', 'the', 'and', 'or', 'of', 'for', 'to', 'in', 'on', 'at', 'is'
 def ledger():
     data = read(LEDGER, None) or {'entries': []}
     return data
+
+
+def page_hash(path):
+    """The content hash the sitemap generator recorded for a page."""
+    if not path:
+        return None
+    entry = (read(LASTMOD, {}) or {}).get(path.rstrip('/') or '/')
+    return entry.get('hash') if entry else None
+
+
+def still_open(led):
+    """Briefs that were issued and whose page never changed afterwards.
+
+    The cooldown alone turned this into a carousel. It rested a cluster for a
+    fortnight and then let it back to the top, and since the top cluster stays
+    the top cluster until its page actually improves, the same dozen jobs came
+    round and round: thirty-six briefs in five weeks containing about fifteen
+    distinct pieces of work, none of them done.
+
+    A brief is finished when the page it targets has different content from the
+    one it was written against, which the sitemap generator already records as a
+    hash. Until then the brief is outstanding, and re-issuing it as a fresh brief
+    tomorrow buys nothing but another file.
+
+    Entries from before this was recorded have no hash to compare, so they fall
+    through to the date cooldown rather than being treated as open forever.
+    """
+    out = {}
+    seen = set()
+    for e in led.get('entries', []):
+        key = e.get('cluster')
+        if not key or key in seen:
+            continue          # entries are newest first, so the first one wins
+        seen.add(key)
+        if 'page_hash' not in e:
+            continue
+        before, now = e['page_hash'], page_hash(e.get('page'))
+        if e.get('action') == 'new':
+            # A new page is done once it exists at all.
+            if now is None:
+                out[key] = e
+        elif before is not None and before == now:
+            out[key] = e
+    return out
 
 
 def on_cooldown(led, today):
@@ -270,6 +423,7 @@ def score_rows(keywords, gaps, weights, seen, pages):
         gap = gap_by_term.get(low)
         rival = RIVAL_BONUS if (gap and gap.get('lane') in ('retailer', 'marketplace')) else 1.0
 
+        rival_shop = names_a_rival_shop(term)
         mine = seen.get(low)
         home, fit = serving_page(term, pages, page_impressions(seen))
 
@@ -285,8 +439,10 @@ def score_rows(keywords, gaps, weights, seen, pages):
             'home_fit': fit,
             'safe_to_target': None,
             'brand_term_is_theirs': None,
+            'names_a_rival_shop': rival_shop,
             'constraint': constraint_for(term),
-            'score': round(base * weight * rival, 1),
+            'score': round(base * weight * rival
+                           * (BRAND_PENALTY if rival_shop else 1.0), 1),
         }
 
         if mine and mine['position'] <= ALREADY_OURS:
@@ -324,7 +480,12 @@ def apply_triage(rows, triage):
         row['safe_to_target'] = j.get('safe_to_target')
         row['serves_a_buyer'] = j.get('serves_a_buyer')
         row['brand_term_is_theirs'] = j.get('brand_term_is_theirs')
-        if (row['brand_term_is_theirs'] or 0) >= SAFE_ENOUGH:
+        # The name match in score_rows has already dealt with the shops on the
+        # list. This catches the ones that are not, and uses a lower bar than the
+        # safety threshold because it is a different question: the model hedges
+        # around 0.65 on terms that plainly name a chain, and a 0.75 bar on that
+        # answer is a bar nothing clears.
+        if not row['names_a_rival_shop'] and (row['brand_term_is_theirs'] or 0) >= BRAND_IS_THEIRS:
             row['score'] = round(row['score'] * BRAND_PENALTY, 1)
             row['why'] = ('%s. The searcher wanted a named shop, so this is scored '
                           'down rather than chased' % row['why'])
@@ -369,15 +530,25 @@ def cluster(rows):
             'held': [m['keyword'] for m in unsafe],
             'unjudged': len(unjudged),
             'why': lead['why'],
+            'in_our_catalogue': in_our_catalogue(lead['keyword']),
             'members': members[:12],
         })
     out.sort(key=lambda c: -c['score'])
     return out
 
 
-def ready(c, recent=None):
+def ready(c, recent=None, open_briefs=None):
     """A cluster is only publishable when every term in it has been cleared."""
     recent = recent or {}
+    open_briefs = open_briefs or {}
+    outstanding = open_briefs.get(c['key'])
+    if outstanding:
+        return False, ('briefed on %s and %s has not changed since, so that brief '
+                       'is still outstanding. Write it rather than re-issuing it'
+                       % (outstanding['date'], outstanding.get('page') or 'the page'))
+    if c['action'] == 'new' and not c.get('in_our_catalogue'):
+        return False, ('"%s" is not something the catalogue sells, so a new page '
+                       'for it has nothing to serve' % c['target'])
     if c['key'] in recent:
         return False, ('briefed on %s, and %d days have to pass before it is worth '
                        'briefing again' % (recent[c['key']], COOLDOWN))
@@ -532,14 +703,22 @@ def main():
     print('%-9s %8s %7s %-34s %s' % ('action', 'score', 'volume', 'target', 'cluster'))
     led = ledger()
     recent = on_cooldown(led, today)
+    open_briefs = still_open(led)
     for c in clusters[:args.top]:
-        ok, _ = ready(c, recent)
+        ok, _ = ready(c, recent, open_briefs)
         print('%-9s %8.1f %7d %-34s %s%s'
               % (c['action'], c['score'], c['volume'], c['target'][:34],
                  c['key'], '' if ok else '  (held)'))
 
-    actionable = [c for c in clusters if ready(c, recent)[0]]
-    blocked = [(c, ready(c, recent)[1]) for c in clusters if not ready(c, recent)[0]]
+    actionable = [c for c in clusters if ready(c, recent, open_briefs)[0]]
+    blocked = [(c, ready(c, recent, open_briefs)[1])
+               for c in clusters if not ready(c, recent, open_briefs)[0]]
+
+    if open_briefs:
+        print('\n%d brief%s outstanding, written and never carried out:'
+              % (len(open_briefs), '' if len(open_briefs) == 1 else 's'))
+        for key, e in sorted(open_briefs.items(), key=lambda kv: kv[1]['date']):
+            print('  %-11s %-34s %s' % (e['date'], e['target'][:34], e['brief']))
 
     if blocked:
         resting = [b for b in blocked if b[0]['key'] in recent]
@@ -581,6 +760,9 @@ def main():
                             'target': job['target'], 'action': job['action'],
                             'page': job['page'],
                             'brief': str(out.relative_to(ROOT)),
+                            # What the page looked like when this was written. The
+                            # brief counts as done when this stops matching.
+                            'page_hash': page_hash(job['page']),
                             'score_when_chosen': job['score']}]
                           + led.get('entries', []))[:400]
         LEDGER.write_text(json.dumps(led, indent=1) + '\n', encoding='utf-8')

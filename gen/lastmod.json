@@ -103,33 +103,261 @@
   "date": "2026-09-23",
   "hash": "0d4f90d52b2c7986"
  },
+ "/shop/clinic-disposal/blueys-underpads": {
+  "date": "2026-11-02",
+  "hash": "d8d0d487a5106f6f"
+ },
+ "/shop/clinic-disposal/clinical-waste-bags": {
+  "date": "2026-11-02",
+  "hash": "368a0c09f37cb4fb"
+ },
+ "/shop/clinic-disposal/couch-roll": {
+  "date": "2026-11-02",
+  "hash": "018cb5d84423ef20"
+ },
+ "/shop/clinic-disposal/incontinence-pads": {
+  "date": "2026-11-02",
+  "hash": "bb2f456916f22001"
+ },
+ "/shop/clinic-disposal/sharps-container-bench": {
+  "date": "2026-11-02",
+  "hash": "4478c8bcea42c07f"
+ },
+ "/shop/clinic-disposal/sharps-container-wall-mount": {
+  "date": "2026-11-02",
+  "hash": "047dc807b26e19f0"
+ },
+ "/shop/clinic-disposal/surface-wipes-clinical": {
+  "date": "2026-11-02",
+  "hash": "54d74d49193461d8"
+ },
  "/shop/diagnostics": {
   "date": "2026-09-23",
   "hash": "472c93ac7661f1c6"
+ },
+ "/shop/diagnostics/blood-glucose-meter": {
+  "date": "2026-11-02",
+  "hash": "ff960913919759d3"
+ },
+ "/shop/diagnostics/blood-glucose-test-strips": {
+  "date": "2026-11-02",
+  "hash": "69e7e5a791bcd9cc"
+ },
+ "/shop/diagnostics/ecg-electrodes": {
+  "date": "2026-11-02",
+  "hash": "a6c2b416816f8a85"
+ },
+ "/shop/diagnostics/otoscope-ear-specula": {
+  "date": "2026-11-02",
+  "hash": "70a45285e9020e3c"
+ },
+ "/shop/diagnostics/safety-lancets": {
+  "date": "2026-11-02",
+  "hash": "f076db6c7353ebbf"
+ },
+ "/shop/diagnostics/thermometer-probe-covers": {
+  "date": "2026-11-02",
+  "hash": "331b182436c0ef3d"
+ },
+ "/shop/diagnostics/tongue-depressors": {
+  "date": "2026-11-02",
+  "hash": "5e2c0fdcd4b5dfae"
+ },
+ "/shop/diagnostics/ultrasound-gel": {
+  "date": "2026-11-02",
+  "hash": "ffc8e2315f703807"
+ },
+ "/shop/diagnostics/urinalysis-strips": {
+  "date": "2026-11-02",
+  "hash": "865a372ee79404c4"
+ },
+ "/shop/diagnostics/vaginal-speculum-disposable": {
+  "date": "2026-11-02",
+  "hash": "7035ee9367d66cfd"
  },
  "/shop/diluents-swabs": {
   "date": "2026-09-23",
   "hash": "0379bfbcd7ff0b3b"
  },
+ "/shop/diluents-swabs/alcohol-swabs": {
+  "date": "2026-11-02",
+  "hash": "0a017bcaead36eaf"
+ },
+ "/shop/diluents-swabs/bacteriostatic-water": {
+  "date": "2026-11-02",
+  "hash": "c0f860b17b5bc1ee"
+ },
+ "/shop/diluents-swabs/chlorhexidine-skin-prep": {
+  "date": "2026-11-02",
+  "hash": "f7be57c47a06dc9b"
+ },
+ "/shop/diluents-swabs/cotton-wool-balls": {
+  "date": "2026-11-02",
+  "hash": "559e9ef3b8d5d07b"
+ },
+ "/shop/diluents-swabs/povidone-iodine-swabsticks": {
+  "date": "2026-11-02",
+  "hash": "a665b3b07a027cb1"
+ },
+ "/shop/diluents-swabs/sodium-chloride-sachets": {
+  "date": "2026-11-02",
+  "hash": "39c3475af4ca85a9"
+ },
+ "/shop/diluents-swabs/sterile-water-for-injection": {
+  "date": "2026-11-02",
+  "hash": "ac5e2805e2f7627e"
+ },
  "/shop/gloves-ppe": {
   "date": "2026-09-23",
   "hash": "848a3879c4f6b3b2"
+ },
+ "/shop/gloves-ppe/alcohol-hand-rub": {
+  "date": "2026-11-02",
+  "hash": "77c651500209ea42"
+ },
+ "/shop/gloves-ppe/aprons-on-a-roll": {
+  "date": "2026-11-02",
+  "hash": "3a815fddbdea3501"
+ },
+ "/shop/gloves-ppe/isolation-gowns": {
+  "date": "2026-11-02",
+  "hash": "eeb4c1b6554047f7"
+ },
+ "/shop/gloves-ppe/latex-examination-gloves": {
+  "date": "2026-11-02",
+  "hash": "3428ee493f554062"
+ },
+ "/shop/gloves-ppe/nitrile-examination-gloves": {
+  "date": "2026-11-02",
+  "hash": "d9318b8527445cb8"
+ },
+ "/shop/gloves-ppe/surgical-masks-level-2": {
+  "date": "2026-11-02",
+  "hash": "e652e31987e7cad4"
  },
  "/shop/hygiene-cleaning": {
   "date": "2026-09-23",
   "hash": "ec76683795142800"
  },
+ "/shop/hygiene-cleaning/cotton-wool-rolls": {
+  "date": "2026-11-02",
+  "hash": "79642b6b8ab23003"
+ },
+ "/shop/hygiene-cleaning/facial-tissues": {
+  "date": "2026-11-02",
+  "hash": "511d457e2ef5956c"
+ },
+ "/shop/hygiene-cleaning/hand-soap": {
+  "date": "2026-11-02",
+  "hash": "b059633c6e5c8d02"
+ },
+ "/shop/hygiene-cleaning/hand-towels": {
+  "date": "2026-11-02",
+  "hash": "0aa8fa9111670499"
+ },
  "/shop/syringes-needles": {
   "date": "2026-09-23",
   "hash": "70d5a20e8d600b7b"
+ },
+ "/shop/syringes-needles/drawing-up-needles": {
+  "date": "2026-11-02",
+  "hash": "d7fefe0aae70c107"
+ },
+ "/shop/syringes-needles/hypodermic-needles": {
+  "date": "2026-11-02",
+  "hash": "9cac5853efddf9ec"
+ },
+ "/shop/syringes-needles/luer-lock-syringes": {
+  "date": "2026-11-02",
+  "hash": "122c41643cba372b"
+ },
+ "/shop/syringes-needles/luer-slip-syringes": {
+  "date": "2026-11-02",
+  "hash": "32bcc52e37749403"
+ },
+ "/shop/syringes-needles/pen-needles": {
+  "date": "2026-11-02",
+  "hash": "af82dacbd0aee650"
+ },
+ "/shop/syringes-needles/u-100-insulin-syringes": {
+  "date": "2026-11-02",
+  "hash": "ed88bcecda792482"
+ },
+ "/shop/syringes-needles/vial-access-devices": {
+  "date": "2026-11-02",
+  "hash": "7def64d9b23f0978"
  },
  "/shop/taping-supports": {
   "date": "2026-09-23",
   "hash": "d83041d68dd25ad4"
  },
+ "/shop/taping-supports/compression-stockings": {
+  "date": "2026-11-02",
+  "hash": "e530bdfffdf1fce4"
+ },
+ "/shop/taping-supports/elastic-adhesive-bandage": {
+  "date": "2026-11-02",
+  "hash": "f102185dd750c25f"
+ },
+ "/shop/taping-supports/kinesiology-tape": {
+  "date": "2026-11-02",
+  "hash": "5d05151cbfc1d571"
+ },
+ "/shop/taping-supports/rigid-strapping-tape": {
+  "date": "2026-11-02",
+  "hash": "8f593a76441c809e"
+ },
  "/shop/wound-care": {
   "date": "2026-09-23",
   "hash": "f7cacb1bf676169a"
+ },
+ "/shop/wound-care/adhesive-plasters": {
+  "date": "2026-11-02",
+  "hash": "07f198a460436374"
+ },
+ "/shop/wound-care/cohesive-bandage": {
+  "date": "2026-11-02",
+  "hash": "f29b91c8057459ef"
+ },
+ "/shop/wound-care/conforming-bandages": {
+  "date": "2026-11-02",
+  "hash": "a29a3df5cd3d5b68"
+ },
+ "/shop/wound-care/crepe-bandages": {
+  "date": "2026-11-02",
+  "hash": "60b56e8ed4292700"
+ },
+ "/shop/wound-care/first-aid-kit-workplace": {
+  "date": "2026-11-02",
+  "hash": "7fda799645a7bc59"
+ },
+ "/shop/wound-care/fixation-tape": {
+  "date": "2026-11-02",
+  "hash": "b20b5e6e61b63321"
+ },
+ "/shop/wound-care/hydrocolloid-foam-dressings": {
+  "date": "2026-11-02",
+  "hash": "b39dc14041a1e680"
+ },
+ "/shop/wound-care/island-dressings": {
+  "date": "2026-11-02",
+  "hash": "6f4295d0de2ba257"
+ },
+ "/shop/wound-care/non-adherent-dressings": {
+  "date": "2026-11-02",
+  "hash": "23aedc95f544b485"
+ },
+ "/shop/wound-care/silicone-scar-gel": {
+  "date": "2026-11-02",
+  "hash": "790194f82c1a29d6"
+ },
+ "/shop/wound-care/sterile-gauze-swabs": {
+  "date": "2026-11-02",
+  "hash": "dcfd87085c82be00"
+ },
+ "/shop/wound-care/sutures": {
+  "date": "2026-11-02",
+  "hash": "88eb71eefa87d841"
  },
  "/tools/reconstitution-calculator": {
   "date": "2026-09-23",

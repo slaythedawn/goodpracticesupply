@@ -11,6 +11,7 @@ HEAD=SRC[:SRC.find(SP)+len(SP)]
 FOOTER=SRC[SRC.find('<footer'):SRC.find('</footer>')+9]
 E=html.escape
 from inline import EL, LINKSTYLE
+import capture
 
 def grab(marker, src=SRC):
     i=src.find('      %s: ['%marker); j=src.find('\n      ],',i)+len('\n      ],')
@@ -283,7 +284,8 @@ def build_product(cat, p, idx):
     # buy panel
     a('          <div id="buy">\n')
     a('            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px">\n')
-    pill='In stock' if SEO.PURCHASABLE else 'Coming soon'
+    pill = ('In stock' if SEO.PURCHASABLE
+            else 'Pre-order' if SEO.PREORDER else 'Coming soon')
     a('              <span style="display:inline-block;%s;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#143026;background:#8FBFA6;border-radius:1000px;padding:7px 12px">%s</span>\n'%(MONO,pill))
     a('              <span style="%s;font-size:11.5px;color:#59595A">{{ batchLine }}</span>\n            </div>\n'%MONO)
     a('            <h1 style="font-family:\'Archivo\',sans-serif;font-weight:600;font-size:clamp(30px,3.4vw,46px);letter-spacing:-.035em;line-height:1.04;margin:0 0 14px">%s</h1>\n'%E(p['name']))
@@ -314,15 +316,21 @@ def build_product(cat, p, idx):
     a('                <span style="%s;font-size:15px;min-width:26px;text-align:center">{{ qty }}</span>\n'%MONO)
     a('                <button type="button" onClick="{{ inc }}" aria-label="Increase quantity" style="border:0;background:none;cursor:pointer;font-size:19px;width:34px;height:34px;color:#0E0E0E">+</button>\n')
     a('              </div>\n              <span style="%s;font-size:22px">{{ totalLabel }}</span>\n            </div>\n'%MONO)
-    # A button that cannot do anything should not look like it can.
+    # A button that cannot do anything should not look like it can. There are
+    # three states and each gets the control that tells the truth about it:
+    # add to cart when there is a cart, a pre-order that collects an address when
+    # there is not, and a dead button only if we are not even taking interest.
     if SEO.PURCHASABLE:
         a('            <button type="button" onClick="{{ addToCart }}" data-cta style="width:100%;cursor:pointer;border:0;background:#0E0E0E;color:#FAFAFA;border-radius:1000px;padding:17px 30px;font-family:\'Archivo\',sans-serif;font-size:16px;font-weight:600">{{ ctaLabel }}</button>\n')
+        ship = 'Free delivery over $99. Dispatched from Sydney. Plain unmarked box.'
+        a('            <div style="%s;font-size:11.5px;color:#59595A;margin-top:14px;line-height:1.7">%s</div>\n'%(MONO,ship))
+    elif SEO.PREORDER:
+        a(capture.preorder(p['name'], '/shop/%s/%s' % (cat['slug'], p['slug'])))
     else:
         a('            <button type="button" disabled="disabled" aria-disabled="true" style="width:100%;cursor:not-allowed;border:1px solid #C4C4C2;background:#EDEDEB;color:#59595A;border-radius:1000px;padding:17px 30px;font-family:\'Archivo\',sans-serif;font-size:16px;font-weight:600">{{ ctaLabel }}</button>\n')
-    ship=('Free delivery over $99. Dispatched from Sydney. Plain unmarked box.'
-          if SEO.PURCHASABLE else
-          'Ordering opens shortly. Delivery will be free over $99, dispatched from Sydney in a plain unmarked box.')
-    a('            <div style="%s;font-size:11.5px;color:#59595A;margin-top:14px;line-height:1.7">%s</div>\n'%(MONO,ship))
+        ship = ('Ordering opens shortly. Delivery will be free over $99, dispatched '
+                'from Sydney in a plain unmarked box.')
+        a('            <div style="%s;font-size:11.5px;color:#59595A;margin-top:14px;line-height:1.7">%s</div>\n'%(MONO,ship))
     a('          </div>\n        </div>\n      </div>\n    </section>\n\n')
     ps=SEO.compose(cat,p)
     a(prose(ps['body']))
@@ -427,7 +435,7 @@ class Component extends DCLogic {
               # they go here. Getting this order wrong puts the spec table in
               # the button, which is exactly as visible as it sounds.
               ("s.added ? 'Added to cart' : 'Add to cart'" if SEO.PURCHASABLE
-               else "'Coming soon'"),
+               else "'Pre-order'" if SEO.PREORDER else "'Coming soon'"),
               ("this.setState(p => ({ added: true, cart: p.cart + p.qty }))"
                if SEO.PURCHASABLE else "undefined"),
               json.dumps([{'k':k,'v':v} for k,v in specs]).replace('"{{ packLabel }}"','pack.label').replace('"{{ code }}"','code').replace('"{{ batch }}"',"'26F-114'").replace('"{{ artg }}"',"'Listed, see carton'"),

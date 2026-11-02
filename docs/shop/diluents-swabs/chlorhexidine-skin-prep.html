@@ -2,7 +2,7 @@
 <html lang="en-AU">
 <head>
 <meta charset="utf-8">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Chlorhexidine skin prep, 0.5% to 2% in 70% alcohol | Good Practice Supply</title>
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -255,7 +255,7 @@
           </div>
           <div id="buy">
             <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px">
-              <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#143026;background:#8FBFA6;border-radius:1000px;padding:7px 12px">Coming soon</span>
+              <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#143026;background:#8FBFA6;border-radius:1000px;padding:7px 12px">Pre-order</span>
               <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;color:#59595A">{{ batchLine }}</span>
             </div>
             <h1 style="font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(30px,3.4vw,46px);letter-spacing:-.035em;line-height:1.04;margin:0 0 14px">Chlorhexidine skin prep</h1>
@@ -286,8 +286,72 @@
               </div>
               <span style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:22px">{{ totalLabel }}</span>
             </div>
-            <button type="button" disabled="disabled" aria-disabled="true" style="width:100%;cursor:not-allowed;border:1px solid #C4C4C2;background:#EDEDEB;color:#59595A;border-radius:1000px;padding:17px 30px;font-family:'Archivo',sans-serif;font-size:16px;font-weight:600">{{ ctaLabel }}</button>
-            <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;color:#59595A;margin-top:14px;line-height:1.7">Ordering opens shortly. Delivery will be free over $99, dispatched from Sydney in a plain unmarked box.</div>
+            <form data-gp-subscribe data-gp-source="/shop/diluents-swabs/chlorhexidine-skin-prep" data-gp-interest="chlorhexidine skin prep" novalidate style="display:flex;flex-wrap:wrap;gap:10px">
+              <label for="gp-pre-email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap">Email address for pre-order</label>
+              <input id="gp-pre-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com.au" style="width:100%;padding:13px 15px;border:1px solid #C4C4C2;border-radius:1000px;font-family:'Archivo',sans-serif;font-size:16px;background:#FFF;color:#0E0E0E;flex:1 1 220px">
+              <input name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+              <button type="submit" style="border:0;border-radius:1000px;background:#0E0E0E;color:#FAFAFA;font-family:'Archivo',sans-serif;font-size:16px;font-weight:600;padding:17px 30px;cursor:pointer;white-space:nowrap">Pre-order</button>
+              <p data-gp-status role="status" aria-live="polite" style="flex:1 1 100%;margin:2px 0 0;font-size:14.5px;line-height:1.5;min-height:1.4em;color:#1C4034"></p>
+            </form>
+            <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11.5px;color:#59595A;margin-top:14px;line-height:1.7">No payment now and no date promised. We take the address, and when this one is in we confirm the price and the pack size before anything is charged. The price above is what we expect it to be.</div>
+
+    <script>
+    (function () {
+      if (window.__gpSubscribe) return;
+      window.__gpSubscribe = true;
+      function wire(form) {
+        var status = form.querySelector('[data-gp-status]');
+        var button = form.querySelector('button');
+        function say(msg, ok) {
+          status.textContent = msg;
+          status.style.color = ok ? '#1C4034' : '#8A2B22';
+        }
+        form.addEventListener('submit', function (ev) {
+          ev.preventDefault();
+          var email = form.querySelector('[name=email]').value.trim();
+          if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+            say('That does not look like an email address.', false);
+            return;
+          }
+          button.disabled = true;
+          say('Just a moment.', true);
+          fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: email,
+              source: form.getAttribute('data-gp-source') || location.pathname,
+              interest: form.getAttribute('data-gp-interest') || 'general',
+              website: form.querySelector('[name=website]').value
+            })
+          }).then(function (r) {
+            return r.json().catch(function () { return { ok: r.ok }; });
+          }).then(function (d) {
+            if (d && d.ok) {
+              form.querySelector('[name=email]').value = '';
+              say('You are on the list. Thanks.', true);
+            } else {
+              say((d && d.message) || 'Something went wrong. Try again in a minute.', false);
+            }
+            button.disabled = false;
+          }).catch(function () {
+            say('We could not reach the server. Check your connection and try again.', false);
+            button.disabled = false;
+          });
+        });
+      }
+      function boot() {
+        var forms = document.querySelectorAll('[data-gp-subscribe]');
+        for (var i = 0; i < forms.length; i++) wire(forms[i]);
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', boot);
+      } else {
+        boot();
+      }
+    })();
+    </script>
+
           </div>
         </div>
       </div>
@@ -538,7 +602,7 @@ class Component extends DCLogic {
       inc: () => this.setState(p => ({ qty: Math.min(20, p.qty + 1), added: false })),
       dec: () => this.setState(p => ({ qty: Math.max(1, p.qty - 1), added: false })),
       totalLabel: money(total),
-      ctaLabel: 'Coming soon',
+      ctaLabel: 'Pre-order',
       addToCart: () => undefined,
 
       batchLine: code + ' · Batch 26F-114 · Exp 04/28',

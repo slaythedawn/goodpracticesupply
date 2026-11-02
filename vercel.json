@@ -4,15 +4,6 @@
   "trailingSlash": false,
   "headers": [
     {
-      "source": "/shop/:category/:product",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow"
-        }
-      ]
-    },
-    {
       "source": "/internal/:path*",
       "headers": [
         {
