@@ -307,6 +307,7 @@ jobs:
           python gen/tools.py
           python gen/guides.py
           python gen/learnindex.py
+          python gen/legal.py
           python gen/signup.py
           python gen/headmeta.py
           python gen/launchstate.py

@@ -120,6 +120,18 @@ def guide(p):
                       kind='Article', image=p['img'], faq=p['faq'])
 
 
+def legal(title, blurb, path):
+    """One of the six legal pages.
+
+    WebPage rather than Article, because these are not editorial and should not
+    be offered as one. No FAQ block either: a policy is not a set of questions
+    and marking it up as one invites a rich result that quotes a clause out of
+    the document it belongs to.
+    """
+    return dict(title='%s | Good Practice Supply' % title, desc=blurb,
+                kind='WebPage')
+
+
 def all_pages():
     out = dict(FIXED)
     for p in PAGES:

@@ -1,4 +1,6 @@
-import glob, io, os, pathlib, re
+import glob, io, os, pathlib, re, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import seo as SEO
 # Resolved from this file rather than hardcoded, like every other generator.
 # It was an absolute path to one particular machine, so it ran everywhere
 # that machine was and nowhere else. CI found it on the first push.
@@ -17,7 +19,9 @@ COLS = [
  ('Guides & tools', [('Peptide reconstitution calculator','/tools/reconstitution-calculator'),
            ('Needle gauge chart','/learn/needle-gauge-chart'),('Gauge Finder','/gauge-finder'),
            ('Always Stocked','/always-stocked'),('All guides','/learn')]),
- ('Company', [('About','/about'),('Clinic Portal','/clinic-portal'),('Contact','/contact'),('Delivery & returns','/contact')]),
+ ('Company', [('About','/about'),('Clinic Portal','/clinic-portal'),('Contact','/contact')] +
+           ([('Shipping','/shipping'),('Refunds & returns','/refunds')] if SEO.LEGAL_LIVE
+            else [('Delivery & returns','/contact')])),
 ]
 
 def build():
@@ -39,7 +43,19 @@ def build():
     a('      <div style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-top:24px">\n')
     a('        <div style="font-size:13.5px;line-height:1.7;color:#B7CFC3;max-width:74ch">Good Practice Supply supplies medical consumables only. We do not supply peptides, hormones or any prescription medicine. Australian approval status is shown per product where it applies. Nothing here is medical advice, so follow the directions of your prescriber or treating practitioner.</div>\n')
     a('        <div style="%s;font-size:11.5px;color:#B7CFC3;white-space:nowrap">&copy; 2026 Good Practice Supply</div>\n'%MONO)
-    a('      </div>\n    </div>\n  </footer>')
+    a('      </div>\n')
+    # Gated on SEO.LEGAL_LIVE, so the footer never links to a page that has not
+    # been generated. The link check would catch it, but the point is that the
+    # switch is the single thing that turns these on, not two things that have to
+    # agree.
+    if SEO.LEGAL_LIVE:
+        a('      <div style="display:flex;gap:8px 22px;flex-wrap:wrap;padding-top:20px;'
+          'border-top:1px solid #2A5245;margin-top:24px">\n')
+        for slug, title, _ in SEO.LEGAL_PAGES:
+            a('        <a href="/%s" style="color:#B7CFC3;font-size:13.5px" '
+              'style-hover="color:#FAFAFA">%s</a>\n' % (slug, title))
+        a('      </div>\n')
+    a('    </div>\n  </footer>')
     return ''.join(o)
 
 FOOTER=build()

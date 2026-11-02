@@ -29,6 +29,7 @@ the fifty-eight pages come out of these scripts, so a change made by hand in
 | `capture.py` | nothing | the email sign-up block. Self contained HTML and one script, so it works on a static page as well as a streaming component. Posts to `/api/subscribe` |
 | `feature.py` | nothing | the one product or tool a page points at. `FEATURED` is the table; a page asking for a key that is not in it fails the build |
 | `learnindex.py` | the card grid in `docs/learn.html` | fenced, generated from `GUIDES` so it cannot drift |
+| `legal.py` | the 6 legal pages | reads `legal/*.txt`, writes nothing while `SEO.LEGAL_LIVE` is off, and refuses to build a page with an unresolved `!!` highlight, a missing source file or no content |
 | `signup.py` | the sign-up on the 5 hand-written pages | fenced and idempotent, for the pages no generator owns. The generated pages carry it from their own generator, and `contact.html` and `clinic-portal.html` are left out on purpose: both already ask for an email, for something else |
 | `pagemeta.py` | nothing | title, description and structured data for every page that is not a shop page |
 | `headmeta.py` | rewrites the 7 hand-written pages | injects the head block, fenced so it is safe to re-run |
@@ -170,6 +171,7 @@ browser and fatal in a search console.
     python3 gen/tools.py        # calculator, gauge chart
     python3 gen/guides.py       # the ten /learn/ guides
     python3 gen/learnindex.py   # the Learn index cards, from the same data
+    python3 gen/legal.py        # the 6 legal pages, only when LEGAL_LIVE is on
     python3 gen/signup.py       # the sign-up on the 5 hand-written pages
     python3 gen/headmeta.py     # head block on the 7 hand-written pages
     python3 gen/launchstate.py  # launch-state buttons

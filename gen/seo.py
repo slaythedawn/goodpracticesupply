@@ -67,6 +67,41 @@ INDEX_SHOP_PRODUCTS = True
 PREORDER = True
 
 
+# The six legal documents, and whether they are live.
+#
+# Off, and it stays off until the documents are settled. They arrived from the
+# lawyer on 27 October 2026 as drafts, every one of them carries highlighted
+# sections that are open questions about how the business actually operates, and
+# the covering email is explicit that they are to be finalised before they go
+# live. Source text sits in legal/ and is never copied into docs/ while this is
+# False.
+#
+# Publishing a draft privacy policy is not a small thing. It is a binding
+# representation about how data is handled, and the highlights exist precisely
+# because parts of it do not yet match practice. Same for refunds and shipping,
+# which are representations about how orders are handled on a site that cannot
+# yet take one.
+LEGAL_LIVE = False
+
+# slug, title, and what the page is, in the order they belong in the footer.
+# Named here rather than in the generator so the footer and the pages cannot
+# disagree about what exists.
+LEGAL_PAGES = [
+    ('terms', 'Terms and conditions of supply',
+     'The terms on which goods are sold.'),
+    ('terms-of-use', 'Website terms of use',
+     'The terms on which this website may be used.'),
+    ('privacy', 'Privacy policy',
+     'What personal information is collected, why, and what happens to it.'),
+    ('refunds', 'Refunds and returns',
+     'When an order can be returned and how a refund is handled.'),
+    ('shipping', 'Shipping policy',
+     'How orders are packed, dispatched and delivered.'),
+    ('payment', 'Payment information',
+     'How payment is taken and what happens to card details.'),
+]
+
+
 # How fulfilment is described, in one place, because it was asserted in five
 # files and on most of the fifty-seven product descriptions.
 #
