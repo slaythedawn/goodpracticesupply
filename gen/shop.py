@@ -559,7 +559,7 @@ class Component extends DCLogic {
 }
 </script>"""%(SCRIPT_OPEN, REVEAL, HEADER_VALS, LEARNCOLS, MENUCOLS)
     desc=('Every product priced on the page, no account needed. %d medical consumables across %d categories, '
-          'from insulin syringes to sharps containers. Dispatched from Sydney.'%(total,len(CATEGORIES)))
+          'from insulin syringes to sharps containers. Sydney based.'%(total,len(CATEGORIES)))
     head_extra='\n'.join([
         SEO.head_tags(path='/shop', title='Shop all products', description=desc, image=I['syringe_box']),
         SEO.jsonld({'@context':'https://schema.org','@type':'CollectionPage',

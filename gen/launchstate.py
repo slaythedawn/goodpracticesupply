@@ -14,6 +14,17 @@ Mark the element with the label it should carry once orders are open:
 
 This pass writes the right one in. Run it after the other generators, before
 the footer. It is idempotent either way.
+
+"Coming soon" is the default waiting label because most of these are buttons.
+Where it does not fit, say what it should read instead:
+
+    <span data-gp-launch-cta="Dispatched from Sydney"
+          data-gp-launch-wait="Pre-order open">Pre-order open</span>
+
+That exists because of the strip across the top of every page, which promised
+free delivery over $99 and dispatch from Sydney on a site with no checkout. It is
+the most prominent sentence on the site, it sits outside <main>, and the
+compliance gate reads <main> only, so nothing was ever going to catch it.
 """
 
 import glob
@@ -29,7 +40,8 @@ import seo as SEO
 DOCS = str(pathlib.Path(__file__).resolve().parent.parent / 'docs')
 WAITING = 'Coming soon'
 
-_CTA = re.compile(r'(data-gp-launch-cta="([^"]+)"[^>]*>)([^<]*)(<)')
+_CTA = re.compile(r'(data-gp-launch-cta="([^"]+)"([^>]*)>)([^<]*)(<)')
+_WAIT = re.compile(r'data-gp-launch-wait="([^"]+)"')
 
 
 def main():
@@ -43,8 +55,12 @@ def main():
                 continue
 
             def sub(m):
-                global_label = m.group(2) if SEO.PURCHASABLE else WAITING
-                return m.group(1) + global_label + m.group(4)
+                if SEO.PURCHASABLE:
+                    label = m.group(2)
+                else:
+                    wait = _WAIT.search(m.group(3))
+                    label = wait.group(1) if wait else WAITING
+                return m.group(1) + label + m.group(5)
 
             found += len(_CTA.findall(s))
             s2 = _CTA.sub(sub, s)

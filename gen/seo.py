@@ -67,6 +67,21 @@ INDEX_SHOP_PRODUCTS = True
 PREORDER = True
 
 
+# How fulfilment is described, in one place, because it was asserted in five
+# files and on most of the fifty-seven product descriptions.
+#
+# "Dispatched from Sydney" is a claim that orders are being picked and sent, and
+# none are. A warehouse that did not exist is a mistake already made once on this
+# site and caught late by a person reading. While there is no checkout the
+# descriptions say nothing about dispatch, and the pages that need to explain the
+# arrangement describe it rather than asserting it is running.
+FULFILMENT = ' Dispatched from Sydney.' if PURCHASABLE else ''
+FULFILMENT_LINE = ('Orders are picked and dispatched from Sydney, and delivery is '
+                   'free over $99 Australia wide.' if PURCHASABLE else
+                   'Picking and dispatch is from Sydney, and delivery is free over '
+                   '$99 Australia wide.')
+
+
 def indexable(path):
     """Whether a path should carry an index directive.
 
@@ -355,7 +370,7 @@ PRODUCT_SEO = {
 
 'u-100-insulin-syringes': dict(
  title='U-100 insulin syringes, box of 100',
- desc='U-100 insulin syringes with a fixed needle, 27G to 31G, graduated in units. Box of 100, priced on the page, no account needed. Dispatched from Sydney.',
+ desc='U-100 insulin syringes with a fixed needle, 27G to 31G, graduated in units. Box of 100, priced on the page, no account needed.' + FULFILMENT,
  body=[
   ('What a U-100 insulin syringe is', [
    'U-100 means the barrel is graduated for insulin at a concentration of 100 units per millilitre. One hundred units fills one millilitre, so a unit mark is one hundredth of a millilitre. That is the whole reason these exist: at that scale a millilitre scale is unreadable, and a unit scale is not.',
@@ -451,7 +466,7 @@ PRODUCT_SEO = {
 
 'drawing-up-needles': dict(
  title='Drawing-up needles, 18G, box of 100',
- desc='Sterile 18G drawing-up and reconstitution needles, blunt or sharp fill, box of 100. Priced on the page, no account needed, dispatched from Sydney.',
+ desc='Sterile 18G drawing-up and reconstitution needles, blunt or sharp fill, box of 100. Priced on the page, no account needed.' + FULFILMENT,
  body=[
   ('Why a separate needle to draw up', [
    'Pushing a needle through a rubber stopper blunts it and can core a plug of rubber out of the stopper. Doing that with the needle you are about to inject with is the single most avoidable cause of an injection hurting more than it needs to.',
@@ -495,7 +510,7 @@ PRODUCT_SEO = {
 
 'sterile-water-for-injection': dict(
  title='Sterile water for injection, 10mL plastic ampoule',
- desc='Preservative-free sterile water for injection, 10mL plastic ampoule, box of 20 to 50. Priced on the page, no account needed, dispatched from Sydney.',
+ desc='Preservative-free sterile water for injection, 10mL plastic ampoule, box of 20 to 50. Priced on the page, no account needed.' + FULFILMENT,
  body=[
   ('Preservative free, single use', [
    'Water for injection with nothing added. No preservative, which means no benzyl alcohol, which means the ampoule is single use: once it is open there is nothing in it suppressing bacterial growth, so what is left over gets discarded rather than kept.',
@@ -580,7 +595,7 @@ PRODUCT_SEO = {
 # --- starred priority items from tab 2 -------------------------------------
 'nitrile-examination-gloves': dict(
  title='Nitrile examination gloves, powder free, box of 100',
- desc='Powder-free blue nitrile examination gloves in S, M, L and XL. Box of 100, priced on the page, no account needed, dispatched from Sydney.',
+ desc='Powder-free blue nitrile examination gloves in S, M, L and XL. Box of 100, priced on the page, no account needed.' + FULFILMENT,
  body=[
   ('Nitrile rather than latex', [
    'Nitrile is a synthetic rubber, so it carries none of the latex protein that causes latex allergy. That is the main reason it has become the default examination glove, in clinics and in the bathroom cupboard both.',
@@ -1067,8 +1082,9 @@ def compose(cat, p):
     seo = dict(PRODUCT_SEO.get(p['slug'], {}))
     if seo.get('body') and seo.get('faq'):
         seo.setdefault('title', p['name'])
-        seo.setdefault('desc', clamp('%s. %s. Priced on the page, no account needed, dispatched from Sydney.'
-                                     % (p['name'], p['spec'])))
+        seo.setdefault('desc', clamp(
+            '%s. %s. Priced on the page, no account needed.'
+            % (p['name'], p['spec']) + FULFILMENT))
         return seo
 
     extra = dict(p['extra'])
@@ -1076,8 +1092,9 @@ def compose(cat, p):
     packs = [k[0] for k in p['packs']]
 
     title = seo.get('title') or '%s, %s' % (p['name'], p['spec'].split(',')[0].strip().lower())
-    desc = seo.get('desc') or clamp('%s: %s. Available as %s. Priced on the page, no account needed, dispatched from Sydney.'
-                                    % (p['name'], p['spec'].rstrip('.'), _sentence_list(packs).lower()))
+    desc = seo.get('desc') or clamp(
+        '%s: %s. Available as %s. Priced on the page, no account needed.'
+        % (p['name'], p['spec'].rstrip('.'), _sentence_list(packs).lower()) + FULFILMENT)
 
     about = [p['blurb']]
     made = []

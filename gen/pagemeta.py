@@ -21,7 +21,7 @@ FIXED = {
  '/': dict(
    title='Medical supplies for clinics and home',
    desc=('Syringes, needles, gloves, dressings and diagnostics, with every price '
-         'on the page and no account needed. Dispatched from Sydney, Australia wide.'),
+         'on the page and no account needed. Sydney based, Australia wide.'),
    kind='home', image=HERO),
 
  '/about': dict(
