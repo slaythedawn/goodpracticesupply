@@ -1,6 +1,16 @@
 {
  "entries": [
   {
+   "date": "2026-11-02",
+   "cluster": "page:/shop/diluents-swabs/bacteriostatic-water",
+   "target": "bacteriostatic water",
+   "action": "expand",
+   "page": "/shop/diluents-swabs/bacteriostatic-water",
+   "brief": "seo/briefs/2026-11-02-bacteriostatic-water.md",
+   "page_hash": "0440792309d8e12a",
+   "score_when_chosen": 8834.0
+  },
+  {
    "date": "2026-11-01",
    "cluster": "page:/shop/gloves-ppe",
    "target": "nitrile gloves",
