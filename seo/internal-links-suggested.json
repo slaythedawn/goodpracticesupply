@@ -3,63 +3,23 @@
   "from": "/shop/syringes-needles/drawing-up-needles.html",
   "to": "/shop/syringes-needles/vial-access-devices.html",
   "to_title": "Vial access devices",
-  "confidence": 0.93,
+  "confidence": 0.92,
   "target_inbound_before": 1,
   "anchor": "vial access"
- },
- {
-  "from": "/for/wound-care-at-home.html",
-  "to": "/shop/diluents-swabs/sodium-chloride-sachets.html",
-  "to_title": "Sodium chloride sachets",
-  "confidence": 0.88,
-  "target_inbound_before": 1,
-  "anchor": null
  },
  {
   "from": "/for/peptide-reconstitution.html",
   "to": "/shop/syringes-needles/vial-access-devices.html",
   "to_title": "Vial access devices",
+  "confidence": 0.87,
+  "target_inbound_before": 1,
+  "anchor": null
+ },
+ {
+  "from": "/for/wound-care-at-home.html",
+  "to": "/shop/diluents-swabs/sodium-chloride-sachets.html",
+  "to_title": "Sodium chloride sachets",
   "confidence": 0.86,
-  "target_inbound_before": 1,
-  "anchor": null
- },
- {
-  "from": "/learn/reconstitution-basics.html",
-  "to": "/shop/syringes-needles/vial-access-devices.html",
-  "to_title": "Vial access devices",
-  "confidence": 0.86,
-  "target_inbound_before": 1,
-  "anchor": null
- },
- {
-  "from": "/shop/syringes-needles/luer-lock-syringes.html",
-  "to": "/learn/intramuscular-technique.html",
-  "to_title": "Injecting into muscle",
-  "confidence": 0.85,
-  "target_inbound_before": 1,
-  "anchor": null
- },
- {
-  "from": "/shop/syringes-needles/luer-lock-syringes.html",
-  "to": "/shop/syringes-needles/luer-slip-syringes.html",
-  "to_title": "Luer-slip syringes",
-  "confidence": 0.84,
-  "target_inbound_before": 1,
-  "anchor": null
- },
- {
-  "from": "/index.html",
-  "to": "/for/trt-injections.html",
-  "to_title": "Supplies for injecting testosterone at home.",
-  "confidence": 0.83,
-  "target_inbound_before": 1,
-  "anchor": null
- },
- {
-  "from": "/shop/syringes-needles/luer-lock-syringes.html",
-  "to": "/for/trt-injections.html",
-  "to_title": "Supplies for injecting testosterone at home.",
-  "confidence": 0.83,
   "target_inbound_before": 1,
   "anchor": null
  },
@@ -67,7 +27,7 @@
   "from": "/shop/diluents-swabs/bacteriostatic-water.html",
   "to": "/learn/intramuscular-technique.html",
   "to_title": "Injecting into muscle",
-  "confidence": 0.82,
+  "confidence": 0.85,
   "target_inbound_before": 1,
   "anchor": null
  },
@@ -75,15 +35,31 @@
   "from": "/shop/syringes-needles/drawing-up-needles.html",
   "to": "/learn/intramuscular-technique.html",
   "to_title": "Injecting into muscle",
-  "confidence": 0.82,
+  "confidence": 0.85,
   "target_inbound_before": 1,
   "anchor": null
  },
  {
-  "from": "/shop.html",
+  "from": "/index.html",
+  "to": "/for/trt-injections.html",
+  "to_title": "Supplies for injecting testosterone at home.",
+  "confidence": 0.84,
+  "target_inbound_before": 1,
+  "anchor": null
+ },
+ {
+  "from": "/learn/reconstitution-basics.html",
+  "to": "/shop/syringes-needles/vial-access-devices.html",
+  "to_title": "Vial access devices",
+  "confidence": 0.84,
+  "target_inbound_before": 1,
+  "anchor": null
+ },
+ {
+  "from": "/shop/syringes-needles/luer-lock-syringes.html",
   "to": "/learn/intramuscular-technique.html",
   "to_title": "Injecting into muscle",
-  "confidence": 0.8,
+  "confidence": 0.84,
   "target_inbound_before": 1,
   "anchor": null
  },
@@ -91,20 +67,60 @@
   "from": "/shop/syringes-needles.html",
   "to": "/learn/intramuscular-technique.html",
   "to_title": "Injecting into muscle",
-  "confidence": 0.8,
+  "confidence": 0.83,
   "target_inbound_before": 1,
   "anchor": "Into muscle"
+ },
+ {
+  "from": "/shop/diluents-swabs.html",
+  "to": "/shop/syringes-needles/luer-slip-syringes.html",
+  "to_title": "Luer-slip syringes",
+  "confidence": 0.82,
+  "target_inbound_before": 1,
+  "anchor": null
+ },
+ {
+  "from": "/shop/syringes-needles/luer-lock-syringes.html",
+  "to": "/for/trt-injections.html",
+  "to_title": "Supplies for injecting testosterone at home.",
+  "confidence": 0.82,
+  "target_inbound_before": 1,
+  "anchor": null
+ },
+ {
+  "from": "/shop/syringes-needles/luer-lock-syringes.html",
+  "to": "/shop/syringes-needles/luer-slip-syringes.html",
+  "to_title": "Luer-slip syringes",
+  "confidence": 0.81,
+  "target_inbound_before": 1,
+  "anchor": null
+ },
+ {
+  "from": "/shop.html",
+  "to": "/shop/diagnostics/blood-glucose-meter.html",
+  "to_title": "Blood glucose meter",
+  "confidence": 0.8,
+  "target_inbound_before": 1,
+  "anchor": null
  },
  {
   "from": "/for/glp-1-injections.html",
   "to": "/learn/first-injection.html",
   "to_title": "Your first injection, step by step",
-  "confidence": 0.92,
+  "confidence": 0.91,
   "target_inbound_before": 2,
   "anchor": "first injection"
  },
  {
-  "from": "/clinic-portal.html",
+  "from": "/shop/diagnostics/safety-lancets.html",
+  "to": "/contact.html",
+  "to_title": "How can we help?",
+  "confidence": 0.84,
+  "target_inbound_before": 2,
+  "anchor": null
+ },
+ {
+  "from": "/shop/gloves-ppe/alcohol-hand-rub.html",
   "to": "/contact.html",
   "to_title": "How can we help?",
   "confidence": 0.8,
@@ -112,7 +128,7 @@
   "anchor": null
  },
  {
-  "from": "/shop/diagnostics/safety-lancets.html",
+  "from": "/shop/gloves-ppe/surgical-masks-level-2.html",
   "to": "/contact.html",
   "to_title": "How can we help?",
   "confidence": 0.8,
@@ -123,7 +139,7 @@
   "from": "/shop.html",
   "to": "/learn/reconstitution-basics.html",
   "to_title": "Mixing a powder with sterile water",
-  "confidence": 0.9,
+  "confidence": 0.91,
   "target_inbound_before": 3,
   "anchor": null
  },
@@ -136,36 +152,28 @@
   "anchor": "Sterile water"
  },
  {
-  "from": "/for/glp-1-injections.html",
+  "from": "/for/diabetes-at-home.html",
   "to": "/shop/syringes-needles/pen-needles.html",
   "to_title": "Pen needles",
   "confidence": 0.88,
   "target_inbound_before": 3,
-  "anchor": "Pen needles"
+  "anchor": "pen needles"
  },
  {
-  "from": "/for/diabetes-at-home.html",
+  "from": "/for/glp-1-injections.html",
   "to": "/shop/syringes-needles/pen-needles.html",
   "to_title": "Pen needles",
-  "confidence": 0.87,
+  "confidence": 0.86,
   "target_inbound_before": 3,
-  "anchor": "pen needles"
+  "anchor": "Pen needles"
  },
  {
   "from": "/index.html",
   "to": "/learn/reconstitution-basics.html",
   "to_title": "Mixing a powder with sterile water",
-  "confidence": 0.85,
+  "confidence": 0.86,
   "target_inbound_before": 3,
   "anchor": null
- },
- {
-  "from": "/shop/diluents-swabs/sodium-chloride-sachets.html",
-  "to": "/learn/reconstitution-basics.html",
-  "to_title": "Mixing a powder with sterile water",
-  "confidence": 0.82,
-  "target_inbound_before": 3,
-  "anchor": "Sterile water"
  },
  {
   "from": "/shop/syringes-needles/drawing-up-needles.html",
@@ -174,6 +182,14 @@
   "confidence": 0.81,
   "target_inbound_before": 3,
   "anchor": null
+ },
+ {
+  "from": "/shop/diluents-swabs/sodium-chloride-sachets.html",
+  "to": "/learn/reconstitution-basics.html",
+  "to_title": "Mixing a powder with sterile water",
+  "confidence": 0.8,
+  "target_inbound_before": 3,
+  "anchor": "Sterile water"
  },
  {
   "from": "/shop/syringes-needles/hypodermic-needles.html",
@@ -187,7 +203,7 @@
   "from": "/gauge-finder.html",
   "to": "/learn/subcutaneous-technique.html",
   "to_title": "Injecting under the skin",
-  "confidence": 0.89,
+  "confidence": 0.88,
   "target_inbound_before": 5,
   "anchor": "under the skin"
  },
@@ -195,7 +211,7 @@
   "from": "/shop/diluents-swabs/bacteriostatic-water.html",
   "to": "/shop/syringes-needles/drawing-up-needles.html",
   "to_title": "Drawing-up needles",
-  "confidence": 0.89,
+  "confidence": 0.88,
   "target_inbound_before": 5,
   "anchor": null
  },
@@ -203,7 +219,7 @@
   "from": "/shop/syringes-needles/u-100-insulin-syringes.html",
   "to": "/learn/subcutaneous-technique.html",
   "to_title": "Injecting under the skin",
-  "confidence": 0.89,
+  "confidence": 0.88,
   "target_inbound_before": 5,
   "anchor": "under the skin"
  },
@@ -211,7 +227,7 @@
   "from": "/for/trt-injections.html",
   "to": "/learn/subcutaneous-technique.html",
   "to_title": "Injecting under the skin",
-  "confidence": 0.86,
+  "confidence": 0.87,
   "target_inbound_before": 5,
   "anchor": "under the skin"
  },
@@ -219,7 +235,7 @@
   "from": "/shop/syringes-needles/pen-needles.html",
   "to": "/learn/subcutaneous-technique.html",
   "to_title": "Injecting under the skin",
-  "confidence": 0.85,
+  "confidence": 0.87,
   "target_inbound_before": 5,
   "anchor": null
  },
@@ -232,10 +248,34 @@
   "anchor": null
  },
  {
-  "from": "/learn/reconstitution-basics.html",
+  "from": "/shop/diluents-swabs.html",
   "to": "/shop/syringes-needles/drawing-up-needles.html",
   "to_title": "Drawing-up needles",
   "confidence": 0.84,
+  "target_inbound_before": 5,
+  "anchor": null
+ },
+ {
+  "from": "/for/peptide-reconstitution.html",
+  "to": "/shop/syringes-needles/drawing-up-needles.html",
+  "to_title": "Drawing-up needles",
+  "confidence": 0.83,
+  "target_inbound_before": 5,
+  "anchor": null
+ },
+ {
+  "from": "/index.html",
+  "to": "/shop/syringes-needles/drawing-up-needles.html",
+  "to_title": "Drawing-up needles",
+  "confidence": 0.83,
+  "target_inbound_before": 5,
+  "anchor": null
+ },
+ {
+  "from": "/learn/reconstitution-basics.html",
+  "to": "/shop/syringes-needles/drawing-up-needles.html",
+  "to_title": "Drawing-up needles",
+  "confidence": 0.83,
   "target_inbound_before": 5,
   "anchor": null
  },
@@ -246,38 +286,6 @@
   "confidence": 0.83,
   "target_inbound_before": 5,
   "anchor": "under the skin"
- },
- {
-  "from": "/index.html",
-  "to": "/shop/syringes-needles/drawing-up-needles.html",
-  "to_title": "Drawing-up needles",
-  "confidence": 0.82,
-  "target_inbound_before": 5,
-  "anchor": null
- },
- {
-  "from": "/shop/diluents-swabs.html",
-  "to": "/shop/syringes-needles/drawing-up-needles.html",
-  "to_title": "Drawing-up needles",
-  "confidence": 0.81,
-  "target_inbound_before": 5,
-  "anchor": null
- },
- {
-  "from": "/for/peptide-reconstitution.html",
-  "to": "/shop/syringes-needles/drawing-up-needles.html",
-  "to_title": "Drawing-up needles",
-  "confidence": 0.8,
-  "target_inbound_before": 5,
-  "anchor": null
- },
- {
-  "from": "/shop/diluents-swabs/sterile-water-for-injection.html",
-  "to": "/shop/syringes-needles/drawing-up-needles.html",
-  "to_title": "Drawing-up needles",
-  "confidence": 0.8,
-  "target_inbound_before": 5,
-  "anchor": null
  },
  {
   "from": "/for/peptide-reconstitution.html",
@@ -291,7 +299,7 @@
   "from": "/shop/syringes-needles/luer-lock-syringes.html",
   "to": "/learn/reading-a-syringe.html",
   "to_title": "Reading a syringe",
-  "confidence": 0.87,
+  "confidence": 0.88,
   "target_inbound_before": 6,
   "anchor": null
  },
@@ -299,15 +307,7 @@
   "from": "/index.html",
   "to": "/shop/gloves-ppe/latex-examination-gloves.html",
   "to_title": "Latex examination gloves",
-  "confidence": 0.84,
-  "target_inbound_before": 6,
-  "anchor": null
- },
- {
-  "from": "/tools/reconstitution-calculator.html",
-  "to": "/learn/reading-a-syringe.html",
-  "to_title": "Reading a syringe",
-  "confidence": 0.84,
+  "confidence": 0.83,
   "target_inbound_before": 6,
   "anchor": null
  },
@@ -320,10 +320,18 @@
   "anchor": null
  },
  {
+  "from": "/tools/reconstitution-calculator.html",
+  "to": "/learn/reading-a-syringe.html",
+  "to_title": "Reading a syringe",
+  "confidence": 0.82,
+  "target_inbound_before": 6,
+  "anchor": null
+ },
+ {
   "from": "/shop/diluents-swabs/bacteriostatic-water.html",
   "to": "/learn/storing-supplies.html",
   "to_title": "Storing supplies correctly",
-  "confidence": 0.81,
+  "confidence": 0.8,
   "target_inbound_before": 6,
   "anchor": null
  },
@@ -344,14 +352,6 @@
   "anchor": "sharps disposal"
  },
  {
-  "from": "/for/glp-1-injections.html",
-  "to": "/learn/sharps-disposal-australia.html",
-  "to_title": "Sharps disposal, state by state",
-  "confidence": 0.97,
-  "target_inbound_before": 7,
-  "anchor": "sharps disposal"
- },
- {
   "from": "/shop/syringes-needles/u-100-insulin-syringes.html",
   "to": "/learn/sharps-disposal-australia.html",
   "to_title": "Sharps disposal, state by state",
@@ -360,18 +360,26 @@
   "anchor": "sharps disposal"
  },
  {
-  "from": "/shop/diagnostics/safety-lancets.html",
+  "from": "/for/glp-1-injections.html",
   "to": "/learn/sharps-disposal-australia.html",
   "to_title": "Sharps disposal, state by state",
-  "confidence": 0.9,
+  "confidence": 0.96,
   "target_inbound_before": 7,
-  "anchor": null
+  "anchor": "sharps disposal"
  },
  {
   "from": "/tools/reconstitution-calculator.html",
   "to": "/learn/sharps-disposal-australia.html",
   "to_title": "Sharps disposal, state by state",
-  "confidence": 0.9,
+  "confidence": 0.92,
+  "target_inbound_before": 7,
+  "anchor": null
+ },
+ {
+  "from": "/shop/diagnostics/safety-lancets.html",
+  "to": "/learn/sharps-disposal-australia.html",
+  "to_title": "Sharps disposal, state by state",
+  "confidence": 0.91,
   "target_inbound_before": 7,
   "anchor": null
  },
@@ -379,15 +387,7 @@
   "from": "/for/trt-injections.html",
   "to": "/shop/syringes-needles/luer-lock-syringes.html",
   "to_title": "Luer-lock syringes",
-  "confidence": 0.89,
-  "target_inbound_before": 7,
-  "anchor": null
- },
- {
-  "from": "/contact.html",
-  "to": "/learn/gauge-comparison.html",
-  "to_title": "29G, 30G or 31G: which should I buy?",
-  "confidence": 0.86,
+  "confidence": 0.88,
   "target_inbound_before": 7,
   "anchor": null
  },
@@ -395,7 +395,7 @@
   "from": "/for/clinic-fit-out.html",
   "to": "/shop/gloves-ppe/nitrile-examination-gloves.html",
   "to_title": "Nitrile examination gloves",
-  "confidence": 0.86,
+  "confidence": 0.87,
   "target_inbound_before": 7,
   "anchor": null
  },
@@ -403,15 +403,7 @@
   "from": "/tools/reconstitution-calculator.html",
   "to": "/learn/gauge-comparison.html",
   "to_title": "29G, 30G or 31G: which should I buy?",
-  "confidence": 0.86,
-  "target_inbound_before": 7,
-  "anchor": null
- },
- {
-  "from": "/for/clinic-fit-out.html",
-  "to": "/learn/gauge-comparison.html",
-  "to_title": "29G, 30G or 31G: which should I buy?",
-  "confidence": 0.84,
+  "confidence": 0.87,
   "target_inbound_before": 7,
   "anchor": null
  },
@@ -419,15 +411,15 @@
   "from": "/shop/diluents-swabs.html",
   "to": "/shop/syringes-needles/luer-lock-syringes.html",
   "to_title": "Luer-lock syringes",
-  "confidence": 0.84,
+  "confidence": 0.85,
   "target_inbound_before": 7,
   "anchor": null
  },
  {
-  "from": "/shop/syringes-needles/u-100-insulin-syringes.html",
+  "from": "/for/clinic-fit-out.html",
   "to": "/learn/gauge-comparison.html",
   "to_title": "29G, 30G or 31G: which should I buy?",
-  "confidence": 0.84,
+  "confidence": 0.83,
   "target_inbound_before": 7,
   "anchor": null
  },
@@ -440,7 +432,15 @@
   "anchor": null
  },
  {
-  "from": "/shop/diagnostics/safety-lancets.html",
+  "from": "/shop/syringes-needles/u-100-insulin-syringes.html",
+  "to": "/learn/gauge-comparison.html",
+  "to_title": "29G, 30G or 31G: which should I buy?",
+  "confidence": 0.83,
+  "target_inbound_before": 7,
+  "anchor": null
+ },
+ {
+  "from": "/contact.html",
   "to": "/learn/gauge-comparison.html",
   "to_title": "29G, 30G or 31G: which should I buy?",
   "confidence": 0.82,
@@ -448,10 +448,18 @@
   "anchor": null
  },
  {
-  "from": "/for/wound-care-at-home.html",
-  "to": "/shop/gloves-ppe/nitrile-examination-gloves.html",
-  "to_title": "Nitrile examination gloves",
-  "confidence": 0.8,
+  "from": "/for/trt-injections.html",
+  "to": "/learn/sharps-disposal-australia.html",
+  "to_title": "Sharps disposal, state by state",
+  "confidence": 0.81,
+  "target_inbound_before": 7,
+  "anchor": null
+ },
+ {
+  "from": "/shop/diagnostics/safety-lancets.html",
+  "to": "/learn/gauge-comparison.html",
+  "to_title": "29G, 30G or 31G: which should I buy?",
+  "confidence": 0.81,
   "target_inbound_before": 7,
   "anchor": null
  },
@@ -464,6 +472,14 @@
   "anchor": null
  },
  {
+  "from": "/for/clinic-fit-out.html",
+  "to": "/shop/clinic-disposal/sharps-container-wall-mount.html",
+  "to_title": "Sharps container, wall mount",
+  "confidence": 0.9,
+  "target_inbound_before": 8,
+  "anchor": "sharps container"
+ },
+ {
   "from": "/shop.html",
   "to": "/shop/diluents-swabs/bacteriostatic-water.html",
   "to_title": "Bacteriostatic water",
@@ -480,12 +496,12 @@
   "anchor": "sharps container"
  },
  {
-  "from": "/for/clinic-fit-out.html",
-  "to": "/shop/clinic-disposal/sharps-container-wall-mount.html",
-  "to_title": "Sharps container, wall mount",
+  "from": "/for/peptide-reconstitution.html",
+  "to": "/shop/diluents-swabs/bacteriostatic-water.html",
+  "to_title": "Bacteriostatic water",
   "confidence": 0.89,
   "target_inbound_before": 8,
-  "anchor": "sharps container"
+  "anchor": "Bacteriostatic water"
  },
  {
   "from": "/shop/diagnostics.html",
@@ -496,15 +512,7 @@
   "anchor": "sharps container"
  },
  {
-  "from": "/for/peptide-reconstitution.html",
-  "to": "/shop/diluents-swabs/bacteriostatic-water.html",
-  "to_title": "Bacteriostatic water",
-  "confidence": 0.88,
-  "target_inbound_before": 8,
-  "anchor": "Bacteriostatic water"
- },
- {
-  "from": "/for/trt-injections.html",
+  "from": "/tools/reconstitution-calculator.html",
   "to": "/shop/clinic-disposal/sharps-container-bench.html",
   "to_title": "Sharps container, bench",
   "confidence": 0.85,
@@ -512,23 +520,7 @@
   "anchor": "sharps container"
  },
  {
-  "from": "/shop/diagnostics.html",
-  "to": "/shop/clinic-disposal/sharps-container-wall-mount.html",
-  "to_title": "Sharps container, wall mount",
-  "confidence": 0.84,
-  "target_inbound_before": 8,
-  "anchor": "sharps container"
- },
- {
-  "from": "/shop/syringes-needles/u-100-insulin-syringes.html",
-  "to": "/shop/clinic-disposal/sharps-container-bench.html",
-  "to_title": "Sharps container, bench",
-  "confidence": 0.84,
-  "target_inbound_before": 8,
-  "anchor": "sharps container"
- },
- {
-  "from": "/tools/reconstitution-calculator.html",
+  "from": "/for/trt-injections.html",
   "to": "/shop/clinic-disposal/sharps-container-bench.html",
   "to_title": "Sharps container, bench",
   "confidence": 0.84,
@@ -544,10 +536,18 @@
   "anchor": "sharps container"
  },
  {
-  "from": "/for/trt-injections.html",
+  "from": "/shop/diagnostics.html",
   "to": "/shop/clinic-disposal/sharps-container-wall-mount.html",
   "to_title": "Sharps container, wall mount",
-  "confidence": 0.82,
+  "confidence": 0.83,
+  "target_inbound_before": 8,
+  "anchor": "sharps container"
+ },
+ {
+  "from": "/shop/syringes-needles/u-100-insulin-syringes.html",
+  "to": "/shop/clinic-disposal/sharps-container-bench.html",
+  "to_title": "Sharps container, bench",
+  "confidence": 0.83,
   "target_inbound_before": 8,
   "anchor": "sharps container"
  },
@@ -560,30 +560,6 @@
   "anchor": "sharps container"
  },
  {
-  "from": "/learn/reconstitution-basics.html",
-  "to": "/shop/diluents-swabs/alcohol-swabs.html",
-  "to_title": "Alcohol swabs",
-  "confidence": 0.8,
-  "target_inbound_before": 8,
-  "anchor": null
- },
- {
-  "from": "/learn/reconstitution-basics.html",
-  "to": "/shop/diluents-swabs/bacteriostatic-water.html",
-  "to_title": "Bacteriostatic water",
-  "confidence": 0.8,
-  "target_inbound_before": 8,
-  "anchor": "bacteriostatic water"
- },
- {
-  "from": "/shop/diluents-swabs.html",
-  "to": "/shop/syringes-needles/hypodermic-needles.html",
-  "to_title": "Hypodermic needles",
-  "confidence": 0.92,
-  "target_inbound_before": 9,
-  "anchor": null
- },
- {
   "from": "/contact.html",
   "to": "/for/peptide-reconstitution.html",
   "to_title": "What you need to reconstitute a powder.",
@@ -592,18 +568,10 @@
   "anchor": null
  },
  {
-  "from": "/shop/clinic-disposal.html",
+  "from": "/learn/reconstitution-basics.html",
   "to": "/shop/syringes-needles/hypodermic-needles.html",
   "to_title": "Hypodermic needles",
-  "confidence": 0.85,
-  "target_inbound_before": 9,
-  "anchor": null
- },
- {
-  "from": "/contact.html",
-  "to": "/shop/syringes-needles/hypodermic-needles.html",
-  "to_title": "Hypodermic needles",
-  "confidence": 0.83,
+  "confidence": 0.84,
   "target_inbound_before": 9,
   "anchor": null
  },
@@ -611,12 +579,20 @@
   "from": "/shop.html",
   "to": "/shop/syringes-needles/hypodermic-needles.html",
   "to_title": "Hypodermic needles",
-  "confidence": 0.83,
+  "confidence": 0.84,
   "target_inbound_before": 9,
   "anchor": null
  },
  {
-  "from": "/shop/diluents-swabs/sterile-water-for-injection.html",
+  "from": "/shop/clinic-disposal.html",
+  "to": "/shop/syringes-needles/hypodermic-needles.html",
+  "to_title": "Hypodermic needles",
+  "confidence": 0.84,
+  "target_inbound_before": 9,
+  "anchor": null
+ },
+ {
+  "from": "/contact.html",
   "to": "/shop/syringes-needles/hypodermic-needles.html",
   "to_title": "Hypodermic needles",
   "confidence": 0.83,
@@ -633,8 +609,8 @@
  },
  {
   "from": "/shop/diluents-swabs/sterile-water-for-injection.html",
-  "to": "/for/glp-1-injections.html",
-  "to_title": "Everything you need to inject a GLP-1 at home.",
+  "to": "/shop/syringes-needles/hypodermic-needles.html",
+  "to_title": "Hypodermic needles",
   "confidence": 0.82,
   "target_inbound_before": 9,
   "anchor": null
@@ -643,12 +619,12 @@
   "from": "/gauge-finder.html",
   "to": "/for/glp-1-injections.html",
   "to_title": "Everything you need to inject a GLP-1 at home.",
-  "confidence": 0.81,
+  "confidence": 0.8,
   "target_inbound_before": 9,
   "anchor": null
  },
  {
-  "from": "/contact.html",
+  "from": "/shop/diluents-swabs/sterile-water-for-injection.html",
   "to": "/for/glp-1-injections.html",
   "to_title": "Everything you need to inject a GLP-1 at home.",
   "confidence": 0.8,
@@ -667,23 +643,31 @@
   "from": "/shop/diagnostics.html",
   "to": "/shop/clinic-disposal.html",
   "to_title": "Clinic &amp; disposal",
-  "confidence": 0.84,
+  "confidence": 0.83,
   "target_inbound_before": 10,
   "anchor": null
  },
  {
-  "from": "/learn/needle-numbers-explained.html",
-  "to": "/shop/syringes-needles/u-100-insulin-syringes.html",
-  "to_title": "U-100 insulin syringes",
-  "confidence": 0.81,
-  "target_inbound_before": 10,
-  "anchor": "100 insulin"
+  "from": "/contact.html",
+  "to": "/learn/needle-numbers-explained.html",
+  "to_title": "What the numbers on a needle mean",
+  "confidence": 0.9,
+  "target_inbound_before": 11,
+  "anchor": null
  },
  {
   "from": "/shop/syringes-needles/pen-needles.html",
   "to": "/learn/needle-numbers-explained.html",
   "to_title": "What the numbers on a needle mean",
-  "confidence": 0.88,
+  "confidence": 0.87,
+  "target_inbound_before": 11,
+  "anchor": null
+ },
+ {
+  "from": "/shop/diluents-swabs/sterile-water-for-injection.html",
+  "to": "/learn/needle-numbers-explained.html",
+  "to_title": "What the numbers on a needle mean",
+  "confidence": 0.86,
   "target_inbound_before": 11,
   "anchor": null
  },
@@ -691,7 +675,7 @@
   "from": "/shop/syringes-needles/drawing-up-needles.html",
   "to": "/learn/needle-numbers-explained.html",
   "to_title": "What the numbers on a needle mean",
-  "confidence": 0.85,
+  "confidence": 0.86,
   "target_inbound_before": 11,
   "anchor": null
  },
@@ -699,7 +683,7 @@
   "from": "/learn.html",
   "to": "/learn/needle-numbers-explained.html",
   "to_title": "What the numbers on a needle mean",
-  "confidence": 0.82,
+  "confidence": 0.84,
   "target_inbound_before": 11,
   "anchor": null
  },
@@ -707,7 +691,7 @@
   "from": "/shop/diluents-swabs/cotton-wool-balls.html",
   "to": "/shop/wound-care/sterile-gauze-swabs.html",
   "to_title": "Sterile gauze swabs",
-  "confidence": 0.95,
+  "confidence": 0.93,
   "target_inbound_before": 12,
   "anchor": "sterile gauze"
  },
@@ -720,18 +704,26 @@
   "anchor": null
  },
  {
-  "from": "/learn/first-injection.html",
-  "to": "/shop/syringes-needles.html",
-  "to_title": "Syringes &amp; needles",
-  "confidence": 0.81,
-  "target_inbound_before": 17,
-  "anchor": null
+  "from": "/for/wound-care-at-home.html",
+  "to": "/shop/wound-care/fixation-tape.html",
+  "to_title": "Fixation tape",
+  "confidence": 0.8,
+  "target_inbound_before": 12,
+  "anchor": "fixation tape"
  },
  {
   "from": "/shop/clinic-disposal.html",
   "to": "/shop/syringes-needles.html",
   "to_title": "Syringes &amp; needles",
-  "confidence": 0.81,
+  "confidence": 0.83,
+  "target_inbound_before": 17,
+  "anchor": null
+ },
+ {
+  "from": "/learn/first-injection.html",
+  "to": "/shop/syringes-needles.html",
+  "to_title": "Syringes &amp; needles",
+  "confidence": 0.8,
   "target_inbound_before": 17,
   "anchor": null
  },
@@ -747,7 +739,7 @@
   "from": "/shop/clinic-disposal.html",
   "to": "/learn/needle-gauge-chart.html",
   "to_title": "Needle gauge chart",
-  "confidence": 0.87,
+  "confidence": 0.85,
   "target_inbound_before": 21,
   "anchor": null
  },
@@ -755,7 +747,7 @@
   "from": "/learn/intramuscular-technique.html",
   "to": "/learn/needle-gauge-chart.html",
   "to_title": "Needle gauge chart",
-  "confidence": 0.83,
+  "confidence": 0.84,
   "target_inbound_before": 21,
   "anchor": null
  },
@@ -768,27 +760,11 @@
   "anchor": null
  },
  {
-  "from": "/learn.html",
-  "to": "/learn/needle-gauge-chart.html",
-  "to_title": "Needle gauge chart",
-  "confidence": 0.8,
-  "target_inbound_before": 21,
-  "anchor": null
- },
- {
-  "from": "/shop/diluents-swabs/sodium-chloride-sachets.html",
-  "to": "/learn.html",
-  "to_title": "The parts nobody explains.",
-  "confidence": 0.81,
-  "target_inbound_before": 26,
-  "anchor": null
- },
- {
-  "from": "/shop/syringes-needles/pen-needles.html",
-  "to": "/learn.html",
-  "to_title": "The parts nobody explains.",
-  "confidence": 0.81,
-  "target_inbound_before": 26,
+  "from": "/learn/reconstitution-basics.html",
+  "to": "/gauge-finder.html",
+  "to_title": "Not sure which needle to buy?",
+  "confidence": 0.82,
+  "target_inbound_before": 27,
   "anchor": null
  },
  {

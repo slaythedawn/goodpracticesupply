@@ -1,7 +1,7 @@
 {
- "date": "2026-11-02",
- "job": "page:/shop/syringes-needles/u-100-insulin-syringes",
- "brief": "seo/briefs/2026-11-02-insulin-syringe.md",
+ "date": "2026-11-03",
+ "job": "page:/shop/diluents-swabs/alcohol-swabs",
+ "brief": "seo/briefs/2026-11-03-alcohol-swabs.md",
  "clusters": [
   {
    "key": "page:/shop/syringes-needles",
@@ -3727,7 +3727,6 @@
   }
  ],
  "actionable": [
-  "page:/shop/syringes-needles/u-100-insulin-syringes",
   "page:/shop/diluents-swabs/alcohol-swabs",
   "page:/shop/clinic-disposal",
   "page:/shop/syringes-needles/pen-needles",
