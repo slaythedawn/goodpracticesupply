@@ -2,6 +2,16 @@
  "entries": [
   {
    "date": "2026-11-03",
+   "cluster": "page:/shop/clinic-disposal",
+   "target": "sharps box disposal",
+   "action": "expand",
+   "page": "/shop/clinic-disposal",
+   "brief": "seo/briefs/2026-11-03-sharps-box-disposal.md",
+   "page_hash": "f809ace45779f976",
+   "score_when_chosen": 1300.0
+  },
+  {
+   "date": "2026-11-03",
    "cluster": "page:/shop/diluents-swabs/alcohol-swabs",
    "target": "alcohol swabs",
    "action": "expand",
