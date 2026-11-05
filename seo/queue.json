@@ -1,7 +1,7 @@
 {
- "date": "2026-11-03",
- "job": "page:/shop/clinic-disposal",
- "brief": "seo/briefs/2026-11-03-sharps-box-disposal.md",
+ "date": "2026-11-05",
+ "job": "topic:sharps",
+ "brief": "seo/briefs/2026-11-05-sharps-container-disposal-brisbane.md",
  "clusters": [
   {
    "key": "page:/shop/syringes-needles",
@@ -3727,7 +3727,7 @@
   }
  ],
  "actionable": [
-  "page:/shop/clinic-disposal",
+  "topic:sharps",
   "page:/shop/syringes-needles/pen-needles",
   "topic:disposable",
   "topic:nitrile",

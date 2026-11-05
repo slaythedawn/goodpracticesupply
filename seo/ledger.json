@@ -1,6 +1,16 @@
 {
  "entries": [
   {
+   "date": "2026-11-05",
+   "cluster": "topic:sharps",
+   "target": "sharps container disposal brisbane",
+   "action": "new",
+   "page": null,
+   "brief": "seo/briefs/2026-11-05-sharps-container-disposal-brisbane.md",
+   "page_hash": null,
+   "score_when_chosen": 2060.0
+  },
+  {
    "date": "2026-11-03",
    "cluster": "page:/shop/clinic-disposal",
    "target": "sharps box disposal",
