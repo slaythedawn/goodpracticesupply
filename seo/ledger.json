@@ -2,6 +2,16 @@
  "entries": [
   {
    "date": "2026-11-06",
+   "cluster": "topic:disposable",
+   "target": "disposable nitrile gloves",
+   "action": "new",
+   "page": "/shop/gloves-ppe/isolation-gowns",
+   "brief": "seo/briefs/2026-11-06-disposable-nitrile-gloves.md",
+   "page_hash": "fc9b968546a09340",
+   "score_when_chosen": 332.5
+  },
+  {
+   "date": "2026-11-06",
    "cluster": "page:/shop/syringes-needles/pen-needles",
    "target": "insulin pen needles",
    "action": "expand",
