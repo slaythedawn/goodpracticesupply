@@ -29,8 +29,8 @@
    "contest_score": 7100.0,
    "in_keyword_file": true,
    "in_our_catalogue": true,
-   "we_can_answer_better": 0.57,
-   "brand_term_is_theirs": 0.03,
+   "we_can_answer_better": 0.5,
+   "brand_term_is_theirs": 0.02,
    "worth_contesting": false
   },
   {
@@ -83,7 +83,7 @@
    "contest_score": 4505.0,
    "in_keyword_file": false,
    "in_our_catalogue": true,
-   "we_can_answer_better": 0.55,
+   "we_can_answer_better": 0.5,
    "brand_term_is_theirs": 0.02,
    "worth_contesting": false
   },
@@ -107,7 +107,7 @@
    "contest_score": 2550.0,
    "in_keyword_file": false,
    "in_our_catalogue": true,
-   "we_can_answer_better": 0.57,
+   "we_can_answer_better": 0.56,
    "brand_term_is_theirs": 0.03,
    "worth_contesting": false
   },
@@ -182,7 +182,7 @@
    "contest_score": 2231.0,
    "in_keyword_file": true,
    "in_our_catalogue": true,
-   "we_can_answer_better": 0.63,
+   "we_can_answer_better": 0.64,
    "brand_term_is_theirs": 0.02,
    "worth_contesting": false
   },
@@ -200,8 +200,8 @@
    "contest_score": 331.9,
    "in_keyword_file": false,
    "in_our_catalogue": false,
-   "we_can_answer_better": 0.43,
-   "brand_term_is_theirs": 0.05,
+   "we_can_answer_better": 0.35,
+   "brand_term_is_theirs": 0.04,
    "worth_contesting": false
   },
   {
@@ -218,7 +218,7 @@
    "contest_score": 190.0,
    "in_keyword_file": false,
    "in_our_catalogue": false,
-   "we_can_answer_better": 0.48,
+   "we_can_answer_better": 0.44,
    "brand_term_is_theirs": 0.02,
    "worth_contesting": false
   },
@@ -236,9 +236,9 @@
    "contest_score": 106.2,
    "in_keyword_file": false,
    "in_our_catalogue": false,
-   "we_can_answer_better": 0.76,
+   "we_can_answer_better": 0.71,
    "brand_term_is_theirs": 0.03,
-   "worth_contesting": true
+   "worth_contesting": false
   },
   {
    "keyword": "bepanthen antiseptic cream",
@@ -254,7 +254,7 @@
    "contest_score": 80.0,
    "in_keyword_file": false,
    "in_our_catalogue": false,
-   "we_can_answer_better": 0.52,
+   "we_can_answer_better": 0.53,
    "brand_term_is_theirs": 0.07,
    "worth_contesting": false
   },
@@ -334,7 +334,7 @@
    "contest_score": 9.2,
    "in_keyword_file": false,
    "in_our_catalogue": false,
-   "we_can_answer_better": 0.7,
+   "we_can_answer_better": 0.71,
    "brand_term_is_theirs": 0.03,
    "worth_contesting": false
   },
@@ -352,7 +352,7 @@
    "contest_score": 5.4,
    "in_keyword_file": false,
    "in_our_catalogue": false,
-   "we_can_answer_better": 0.48,
+   "we_can_answer_better": 0.52,
    "brand_term_is_theirs": 0.04,
    "worth_contesting": false
   }
