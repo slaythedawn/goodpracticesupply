@@ -1,7 +1,7 @@
 {
- "date": "2026-11-07",
- "job": "topic:nitrile",
- "brief": "seo/briefs/2026-11-07-nitrile-disposable-gloves.md",
+ "date": "2026-11-08",
+ "job": "topic:.5ml",
+ "brief": "seo/briefs/2026-11-08-5ml-insulin-syringe.md",
  "clusters": [
   {
    "key": "page:/shop/syringes-needles",
@@ -3727,7 +3727,6 @@
   }
  ],
  "actionable": [
-  "topic:nitrile",
   "topic:.5ml"
  ]
 }
