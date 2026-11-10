@@ -1,6 +1,16 @@
 {
  "entries": [
   {
+   "date": "2026-11-10",
+   "cluster": "page:/learn/needle-gauge-chart",
+   "target": "25 gauge needle",
+   "action": "expand",
+   "page": "/learn/needle-gauge-chart",
+   "brief": "seo/briefs/2026-11-10-25-gauge-needle.md",
+   "page_hash": "0063a585bf4eb113",
+   "score_when_chosen": 1912.5
+  },
+  {
    "date": "2026-11-08",
    "cluster": "topic:.5ml",
    "target": ".5ml insulin syringe",
