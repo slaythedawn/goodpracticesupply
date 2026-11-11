@@ -1,7 +1,5 @@
 {
- "date": "2026-11-10",
- "job": "page:/learn/needle-gauge-chart",
- "brief": "seo/briefs/2026-11-10-25-gauge-needle.md",
+ "date": "2026-11-11",
  "clusters": [
   {
    "key": "page:/shop/syringes-needles",
@@ -3726,7 +3724,5 @@
    ]
   }
  ],
- "actionable": [
-  "page:/learn/needle-gauge-chart"
- ]
+ "actionable": []
 }

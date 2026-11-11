@@ -49,7 +49,7 @@
    "contest_score": 7090.7,
    "in_keyword_file": true,
    "in_our_catalogue": true,
-   "we_can_answer_better": 0.8,
+   "we_can_answer_better": 0.79,
    "brand_term_is_theirs": 0.02,
    "worth_contesting": true
   },
@@ -83,8 +83,8 @@
    "contest_score": 4505.0,
    "in_keyword_file": false,
    "in_our_catalogue": true,
-   "we_can_answer_better": 0.55,
-   "brand_term_is_theirs": 0.03,
+   "we_can_answer_better": 0.56,
+   "brand_term_is_theirs": 0.02,
    "worth_contesting": false
   },
   {
@@ -107,7 +107,7 @@
    "contest_score": 2550.0,
    "in_keyword_file": false,
    "in_our_catalogue": true,
-   "we_can_answer_better": 0.55,
+   "we_can_answer_better": 0.58,
    "brand_term_is_theirs": 0.03,
    "worth_contesting": false
   },
@@ -148,7 +148,7 @@
    "contest_score": 2530.0,
    "in_keyword_file": true,
    "in_our_catalogue": true,
-   "we_can_answer_better": 0.62,
+   "we_can_answer_better": 0.57,
    "brand_term_is_theirs": 0.03,
    "worth_contesting": false
   },
@@ -182,7 +182,7 @@
    "contest_score": 2231.0,
    "in_keyword_file": true,
    "in_our_catalogue": true,
-   "we_can_answer_better": 0.63,
+   "we_can_answer_better": 0.58,
    "brand_term_is_theirs": 0.02,
    "worth_contesting": false
   },
@@ -200,8 +200,8 @@
    "contest_score": 331.9,
    "in_keyword_file": false,
    "in_our_catalogue": false,
-   "we_can_answer_better": 0.4,
-   "brand_term_is_theirs": 0.05,
+   "we_can_answer_better": 0.42,
+   "brand_term_is_theirs": 0.04,
    "worth_contesting": false
   },
   {
@@ -218,7 +218,7 @@
    "contest_score": 190.0,
    "in_keyword_file": false,
    "in_our_catalogue": false,
-   "we_can_answer_better": 0.42,
+   "we_can_answer_better": 0.44,
    "brand_term_is_theirs": 0.02,
    "worth_contesting": false
   },
@@ -236,7 +236,7 @@
    "contest_score": 106.2,
    "in_keyword_file": false,
    "in_our_catalogue": false,
-   "we_can_answer_better": 0.73,
+   "we_can_answer_better": 0.69,
    "brand_term_is_theirs": 0.03,
    "worth_contesting": false
   },
@@ -254,7 +254,7 @@
    "contest_score": 80.0,
    "in_keyword_file": false,
    "in_our_catalogue": false,
-   "we_can_answer_better": 0.5,
+   "we_can_answer_better": 0.47,
    "brand_term_is_theirs": 0.07,
    "worth_contesting": false
   },
@@ -293,7 +293,7 @@
    "contest_score": 37.9,
    "in_keyword_file": true,
    "in_our_catalogue": true,
-   "we_can_answer_better": 0.19,
+   "we_can_answer_better": 0.18,
    "brand_term_is_theirs": 0.03,
    "worth_contesting": false
   },
@@ -334,8 +334,8 @@
    "contest_score": 9.2,
    "in_keyword_file": false,
    "in_our_catalogue": false,
-   "we_can_answer_better": 0.69,
-   "brand_term_is_theirs": 0.04,
+   "we_can_answer_better": 0.71,
+   "brand_term_is_theirs": 0.03,
    "worth_contesting": false
   },
   {
@@ -352,8 +352,8 @@
    "contest_score": 5.4,
    "in_keyword_file": false,
    "in_our_catalogue": false,
-   "we_can_answer_better": 0.48,
-   "brand_term_is_theirs": 0.04,
+   "we_can_answer_better": 0.53,
+   "brand_term_is_theirs": 0.05,
    "worth_contesting": false
   }
  ]
