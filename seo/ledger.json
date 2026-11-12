@@ -1,6 +1,16 @@
 {
  "entries": [
   {
+   "date": "2026-11-12",
+   "cluster": "page:/learn/reading-a-syringe",
+   "target": "syringe",
+   "action": "expand",
+   "page": "/learn/reading-a-syringe",
+   "brief": "seo/briefs/2026-11-12-syringe.md",
+   "page_hash": "8f57c71aad932757",
+   "score_when_chosen": 11986.8
+  },
+  {
    "date": "2026-11-10",
    "cluster": "page:/learn/needle-gauge-chart",
    "target": "25 gauge needle",
