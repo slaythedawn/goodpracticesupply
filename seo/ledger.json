@@ -1,6 +1,16 @@
 {
  "entries": [
   {
+   "date": "2026-11-13",
+   "cluster": "page:/shop/syringes-needles",
+   "target": "insulin needles",
+   "action": "expand",
+   "page": "/shop/syringes-needles",
+   "brief": "seo/briefs/2026-11-13-insulin-needles.md",
+   "page_hash": "5874ed169d6913be",
+   "score_when_chosen": 12656.4
+  },
+  {
    "date": "2026-11-12",
    "cluster": "page:/learn/reading-a-syringe",
    "target": "syringe",
