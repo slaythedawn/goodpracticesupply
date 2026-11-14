@@ -1,7 +1,7 @@
 {
- "date": "2026-11-13",
- "job": "page:/shop/syringes-needles",
- "brief": "seo/briefs/2026-11-13-insulin-needles.md",
+ "date": "2026-11-14",
+ "job": "page:/learn/sharps-disposal-australia",
+ "brief": "seo/briefs/2026-11-14-disposal-of-sharps-containers.md",
  "clusters": [
   {
    "key": "page:/shop/syringes-needles",
@@ -3727,6 +3727,6 @@
   }
  ],
  "actionable": [
-  "page:/shop/syringes-needles"
+  "page:/learn/sharps-disposal-australia"
  ]
 }
