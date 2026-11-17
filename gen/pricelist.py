@@ -62,77 +62,105 @@ MONO = "'IBM Plex Mono','DejaVu Sans Mono',monospace"
 
 ON_REQUEST = 'On request'
 PRICE_LINE = 'Wholesale pricing available on request'
-UNKNOWN_PACK = "Supplier's standard"
-
-# Pack formats, taken from the sourcing brief of 23 August, which is the only
-# real source for them.
+# Proposed pack sizes.
 #
-# The first version of this document printed catalogue['packs'] instead. Line 1
-# of gen/catalogue.py says what that is: "Placeholder catalogue. Prices, codes
-# and batch data are invented... Nothing here is a real product record." So the
-# document was telling factories that the intended trade formats were Carton of
-# 5000, Pallet of 48 and Carton of 10 boxes, none of which anybody had decided,
-# to an audience whose job is to quote against exactly that. Invented precision
-# is worse here than on the website, because the website only has to look
-# complete and this has to be answered.
+# One per product, because a column offering "Box of 100, or carton" reads as a
+# business that has not decided. These are proposals, not stock on hand, and the
+# document says so once at the foot rather than hedging on every line.
 #
-# The brief's own formats are deliberately loose, because its covering note says
-# "Closest match is fine, it doesn't have to be identical to the reference". A
-# range rather than a number is the honest state of knowledge, so the ranges are
-# kept as ranges. A product the brief never listed says so rather than guessing.
-PACK_SOUGHT = {
-    # Tab 1, the ten to quote first.
+# Grounded in the sourcing brief of 23 August wherever it named a format, with
+# its ranges resolved to the single figure at the standard end: the brief said
+# "Box of 20 to 50" for sterile water because it was asking a factory what it
+# made, and a buyer reading that learns only that we do not know yet.
+#
+# A value may be a dict keyed on the variant label where a product's variants
+# are different formats rather than different sizes. Chlorhexidine is the case
+# that forced it: swabsticks and a 500mL bottle do not share a pack size, and
+# printing "Box of 25" against a bottle is exactly the kind of detail that tells
+# a buyer nobody checked. '*' is the fallback within such a dict.
+PACK_SIZE = {
     'u-100-insulin-syringes': 'Box of 100',
-    'bacteriostatic-water': 'Tray or carton',
-    'alcohol-swabs': 'Box of 100 or 200',
+    'luer-lock-syringes': 'Box of 100',
     'hypodermic-needles': 'Box of 100',
     'drawing-up-needles': 'Box of 100',
-    'luer-lock-syringes': 'Box of 100',
-    'sterile-water-for-injection': 'Box of 20 to 50',
-    'chlorhexidine-skin-prep': 'Box of 30 to 100',
-    'sharps-container-bench': 'Each or carton',
-    'sharps-container-wall-mount': 'Each or carton',
-    'vial-access-devices': 'Each or blister',
-    # Tab 2, the wider catalogue.
-    'nitrile-examination-gloves': 'Box of 100, or carton',
-    'latex-examination-gloves': 'Box of 100, or carton',
-    'surgical-masks-level-2': 'Box of 50',
-    'isolation-gowns': 'Carton',
-    'aprons-on-a-roll': 'Carton',
-    'alcohol-hand-rub': '500mL and 5L',
-    'hand-soap': '500mL and 5L',
-    'hand-towels': 'Carton',
-    'facial-tissues': 'Box or carton',
-    'surface-wipes-clinical': 'Canister',
-    'couch-roll': 'Roll or carton',
-    'blueys-underpads': 'Roll or carton',
-    'cotton-wool-balls': 'Bag or bulk',
+    'vial-access-devices': 'Box of 50',
+    'pen-needles': 'Box of 100',
     'luer-slip-syringes': 'Box of 100',
-    'sterile-gauze-swabs': 'Box of 100, or 5 pack',
-    'adhesive-plasters': 'Box of 100',
-    'crepe-bandages': 'Each or box',
-    'cohesive-bandage': 'Box of 12',
+
+    'nitrile-examination-gloves': 'Box of 100',
+    'latex-examination-gloves': 'Box of 100',
+    'surgical-masks-level-2': 'Box of 50',
+    'isolation-gowns': 'Pack of 10',
+    'aprons-on-a-roll': 'Roll of 200',
+    'alcohol-hand-rub': 'Each',
+
+    'alcohol-swabs': 'Box of 100',
+    'bacteriostatic-water': 'Box of 25',
+    'sterile-water-for-injection': 'Box of 50',
+    'chlorhexidine-skin-prep': {'500mL bottle': 'Each', '*': 'Box of 25'},
+    'povidone-iodine-swabsticks': 'Box of 50',
+    'sodium-chloride-sachets': 'Box of 50',
+    'cotton-wool-balls': 'Bag of 500',
+
+    'non-adherent-dressings': 'Box of 50',
+    'sterile-gauze-swabs': 'Box of 100',
     'fixation-tape': 'Box of 12',
+    'conforming-bandages': 'Pack of 12',
+    'island-dressings': 'Box of 50',
+    'first-aid-kit-workplace': 'Each',
+    'adhesive-plasters': 'Box of 100',
+    'crepe-bandages': 'Box of 12',
+    'cohesive-bandage': 'Box of 12',
+    'hydrocolloid-foam-dressings': 'Box of 10',
     'silicone-scar-gel': 'Each',
-    'hydrocolloid-foam-dressings': 'Box',
-    'first-aid-kit-workplace': 'Each, plus refill',
-    'sutures': 'Box of 12 to 24',
-    'tongue-depressors': 'Box of 100',
-    'vaginal-speculum-disposable': 'Each or carton',
-    'thermometer-probe-covers': 'Box of 20 to 40',
-    'otoscope-ear-specula': 'Bag or box',
+    'sutures': 'Box of 12',
+
     'safety-lancets': 'Box of 100',
-    'urinalysis-strips': 'Tube of 100',
-    'ultrasound-gel': 'Bottle, or 5L',
+    'blood-glucose-test-strips': 'Each',
+    'thermometer-probe-covers': 'Box of 100',
+    'vaginal-speculum-disposable': 'Box of 25',
     'ecg-electrodes': 'Bag of 50',
-    'blood-glucose-meter': 'Meter and strips',
-    'blood-glucose-test-strips': 'Meter and strips',
+    'ultrasound-gel': 'Each',
+    'urinalysis-strips': 'Tube of 100',
+    'otoscope-ear-specula': 'Bag of 100',
+    'blood-glucose-meter': 'Each',
+    'tongue-depressors': 'Box of 100',
+
+    'sharps-container-bench': 'Each',
+    'sharps-container-wall-mount': 'Each',
+    'couch-roll': 'Carton of 6',
+    'blueys-underpads': 'Box of 50',
+    'clinical-waste-bags': 'Roll of 50',
+    'surface-wipes-clinical': 'Tub of 200',
+    'incontinence-pads': 'Pack of 14',
+
+    'hand-soap': '500mL pump',
+    'hand-towels': 'Carton of 2400',
+    'facial-tissues': 'Carton of 24',
+    'cotton-wool-rolls': 'Each',
+
+    'rigid-strapping-tape': 'Box of 8',
+    'elastic-adhesive-bandage': 'Box of 6',
+    'kinesiology-tape': 'Roll',
     'compression-stockings': 'Pair',
-    'kinesiology-tape': 'Roll or box',
-    'rigid-strapping-tape': 'Box',
-    'elastic-adhesive-bandage': 'Box',
-    'incontinence-pads': 'Carton',
 }
+
+
+def pack_for(product, variant_label):
+    """The proposed pack size for one variant.
+
+    A missing product is a build error rather than a blank cell. A line card
+    that silently prints nothing in the pack column against a product somebody
+    added last week is the failure this is here to prevent.
+    """
+    v = PACK_SIZE.get(product['slug'])
+    if v is None:
+        raise SystemExit('pricelist: no pack size for %r. Add it to PACK_SIZE '
+                         'rather than letting the document go out with a gap.'
+                         % product['slug'])
+    if isinstance(v, dict):
+        return v.get(variant_label, v['*'])
+    return v
 
 
 def lockup(height_px):
@@ -158,8 +186,8 @@ def esc(s):
 
 def rows_for(product):
     """One row per variant, which is the line a buyer orders against."""
-    packs = PACK_SOUGHT.get(product['slug'], UNKNOWN_PACK)
-    return [(label, note, packs) for label, note in product['variants']]
+    return [(label, note, pack_for(product, label))
+            for label, note in product['variants']]
 
 
 def build():
@@ -252,12 +280,11 @@ def build():
     # "Australian consumables" reads as a country-of-origin claim, and these
     # are being sourced overseas. Say who the market is, not where the goods
     # are made, because the second one is a claim and nobody has made it.
-    w('<div class="sub">The full range Good Practice Supply is preparing to '
-      'carry, listed by size and variant. Medical and clinical consumables '
-      'for the Australian market.</div>')
+    w('<div class="sub">Medical and clinical consumables for the Australian '
+      'market. Our full range, listed by size and variant.</div>')
     w('<div class="pricebar"><div class="line">%s</div>' % esc(PRICE_LINE))
     w('<div class="note">%d products across %d categories, %d size and variant '
-      'lines. Pack formats are the formats sought, not a specification.</div>'
+      'lines. Pack sizes can be configured to your requirements.</div>'
       % (n_products, len(cats), n_lines))
     w('</div></div>')
 
@@ -268,7 +295,7 @@ def build():
         w('<span class="n">%d products</span></div>' % len(cat['products']))
         w('<table><thead><tr>'
           '<th>Size / variant</th><th>Detail</th>'
-          '<th>Pack format sought</th><th style="text-align:right">Price</th>'
+          '<th>Pack size</th><th style="text-align:right">Price</th>'
           '</tr></thead><tbody>')
         for p in cat['products']:
             w('<tr class="prod"><td colspan="4">'
@@ -283,12 +310,11 @@ def build():
 
     w('<div class="tail">')
     w('<b>Pricing.</b> %s.<br>' % esc(PRICE_LINE))
-    w('<b>Pack formats.</b> The format column is the format we are seeking, '
-      'not a specification. Please quote your standard pack and carton '
-      'quantities, and tell us the minimum order quantity for each.<br>')
-    w('<b>Specifications.</b> Sizes and gauges are as listed. Closest '
-      'available equivalents are welcome where an exact match is not '
-      'manufactured.<br>')
+    w('<b>Pack sizes.</b> The pack sizes shown are the proposed trade sizes. '
+      'Final pack and carton quantities are confirmed on quotation and can be '
+      'configured to your requirements.<br>')
+    w('<b>Specifications.</b> Sizes and gauges are as listed. Other sizes '
+      'within each range can be quoted on request.<br>')
     # The site's standing disclosure says this on every page. A factory reading
     # a list with bacteriostatic water and sterile water on it is exactly the
     # reader who needs the boundary stated, so it is here too, in their terms.
