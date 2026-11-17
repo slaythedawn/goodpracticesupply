@@ -137,7 +137,15 @@ class MainText(HTMLParser):
         # Unfilled component holes are the sweep's job, not this one, and they
         # read as gibberish to a judgement.
         joined = re.sub(r'\{\{[^}]*\}\}', ' ', joined)
-        return re.sub(r'\s+', ' ', joined).strip()
+        joined = re.sub(r'\s+', ' ', joined).strip()
+        # Inline markup splits one sentence into several text nodes, and joining
+        # those with a space puts one in front of whatever punctuation follows
+        # the markup: "they go in a sharps container ." The rendered page is
+        # correct; only this extraction is broken, and it hands the judge copy
+        # that looks sloppy in a way the page is not. 21 of the 91 pages already
+        # read this way through their existing links. Close the gap before the
+        # punctuation that cannot open a word.
+        return re.sub(r'\s+([.,;:!?)\]])', r'\1', joined)
 
 
 def page_text(path):

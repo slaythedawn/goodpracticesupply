@@ -54,6 +54,23 @@ PARA = re.compile(r'(<p\b[^>]*>)(.*?)(</p>)', re.S)
 ANCHOR_SPLIT = re.compile(r'(<a\b.*?</a>|<[^>]+>)', re.S)
 
 
+# seo/internal_links.py writes from / to / confidence. This file was written
+# against source / target / score, which no version of the suggester has ever
+# emitted. So every row read as score 0, fell below THRESHOLD and was dropped:
+# autolink has sat in the build order since September reporting "nothing to
+# apply" while 97 suggestions, all of them already above the threshold, sat in
+# the file. That is why the link graph has not moved since the one manual
+# afternoon the docstring above describes.
+#
+# Read the names the suggester actually writes, keep the old spellings as a
+# fallback in case an older file is still around, and normalise to the names the
+# rest of this module uses.
+FIELDS = (('source', ('from', 'source')),
+          ('target', ('to', 'target')),
+          ('score', ('confidence', 'score', 'helps')),
+          ('anchor', ('anchor',)))
+
+
 def load():
     if not SUGGESTED.exists():
         return []
@@ -61,11 +78,19 @@ def load():
     rows = data.get('suggestions', data) if isinstance(data, dict) else data
     out = []
     for r in rows:
-        if (r.get('score') or r.get('helps') or 0) < THRESHOLD:
+        row = {}
+        for name, spellings in FIELDS:
+            for spelling in spellings:
+                if r.get(spelling) not in (None, ''):
+                    row[name] = r[spelling]
+                    break
+        # A suggestion with no anchor is one the suggester could not place in the
+        # rendered copy. It needs a human to write the sentence, not a regex.
+        if not (row.get('source') and row.get('target') and row.get('anchor')):
             continue
-        if not (r.get('source') and r.get('target') and r.get('anchor')):
+        if (row.get('score') or 0) < THRESHOLD:
             continue
-        out.append(r)
+        out.append(row)
     return out
 
 
@@ -84,7 +109,14 @@ def main_span(doc):
 def link_once(main_html, anchor, href):
     """Wrap the first free occurrence of `anchor` inside a paragraph."""
     escaped = html.escape(anchor)
-    pattern = re.compile(r'(?<![A-Za-z0-9])' + re.escape(escaped) + r'(?![A-Za-z0-9])')
+    # The boundary has to refuse a hyphen as well as a letter or a digit. With
+    # [A-Za-z0-9] alone, the suggested anchor "100 insulin" matched inside
+    # "U-100 insulin syringe", because the hyphen counted as a word boundary.
+    # That rendered as "U-" followed by a link starting mid-term, splitting a
+    # piece of terminology that has to stay whole to stay accurate. An anchor
+    # butting against a hyphen on either side is always the wrong span.
+    pattern = re.compile(r'(?<![A-Za-z0-9-])' + re.escape(escaped)
+                         + r'(?![A-Za-z0-9-])')
     replacement = '<a href="%s" style="%s">%s</a>' % (href, LINKSTYLE, escaped)
     done = [False]
 

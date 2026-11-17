@@ -29,12 +29,15 @@ the failure mode worth designing against on a site like this.
 import argparse
 import collections
 import datetime
+import hashlib
+import html as html_mod
 import json
 import pathlib
 import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+DOCS = ROOT / 'docs'
 sys.path.insert(0, str(ROOT / 'seo'))
 sys.path.insert(0, str(ROOT / 'gen'))
 
@@ -72,6 +75,28 @@ RIVAL_BONUS = 1.3
 # off. The judgement comes from triage.py so the decision is visible rather than
 # buried in a keyword blocklist.
 BRAND_PENALTY = 0.25
+
+# How much a day's writing can actually move each kind of job.
+#
+# Until 17 November the score was reach x difficulty x intent x brand penalty
+# and nothing else: the action never entered it. So a high volume term the site
+# already covers outscored a term nothing covers, every single day, because
+# volume dominates and coverage was free. That is why the queue's top six jobs
+# were all "the page is already about this".
+#
+# The last line is the one that matters. Search Console now says why those
+# pages are not shown, and it is not the writing: /shop/syringes-needles has
+# not been crawled since 22 September, eight weeks, while Google downloads the
+# 91 URL sitemap with no errors and declines to fetch it. The page is correct
+# and index,follow. Rewriting it cannot make Google visit. It is a links
+# problem wearing a content problem's clothes, and a day spent writing it is a
+# day thrown away.
+ACTION_WEIGHT = {
+    'new': 1.0,            # nothing covers it: a new page adds a URL that can rank
+    'optimise': 0.9,       # already ranking: the cheapest win on the board
+    'expand_shown': 0.6,   # page is crawled and shown for other queries, so it can win this one
+    'expand_unseen': 0.1,  # page exists and Google has never shown it. Writing is not the fix
+}
 
 # Whether a search term names a rival shop is a fact about the string, not a
 # judgement, and it was being paid for as a judgement. The model was asked and it
@@ -233,6 +258,43 @@ def page_hash(path):
     return entry.get('hash') if entry else None
 
 
+TAG = re.compile(r'<(script|style)\b.*?</\1>|<[^>]+>', re.S | re.I)
+
+
+def prose_hash(path):
+    """A hash of what a reader sees, ignoring markup.
+
+    A brief is a piece of writing, so "has this brief been carried out" has to
+    mean "have the words changed". The sitemap hash cannot answer that: it
+    hashes the file, so a generator that rewrites markup without touching a
+    single word moves it and silently marks the brief done.
+
+    That was theoretical until autolink started working. The first run inserted
+    links into ten pages and cleared two briefs that nobody had written. Hashing
+    the visible text instead makes the ledger immune to autolink, the image
+    optimiser, the footer and anything else that rewrites markup around the
+    copy.
+
+    Rough tag stripping is the right tool here. The hash only has to be stable
+    and to move when the prose moves; it is never shown to anybody.
+    """
+    if not path:
+        return None
+    rel = (path.strip('/') or 'index')
+    for candidate in (DOCS / (rel + '.html'), DOCS / rel / 'index.html'):
+        if candidate.exists():
+            text = TAG.sub(' ', candidate.read_text(encoding='utf-8'))
+            text = ' '.join(html_mod.unescape(text).split())
+            # A tag becomes a space, which is right between two blocks and wrong
+            # inside a sentence: wrapping two words in a link turns "a sharps
+            # container." into "a sharps container ." and moves the hash, which
+            # is the exact false completion this function exists to stop. Close
+            # the space before punctuation that cannot open a word.
+            text = re.sub(r'\s+([.,;:!?)\]])', r'\1', text)
+            return hashlib.sha256(text.encode('utf-8')).hexdigest()[:16]
+    return None
+
+
 def still_open(led):
     """Briefs that were issued and whose page never changed afterwards.
 
@@ -257,9 +319,14 @@ def still_open(led):
         if not key or key in seen:
             continue          # entries are newest first, so the first one wins
         seen.add(key)
-        if 'page_hash' not in e:
+        if 'prose_hash' in e:
+            before, now = e['prose_hash'], prose_hash(e.get('page'))
+        elif 'page_hash' in e:
+            # Written before prose_hash existed. The file hash is all there is,
+            # so these stay on the old, markup-sensitive comparison.
+            before, now = e['page_hash'], page_hash(e.get('page'))
+        else:
             continue
-        before, now = e['page_hash'], page_hash(e.get('page'))
         if e.get('action') == 'new':
             # A new page is done once it exists at all.
             if now is None:
@@ -427,6 +494,34 @@ def score_rows(keywords, gaps, weights, seen, pages):
         mine = seen.get(low)
         home, fit = serving_page(term, pages, page_impressions(seen))
 
+        best_home = as_path(home) if home else None
+
+        # The action is decided first, because it weighs the score. `kind` is
+        # the scoring key and splits the two expand cases, which are not the
+        # same job at all: a page Google already shows can win another query,
+        # and a page Google has never fetched cannot be fixed with words.
+        if mine and mine['position'] <= ALREADY_OURS:
+            action, kind = 'optimise', 'optimise'
+            why = ('we already sit at %.0f for this on %s'
+                   % (mine['position'], mine['path']))
+        elif mine:
+            action, kind = 'expand', 'expand_shown'
+            why = ('Google shows %s for this at %.0f, so the page is on the '
+                   'subject and not answering it' % (mine['path'], mine['position']))
+        elif fit >= 0.5:
+            action = 'expand'
+            shown = page_queries.get(best_home, 0)
+            kind = 'expand_shown' if shown else 'expand_unseen'
+            why = ('%s is already about this%s'
+                   % (best_home,
+                      (', and Google shows it for %d other quer%s already'
+                       % (shown, 'y' if shown == 1 else 'ies')) if shown
+                      else ', and Google has not shown it for anything yet, so '
+                           'this is a crawl problem and writing will not fix it'))
+        else:
+            action, kind = 'new', 'new'
+            why = 'nothing on the site covers this'
+
         out = {
             'keyword': term, 'volume': volume, 'difficulty': kd,
             'traffic_potential': potential, 'intents': row.get('intents') or [],
@@ -435,35 +530,20 @@ def score_rows(keywords, gaps, weights, seen, pages):
             'rival_lane': gap['lane'] if gap else None,
             'our_position': mine['position'] if mine else None,
             'our_page': mine['path'] if mine else None,
-            'best_home': as_path(home) if home else None,
+            'best_home': best_home,
             'home_fit': fit,
             'safe_to_target': None,
             'brand_term_is_theirs': None,
             'names_a_rival_shop': rival_shop,
             'constraint': constraint_for(term),
+            'action': action,
+            'action_kind': kind,
+            'action_weight': ACTION_WEIGHT[kind],
+            'why': why,
             'score': round(base * weight * rival
-                           * (BRAND_PENALTY if rival_shop else 1.0), 1),
+                           * (BRAND_PENALTY if rival_shop else 1.0)
+                           * ACTION_WEIGHT[kind], 1),
         }
-
-        if mine and mine['position'] <= ALREADY_OURS:
-            out['action'] = 'optimise'
-            out['why'] = ('we already sit at %.0f for this on %s'
-                          % (mine['position'], mine['path']))
-        elif mine:
-            out['action'] = 'expand'
-            out['why'] = ('Google shows %s for this at %.0f, so the page is on the '
-                          'subject and not answering it' % (mine['path'], mine['position']))
-        elif fit >= 0.5:
-            out['action'] = 'expand'
-            shown = page_queries.get(out['best_home'], 0)
-            out['why'] = ('%s is already about this%s'
-                          % (out['best_home'],
-                             (', and Google shows it for %d other quer%s already'
-                              % (shown, 'y' if shown == 1 else 'ies')) if shown
-                             else ', and Google has not shown it for anything yet'))
-        else:
-            out['action'] = 'new'
-            out['why'] = 'nothing on the site covers this'
         rows.append(out)
     return rows
 
@@ -519,6 +599,7 @@ def cluster(rows):
             'key': key,
             'kind': 'page' if key.startswith('page:') else 'topic',
             'action': lead['action'],
+            'action_kind': lead['action_kind'],
             'target': lead['keyword'],
             'page': lead['our_page'] or lead['best_home'],
             'score': round(sum(m['score'] for m in members[:8]), 1),
@@ -560,6 +641,18 @@ def ready(c, recent=None, open_briefs=None):
                        % (c['unjudged'], '' if c['unjudged'] == 1 else 's'))
     if c['action'] == 'optimise':
         return False, 'already inside the top %d, so this is an edit rather than a brief' % ALREADY_OURS
+    # A day's writing cannot fix a page Google has never fetched. Search Console
+    # says /shop/syringes-needles was last crawled on 22 September, eight weeks
+    # ago, while the 91 URL sitemap is downloaded cleanly and Google declines to
+    # visit. The page is correct and index,follow. Rewriting it changes nothing
+    # that is actually holding it back, and on 17 November every single job this
+    # function would have allowed was one of these: the loop's only legal moves
+    # were three guaranteed wasted days. Refusing them is what makes the queue
+    # tell the truth about the real blocker instead of inventing work.
+    if c.get('action_kind') == 'expand_unseen':
+        return False, ('Google has never shown %s for anything, so this is a '
+                       'crawl problem and writing will not fix it'
+                       % (c.get('page') or 'the page'))
     return True, ''
 
 
@@ -730,9 +823,33 @@ def main():
             print('  %-34s %s' % (c['target'][:34], reason))
 
     if not actionable:
-        print('\nNothing is ready to publish. The usual cause is that the safety '
-              'triage has not been run over the newest keywords, which is a '
-              'deliberate stop rather than a failure.')
+        # This used to assert that the cause was an unrun safety triage. That was
+        # a guess, it was printed whatever the real reason, and it was wrong on
+        # every day it mattered. Count the reasons instead and name the largest.
+        kinds = {}
+        for c, reason in blocked:
+            if 'still outstanding' in reason:
+                k = 'a brief already written and never carried out'
+            elif 'crawl problem' in reason:
+                k = 'a page Google has never fetched, which writing cannot fix'
+            elif 'not something the catalogue sells' in reason:
+                k = 'a term the catalogue does not stock'
+            elif 'never been judged' in reason:
+                k = 'a term the safety triage has not judged yet'
+            else:
+                k = 'other'
+            kinds[k] = kinds.get(k, 0) + 1
+        print('\nNothing is ready to write, and that is a finding rather than a '
+              'failure. %d cluster%s held back:'
+              % (len(blocked), ' is' if len(blocked) == 1 else 's are'))
+        for k, n in sorted(kinds.items(), key=lambda kv: -kv[1]):
+            print('  %3d  %s' % (n, k))
+        if open_briefs:
+            print('\nThe %d outstanding brief%s %s the backlog. Writing %s is the '
+                  'next useful day of work, not choosing a new target.'
+                  % (len(open_briefs), '' if len(open_briefs) == 1 else 's',
+                     'is' if len(open_briefs) == 1 else 'are',
+                     'it' if len(open_briefs) == 1 else 'one of them'))
         if args.write:
             QUEUE.write_text(json.dumps({'date': today, 'clusters': clusters,
                                          'actionable': []}, indent=1) + '\n',
@@ -763,6 +880,7 @@ def main():
                             # What the page looked like when this was written. The
                             # brief counts as done when this stops matching.
                             'page_hash': page_hash(job['page']),
+                            'prose_hash': prose_hash(job['page']),
                             'score_when_chosen': job['score']}]
                           + led.get('entries', []))[:400]
         LEDGER.write_text(json.dumps(led, indent=1) + '\n', encoding='utf-8')
