@@ -60,21 +60,79 @@ STACK = "'Archivo','Inter Display','Inter','Helvetica Neue',Arial,sans-serif"
 BLACKSTACK = "'Archivo Black','Archivo','Inter Display','Inter',sans-serif"
 MONO = "'IBM Plex Mono','DejaVu Sans Mono',monospace"
 
-# The ten on tab 1 of the sourcing brief, which is the launch range, and the
-# three shaded green on it, which are the ones to quote first. Keyed on the
-# catalogue slug so a renamed product shows up as a missing flag rather than
-# silently losing its priority.
-LAUNCH = {
-    'u-100-insulin-syringes', 'bacteriostatic-water', 'alcohol-swabs',
-    'hypodermic-needles', 'drawing-up-needles', 'luer-lock-syringes',
-    'sterile-water-for-injection', 'chlorhexidine-skin-prep',
-    'sharps-container-bench', 'sharps-container-wall-mount',
-    'vial-access-devices',
-}
-FIRST = {'u-100-insulin-syringes', 'bacteriostatic-water', 'alcohol-swabs'}
-
 ON_REQUEST = 'On request'
 PRICE_LINE = 'Wholesale pricing available on request'
+UNKNOWN_PACK = "Supplier's standard"
+
+# Pack formats, taken from the sourcing brief of 23 August, which is the only
+# real source for them.
+#
+# The first version of this document printed catalogue['packs'] instead. Line 1
+# of gen/catalogue.py says what that is: "Placeholder catalogue. Prices, codes
+# and batch data are invented... Nothing here is a real product record." So the
+# document was telling factories that the intended trade formats were Carton of
+# 5000, Pallet of 48 and Carton of 10 boxes, none of which anybody had decided,
+# to an audience whose job is to quote against exactly that. Invented precision
+# is worse here than on the website, because the website only has to look
+# complete and this has to be answered.
+#
+# The brief's own formats are deliberately loose, because its covering note says
+# "Closest match is fine, it doesn't have to be identical to the reference". A
+# range rather than a number is the honest state of knowledge, so the ranges are
+# kept as ranges. A product the brief never listed says so rather than guessing.
+PACK_SOUGHT = {
+    # Tab 1, the ten to quote first.
+    'u-100-insulin-syringes': 'Box of 100',
+    'bacteriostatic-water': 'Tray or carton',
+    'alcohol-swabs': 'Box of 100 or 200',
+    'hypodermic-needles': 'Box of 100',
+    'drawing-up-needles': 'Box of 100',
+    'luer-lock-syringes': 'Box of 100',
+    'sterile-water-for-injection': 'Box of 20 to 50',
+    'chlorhexidine-skin-prep': 'Box of 30 to 100',
+    'sharps-container-bench': 'Each or carton',
+    'sharps-container-wall-mount': 'Each or carton',
+    'vial-access-devices': 'Each or blister',
+    # Tab 2, the wider catalogue.
+    'nitrile-examination-gloves': 'Box of 100, or carton',
+    'latex-examination-gloves': 'Box of 100, or carton',
+    'surgical-masks-level-2': 'Box of 50',
+    'isolation-gowns': 'Carton',
+    'aprons-on-a-roll': 'Carton',
+    'alcohol-hand-rub': '500mL and 5L',
+    'hand-soap': '500mL and 5L',
+    'hand-towels': 'Carton',
+    'facial-tissues': 'Box or carton',
+    'surface-wipes-clinical': 'Canister',
+    'couch-roll': 'Roll or carton',
+    'blueys-underpads': 'Roll or carton',
+    'cotton-wool-balls': 'Bag or bulk',
+    'luer-slip-syringes': 'Box of 100',
+    'sterile-gauze-swabs': 'Box of 100, or 5 pack',
+    'adhesive-plasters': 'Box of 100',
+    'crepe-bandages': 'Each or box',
+    'cohesive-bandage': 'Box of 12',
+    'fixation-tape': 'Box of 12',
+    'silicone-scar-gel': 'Each',
+    'hydrocolloid-foam-dressings': 'Box',
+    'first-aid-kit-workplace': 'Each, plus refill',
+    'sutures': 'Box of 12 to 24',
+    'tongue-depressors': 'Box of 100',
+    'vaginal-speculum-disposable': 'Each or carton',
+    'thermometer-probe-covers': 'Box of 20 to 40',
+    'otoscope-ear-specula': 'Bag or box',
+    'safety-lancets': 'Box of 100',
+    'urinalysis-strips': 'Tube of 100',
+    'ultrasound-gel': 'Bottle, or 5L',
+    'ecg-electrodes': 'Bag of 50',
+    'blood-glucose-meter': 'Meter and strips',
+    'blood-glucose-test-strips': 'Meter and strips',
+    'compression-stockings': 'Pair',
+    'kinesiology-tape': 'Roll or box',
+    'rigid-strapping-tape': 'Box',
+    'elastic-adhesive-bandage': 'Box',
+    'incontinence-pads': 'Carton',
+}
 
 
 def lockup(height_px):
@@ -100,11 +158,8 @@ def esc(s):
 
 def rows_for(product):
     """One row per variant, which is the line a buyer orders against."""
-    packs = ' · '.join(p[0] for p in product['packs'])
-    out = []
-    for label, note in product['variants']:
-        out.append((label, note, packs))
-    return out
+    packs = PACK_SOUGHT.get(product['slug'], UNKNOWN_PACK)
+    return [(label, note, packs) for label, note in product['variants']]
 
 
 def build():
@@ -177,12 +232,6 @@ def build():
     w('.pname{font-family:%s;font-weight:700;font-size:9.6pt;color:%s;'
       'letter-spacing:-.015em}' % (BLACKSTACK, INK))
     w('.pspec{font-size:8pt;color:%s;margin-top:1px}' % MUTED)
-    w('.flag{display:inline-block;font-family:%s;font-size:6.4pt;'
-      'letter-spacing:.07em;text-transform:uppercase;padding:1.5px 5px;'
-      'border-radius:3px;vertical-align:1.5px;margin-left:7px;font-weight:500}'
-      % MONO)
-    w('.flag.launch{background:%s;color:%s}' % ('#E8F0EB', DEEP))
-    w('.flag.first{background:%s;color:%s}' % (DEEP, CANVAS))
     w('tbody td{padding:2.5px 8px;vertical-align:baseline}')
     w('td.size{font-weight:600;white-space:nowrap;width:30mm}')
     w('td.note{color:%s;font-size:8.3pt}' % MUTED)
@@ -208,7 +257,7 @@ def build():
       'for the Australian market.</div>')
     w('<div class="pricebar"><div class="line">%s</div>' % esc(PRICE_LINE))
     w('<div class="note">%d products across %d categories, %d size and variant '
-      'lines. Pack formats shown are the intended trade formats.</div>'
+      'lines. Pack formats are the formats sought, not a specification.</div>'
       % (n_products, len(cats), n_lines))
     w('</div></div>')
 
@@ -219,18 +268,13 @@ def build():
         w('<span class="n">%d products</span></div>' % len(cat['products']))
         w('<table><thead><tr>'
           '<th>Size / variant</th><th>Detail</th>'
-          '<th>Pack formats</th><th style="text-align:right">Price</th>'
+          '<th>Pack format sought</th><th style="text-align:right">Price</th>'
           '</tr></thead><tbody>')
         for p in cat['products']:
-            flag = ''
-            if p['slug'] in FIRST:
-                flag = '<span class="flag first">First priority</span>'
-            elif p['slug'] in LAUNCH:
-                flag = '<span class="flag launch">Launch range</span>'
             w('<tr class="prod"><td colspan="4">'
-              '<span class="pname">%s</span>%s'
+              '<span class="pname">%s</span>'
               '<div class="pspec">%s</div></td></tr>'
-              % (esc(p['name']), flag, esc(p['spec'])))
+              % (esc(p['name']), esc(p['spec'])))
             for size, note, packs in rows_for(p):
                 w('<tr><td class="size">%s</td><td class="note">%s</td>'
                   '<td class="pack">%s</td><td class="price">%s</td></tr>'
@@ -238,14 +282,12 @@ def build():
         w('</tbody></table></div>')
 
     w('<div class="tail">')
-    w('<b>Pricing.</b> %s. Pack formats above are the intended trade formats '
-      'and can be quoted in other configurations.<br>' % esc(PRICE_LINE))
-    w('<b>Range status.</b> This is the planned range. Items marked '
-      '<span class="flag launch">Launch range</span> are the first group being '
-      'sourced, and <span class="flag first">First priority</span> marks the '
-      'three being quoted first.<br>')
-    w('<b>Specifications.</b> Sizes, gauges and pack formats are as listed. '
-      'Closest available equivalents are welcome where an exact match is not '
+    w('<b>Pricing.</b> %s.<br>' % esc(PRICE_LINE))
+    w('<b>Pack formats.</b> The format column is the format we are seeking, '
+      'not a specification. Please quote your standard pack and carton '
+      'quantities, and tell us the minimum order quantity for each.<br>')
+    w('<b>Specifications.</b> Sizes and gauges are as listed. Closest '
+      'available equivalents are welcome where an exact match is not '
       'manufactured.<br>')
     # The site's standing disclosure says this on every page. A factory reading
     # a list with bacteriostatic water and sterile water on it is exactly the
