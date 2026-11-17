@@ -1,5 +1,7 @@
 {
- "date": "2026-11-15",
+ "date": "2026-11-17",
+ "job": "page:/shop/diluents-swabs/bacteriostatic-water",
+ "brief": "seo/briefs/2026-11-17-bacteriostatic-water.md",
  "clusters": [
   {
    "key": "page:/shop/syringes-needles",
@@ -3724,5 +3726,10 @@
    ]
   }
  ],
- "actionable": []
+ "actionable": [
+  "page:/shop/diluents-swabs/bacteriostatic-water",
+  "page:/shop/clinic-disposal/sharps-container-bench",
+  "page:/shop/gloves-ppe/nitrile-examination-gloves",
+  "page:/shop/gloves-ppe"
+ ]
 }
