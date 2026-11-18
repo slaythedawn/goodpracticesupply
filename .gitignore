@@ -33,3 +33,8 @@ __pycache__/
 # judging all 91 pages affordable instead of 26 of them. Ignoring it means every
 # run re-judges every page, which is the cost the --depth 2 filter was there to
 # avoid, and that filter is gone.
+
+# Solicitor drafts and their conversions. This repository is public and these
+# are unfinished. See legal/convert.py for when a settled one may be committed.
+legal/*.docx
+legal/*.txt

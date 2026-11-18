@@ -49,8 +49,15 @@ One file per document, `<slug>.txt`, plain text:
 
 ## Getting the text in
 
-The `.docx` files cannot be pulled out of Gmail from a cloud session: there is no
-attachment download tool, and the only other route is transcribing the raw MIME
-by hand, which is not a safe way to move a zip archive. Either save the six files
-to Google Drive, where they can be read directly, or commit them to this
-directory and run the converter.
+    python3.13 legal/convert.py <directory holding the six .docx>
+
+`legal/convert.py` reads the Word drafts and writes one `<slug>.txt` each. It
+regenerates the automatic clause numbers, which a plain export drops, and turns
+every highlighted passage into a `!!` line.
+
+Neither the `.docx` files nor the `.txt` output is committed while the documents
+are drafts, and `.gitignore` enforces it. This repository is public. A settled
+document goes onto the public site anyway, so its `.txt` can be committed at
+that point by taking it out of `.gitignore`.
+
+As converted on 18 November 2026 the six drafts carry 75 open passages.
