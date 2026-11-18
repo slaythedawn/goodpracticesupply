@@ -218,6 +218,12 @@ GUIDES = [
    'This is why looking for 6mL on a syringe and not finding it usually means the '
    'barrel is wrong rather than the number. Six millilitres does not exist on a 1mL or '
    'a 3mL syringe at all. It is a little over halfway up a 10mL barrel.',
+   'The same logic places the other volumes people go looking for and cannot find. One '
+   'and a half millilitres is halfway up a 3mL barrel, on the numbered line between the '
+   '1 and the 2, and a 1mL syringe does not reach it. Two millilitres is two thirds of '
+   'the way up that same 3mL barrel, and a little under halfway up a 5mL one. Three '
+   'millilitres fills a 3mL syringe to the top, which is the one case where the easiest '
+   'mark on the barrel to read is the end of it.',
    'Choose the smallest barrel that holds what you need. Measuring 0.4mL in a 10mL '
    'syringe means reading a volume smaller than two of its smallest lines, and the same '
    '0.4mL in a 1mL syringe sits on a numbered mark. The barrel decides how precisely '
@@ -247,6 +253,14 @@ GUIDES = [
   ('Where is 0.5mL on a 1mL syringe?',
    'Exactly halfway. It is the easiest mark on the barrel to find, which is why it is '
    'worth using as the landmark you count from.'),
+  ('Where is 2mL on a syringe?',
+   'It depends which barrel you are holding. On a 3mL syringe it is two thirds of the '
+   'way up, on the second numbered line. On a 5mL syringe it sits a little under '
+   'halfway. It is not a mark on a 1mL syringe at all.'),
+  ('What does 1.5mL look like on a syringe?',
+   'Halfway up a 3mL barrel, on the line between the 1 and the 2. A 1mL syringe does '
+   'not reach it, so if you cannot find the mark you are almost certainly holding a '
+   'barrel that is too small for it.'),
   ('Why can I not find 6mL on my syringe?',
    'Because the barrel is almost certainly too small for it. Six millilitres is not a '
    'mark on a 1mL or a 3mL syringe. You want a 10mL barrel, where it sits a little over '
