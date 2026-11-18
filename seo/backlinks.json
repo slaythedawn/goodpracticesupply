@@ -1,5 +1,5 @@
 {
- "pulled": "2026-11-02",
+ "pulled": "2026-11-18",
  "note": "Where the competitors' links come from, which of those are reachable, and the correction that prompted this file. Domain ratings are Ahrefs, at the date above.",
  "our_position": {
   "referring_domains": 0,
@@ -100,6 +100,45 @@
      "evidence": "2 links to medshop.com.au"
     }
    ]
+  },
+  {
+   "channel": "The /learn guides pitched as reference, not as a supplier",
+   "why": "The only channel of the five that is not blocked on having something to sell, because it never asks anybody to list this business as a supplier. It asks them to link an explainer. Eight of the guides sit between position 5.9 and 10.4 at domain rating 0, which is the evidence that the writing is already good enough to be worth somebody's link, and the site has zero referring domains all time, so the first one is worth more than the tenth.",
+   "what_to_offer": [
+    {
+     "guide": "/learn/sharps-disposal-australia",
+     "position": 10.4,
+     "audience": "councils, state health sharps pages, needle and syringe programs",
+     "why_they_link": "Sharps disposal is a public health message they already publish. A plain explainer of what goes in a container and how to find a drop-off is the thing their page is usually missing."
+    },
+    {
+     "guide": "/learn/needle-numbers-explained",
+     "position": 6.6,
+     "audience": "nursing and paramedicine educators, diabetes educators",
+     "why_they_link": "Gauge runs backwards and every cohort of students asks. A single page that explains it is the kind of link a lecturer keeps."
+    },
+    {
+     "guide": "/learn/artg-explained",
+     "position": 9.4,
+     "audience": "practice managers, allied health and procurement blogs",
+     "why_they_link": "Most impressions of any page on the site, 79 in 28 days. What ARTG listing actually means is a question buyers ask and few pages answer without selling something."
+    }
+   ],
+   "honest_yield": "Cold outreach from a domain with no links converts in low single figures. Five links is a hundred emails, not ten. It is still the right first channel because it is the only one open, and because a link to a guide is a link to the domain.",
+   "what_not_to_do": "Do not pitch the shop, do not ask for a supplier listing, and do not offer anything in exchange for the link. The pitch is the guide or it is nothing.",
+   "unverified": "The named organisations below were not checked from this session: the sandbox cannot reach most of them. Confirm each has a resources or links section before sending, or the email is wasted.",
+   "targets_to_check": [
+    "ndss.com.au",
+    "diabetesaustralia.com.au",
+    "diabetesnsw.com.au",
+    "diabetesvic.org.au",
+    "adea.com.au",
+    "healthdirect.gov.au",
+    "betterhealth.vic.gov.au",
+    "state health sharps disposal pages (NSW, VIC, QLD, WA, SA)",
+    "local council sharps disposal pages, which are numerous and the likeliest first win",
+    "university nursing and paramedicine subject guides"
+   ]
   }
  ],
  "not_worth_it": {
@@ -113,6 +152,7 @@
    "Then a Google Business Profile and the standard Australian listings, which are self-serve and need nobody to agree.",
    "Then the university supplier lists, which are the best links in the rival profile and need an email each."
   ],
-  "what_is_available_before_then": "Nothing in this file. The guides under /learn are genuine reference content and can be cited without any claim about the business, but a citation cannot be solicited without pitching the site, so it depends on being findable, which is what the links were for. That circle is the honest answer: on backlinks specifically there is no SEO move that beats getting real stock on the site."
+  "what_is_available_before_then": "Nothing in this file. The guides under /learn are genuine reference content and can be cited without any claim about the business, but a citation cannot be solicited without pitching the site, so it depends on being findable, which is what the links were for. That circle is the honest answer: on backlinks specifically there is no SEO move that beats getting real stock on the site.",
+  "note_added_2026_11_18": "Still true of the four channels above it. The fifth channel was added because it is not blocked on any of that, and because leaving the file saying everything is blocked had the effect of nothing being attempted for sixteen days."
  }
 }
