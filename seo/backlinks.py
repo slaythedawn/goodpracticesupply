@@ -64,26 +64,64 @@ def main():
     print('Referring domains: %s. Backlinks: %s. Recorded %s.\n'
           % (recorded['referring_domains'], recorded['backlinks'], data['pulled']))
 
-    for channel in data['channels']:
-        print('%s  (%s)' % (channel['channel'], channel['effort']))
-        for t in channel['targets']:
-            dr = t['domain_rating']
+    # Two shapes of channel live in the file. A listing channel names domains
+    # that would list this business as a supplier. A reference channel offers a
+    # guide and names nobody as a supplier of anything. They are printed either
+    # side of the constraint below, because it binds the first kind only.
+    #
+    # Nothing in this loop is read with a bare subscript. On 19 November a
+    # channel of the second shape, added the day before, had no 'effort' key,
+    # this line raised KeyError, and the daily run stopped here before it had
+    # judged, written or published anything. A report must not be able to do
+    # that to the loop it reports on.
+    listing = [c for c in data.get('channels', []) if not c.get('what_to_offer')]
+    reference = [c for c in data.get('channels', []) if c.get('what_to_offer')]
+
+    for channel in listing:
+        effort = channel.get('effort')
+        print('%s%s' % (channel.get('channel', 'Unnamed channel'),
+                        ('  (%s)' % effort) if effort else ''))
+        targets = channel.get('targets', [])
+        for t in targets:
+            dr = t.get('domain_rating')
             print('   %-30s %s  %s'
-                  % (t['domain'], ('DR %-3s' % dr) if dr else '      ',
-                     t['evidence']))
+                  % (t.get('domain', '?'), ('DR %-3s' % dr) if dr else '      ',
+                     t.get('evidence', '')))
+        if not targets:
+            print('   no targets recorded for this channel')
         print()
 
-    # The sequencing, printed every time, because the four channels above all
-    # ask a third party to list this business as a supplier and none of them is
+    # The sequencing, printed every time, because the channels above all ask a
+    # third party to list this business as a supplier and none of them is
     # honest to pursue until there is something to supply. A constraint recorded
     # in a file nobody prints is not recorded.
     blocked = data.get('blocked_on')
     if blocked:
-        print('Blocked on: %s' % blocked['what'])
-        print('  %s\n' % blocked['why'])
-        for i, step in enumerate(blocked['so_the_order_is'], 1):
+        print('Blocked on: %s' % blocked.get('what', ''))
+        print('  %s\n' % blocked.get('why', ''))
+        for i, step in enumerate(blocked.get('so_the_order_is', []), 1):
             print('  %d. %s' % (i, step))
-        print('\n  Before then: %s\n' % blocked['what_is_available_before_then'])
+        print('\n  Before then: %s\n'
+              % blocked.get('what_is_available_before_then', ''))
+
+    for channel in reference:
+        print('Open now: %s' % channel.get('channel', 'Unnamed channel'))
+        for offer in channel.get('what_to_offer', []):
+            pos = offer.get('position')
+            print('   %-36s %s  %s'
+                  % (offer.get('guide', '?'),
+                     ('position %-5s' % pos) if pos else ' ' * 14,
+                     offer.get('audience', '')))
+        if channel.get('honest_yield'):
+            print('   Yield: %s' % channel['honest_yield'])
+        if channel.get('what_not_to_do'):
+            print('   %s' % channel['what_not_to_do'])
+        to_check = channel.get('targets_to_check', [])
+        if to_check:
+            print('   To check before sending, none of them verified:')
+            for t in to_check:
+                print('      %s' % t)
+        print()
 
     if not args.check:
         print('%s\n' % data['the_correction'])

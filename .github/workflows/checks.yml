@@ -56,6 +56,31 @@ jobs:
       - name: The compliance gate can see what it is judging
         run: python3 checks/compliance.py --extraction-only
 
+      # The daily loop reads the JSON under seo/ at one in the morning, and until
+      # this step nothing read it at push time. On 18 November a channel of a new
+      # shape went into seo/backlinks.json, this workflow went green, and the
+      # scheduled run the next morning raised KeyError in its fourth step and did
+      # none of its work. Every script the loop runs has a mode that needs no key
+      # and writes nothing, so run them all here and find that out on the push.
+      - name: The daily loop's scripts can read what is committed
+        run: |
+          pip install -q -r requirements.txt
+          for c in "backlinks.py" "refresh.py --age" "refresh.py --plan" \
+                   "opportunities.py" "triage.py --dry-run" \
+                   "competitors.py --dry-run" "internal_links.py --dry-run"; do
+            if ! python3 seo/$c > /tmp/loop-smoke.txt 2>&1; then
+              echo "::error::seo/$c failed on the committed data. The daily loop would fail the same way tonight."
+              tail -20 /tmp/loop-smoke.txt
+              exit 1
+            fi
+            echo "seo/$c reads the committed data"
+          done
+          if ! git diff --quiet; then
+            echo "::error::An offline mode wrote to the repository, which it must not."
+            git --no-pager diff --stat
+            exit 1
+          fi
+
       - name: Internal links resolve, and nothing is orphaned
         run: node checks/linkcheck.mjs
 
