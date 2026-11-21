@@ -1,6 +1,17 @@
 {
  "entries": [
   {
+   "date": "2026-11-21",
+   "cluster": "topic:disposable",
+   "target": "disposable nitrile gloves",
+   "action": "new",
+   "page": "/shop/gloves-ppe/isolation-gowns",
+   "brief": "seo/briefs/2026-11-21-disposable-nitrile-gloves.md",
+   "page_hash": "fc9b968546a09340",
+   "prose_hash": "9c6673ea9f02ffd8",
+   "score_when_chosen": 332.5
+  },
+  {
    "date": "2026-11-17",
    "cluster": "page:/shop/diluents-swabs/bacteriostatic-water",
    "target": "bacteriostatic water",
