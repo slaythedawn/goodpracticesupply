@@ -1,7 +1,5 @@
 {
- "date": "2026-11-23",
- "job": "topic:nitrile",
- "brief": "seo/briefs/2026-11-23-nitrile-disposable-gloves.md",
+ "date": "2026-11-24",
  "clusters": [
   {
    "key": "page:/learn/reading-a-syringe",
@@ -3983,7 +3981,5 @@
    ]
   }
  ],
- "actionable": [
-  "topic:nitrile"
- ]
+ "actionable": []
 }
