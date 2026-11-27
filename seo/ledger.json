@@ -1,6 +1,17 @@
 {
  "entries": [
   {
+   "date": "2026-11-27",
+   "cluster": "page:/learn/reading-a-syringe",
+   "target": "syringe",
+   "action": "expand",
+   "page": "/learn/reading-a-syringe",
+   "brief": "seo/briefs/2026-11-27-syringe.md",
+   "page_hash": "568971cb8b9cade1",
+   "prose_hash": "87d41c0dae62e1e1",
+   "score_when_chosen": 7192.1
+  },
+  {
    "date": "2026-11-23",
    "cluster": "topic:nitrile",
    "target": "nitrile disposable gloves",
