@@ -1,7 +1,5 @@
 {
- "date": "2026-11-27",
- "job": "page:/learn/reading-a-syringe",
- "brief": "seo/briefs/2026-11-27-syringe.md",
+ "date": "2026-11-28",
  "clusters": [
   {
    "key": "page:/learn/reading-a-syringe",
@@ -3983,7 +3981,5 @@
    ]
   }
  ],
- "actionable": [
-  "page:/learn/reading-a-syringe"
- ]
+ "actionable": []
 }
